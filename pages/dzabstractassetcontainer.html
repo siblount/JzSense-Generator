@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzAbstractAssetContainer [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,abstractassetcontainer_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz">DzAbstractAssetContainer</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dzabstractassetcontainer">DzAbstractAssetContainer</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#properties">Properties</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#signals">Signals</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#properties1">Properties</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+<li class="level3"><div class="li"><a href="#signals1">Signals</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Fabstractassetcontainer_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dzabstractassetcontainer">DzAbstractAssetContainer</h1>
+<div class="level1">
+
+<p>
+Base class for all asset containers.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/refcounteditem_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:refcounteditem_dz">DzRefCountedItem</a></div>
+</li>
+</ul>
+
+<p>
+<strong>Inherited By :</strong> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/categoryassetcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:categoryassetcontainer_dz">DzCategoryAssetContainer</a>, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/compatibilitybaseassetcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:compatibilitybaseassetcontainer_dz">DzCompatibilityBaseAssetContainer</a>, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/folderassetcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:folderassetcontainer_dz">DzFolderAssetContainer</a>, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/parentproductcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:parentproductcontainer_dz">DzParentProductContainer</a>, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/productassetcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:productassetcontainer_dz">DzProductAssetContainer</a>, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/toplevelassetcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:toplevelassetcontainer_dz">DzTopLevelAssetContainer</a> and <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/typeassetcontainer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:typeassetcontainer_dz">DzTypeAssetContainer</a>
+</p>
+
+</div>
+
+<h2 id="properties">Properties</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a26dd3548e51e74cf719de963cb6772b8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">canCopyContainers</a></strong>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a5d58fafeec2b5876470adb43f9b33405" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">canDeleteContainer</a></strong>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a197025573d4fe0bf157da8034a33ef12" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">canInsertSubContainer</a></strong>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a88af692b79ff6e1f636a88793f9ffdab" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">canModifyAssets</a></strong>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab95a7f759c52682809200eb0afd2f0e4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">canRenameContainer</a></strong>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a></td><td class="col1 leftalign"><strong><a href="#a_1a68fc636971ce8b0653b7f96e24c8691a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">id</a></strong>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a4c6eceb5b0955cebd42c7233f493f46a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">removeAssetCausesDelete</a></strong>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1aa5ef8f6843d8b7596fedd61e4309621d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">tooltip</a></strong>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aa75287d530bc28c052cb520fd4e645ee" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">useCount</a></strong>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a94cb516d97801fb61118872eb8a35f89" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">clearRebuildableAssets</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a37564ef1e3e02654fee57aae8ac5a1b6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">createNewChildContainer</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> containerName )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a></td><td class="col1 leftalign"><strong><a href="#a_1a0bc091cc08cac6cbf65426b3183618af" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getAsset</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a></td><td class="col1 leftalign"><strong><a href="#a_1a777f6c14f352388d7d08908b752f31f6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getAssets</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <em>DzAbstractAssetContainer</em></td><td class="col1 leftalign"><strong><a href="#a_1a1c7f5098176909ac3e92fad69d829797" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getChildContainer</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a></td><td class="col1 leftalign"><strong><a href="#a_1af80c00ff6d4fb8df43e7165549cdfce8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getChildContainers</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a></td><td class="col1 leftalign"><strong><a href="#a_1aba265b5faab6aabe9612c65ca383450d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getChildIconSize</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1ad34eb38b6e031ab4ffb66c4f24e2cb8c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getContainerName</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a></td><td class="col1 leftalign"><strong><a href="#a_1ad805121a1d20767762059bf78b06fe05" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getIDPath</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ab2a81fbb2fa1a4b7664821a6bba2d500" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getNumAssets</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a201c8e695329843d3a95c0449674cb30" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getNumChildContainers</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <em>DzAbstractAssetContainer</em></td><td class="col1 leftalign"><strong><a href="#a_1a033328776947ddafce5edcc492697d57" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getOwner</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a></td><td class="col1 leftalign"><strong><a href="#a_1a505aff620e34a371eddbf51d141624e0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getSmallChildIconSize</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a2bb3c4d65a4bc4e40399126732803758" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">getSupportFile</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aab0bbfaf2da42fd2f5131b230071ac2c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">hasAsset</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a1c99640dfd91f02d1ab19d1a3ed83ecc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">hasChildContainers</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a709e664d31a280b909df43f07d8cc682" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">ignoreAssetConflicts</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ad6fe3309f5532228933c4b0a0a37f3ea" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">initChildren</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1adb16f223dc069446abd40699212ddf05" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">insertAsset</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )</em>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a12d3e865f1d1bd794afca0c0737c535a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">insertChildContainer</a></strong> <em>( </em>DzAbstractAssetContainer<em> container )</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a2accb2950a6f7c81a5b825ad79cdf26c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">isFileSystemBased</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a65bd2a2feab6521c2f8e723b2a101ab6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">moveFromParent</a></strong> <em>( </em>DzAbstractAssetContainer<em> child )</em>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a6d39dda53c2eb6314cbd9f1f03207ad2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">removeAsset</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )</em>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab3110654456bcedb3062a3702e30dd39" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">removeAssetOnCut</a></strong> <em>( </em>DzAbstractAssetContainer<em> toContainer )</em>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a9c6be299bef1f3da2b2e390ac3d3d1b7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">removeChildContainer</a></strong> <em>( </em>DzAbstractAssetContainer<em> container )</em>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab0206dabf26e4ce6954988ad899fa6f5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">rename</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )</em>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a68aca003c7a209079fa5f02683d49097" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">renameAsset</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> newAssetName )</em>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a46a988ca0f847e9e5c96bc4ee9ce34b8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">renameChildContainer</a></strong> <em>( </em>DzAbstractAssetContainer<em> container, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )</em>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae1ddfaaec7c07ce715eaa83805cc5ab7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">setContainerName</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )</em>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab287ed23a25df51b150da2f7d2007a0d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">update</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a90e20880b06c646dc76fd8c74ee89225" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">updateAssets</a></strong> <em>()</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="signals">Signals</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<tr class="row0">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a80b691329f4c1e62ab6aa60350b7c503" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">assetIconChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )</em>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae224f07012c2a4ae77b26962308fea27" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">assetRenamed</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9dec835aa7c9c874e0c58a056c85720a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">beginAssetAdd</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a6dde40854f455eceebb39912ca86b34c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">beginAssetRemove</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aac88bda347cf6baed36d9f5304894337" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">beginChildContainerAdd</a></strong> <em>( </em>DzAbstractAssetContainer<em> container, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab285be175444bace73434373e655b16d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">beginChildContainerRemove</a></strong> <em>( </em>DzAbstractAssetContainer<em> container, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a617a99b5a2d7b323fe7459da3689a222" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">childContainerAboutToBeRemoved</a></strong> <em>( </em>DzAbstractAssetContainer<em> childContainer )</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a4f84baedc343b97bfef2b74bdd3444a8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">childContainerRemoved</a></strong> <em>( </em>DzAbstractAssetContainer<em> childContainer )</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab05c9f83d2de39eff7234c8c851bb977" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">endAssetAdd</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a83bf69e833375d5b25a172b952a1a33a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">endAssetRemove</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a3d9225dc112077684b04593590039b01" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">endChildContainerAdd</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a2f76995683755a3c17b34bf47afdb79d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">endChildContainerRemove</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a663953677268039af042adc6c66dcd41" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:abstractassetcontainer_dz ↵" class="wikilink1">iconChanged</a></strong> <em>( </em>DzAbstractAssetContainer<em> container )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+<div class="wrap_round wrap_todo plugin_wrap">
+<p>
+<strong>TODO:</strong>
+Add detailed description.
+</p>
+</div>
+</div>
+
+<h3 id="properties1">Properties</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a26dd3548e51e74cf719de963cb6772b8">canCopyContainers</a></strong>
+</p>
+
+<p>
+Holds whether or not sub-containers can be copied. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a5d58fafeec2b5876470adb43f9b33405">canDeleteContainer</a></strong>
+</p>
+
+<p>
+Holds whether or not this container can be deleted. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a197025573d4fe0bf157da8034a33ef12">canInsertSubContainer</a></strong>
+</p>
+
+<p>
+Holds whether or not sub-containers can be added to this container. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a88af692b79ff6e1f636a88793f9ffdab">canModifyAssets</a></strong>
+</p>
+
+<p>
+Holds whether or not the assets in this container can be modified. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab95a7f759c52682809200eb0afd2f0e4">canRenameContainer</a></strong>
+</p>
+
+<p>
+Holds whether or not this container can be renamed. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> : <strong><a name="a_1a68fc636971ce8b0653b7f96e24c8691a">id</a></strong>
+</p>
+
+<p>
+Holds the id for this container. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a4c6eceb5b0955cebd42c7233f493f46a">removeAssetCausesDelete</a></strong>
+</p>
+
+<p>
+Holds whether or not removing an asset from this container will result in that asset&#039;s file being deleted. (Read Only) 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.11.0.193</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1aa5ef8f6843d8b7596fedd61e4309621d">tooltip</a></strong>
+</p>
+
+<p>
+Holds the tooltip for this container. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aa75287d530bc28c052cb520fd4e645ee">useCount</a></strong>
+</p>
+
+<p>
+Holds the use count for this container.
+</p>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a94cb516d97801fb61118872eb8a35f89">clearRebuildableAssets</a></strong>()
+</p>
+
+<p>
+Attempts to clear out the assets that can be rebuilt.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The current implementation does nothing and always returns false</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a37564ef1e3e02654fee57aae8ac5a1b6">createNewChildContainer</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> containerName )
+</p>
+
+<p>
+Attempts to create a new child container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>containerName</em> - The name of the new child container.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the container was successfully created, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> : <strong><a name="a_1a0bc091cc08cac6cbf65426b3183618af">getAsset</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>index</em> - The index of the asset to be returned.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The asset at the specified index (if valid), otherwise null.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/scripthandle_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:scripthandle_dz">DzScriptHandle</a></div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> : <strong><a name="a_1a777f6c14f352388d7d08908b752f31f6">getAssets</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> A list of assets for this container.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/scripthandle_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:scripthandle_dz">DzScriptHandle</a></div>
+</li>
+</ul>
+<hr />
+
+<p>
+<em>DzAbstractAssetContainer</em> : <strong><a name="a_1a1c7f5098176909ac3e92fad69d829797">getChildContainer</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>index</em> - The index of the child container to get.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The child container at the given index (if valid), otherwise null.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/scripthandle_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:scripthandle_dz">DzScriptHandle</a></div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> : <strong><a name="a_1af80c00ff6d4fb8df43e7165549cdfce8">getChildContainers</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> A list of child containers for this container.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/scripthandle_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:scripthandle_dz">DzScriptHandle</a></div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a> : <strong><a name="a_1aba265b5faab6aabe9612c65ca383450d">getChildIconSize</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The size of the icon associated with child containers.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1ad34eb38b6e031ab4ffb66c4f24e2cb8c">getContainerName</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The name of this container.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> : <strong><a name="a_1ad805121a1d20767762059bf78b06fe05">getIDPath</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The ID path for this container.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ab2a81fbb2fa1a4b7664821a6bba2d500">getNumAssets</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The number of assets associated with this container.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a201c8e695329843d3a95c0449674cb30">getNumChildContainers</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The number of child containers this container has.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<em>DzAbstractAssetContainer</em> : <strong><a name="a_1a033328776947ddafce5edcc492697d57">getOwner</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The owner of this container.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a> : <strong><a name="a_1a505aff620e34a371eddbf51d141624e0">getSmallChildIconSize</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The small icon size of the icon associated with child containers.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a2bb3c4d65a4bc4e40399126732803758">getSupportFile</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The support file for this asset container. Base implementation returns an empty string.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aab0bbfaf2da42fd2f5131b230071ac2c">hasAsset</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>asset</em> - The asset to check for.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if this container has the given asset, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a1c99640dfd91f02d1ab19d1a3ed83ecc">hasChildContainers</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if thic container has child containers, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a709e664d31a280b909df43f07d8cc682">ignoreAssetConflicts</a></strong>()
+</p>
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> DzAbstractAssetContainer::ingoreAssetConflicts()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if asset conflicts in this container will be ignored, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ad6fe3309f5532228933c4b0a0a37f3ea">initChildren</a></strong>()
+</p>
+
+<p>
+Initializes this containers child containers.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the containers were successfully initialized, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1adb16f223dc069446abd40699212ddf05">insertAsset</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )
+</p>
+
+<p>
+Attempts to insert the given asset into this container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>asset</em> - The asset to add to this container.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the asset was successfully inserted, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a12d3e865f1d1bd794afca0c0737c535a">insertChildContainer</a></strong>( <em>DzAbstractAssetContainer</em> container )
+</p>
+
+<p>
+Attempts to insert container as a child of this container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>container</em> - The container to insert.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the container was successfully inserted, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a2accb2950a6f7c81a5b825ad79cdf26c">isFileSystemBased</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if this container is based on a filesystem, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a65bd2a2feab6521c2f8e723b2a101ab6">moveFromParent</a></strong>( <em>DzAbstractAssetContainer</em> child )
+</p>
+
+<p>
+Attempts to move the given container from its parent.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>child</em> - The container to move from its parent.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the container was successfully moved, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a6d39dda53c2eb6314cbd9f1f03207ad2">removeAsset</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )
+</p>
+
+<p>
+Attempts to remove the given asset from this container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>asset</em> - The asset to remove.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the asset was successfully removed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab3110654456bcedb3062a3702e30dd39">removeAssetOnCut</a></strong>( <em>DzAbstractAssetContainer</em> toContainer )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>toContainer</em> - The container to check.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if assets moved to <code>toContainer</code> should be removed from this container, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a9c6be299bef1f3da2b2e390ac3d3d1b7">removeChildContainer</a></strong>( <em>DzAbstractAssetContainer</em> container )
+</p>
+
+<p>
+Attempts to remove the given container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>container</em> - The container to remove.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the container was successfully removed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab0206dabf26e4ce6954988ad899fa6f5">rename</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )
+</p>
+
+<p>
+Attempts to rename this container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>name</em> - The new name for this container.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the rename was successful, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a68aca003c7a209079fa5f02683d49097">renameAsset</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> newAssetName )
+</p>
+
+<p>
+Attempts to rename the given asset.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>asset</em> - The asset to rename.</div>
+</li>
+<li class="level1"><div class="li"> <em>newAssetName</em> - The new name for the asset.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the asset was successfully renamed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a46a988ca0f847e9e5c96bc4ee9ce34b8">renameChildContainer</a></strong>( <em>DzAbstractAssetContainer</em> container, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )
+</p>
+
+<p>
+Attempts to rename the given child container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>container</em> - The container to rename.</div>
+</li>
+<li class="level1"><div class="li"> <em>name</em> - The new name for the container.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the container was successfully renamed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae1ddfaaec7c07ce715eaa83805cc5ab7">setContainerName</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )
+</p>
+
+<p>
+Sets the name for this container.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>name</em> - The new name for this container.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab287ed23a25df51b150da2f7d2007a0d">update</a></strong>()
+</p>
+
+<p>
+Attemps to update this container.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the update was successful, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a90e20880b06c646dc76fd8c74ee89225">updateAssets</a></strong>()
+</p>
+
+<p>
+Attempts to update the assets associated with this container.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the update was successful, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="signals1">Signals</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1a80b691329f4c1e62ab6aa60350b7c503">assetIconChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“assetIconChanged(DzAsset*)”</code>
+</p>
+
+<p>
+Emitted the icon for an asset has changed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>asset</em> - The asset that the icon changed for.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae224f07012c2a4ae77b26962308fea27">assetRenamed</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/asset_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:asset_dz">DzAsset</a> asset, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“assetRenamed(DzAsset*,int)”</code>
+</p>
+
+<p>
+Emitted when an asset has been renamed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>asset</em> - The asset that was renamed.</div>
+</li>
+<li class="level1"><div class="li"> <em>index</em> - The index of the asset that was renamed.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9dec835aa7c9c874e0c58a056c85720a">beginAssetAdd</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“beginAssetAdd(int,int)”</code>
+</p>
+
+<p>
+Emitted before assets are added.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>start</em> - …</div>
+</li>
+<li class="level1"><div class="li"> <em>end</em> - …</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a6dde40854f455eceebb39912ca86b34c">beginAssetRemove</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“beginAssetRemove(int,int)”</code>
+</p>
+
+<p>
+Emitted before assets are removed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>start</em> - …</div>
+</li>
+<li class="level1"><div class="li"> <em>end</em> - …</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aac88bda347cf6baed36d9f5304894337">beginChildContainerAdd</a></strong>( <em>DzAbstractAssetContainer</em> container, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“beginChildContainerAdd(DzAbstractAssetContainer*,int,int)”</code>
+</p>
+
+<p>
+Emitted before a child container is added.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>container</em> - The container being added.</div>
+</li>
+<li class="level1"><div class="li"> <em>start</em> - …</div>
+</li>
+<li class="level1"><div class="li"> <em>end</em> - …</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab285be175444bace73434373e655b16d">beginChildContainerRemove</a></strong>( <em>DzAbstractAssetContainer</em> container, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> start, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> end )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“beginChildContainerRemove(DzAbstractAssetContainer*,int,int)”</code>
+</p>
+
+<p>
+Emitted before a child container is removed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>container</em> - The container being removed.</div>
+</li>
+<li class="level1"><div class="li"> <em>start</em> - …</div>
+</li>
+<li class="level1"><div class="li"> <em>end</em> - …</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a617a99b5a2d7b323fe7459da3689a222">childContainerAboutToBeRemoved</a></strong>( <em>DzAbstractAssetContainer</em> childContainer )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“childContainerAboutToBeRemoved(DzAbstractAssetContainerPtr)”</code>
+</p>
+
+<p>
+Emitted just before a child container is removed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>container</em> - The child container that will be removed.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a4f84baedc343b97bfef2b74bdd3444a8">childContainerRemoved</a></strong>( <em>DzAbstractAssetContainer</em> childContainer )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“childContainerRemoved(DzAbstractAssetContainerPtr)”</code>
+</p>
+
+<p>
+Emitted after a child container has been removed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>childContainer</em> - The child container that was removed.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab05c9f83d2de39eff7234c8c851bb977">endAssetAdd</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“endAssetAdd()”</code>
+</p>
+
+<p>
+Emitted after assets have been added.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a83bf69e833375d5b25a172b952a1a33a">endAssetRemove</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“endAssetRemove()”</code>
+</p>
+
+<p>
+Emitted after assets have been removed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a3d9225dc112077684b04593590039b01">endChildContainerAdd</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“endChildContainerAdd()”</code>
+</p>
+
+<p>
+Emitted after a child container has been added.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a2f76995683755a3c17b34bf47afdb79d">endChildContainerRemove</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“endChildContainerRemove()”</code>
+</p>
+
+<p>
+Emitted after a child container has been removed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a663953677268039af042adc6c66dcd41">iconChanged</a></strong>( <em>DzAbstractAssetContainer</em> container )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“iconChanged(DzAbstractAssetContainer*)”</code>
+</p>
+
+<p>
+Emitted after the icon for the container has changed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>container</em> - The container with the icon that changed.</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz.txt</bdi> · Last modified: 2021/07/06 20:51 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/abstractassetcontainer_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Aabstractassetcontainer_dz&amp;1639624468" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

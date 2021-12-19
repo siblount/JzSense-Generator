@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzTextEdit [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,textedit_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz">DzTextEdit</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dztextedit">DzTextEdit</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#enumerations">Enumerations</a></div></li>
+<li class="level2"><div class="li"><a href="#properties">Properties</a></div></li>
+<li class="level2"><div class="li"><a href="#constructors">Constructors</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#signals">Signals</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#enumerations1">Enumerations</a></div></li>
+<li class="level3"><div class="li"><a href="#properties1">Properties</a></div></li>
+<li class="level3"><div class="li"><a href="#constructors1">Constructors</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+<li class="level3"><div class="li"><a href="#signals1">Signals</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Ftextedit_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dztextedit">DzTextEdit</h1>
+<div class="level1">
+
+<p>
+DAZScript wrapper for <a href="http://doc.qt.io/archives/qt-4.8/QTextEdit.html" class="urlextern" target="_blank" title="http://doc.qt.io/archives/qt-4.8/QTextEdit.html" rel="nofollow noopener">QTextEdit</a>.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1 node"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+<strong>Inherited By :</strong> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textbrowser_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textbrowser_dz">DzTextBrowser</a>
+</p>
+
+</div>
+
+<h2 id="enumerations">Enumerations</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="#a_1a6eada198fa850ef7a10c7c80a8b86d13" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">AutoFormattingFlag</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a6eada198fa850ef7a10c7c80a8b86d13ad29655a9f372780e7c2c430e8a6ef9cb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">AutoNone</a>, <a href="#a_1a6eada198fa850ef7a10c7c80a8b86d13a01ba65f131619e1535142761945685b4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">AutoBulletList</a>, <a href="#a_1a6eada198fa850ef7a10c7c80a8b86d13acd546749628682a4ce4d5fba3ccaae19" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">AutoAll</a></strong> }  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="#a_1a8b692f9c6d1a4b2fd52db11d9c6062e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">LineWrapMode</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a8b692f9c6d1a4b2fd52db11d9c6062e1af0b647dcbd58360eede86228e053320e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">NoLineWrap</a>, <a href="#a_1a8b692f9c6d1a4b2fd52db11d9c6062e1ac5c967d35107eb270e63657a819c8be9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WidgetWidth</a>, <a href="#a_1a8b692f9c6d1a4b2fd52db11d9c6062e1a0ac583b8a25a6de1df6a641ce922c299" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">FixedPixelWidth</a>, <a href="#a_1a8b692f9c6d1a4b2fd52db11d9c6062e1a248b066b8acc84355a92cccd7c4ac256" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">FixedColumnWidth</a></strong> }  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WrapMode</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a45c808406ecca8214959632f2f56f5f0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">NoWrap</a>, <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a08a1bb3f8f12cdf7ec7a326a1b428613" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WordWrap</a>, <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a26e5ba54414abd69b954c1f9e16cf161" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">ManualWrap</a>, <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a34c806e2020bf8d921dc13663814ac44" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WrapAnywhere</a>, <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a126e4e6e079cfdfa6d484efad8288105" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WrapAtWordBoundaryOrAnywhere</a></strong> }  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="properties">Properties</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 70%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a21b776fc61155b52a55ca458d9d1dc62" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">acceptRichText</a></strong>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="#a_1a6eada198fa850ef7a10c7c80a8b86d13" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">AutoFormattingFlag</a></td><td class="col1 leftalign"><strong><a href="#a_1adc415a34a7731334b557886ef4a99e41" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">autoFormatting</a></strong>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a8425bcfbacc94a75383be43e6114947a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">blockCount</a></strong>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a7a210a24d67146bd143c013d1da0f2dd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">bold</a></strong>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aecb138c878ea86429d3c4f4139770ff0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">characterCount</a></strong>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a542d45d9c92a422bfe4cc33c9bb2771b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">cursorWidth</a></strong>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a060d895b46a29c718741702b34802c7e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">documentTitle</a></strong>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a07ac4fdd2a7519286b192829d2dfb1b8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">family</a></strong>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/font" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:font">Font</a></td><td class="col1 leftalign"><strong><a href="#a_1a1e52b0778d1df763fc5b497c26ead7a9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">font</a></strong>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a6ee53141be886c2e31e5029cdb3e4e78" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">html</a></strong>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a05d69d5c0f97cd77eb94be35ec3439db" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">italic</a></strong>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1addc99401340ecb10778277e17c36c77d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">lineCount</a></strong>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aaf755ffee8ca164332890e60e9df3df5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">lineWrapColumnOrWidth</a></strong>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  <a href="#a_1a8b692f9c6d1a4b2fd52db11d9c6062e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">LineWrapMode</a></td><td class="col1 leftalign"><strong><a href="#a_1aa0f2c7622be84ac3f297108e7e89a299" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">lineWrapMode</a></strong>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aea6120d4d865381e4a03936bdb81b227" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">modified</a></strong>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a3d8342729929aa3a4513175c73b05937" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">overwriteMode</a></strong>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a40f13abb23cacb611687652573d63644" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">plainText</a></strong>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a7018ad920362eed0ffd4f93d78e46f17" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">pointSize</a></strong>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1afc9ba2e1b289079a2e687ad2734af93a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">readOnly</a></strong>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1abb3035d585b489826941c1d8cce0e070" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">redoAvailable</a></strong>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a7d52cd20c73ee201aaa665d43b6c54e0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">selectedText</a></strong>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ade8ca09d9185630b0279d71b5e680bfd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">tabChangesFocus</a></strong>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a3335c7de61be354d6b3b480ba21d508e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">tabStopWidth</a></strong>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a3d39cc5a71db46029fdbdb1183d46e98" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">text</a></strong>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/color" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:color">Color</a></td><td class="col1 leftalign"><strong><a href="#a_1af8971d057a9ea6f57dd94b627fb04585" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">textBackgroundColor</a></strong>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/color" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:color">Color</a></td><td class="col1 leftalign"><strong><a href="#a_1ac04ac84dc8dc109b2e8e47412c5eaf77" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">textColor</a></strong>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz#a_1add811d3bba0c7e10672faa0575dc3463" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">TextInteractionFlags</a></td><td class="col1 leftalign"><strong><a href="#a_1a6e336280d812630d01fa70247f0656fd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">textInteractionFlags</a></strong>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a4f51ed000b0c1d40af62efc3c52b8f6e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">underline</a></strong>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a803b6239bb73e8847ef831b5c2afe0cd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">undoAvailable</a></strong>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ae8480d51528b00a844c2af6cb7750b28" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">undoRedoEnabled</a></strong>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ae04fcdfe4f735af36142bdc09f2c361c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">weight</a></strong>  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 rightalign">  <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WrapMode</a></td><td class="col1 leftalign"><strong><a href="#a_1ae62df7439fd3b5c4e829ed1a8e76ca7b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">wordWrapMode</a></strong>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="constructors">Constructors</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><strong><a href="#a_1ac41e2f765c4727a046654fea1e265603" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">DzTextEdit</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a> parent )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a57f8d38250db641d69c8c18c6d0ae2b0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">anchorAt</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a4da452e71babbb198f4d8fb6dfd0a248" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">append</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aae14f26f524b8163e88dc1d54cae9697" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">backspace</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1af067074a07db70d288d8bb35f2970dd0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">backspaceWord</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ac8bb3912a3ce86b15842e79d0b421204" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">clear</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aaa6c087511a52e64fc9ad92820c7c0a8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">copy</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a708e6f2a87d19e8d56437bdb979fd422" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">cursorBackward</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a3ebd36e833d6bbc4e5d1e118f8328991" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">cursorForward</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1adedbe87f0865cf66189a920da15a4c74" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">cursorWordBackward</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aca6b021fa46497c3432545fae4a093da" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">cursorWordForward</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ada01f65675afbbc0b8006d58df5acb81" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">cut</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a13120ea5788aaacf44a89b193a0cceef" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">del</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab5b1b47cb86c34fdaa581f2ea609b0ac" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">deleteWord</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aba71e6b74a2169a0ef4a7340aa4d4be7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">down</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1afb17142d81db2bc8d08b8dc364769cb0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">end</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9e58f63b8c48628102a40cbcb73582bc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">ensureCursorVisible</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab29926bbc7bf57f6c5e9de373f3ab80d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">find</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> expression, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> caseSensitive=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> wholeWord=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> backward=false )</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a97a757d779dbf34b780a75b64c56a221" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">hasSelectedText</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a58b99c8398398cbc831e63424e13015c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">home</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )</em>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a480ab09491134d99abc16bb51542a36b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">insertBlock</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a3bfc78e7b1c1142ffaa88be370527703" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">insertHtml</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a936928cab33c09de225b683a878ce5b1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">insertPlainText</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a79795d6008435b48100c6077ab2a3845" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">lineEnd</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )</em>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae3e5bca58b6b61b51ac00c5d7bb42ce7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">lineStart</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )</em>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a18b0a9f88cc7cb722e5e68cae9cdaf77" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">pageDown</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )</em>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a77dcd36943fd2095c422f974e9e0b8b3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">pageUp</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )</em>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ad7f58047731e9a1b735aa142811c70e8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">paste</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a93c48d6ed036e1a381be53ac67643284" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">redo</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aa14601c1acad0d43cbadd858eb14157c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">scrollToAnchor</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )</em>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab6658ed404200bd7aaca5629db064645" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">selectAll</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1ae7a73320385bf2e01e0174fd3d5f938c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">selectedText</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ac417acb232dc48ad73f6eff7e38aa5c1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">selectionEnd</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aa70300921170ec1c549405c4584674bb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">selectionStart</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a78c44d69527dbfe7e98593726527b0c9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">text</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> blockIdx )</em>  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0e1e7804a53f6d62efc72c9bdbec8571" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">undo</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ad8a25eadfede4a91c2b8ea293fdf135e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">up</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )</em>  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae1bf4d6f7d11dae352f4d1bfd3494227" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">zoomIn</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> range=1 )</em>  </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab6a180467d0344ad8994683d9cbe41d5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">zoomOut</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> range=1 )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="signals">Signals</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<tr class="row0">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a12dce6a5dcf463bc1a1f32bb83e2730f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">copyAvailable</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aa5fe997766d486da5601e4792903f90e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">cursorPositionChanged</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a3427cbc3de21c771084ed92fbb1d6240" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">redoAvailable</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1d85de554564e69188e34457b463de1b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">selectionChanged</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a92832e204f5bab2138a91c2a248b0730" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">textChanged</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a67cc0ca85653cabab9f79a4bc5198c2f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">undoAvailable</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+
+<p>
+A <em>DzTextEdit</em> provides a powerful single-page rich text editor widget.
+</p>
+
+</div>
+
+<h3 id="enumerations1">Enumerations</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a name="a_1a6eada198fa850ef7a10c7c80a8b86d13"></a> : <strong>AutoFormattingFlag</strong>
+</p>
+
+<p>
+Enumerated values for auto formatting.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a6eada198fa850ef7a10c7c80a8b86d13ad29655a9f372780e7c2c430e8a6ef9cb"></a><strong>AutoNone</strong> - Do not perform any automatic formatting.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a6eada198fa850ef7a10c7c80a8b86d13a01ba65f131619e1535142761945685b4"></a><strong>AutoBulletList</strong> - Only automatically format bullet lists.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a6eada198fa850ef7a10c7c80a8b86d13acd546749628682a4ce4d5fba3ccaae19"></a><strong>AutoAll</strong> - Apply all available auto-formatting.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1a8b692f9c6d1a4b2fd52db11d9c6062e1"></a> : <strong>LineWrapMode</strong>
+</p>
+
+<p>
+Enumerated values for how lines should wrap.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a8b692f9c6d1a4b2fd52db11d9c6062e1af0b647dcbd58360eede86228e053320e"></a><strong>NoLineWrap</strong> - Do not wrap the text.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a8b692f9c6d1a4b2fd52db11d9c6062e1ac5c967d35107eb270e63657a819c8be9"></a><strong>WidgetWidth</strong> - Wrap the text at the current width of the widget.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a8b692f9c6d1a4b2fd52db11d9c6062e1a0ac583b8a25a6de1df6a641ce922c299"></a><strong>FixedPixelWidth</strong> - Wrap the text at a fixed number of pixels from the widget&#039;s left side.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a8b692f9c6d1a4b2fd52db11d9c6062e1a248b066b8acc84355a92cccd7c4ac256"></a><strong>FixedColumnWidth</strong> - Wrap the text at a fixed number of character columns from the widget&#039;s left side.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1a9ee2fe0bc570d84074a12e3088c7c5e4"></a> : <strong>WrapMode</strong>
+</p>
+
+<p>
+Enumerated values for how characters in a word should wrap.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a9ee2fe0bc570d84074a12e3088c7c5e4a45c808406ecca8214959632f2f56f5f0"></a><strong>NoWrap</strong> - Do not wrap the text at all.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a9ee2fe0bc570d84074a12e3088c7c5e4a08a1bb3f8f12cdf7ec7a326a1b428613"></a><strong>WordWrap</strong> - Wrap the text at word boundaries.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a9ee2fe0bc570d84074a12e3088c7c5e4a26e5ba54414abd69b954c1f9e16cf161"></a><strong>ManualWrap</strong> - Same as <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a45c808406ecca8214959632f2f56f5f0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">NoWrap</a>.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a9ee2fe0bc570d84074a12e3088c7c5e4a34c806e2020bf8d921dc13663814ac44"></a><strong>WrapAnywhere</strong> - Wrap the text at any point on a line, even if it occurs in the middle of a word.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a9ee2fe0bc570d84074a12e3088c7c5e4a126e4e6e079cfdfa6d484efad8288105"></a><strong>WrapAtWordBoundaryOrAnywhere</strong> - If possible, <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a08a1bb3f8f12cdf7ec7a326a1b428613" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WordWrap</a>, otherwise <a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4a34c806e2020bf8d921dc13663814ac44" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WrapAnywhere</a>.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="properties1">Properties</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a21b776fc61155b52a55ca458d9d1dc62">acceptRichText</a></strong>
+</p>
+
+<p>
+Holds whether or not the text edit accepts rich text insertions by the user. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1a6eada198fa850ef7a10c7c80a8b86d13" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">AutoFormattingFlag</a> : <strong><a name="a_1adc415a34a7731334b557886ef4a99e41">autoFormatting</a></strong>
+</p>
+
+<p>
+Holds the enabled set of auto formatting features. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a8425bcfbacc94a75383be43e6114947a">blockCount</a></strong>
+</p>
+
+<p>
+Holds the number of text blocks (e.g., paragraphs) in the document. (Read-Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a7a210a24d67146bd143c013d1da0f2dd">bold</a></strong>
+</p>
+
+<p>
+Holds whether or not the font of the current format is bold.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aecb138c878ea86429d3c4f4139770ff0">characterCount</a></strong>
+</p>
+
+<p>
+Holds the number of characters in the text. (Read-Only) 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a542d45d9c92a422bfe4cc33c9bb2771b">cursorWidth</a></strong>
+</p>
+
+<p>
+Holds the width of the cursor in pixels. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a060d895b46a29c718741702b34802c7e">documentTitle</a></strong>
+</p>
+
+<p>
+Holds the title of the document.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a07ac4fdd2a7519286b192829d2dfb1b8">family</a></strong>
+</p>
+
+<p>
+Holds the font family of the current format. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/font" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:font">Font</a> : <strong><a name="a_1a1e52b0778d1df763fc5b497c26ead7a9">font</a></strong>
+</p>
+
+<p>
+Holds the font of the current format. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a6ee53141be886c2e31e5029cdb3e4e78">html</a></strong>
+</p>
+
+<p>
+Holds the editor&#039;s contents as <abbr title="HyperText Markup Language">HTML</abbr>. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a05d69d5c0f97cd77eb94be35ec3439db">italic</a></strong>
+</p>
+
+<p>
+Holds whether or not the font of the current format is italic.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1addc99401340ecb10778277e17c36c77d">lineCount</a></strong>
+</p>
+
+<p>
+Holds the number of lines in the text. (Read-Only) 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aaf755ffee8ca164332890e60e9df3df5">lineWrapColumnOrWidth</a></strong>
+</p>
+
+<p>
+Holds the position (in pixels or columns depending on the <a href="#a_1aa0f2c7622be84ac3f297108e7e89a299" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">lineWrapMode</a>) where text will be wrapped. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1a8b692f9c6d1a4b2fd52db11d9c6062e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">LineWrapMode</a> : <strong><a name="a_1aa0f2c7622be84ac3f297108e7e89a299">lineWrapMode</a></strong>
+</p>
+
+<p>
+Holds the mode the editor will use when wrapping text within words. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aea6120d4d865381e4a03936bdb81b227">modified</a></strong>
+</p>
+
+<p>
+Holds whether or not the text in the editor has been modified. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a3d8342729929aa3a4513175c73b05937">overwriteMode</a></strong>
+</p>
+
+<p>
+Holds whether or not text entered by the user will overwrite existing text. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a40f13abb23cacb611687652573d63644">plainText</a></strong>
+</p>
+
+<p>
+Holds the editor&#039;s contents as plain text. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a7018ad920362eed0ffd4f93d78e46f17">pointSize</a></strong>
+</p>
+
+<p>
+Holds the point size of the font of the current format.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1afc9ba2e1b289079a2e687ad2734af93a">readOnly</a></strong>
+</p>
+
+<p>
+Holds whether or not the text in the editor can be edited by the user. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1abb3035d585b489826941c1d8cce0e070">redoAvailable</a></strong>
+</p>
+
+<p>
+Holds whether or not a redo operation is available. (Read Only) 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a7d52cd20c73ee201aaa665d43b6c54e0">selectedText</a></strong>
+</p>
+
+<p>
+Holds the selected text (if any) of the editor. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ade8ca09d9185630b0279d71b5e680bfd">tabChangesFocus</a></strong>
+</p>
+
+<p>
+Holds whether or not pressing the Tab key changes focus or is accepted as input. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a3335c7de61be354d6b3b480ba21d508e">tabStopWidth</a></strong>
+</p>
+
+<p>
+Holds the tab stop width in pixels; default is 80. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a3d39cc5a71db46029fdbdb1183d46e98">text</a></strong>
+</p>
+
+<p>
+Holds the text of the editor.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/color" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:color">Color</a> : <strong><a name="a_1af8971d057a9ea6f57dd94b627fb04585">textBackgroundColor</a></strong>
+</p>
+
+<p>
+Holds the text background color of the current format. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/color" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:color">Color</a> : <strong><a name="a_1ac04ac84dc8dc109b2e8e47412c5eaf77">textColor</a></strong>
+</p>
+
+<p>
+Holds the text color of the current format. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz#a_1add811d3bba0c7e10672faa0575dc3463" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">TextInteractionFlags</a> : <strong><a name="a_1a6e336280d812630d01fa70247f0656fd">textInteractionFlags</a></strong>
+</p>
+
+<p>
+Holds the value that is used to determine how the label reacts to user input. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a4f51ed000b0c1d40af62efc3c52b8f6e">underline</a></strong>
+</p>
+
+<p>
+Holds whether or not the font of the current format is underlined.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a803b6239bb73e8847ef831b5c2afe0cd">undoAvailable</a></strong>
+</p>
+
+<p>
+Holds whether or not an undo operation is available. (Read Only) 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ae8480d51528b00a844c2af6cb7750b28">undoRedoEnabled</a></strong>
+</p>
+
+<p>
+Holds whether or not undo and redo are enabled. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ae04fcdfe4f735af36142bdc09f2c361c">weight</a></strong>
+</p>
+
+<p>
+Holds the font weight of the current format. 25 = Light, 50 = Normal, 63 = DemiBold, 75 = Bold, 87 = Black. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1a9ee2fe0bc570d84074a12e3088c7c5e4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">WrapMode</a> : <strong><a name="a_1ae62df7439fd3b5c4e829ed1a8e76ca7b">wordWrapMode</a></strong>
+</p>
+
+<p>
+Holds the mode the editor will use when wrapping text by words. 
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="constructors1">Constructors</h3>
+<div class="level3">
+<hr />
+
+<p>
+<strong><a name="a_1ac41e2f765c4727a046654fea1e265603">DzTextEdit</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a> parent )
+</p>
+
+<p>
+Creates a text edit widget as a child of the given parent widget.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>parent</em> - The widget parent for the text edit.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a57f8d38250db641d69c8c18c6d0ae2b0">anchorAt</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pos</em> - The position to get the anchor at.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The name of the anchor at position <code>pos</code>, or an empty string if no anchor exists at that point.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a4da452e71babbb198f4d8fb6dfd0a248">append</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+Adds <code>text</code> as a new paragraph to the end of the editor.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>text</em> - The text to add.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aae14f26f524b8163e88dc1d54cae9697">backspace</a></strong>()
+</p>
+
+<p>
+If text is currently selected, it will be deleted and the cursor moved to the beginning of the selection. If no text is selected, the cursor will be moved one character to the left and the character will be deleted.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1af067074a07db70d288d8bb35f2970dd0">backspaceWord</a></strong>()
+</p>
+
+<p>
+If a word is currently selected, it will be deleted and the cursor moved to the beginning of the selection. If no word is selected, the cursor will be moved one word to the left and the word will be deleted.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ac8bb3912a3ce86b15842e79d0b421204">clear</a></strong>()
+</p>
+
+<p>
+Removes all text from the editor.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aaa6c087511a52e64fc9ad92820c7c0a8">copy</a></strong>()
+</p>
+
+<p>
+Copies the selected text into the clipboard.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a708e6f2a87d19e8d56437bdb979fd422">cursorBackward</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )
+</p>
+
+<p>
+Moves the cursor backward the given number of characters.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, each character that is stepped over will be added to the current selection.</div>
+</li>
+<li class="level1"><div class="li"> <em>steps</em> - The number of characters to move the cursor.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a3ebd36e833d6bbc4e5d1e118f8328991">cursorForward</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )
+</p>
+
+<p>
+Moves the cursor forward the given number of characters.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, each character that is stepped over will be added to the current selection.</div>
+</li>
+<li class="level1"><div class="li"> <em>steps</em> - The number of characters to move the cursor.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1adedbe87f0865cf66189a920da15a4c74">cursorWordBackward</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )
+</p>
+
+<p>
+Moves the cursor backward one word.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the word will be added to the current selection.</div>
+</li>
+<li class="level1"><div class="li"> <em>steps</em> - The number of words to move the cursor.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aca6b021fa46497c3432545fae4a093da">cursorWordForward</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )
+</p>
+
+<p>
+Moves the cursor forward one word.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the word will be added to the current selection.</div>
+</li>
+<li class="level1"><div class="li"> <em>steps</em> - The number of words to move the cursor.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ada01f65675afbbc0b8006d58df5acb81">cut</a></strong>()
+</p>
+
+<p>
+Copies the selected text into the clipboard, and removes it from the editor.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a13120ea5788aaacf44a89b193a0cceef">del</a></strong>()
+</p>
+
+<p>
+If text is currently selected, it will be deleted and the cursor moved to the beginning of the selection. If no text is selected, the character to the right of the cursor will be deleted.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab5b1b47cb86c34fdaa581f2ea609b0ac">deleteWord</a></strong>()
+</p>
+
+<p>
+If a word is currently selected, it will be deleted and the cursor moved to the beginning of the selection. If no word is selected, the word to the right of the cursor will be deleted.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aba71e6b74a2169a0ef4a7340aa4d4be7">down</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )
+</p>
+
+<p>
+Moves the cursor to the line below the current line.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from the position of the cursor in the line below the current line to the cursor&#039;s previous position will be added to the current selection.</div>
+</li>
+<li class="level1"><div class="li"> <em>steps</em> - The number of lines to move the cursor.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1afb17142d81db2bc8d08b8dc364769cb0">end</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )
+</p>
+
+<p>
+Moves the cursor to the end of the document.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from the cursor&#039;s previous position to the end of the document will be added to the current selection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9e58f63b8c48628102a40cbcb73582bc">ensureCursorVisible</a></strong>()
+</p>
+
+<p>
+Ensures that the cursor is visible by scrolling the editor if necessary.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab29926bbc7bf57f6c5e9de373f3ab80d">find</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> expression, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> caseSensitive=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> wholeWord=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> backward=false )
+</p>
+
+<p>
+Finds the next occurrence of <code>expression</code> using the given options and changes the cursor to select the match.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>expression</em> - The expression to find.</div>
+</li>
+<li class="level1"><div class="li"> <em>caseSensitive</em> - If <code>true</code>, the search is case sensitive.</div>
+</li>
+<li class="level1"><div class="li"> <em>wholeWord</em> - If <code>true</code>, the search looks for whole words.</div>
+</li>
+<li class="level1"><div class="li"> <em>backward</em> - If <code>true</code>, the search is performed in the reverse direction.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if <code>expression</code> was found, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a97a757d779dbf34b780a75b64c56a221">hasSelectedText</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if text is selected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a58b99c8398398cbc831e63424e13015c">home</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )
+</p>
+
+<p>
+Moves the cursor to the beginning of the document.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from the beginning of the document to the cursor&#039;s previous position will be added to the current selection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a480ab09491134d99abc16bb51542a36b">insertBlock</a></strong>()
+</p>
+
+<p>
+Splits the block (paragraph) at the cursor position.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a3bfc78e7b1c1142ffaa88be370527703">insertHtml</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+Inserts <code>text</code>, which is assumed to be <abbr title="HyperText Markup Language">HTML</abbr> formatted, at the current cursor position.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>text</em> - The <abbr title="HyperText Markup Language">HTML</abbr> formatted text to insert.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a936928cab33c09de225b683a878ce5b1">insertPlainText</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+Inserts <code>text</code> at the current cursor position.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>text</em> - The text to insert.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a79795d6008435b48100c6077ab2a3845">lineEnd</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )
+</p>
+
+<p>
+Moves the cursor to the end of the line.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from the cursor&#039;s previous position to the end of the line will be added to the current selection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae3e5bca58b6b61b51ac00c5d7bb42ce7">lineStart</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )
+</p>
+
+<p>
+Moves the cursor to the beginning of the line.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from the beginning of the line to the cursor&#039;s previous position will be added to the current selection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a18b0a9f88cc7cb722e5e68cae9cdaf77">pageDown</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )
+</p>
+
+<p>
+Moves the cursor a page down in the document.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from the cursor&#039;s previous position to a page down in the document will be added to the current selection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a77dcd36943fd2095c422f974e9e0b8b3">pageUp</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false )
+</p>
+
+<p>
+Moves the cursor a page up in the document.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from a page up in the document to the cursor&#039;s previous position will be added to the current selection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ad7f58047731e9a1b735aa142811c70e8">paste</a></strong>()
+</p>
+
+<p>
+Inserts any text on the clipboard into the line at the cursor&#039;s current position.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a93c48d6ed036e1a381be53ac67643284">redo</a></strong>()
+</p>
+
+<p>
+If <a href="#a_1abb3035d585b489826941c1d8cce0e070" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">redoAvailable</a> is <code>true</code>, redoes the next operation in the editor.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aa14601c1acad0d43cbadd858eb14157c">scrollToAnchor</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> name )
+</p>
+
+<p>
+Scrolls the editor to make the text at the anchor <code>name</code> visible, if it can be found in the document. If the anchor isn&#039;t found no scrolling will occur. An anchor is defined using the <abbr title="HyperText Markup Language">HTML</abbr> anchor tag, e.g., &lt;a name=“target”&gt;.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>name</em> - The name of the anchor to scroll to.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab6658ed404200bd7aaca5629db064645">selectAll</a></strong>()
+</p>
+
+<p>
+Selects all the text in the editor.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1ae7a73320385bf2e01e0174fd3d5f938c">selectedText</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The selected text (if any), or an empty string.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ac417acb232dc48ad73f6eff7e38aa5c1">selectionEnd</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The character position at which the current selection ends.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aa70300921170ec1c549405c4584674bb">selectionStart</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The character position at which the current selection begins.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a78c44d69527dbfe7e98593726527b0c9">text</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> blockIdx )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>blockIdx</em> - The index of the block to get the text of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> If <code>blockIdx</code> is in range, the text of the block at <code>blockIdx</code>, otherwise an empty string.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0e1e7804a53f6d62efc72c9bdbec8571">undo</a></strong>()
+</p>
+
+<p>
+If <a href="#a_1a803b6239bb73e8847ef831b5c2afe0cd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">undoAvailable</a> is <code>true</code>, undoes the last operation in the editor.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ad8a25eadfede4a91c2b8ea293fdf135e">up</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> mark=false, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> steps=1 )
+</p>
+
+<p>
+Moves the cursor to the line above the current line.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mark</em> - If <code>true</code>, the text from the position of the cursor in the line above the current line to the cursor&#039;s previous position will be added to the current selection.</div>
+</li>
+<li class="level1"><div class="li"> <em>steps</em> - The number of lines to move the cursor.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae1bf4d6f7d11dae352f4d1bfd3494227">zoomIn</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> range=1 )
+</p>
+
+<p>
+Zooms in on the text by making the base font size <code>range</code> points larger and recalculating all font sizes to be the new size.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>range</em> - The number of points to increase the fonts sizes by.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab6a180467d0344ad8994683d9cbe41d5">zoomOut</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> range=1 )
+</p>
+
+<p>
+Zooms out on the text by making the base font size <code>range</code> points smaller and recalculating all font sizes to be the new size.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>range</em> - The number of points to decrease the fonts sizes by.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.93</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="signals1">Signals</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1a12dce6a5dcf463bc1a1f32bb83e2730f">copyAvailable</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“copyAvailable(bool)”</code>
+</p>
+
+<p>
+Emitted when text is selected or de-selected in the editor.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1aa5fe997766d486da5601e4792903f90e">cursorPositionChanged</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“cursorPositionChanged()”</code>
+</p>
+
+<p>
+Emitted when the position of the cursor has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a3427cbc3de21c771084ed92fbb1d6240">redoAvailable</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“redoAvailable(bool)”</code>
+</p>
+
+<p>
+Emitted when the availability of redo changes. If <code>yesNo</code> is <code>true</code>, <a href="#a_1a93c48d6ed036e1a381be53ac67643284" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">redo</a>() will work until redoAvailable(false) is next emitted.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a1d85de554564e69188e34457b463de1b">selectionChanged</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“selectionChanged()”</code>
+</p>
+
+<p>
+Emitted when the selection changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a92832e204f5bab2138a91c2a248b0730">textChanged</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“textChanged()”</code>
+</p>
+
+<p>
+Emitted when the text in the editor changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a67cc0ca85653cabab9f79a4bc5198c2f">undoAvailable</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“undoAvailable(bool)”</code>
+</p>
+
+<p>
+Emitted when the availability of undo changes. If <code>yesNo</code> is <code>true</code>, <a href="#a_1a0e1e7804a53f6d62efc72c9bdbec8571" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textedit_dz ↵" class="wikilink1">undo</a>() will work until undoAvailable(false) is next emitted.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz.txt</bdi> · Last modified: 2020/01/17 16:43 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textedit_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Atextedit_dz&amp;1639626513" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

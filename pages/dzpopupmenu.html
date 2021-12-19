@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzPopupMenu [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,popupmenu_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz">DzPopupMenu</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dzpopupmenu">DzPopupMenu</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#properties">Properties</a></div></li>
+<li class="level2"><div class="li"><a href="#constructors">Constructors</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#signals">Signals</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#properties1">Properties</a></div></li>
+<li class="level3"><div class="li"><a href="#constructors1">Constructors</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+<li class="level3"><div class="li"><a href="#signals1">Signals</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Fpopupmenu_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dzpopupmenu">DzPopupMenu</h1>
+<div class="level1">
+
+<p>
+Script wrapper for a popup <a href="http://doc.qt.io/archives/qt-4.8/QMenu.html" class="urlextern" target="_blank" title="http://doc.qt.io/archives/qt-4.8/QMenu.html" rel="nofollow noopener">QMenu</a>.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1 node"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+<ul>
+<li class="level2"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a></div>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 id="properties">Properties</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a49d9de670651a5465cbad65f0ed1a618" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">checkable</a></strong>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a144710860b71f40f5da9668a79e54eeb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">tearOff</a></strong>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="constructors">Constructors</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><strong><a href="#a_1a7df87066d68c5d2d5e540e184ab34c7c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">DzPopupMenu</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a> parent )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ac8bb3912a3ce86b15842e79d0b421204" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">clear</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab07142eec5fa27709b1d2e5c1348a58e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">connectItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> receiver, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> member )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aa2a3d159ea37051dbf4b4afff4232c94" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">connectItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> thisObject, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/function" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:function">Function</a> functionRef )</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a3adb87154974652094094ff82132165b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">disconnectItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> receiver, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> member )</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a68d150ac936ec41153cb52cebcc3327c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">disconnectItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> thisObject, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/function" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:function">Function</a> functionRef )</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a0a779c8ad978e3dd1debcc73bf705d20" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">exec</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a393455a5f608900d10dc0f0058ff2abf" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">exec</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> indexAtPoint )</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a2e48568d320f4c4cb264edad1e165e1a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">idAt</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aaeb737edfcb8cc172ea0de678d1ad609" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">idAt</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a49b3f834f4fb2873865869fe89556123" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a59eed745e86906674e4b276f9e3417ed" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertPixmapItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1adaf2619e839f2a1dae38fbe96fcc5ba1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertPixmapSubmenuItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, </em>DzPopupMenu<em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a1c705e2abe3c8c9dc00df7870f1ad6bd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertSeparator</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a5675fa70cd90a553da5503c81cdd1f1e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertSubmenuItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, </em>DzPopupMenu<em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a7efb0d0d1359ab38649be5a716e875a4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertTextItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a7e7d7646c9ea41acdd68cdcc08152df0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertTextSubmenuItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, </em>DzPopupMenu<em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a6b3bac81ceeaa0cf4c986f16148af21d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">isItemCheckable</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab614ea1e98e36493b84931a4de28e637" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">isItemChecked</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a5191625c948207b6cbf0bbda2e376549" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">isItemEnabled</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a63a5cfd0859c71df7769ae27c7a2b587" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">isItemVisible</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a44795a0d3573e25c30ce163fb522da50" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">itemParameter</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ae70176f4040a0dd8ce2398558c7044dc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">numItems</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a></td><td class="col1 leftalign"><strong><a href="#a_1a898071ec7dec050e214b1b8dc2e6e2a5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">pixmap</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a42b5032bf97716b7532d98003c5be327" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">popup</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> indexAtPoint )</em>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0863eefecbd5f061a39c5dabf62f0d57" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">removeItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a4d36fb652548f38f47e0495621340b62" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">removeItemAt</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a768d172bdbe4f7b53412d0a68a61881e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setActiveItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ad740936d53ed1fc8fb9504bf8f79ea86" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setItemCheckable</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1acf5b2190385405e97a58d7b91082de73" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setItemChecked</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a6a80a252e8de3436e8a6fa0ca519a572" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setItemEnabled</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a866f856c8365f1c08b120d84fcc3a4cc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setItemParameter</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> param )</em>  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a94b1f616cf00de50df7b4bc267b9ffdd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setItemVisible</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a5b4885fdab54a06fd2c1081e51afc512" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setPixmap</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap )</em>  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1ce26ef6250b0cb277986e8aa7443c1c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setText</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1abad0e65661175abc730af69d2554f46b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setWhatsThis</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a8378fed2f4f0a5fdae44f38b212891c0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">text</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1ab807300731a412a649d1fda16ccbd58d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">whatsThis</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row38">
+		<th class="col0 rightalign" colspan="2">  Deprecated</th>
+	</tr>
+	<tr class="row39">
+		<td class="col0 leftalign" colspan="2">  </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a3a1d82f5133a7c43599de77d7947a526" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertTearOffHandle</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a7f6036ce47d0096c41607e4deb382c59" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1af266fc4a48b72d1019400cdead46a964" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a00f45821caf476c7bd5782f7221430da" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, </em>DzPopupMenu<em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a647d42362a03e59de6f0e52e06f1a4ad" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, </em>DzPopupMenu<em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )</em>  </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a2599d16ee5f3606cfa2046e256d1bf3a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">changeItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab1030de9dcbeb4a82ce97462137d98e2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">changeItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap )</em>  </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0a035b3b0ac6b556d73b315994f14e2c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">updateItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="signals">Signals</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<tr class="row0">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a212790c0ce30bc3fffc07464abb910b3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">aboutToHide</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9cbadebca2c71a8dfc07e73c3bcc8fa2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">aboutToShow</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a2e23eb8553d8d417261634f7f02c5bf6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">activated</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae6a4ccc6a048896757bf68deec48a32b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">highlighted</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+
+<p>
+Provides a menu widget for use in context menus and other popup menus.
+</p>
+
+<p>
+A menu consists of a list of items. There are three kinds of items: separators, items that show a submenu, and items that perform an action.
+</p>
+
+<p>
+Submenu items and action items have an identifier (id) and a position (index). Separators have a position (index) and a common identifier (-1).
+</p>
+
+<p>
+Separators are inserted with <a href="#a_1a1c705e2abe3c8c9dc00df7870f1ad6bd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertSeparator</a>(). Submenus are inserted with <a href="#a_1a5675fa70cd90a553da5503c81cdd1f1e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertSubmenuItem</a>(), <a href="#a_1a7e7d7646c9ea41acdd68cdcc08152df0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertTextSubmenuItem</a>(), or <a href="#a_1adaf2619e839f2a1dae38fbe96fcc5ba1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertPixmapSubmenuItem</a>(). All other items are considered action items, and are inserted with <a href="#a_1a49b3f834f4fb2873865869fe89556123" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertItem</a>(), <a href="#a_1a7efb0d0d1359ab38649be5a716e875a4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertTextItem</a>() or <a href="#a_1a59eed745e86906674e4b276f9e3417ed" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertPixmapItem</a>().
+</p>
+
+<p>
+Submenu items and action items can have text, a pixmap, or both.
+</p>
+
+<p>
+Clearing an entire menu is accomplished with <a href="#a_1ac8bb3912a3ce86b15842e79d0b421204" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">clear</a>() and removing individual items is accomplished with <a href="#a_1a0863eefecbd5f061a39c5dabf62f0d57" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">removeItem</a>() or <a href="#a_1a4d36fb652548f38f47e0495621340b62" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">removeItemAt</a>().
+</p>
+
+<p>
+To make a menu visible on the screen, use <a href="#a_1a0a779c8ad978e3dd1debcc73bf705d20" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">exec</a>() or <a href="#a_1a42b5032bf97716b7532d98003c5be327" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">popup</a>() - do not use <a href="#a_1a4b148f40a95444d5669406b918ad2f52" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">show</a>().
+</p>
+
+</div>
+
+<h3 id="properties1">Properties</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a49d9de670651a5465cbad65f0ed1a618">checkable</a></strong>
+</p>
+
+<p>
+Holds whether or not the display of check marks on menu items is enabled. When <code>true</code>, the display of check marks on menu items is enabled. Checking is always enabled when in Windows-style.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a144710860b71f40f5da9668a79e54eeb">tearOff</a></strong>
+</p>
+
+<p>
+Holds whether or not the menu supports being torn off. When <code>true</code>, the menu contains a special tear-off item (often shown as a dashed line at the top of the menu) that creates a copy of the menu when it is triggered.
+</p>
+
+<p>
+This “torn-off” copy lives in a separate window. It contains the same menu items as the original menu, with the exception of the tear-off handle.
+</p>
+
+</div>
+
+<h3 id="constructors1">Constructors</h3>
+<div class="level3">
+<hr />
+
+<p>
+<strong><a name="a_1a7df87066d68c5d2d5e540e184ab34c7c">DzPopupMenu</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a> parent )
+</p>
+
+<p>
+Creates a popup menu as a child of the given parent widget.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>parent</em> - The widget parent for the popup menu.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1ac8bb3912a3ce86b15842e79d0b421204">clear</a></strong>()
+</p>
+
+<p>
+Removes all menu items.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab07142eec5fa27709b1d2e5c1348a58e">connectItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> receiver, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> member )
+</p>
+
+<p>
+Connects the menu item with the specified identifier to a function.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to connect to.</div>
+</li>
+<li class="level1"><div class="li"> <em>receiver</em> - The object that will receive the signal. Prior to 4.15.0.24, this must be a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a> (or derived).</div>
+</li>
+<li class="level1"><div class="li"> <em>function</em> - The name of the function on <code>receiver</code> to execute when the menu item is activated. Prior to 4.15.0.24, the signature of this function must have no parameters, or a single parameter of the &#039;int&#039; type.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the connection is successfully established, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aa2a3d159ea37051dbf4b4afff4232c94">connectItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> thisObject, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/function" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:function">Function</a> functionRef )
+</p>
+
+<p>
+Connects the menu item with the specified identifier to a function.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to connect to.</div>
+</li>
+<li class="level1"><div class="li"> <em>thisObject</em> - The object to bind to &#039;this&#039; in the scope of <code>functionRef</code> if <code>functionRef</code> is a script-defined <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/function" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:function">Function</a>. If <code>functionRef</code> is a function on a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a>, this argument is not used.</div>
+</li>
+<li class="level1"><div class="li"> <em>functionRef</em> - The function to execute when the menu item is activated.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the connection is successfully established, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.24</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a3adb87154974652094094ff82132165b">disconnectItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> receiver, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> member )
+</p>
+
+<p>
+Disconnects the menu item with the specified identifier from a function.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to disconnect from.</div>
+</li>
+<li class="level1"><div class="li"> <em>receiver</em> - The object that is receiving the signal. Prior to 4.15.0.24, this must be a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a> (or derived).</div>
+</li>
+<li class="level1"><div class="li"> <em>function</em> - The name of the function on <code>receiver</code> to disconnect from.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the connection is successfully removed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> All connections are automatically removed when this menu is destroyed.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a68d150ac936ec41153cb52cebcc3327c">disconnectItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object">Object</a> thisObject, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/function" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:function">Function</a> functionRef )
+</p>
+
+<p>
+Disconnects the menu item with the specified identifier from a function.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to disconnect from.</div>
+</li>
+<li class="level1"><div class="li"> <em>thisObject</em> - The object bound to &#039;this&#039; in the scope of <code>functionRef</code> if <code>functionRef</code> is a script-defined <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/function" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:function">Function</a>. If <code>functionRef</code> is a function on a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a>, this argument is not used.</div>
+</li>
+<li class="level1"><div class="li"> <em>functionRef</em> - The function to disconnect from.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the connection is successfully removed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> All connections are automatically removed when this menu is destroyed.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.24</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a0a779c8ad978e3dd1debcc73bf705d20">exec</a></strong>()
+</p>
+
+<p>
+Executes this menu synchronously. In most situations you will want to specify the position yourself, for example at the current mouse position.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier of the menu item clicked, or -1 if a menu item was not clicked.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a393455a5f608900d10dc0f0058ff2abf">exec</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> indexAtPoint )
+</p>
+
+<p>
+Executes this menu synchronously. Opens the popup menu so that the item number <code>indexAtPoint</code> will be at the specified global position <code>pos</code>.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pos</em> - The global position to popup the menu.</div>
+</li>
+<li class="level1"><div class="li"> <em>indexAtPoint</em> - The index of the menu item to position at <code>pos</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier of the menu item clicked, or -1 if a menu item was not clicked.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point#a_1ada76ce390fdb52cca460a714f63ea6f2" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">cursorPos</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a2e48568d320f4c4cb264edad1e165e1a">idAt</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>index</em> - The index position to get the identifier for.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier for the menu item at the specified index position (if valid), otherwise -1.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aaeb737edfcb8cc172ea0de678d1ad609">idAt</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pos</em> - The position to to check.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier of the menu item at the specified index position (if any), otherwise -1.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point#a_1ada76ce390fdb52cca460a714f63ea6f2" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">cursorPos</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a49b3f834f4fb2873865869fe89556123">insertItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+Inserts a menu item, with a pixamp, and text into this menu.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pixmap</em> - The pixmap to assign to this menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>text</em> - The text to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>id</em> - The identifier to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>index</em> - The index position within the menu to insert the item. The item becomes the last menu item if this is a negative value (default).</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier assigned to the inserted menu item.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a59eed745e86906674e4b276f9e3417ed">insertPixmapItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+Inserts a menu item, with a pixmap, into this menu.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pixmap</em> - The pixmap to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>id</em> - The identifier to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>index</em> - The index position within the menu to insert the item. The item becomes the last menu item if this is a negative value (default).</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier assigned to the inserted menu item.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1adaf2619e839f2a1dae38fbe96fcc5ba1">insertPixmapSubmenuItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <em>DzPopupMenu</em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+Inserts a submenu item, with a pixmap, into this menu.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pixmap</em> - The pixmap to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>popup</em> - The menu to popup when this menu item is hovered over.</div>
+</li>
+<li class="level1"><div class="li"> <em>id</em> - The identifier to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>index</em> - The index position within the menu to insert the item. The item becomes the last menu item if this is a negative value (default).</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier assigned to the inserted menu item.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a1c705e2abe3c8c9dc00df7870f1ad6bd">insertSeparator</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+Inserts a separator at the specified index position.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>index</em> - The index position within the menu to insert the separator. The separator becomes the last menu item if this is a negative value (default).</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier assigned to the inserted menu item - i.e., -1.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a5675fa70cd90a553da5503c81cdd1f1e">insertSubmenuItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <em>DzPopupMenu</em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+Inserts a submenu item, with a pixmap and text, into this menu.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pixmap</em> - The pixmap to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>text</em> - The text to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>popup</em> - The menu to popup when this menu item is hovered over.</div>
+</li>
+<li class="level1"><div class="li"> <em>id</em> - The identifier to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>index</em> - The index position within the menu to insert the item. The item becomes the last menu item if this is a negative value (default).</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier assigned to the inserted menu item.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a7efb0d0d1359ab38649be5a716e875a4">insertTextItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+Inserts a menu item, with text, into this menu.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>text</em> - The text to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>id</em> - The identifier to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>index</em> - The index position within the menu to insert the item. The item becomes the last menu item if this is a negative value (default).</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier assigned to the inserted menu item.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a7e7d7646c9ea41acdd68cdcc08152df0">insertTextSubmenuItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <em>DzPopupMenu</em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+Inserts a submenu item, with text, into this menu.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>text</em> - The text to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>popup</em> - The menu to popup when this menu item is hovered over.</div>
+</li>
+<li class="level1"><div class="li"> <em>id</em> - The identifier to assign to the menu item.</div>
+</li>
+<li class="level1"><div class="li"> <em>index</em> - The index position within the menu to insert the item. The item becomes the last menu item if this is a negative value (default).</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The identifier assigned to the inserted menu item.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a6b3bac81ceeaa0cf4c986f16148af21d">isItemCheckable</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the checkable state of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the menu item with the specified identifier is checkable, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.12.1.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab614ea1e98e36493b84931a4de28e637">isItemChecked</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the checked state of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the menu item with the specified identifier is checked, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a5191625c948207b6cbf0bbda2e376549">isItemEnabled</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the enabled state of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the menu item with the specified identifier is enabled, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a63a5cfd0859c71df7769ae27c7a2b587">isItemVisible</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the visible state of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the menu item with the specified identifier is visible, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a44795a0d3573e25c30ce163fb522da50">itemParameter</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the parameter of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The parameter of the activation signal for the menu item specified (if any), otherwise <code>id</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ae70176f4040a0dd8ce2398558c7044dc">numItems</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The number of menu items in this menu.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> : <strong><a name="a_1a898071ec7dec050e214b1b8dc2e6e2a5">pixmap</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the pixmap of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The pixmap of the menu item with the specified identifier (if any), otherwise null.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a42b5032bf97716b7532d98003c5be327">popup</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> indexAtPoint )
+</p>
+
+<p>
+Displays this menu synchronously.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>pos</em> - The global position to popup the menu.</div>
+</li>
+<li class="level1"><div class="li"> <em>indexAtPoint</em> - The index of the menu item to position at <code>pos</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point#a_1ada76ce390fdb52cca460a714f63ea6f2" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">cursorPos</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0863eefecbd5f061a39c5dabf62f0d57">removeItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+Removes the menu item with the specified identifier from the menu.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to remove.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a4d36fb652548f38f47e0495621340b62">removeItemAt</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+Removes the menu item at the specified index position.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>index</em> - The index position of the menu item to remove.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a768d172bdbe4f7b53412d0a68a61881e">setActiveItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+Sets the currently active item to <code>id</code> and repaints as necessary.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1ad740936d53ed1fc8fb9504bf8f79ea86">setItemCheckable</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets the checkable state of the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to set.</div>
+</li>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the item is made checkable.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.12.1.93</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1acf5b2190385405e97a58d7b91082de73">setItemChecked</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets the checked state of the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to set.</div>
+</li>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the item is checked.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a6a80a252e8de3436e8a6fa0ca519a572">setItemEnabled</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets the enabled state of the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to set.</div>
+</li>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the item is enabled.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a866f856c8365f1c08b120d84fcc3a4cc">setItemParameter</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> param )
+</p>
+
+<p>
+Sets the parameter of the activation signal for the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to set.</div>
+</li>
+<li class="level1"><div class="li"> <em>param</em> - The value to set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a94b1f616cf00de50df7b4bc267b9ffdd">setItemVisible</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets the visible state of the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to set.</div>
+</li>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the item is made visible.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a5b4885fdab54a06fd2c1081e51afc512">setPixmap</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap )
+</p>
+
+<p>
+Sets the pixmap of the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to change.</div>
+</li>
+<li class="level1"><div class="li"> <em>pixmap</em> - The pixmap to set.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> If the item has text assigned, the text remains unchanged.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a1ce26ef6250b0cb277986e8aa7443c1c">setText</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+Sets the text of the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to change.</div>
+</li>
+<li class="level1"><div class="li"> <em>text</em> - The text to set.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> If the item has a pixmap assigned, the pixmap remains unchanged.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.15.0.16</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1abad0e65661175abc730af69d2554f46b">setWhatsThis</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+Sets the “What&#039;s This” help text for the menu item with the specified identifier.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to set the “What&#039;s This” help text for.</div>
+</li>
+<li class="level1"><div class="li"> <em>text</em> - The text to set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a8378fed2f4f0a5fdae44f38b212891c0">text</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the text of.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The text of the menu item with the specified identifier (if any), otherwise an empty string.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1ab807300731a412a649d1fda16ccbd58d">whatsThis</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The identifier of the menu item to get the “What&#039;s This” help text for.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The “What&#039;s This” help text for the item with the specified identifier (if any), otherwise an empty string.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a3a1d82f5133a7c43599de77d7947a526">insertTearOffHandle</a></strong>()
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Use the <a href="#a_1a144710860b71f40f5da9668a79e54eeb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">tearOff</a> property instead.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a7f6036ce47d0096c41607e4deb382c59">insertItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Use <a href="#a_1a7efb0d0d1359ab38649be5a716e875a4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertTextItem</a>() instead.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1af266fc4a48b72d1019400cdead46a964">insertItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Use <a href="#a_1a59eed745e86906674e4b276f9e3417ed" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertPixmapItem</a>() instead.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a00f45821caf476c7bd5782f7221430da">insertItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text, <em>DzPopupMenu</em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Use <a href="#a_1a7e7d7646c9ea41acdd68cdcc08152df0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertTextSubmenuItem</a>() instead.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a647d42362a03e59de6f0e52e06f1a4ad">insertItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap, <em>DzPopupMenu</em> popup, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id=-1, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index=-1 )
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Use <a href="#a_1adaf2619e839f2a1dae38fbe96fcc5ba1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">insertPixmapSubmenuItem</a>() instead.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a2599d16ee5f3606cfa2046e256d1bf3a">changeItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Use <a href="#a_1a1ce26ef6250b0cb277986e8aa7443c1c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setText</a>() instead.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab1030de9dcbeb4a82ce97462137d98e2">changeItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/pixmap" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:pixmap">Pixmap</a> pixmap )
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Use <a href="#a_1a5b4885fdab54a06fd2c1081e51afc512" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:popupmenu_dz ↵" class="wikilink1">setPixmap</a>() instead.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0a035b3b0ac6b556d73b315994f14e2c">updateItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Exists only to keep old code working. Do not use in new code. Does nothing.
+</p>
+
+</div>
+
+<h3 id="signals1">Signals</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1a212790c0ce30bc3fffc07464abb910b3">aboutToHide</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“aboutToHide()”</code>
+</p>
+
+<p>
+This signal is emitted just before the popup menu is hidden after it has been displayed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9cbadebca2c71a8dfc07e73c3bcc8fa2">aboutToShow</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“aboutToShow()”</code>
+</p>
+
+<p>
+This signal is emitted just before the popup menu is displayed. You can connect it to any slot that sets up the menu contents (e.g. to ensure that the right items are enabled).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a2e23eb8553d8d417261634f7f02c5bf6">activated</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“activated(int)”</code>
+</p>
+
+<p>
+This signal is emitted when a menu item is selected.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The id of the selected item.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae6a4ccc6a048896757bf68deec48a32b">highlighted</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> id )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“highlighted(int)”</code>
+</p>
+
+<p>
+Emitted when a menu item is highlighted.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>id</em> - The id of the highlighted item.</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz.txt</bdi> · Last modified: 2021/09/16 18:47 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/popupmenu_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Apopupmenu_dz&amp;1639626041" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

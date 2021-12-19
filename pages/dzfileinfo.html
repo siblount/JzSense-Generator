@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzFileInfo [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,fileinfo_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz">DzFileInfo</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dzfileinfo">DzFileInfo</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#enumerations">Enumerations</a></div></li>
+<li class="level2"><div class="li"><a href="#constructors">Constructors</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#enumerations1">Enumerations</a></div></li>
+<li class="level3"><div class="li"><a href="#constructors1">Constructors</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Ffileinfo_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dzfileinfo">DzFileInfo</h1>
+<div class="level1">
+
+<p>
+<abbr title="Digital Art Zone">DAZ</abbr> Script file information class.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+</li>
+</ul>
+
+<p>
+<strong>Inherited By :</strong> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/file_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:file_dz">DzFile</a>, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/gzfile_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:gzfile_dz">DzGZFile</a> and <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/zipfile_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:zipfile_dz">DzZipFile</a>
+</p>
+
+</div>
+
+<h2 id="enumerations">Enumerations</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">Permissions</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da4b5fbcee18db1a9b3a3c871d2dd1d0c0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ReadOwner</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da6341a9a564f89d8016032e788397dfb9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">WriteOwner</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da5b5a7503469bea7e967b713afc15c421" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ExeOwner</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da1212efc6b877fcf6250ea45f403ccfe2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ReadUser</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da77a8a66d0390f374f094375833503b2b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">WriteUser</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da1ff24089c367269839aa72de030bea35" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ExeUser</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da3fbeaafc3a703aba0732b8d5b3d49b25" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ReadGroup</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da7a148bb8faa92593aac3faf6d8626551" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">WriteGroup</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da5ff7a4d246bf7c128cc3aeecd6033c62" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ExeGroup</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da26ca769ff17cddbd152d12bd8365c04c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ReadOther</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080dadba1b935cabdb43aef5cc0162acecd85" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">WriteOther</a>, <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080da9202ea138f026e276a2f7070f02b4107" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">ExeOther</a></strong> }  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="constructors">Constructors</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><strong><a href="#a_1a0e9a2e85cba7b42fcf5013c5dc61dbbf" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">DzFileInfo</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> file )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1af1a9bc8034e72d2856e26b8b6168d2a2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">absFileName</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a></td><td class="col1 leftalign"><strong><a href="#a_1a4fc06268bea60fb361620f8941ba9958" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">absoluteDir</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a31eb5f1791f14539cf24b3475656bdf6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">absoluteFilePath</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1ace76d37a3fd954a2c8482ad1b9d9234b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">absolutePath</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a29c73644042c8601f4a674ceefb9df86" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">baseName</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a7586cb8989d1aa01e3d51d5b224681d4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">bundleName</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a9fc81ff823294a8a474d18e96bd9a8d4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">caching</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a1b235f1c5cab65f2c72472aaacced316" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">canonicalFilePath</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1aa1a6c095f04854764b617fe9572b302f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">canonicalPath</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a46276835fafc3e1cf7011f94d57181ca" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">completeBaseName</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a5e2291f6b73d6707edc6e30b6d7f1873" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">completeSuffix</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/date" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:date">Date</a></td><td class="col1 leftalign"><strong><a href="#a_1a6f51856b3fdc36db8ea7ba3f69e94381" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">created</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a></td><td class="col1 leftalign"><strong><a href="#a_1a5185ba9137e9ee1cbe9c3567fb71418b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">dir</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a2250b6054982f0bcd63876edf7479a45" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">exists</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1afa40664bc886736c0880da13b09013f1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">extension</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1af790fd5ebf1a9d7b1de201e36989dd59" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">fileName</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a77150324813d6855f26f8978d0d0628c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">filePath</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a49a223d9190249c794c0b131a462057d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isAbsolute</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a7fed106fdab84eb147a5d4abd930578d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isBundle</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a585afffe3ba656132263682ca3fab89b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isDir</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ac5cb6a66200ecaa0e60f8672a4a2fff4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isExecutable</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a70ad80841bbc571bfb4f75f11f013f9d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isFile</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1abc5271b4a30ac2b98de0384d84b7a930" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isHidden</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a820e36b06a3696374f6be414e8f9867e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isReadable</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a89557f8dd8c6721fcb872e3370dec103" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isRelative</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ade75fd9cff4d8385db490e75138e0100" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isRoot</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a71f2c2b7c32c24ac8d04bc34c881f417" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isSymLink</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a7797c77a18993d90d184eb1ad4d19e04" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isWritable</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/date" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:date">Date</a></td><td class="col1 leftalign"><strong><a href="#a_1a2e7a6b9807ebb4b73e8d31973f1d4480" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">lastModified</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/date" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:date">Date</a></td><td class="col1 leftalign"><strong><a href="#a_1ab212ad41f5c94a39f40a7f9d8f3aece8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">lastRead</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a1f4965e61e405347641718d50af208f5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">makeAbsolute</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a074ff39848d7952f10991224475b4e35" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">path</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a00e3cd1c2011c71f62c5382a812a5bad" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">permission</a></strong> <em>( <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">Permissions</a> permissions )</em>  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 rightalign">  <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">Permissions</a></td><td class="col1 leftalign"><strong><a href="#a_1ae527623019cbb030e46976332c49510e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">permissions</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a5f2e190b8261a98c97c2ea4e86670d54" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">refresh</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a1f9c4a4bd47b7cd9beb431504c5ae46c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">remove</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a971b2e95339729e2ea7406e0f332c807" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">setCaching</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> enable )</em>  </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a65336a15f9053c4606f5654dd5ab6217" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">setFile</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a> dir, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> file )</em>  </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a5b1e049655b331961fc0bcdc7d65a425" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">setFile</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/file_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:file_dz">DzFile</a> file )</em>  </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a21a561d0d4d0fd9e88e6a0fa3ccf8902" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">setFile</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> file )</em>  </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aef9cfaa32cf14a460b890a056420fcda" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">size</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1ae33fda40e5c07f4f15debd0299d14166" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">sizeStr</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a474a5de389e0d116d90ebc9c047cda08" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">suffix</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a5bb6ced07fac1cc90f4906014533523a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">symLinkTarget</a></strong> <em>()</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+
+<p>
+Provides access to getting information about files. It also serves as the base class for the other <abbr title="Digital Art Zone">DAZ</abbr> Script File I/O types.
+</p>
+
+</div>
+
+<h3 id="enumerations1">Enumerations</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080d"></a> : <strong>Permissions</strong>
+</p>
+
+<p>
+Enumerated values used by <a href="#a_1a00e3cd1c2011c71f62c5382a812a5bad" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">permission</a>() and <a href="#a_1ae527623019cbb030e46976332c49510e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">permissions</a>() to set/report the permissions and/or ownership of a file. The values may be OR-ed together to set/test multiple permissions and ownership values.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da4b5fbcee18db1a9b3a3c871d2dd1d0c0"></a><strong>ReadOwner</strong> - The file is readable by the owner of the file.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da6341a9a564f89d8016032e788397dfb9"></a><strong>WriteOwner</strong> - The file is writable by the owner of the file.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da5b5a7503469bea7e967b713afc15c421"></a><strong>ExeOwner</strong> - The file is executable by the owner of the file.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da1212efc6b877fcf6250ea45f403ccfe2"></a><strong>ReadUser</strong> - The file is readable by the user.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da77a8a66d0390f374f094375833503b2b"></a><strong>WriteUser</strong> - The file is writable by the user.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da1ff24089c367269839aa72de030bea35"></a><strong>ExeUser</strong> - The file is executable by the user.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da3fbeaafc3a703aba0732b8d5b3d49b25"></a><strong>ReadGroup</strong> - The file is readable by the group.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da7a148bb8faa92593aac3faf6d8626551"></a><strong>WriteGroup</strong> - The file is writable by the group.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da5ff7a4d246bf7c128cc3aeecd6033c62"></a><strong>ExeGroup</strong> - The file is executable by the group.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da26ca769ff17cddbd152d12bd8365c04c"></a><strong>ReadOther</strong> - The file is readable by anyone.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080dadba1b935cabdb43aef5cc0162acecd85"></a><strong>WriteOther</strong> - The file is writable by anyone.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a693d5c05f3feb9ed8a5bf1f66c63080da9202ea138f026e276a2f7070f02b4107"></a><strong>ExeOther</strong> - The file is executable by anyone.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="constructors1">Constructors</h3>
+<div class="level3">
+<hr />
+
+<p>
+<strong><a name="a_1a0e9a2e85cba7b42fcf5013c5dc61dbbf">DzFileInfo</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> file )
+</p>
+
+<p>
+Creates a file info object to retrieve information about the given file.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>file</em> - The path of the file.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1af1a9bc8034e72d2856e26b8b6168d2a2">absFileName</a></strong>()
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Use <a href="#a_1a31eb5f1791f14539cf24b3475656bdf6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">absoluteFilePath</a>() instead.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a> : <strong><a name="a_1a4fc06268bea60fb361620f8941ba9958">absoluteDir</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The file&#039;s absolute path as a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a> object.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.35</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a31eb5f1791f14539cf24b3475656bdf6">absoluteFilePath</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The absolute path of the file, including the file name.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1ace76d37a3fd954a2c8482ad1b9d9234b">absolutePath</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The absolute path of the file, excluding the file name.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a29c73644042c8601f4a674ceefb9df86">baseName</a></strong>()
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Use <a href="#a_1a46276835fafc3e1cf7011f94d57181ca" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">completeBaseName</a>() instead.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a7586cb8989d1aa01e3d51d5b224681d4">bundleName</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> On Mac <abbr title="Operating System">OS</abbr> X, the proper localized name for a bundle if the path <a href="#a_1a7fed106fdab84eb147a5d4abd930578d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">isBundle</a>(). On all other platforms an empty string.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a9fc81ff823294a8a474d18e96bd9a8d4">caching</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if caching is enabled, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a1b235f1c5cab65f2c72472aaacced316">canonicalFilePath</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The canonical path including the file name, i.e. an absolute path without symbolic links or redundant “.” or “..” elements. If the file does not exist, returns an empty string.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1aa1a6c095f04854764b617fe9572b302f">canonicalPath</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The canonical path excluding the file name, i.e. an absolute path without symbolic links or redundant “.” or “..” elements. If the file does not exist, returns an empty string.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a46276835fafc3e1cf7011f94d57181ca">completeBaseName</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The file name excluding the last &#039;.&#039; and extension.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a5e2291f6b73d6707edc6e30b6d7f1873">completeSuffix</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> All characters in the file name after (but not including) the first “.”.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/date" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:date">Date</a> : <strong><a name="a_1a6f51856b3fdc36db8ea7ba3f69e94381">created</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The date and time the file was created.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a> : <strong><a name="a_1a5185ba9137e9ee1cbe9c3567fb71418b">dir</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The path of the object&#039;s parent directory as a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a> object.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.35</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a2250b6054982f0bcd63876edf7479a45">exists</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the file exists on the disk.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1afa40664bc886736c0880da13b09013f1">extension</a></strong>()
+</p>
+
+<p>
+<strong>Deprecated</strong>
+</p>
+
+<p>
+Use <a href="#a_1a474a5de389e0d116d90ebc9c047cda08" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">suffix</a>() instead.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1af790fd5ebf1a9d7b1de201e36989dd59">fileName</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The name of the file, excluding the path.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a77150324813d6855f26f8978d0d0628c">filePath</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The file name, including the path (which may be absolute or relative).</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a49a223d9190249c794c0b131a462057d">isAbsolute</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the file path is absolute, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a7fed106fdab84eb147a5d4abd930578d">isBundle</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if this object points to a bundle or to a symbolic link to a bundle on Mac <abbr title="Operating System">OS</abbr> X, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a585afffe3ba656132263682ca3fab89b">isDir</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if this object points to a directory or to a symbolic link to a directory, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ac5cb6a66200ecaa0e60f8672a4a2fff4">isExecutable</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if this object points to file that is executable, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a70ad80841bbc571bfb4f75f11f013f9d">isFile</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if this object points to a file or to a symbolic link to a file, otherwise <code>false</code> (e.g., a directory).</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1abc5271b4a30ac2b98de0384d84b7a930">isHidden</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the file is &#039;hidden&#039;, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a820e36b06a3696374f6be414e8f9867e">isReadable</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the file is readable by the user, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a89557f8dd8c6721fcb872e3370dec103">isRelative</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the file path is relative, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ade75fd9cff4d8385db490e75138e0100">isRoot</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the object points to a directory or to a symbolic link to a directory, and that directory is the root directory, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a71f2c2b7c32c24ac8d04bc34c881f417">isSymLink</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if this object points to a symbolic link (shortcut on Windows), otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a7797c77a18993d90d184eb1ad4d19e04">isWritable</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the file is writable by the user, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/date" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:date">Date</a> : <strong><a name="a_1a2e7a6b9807ebb4b73e8d31973f1d4480">lastModified</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The date and time the file was last modified.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/date" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:date">Date</a> : <strong><a name="a_1ab212ad41f5c94a39f40a7f9d8f3aece8">lastRead</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The date and time the file was last accessed.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a1f4965e61e405347641718d50af208f5">makeAbsolute</a></strong>()
+</p>
+
+<p>
+Converts the file&#039;s path to an absolute path if it is not already in that form.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the path was converted, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a074ff39848d7952f10991224475b4e35">path</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The absolute path of the file.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="#a_1ace76d37a3fd954a2c8482ad1b9d9234b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">absolutePath</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a00e3cd1c2011c71f62c5382a812a5bad">permission</a></strong>( <a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">Permissions</a> permissions )
+</p>
+
+<p>
+Tests for file permissions. The <code>permissions</code> argument can be several Permissions OR-ed together to check for permission combinations.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the file has the <code>permissions</code> specified, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.35</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1a693d5c05f3feb9ed8a5bf1f66c63080d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:fileinfo_dz ↵" class="wikilink1">Permissions</a> : <strong><a name="a_1ae527623019cbb030e46976332c49510e">permissions</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The complete OR-ed together combination of Permissions for the file.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a5f2e190b8261a98c97c2ea4e86670d54">refresh</a></strong>()
+</p>
+
+<p>
+Refreshes information about the file, i.e. reads in information from the file system the next time a cached property is fetched.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a1f9c4a4bd47b7cd9beb431504c5ae46c">remove</a></strong>()
+</p>
+
+<p>
+Delete the file from the disk.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if successful, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a971b2e95339729e2ea7406e0f332c807">setCaching</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> enable )
+</p>
+
+<p>
+Sets whether or not caching of file information caching is enabled. When caching is enabled, file information is read from the file system the first time it&#039;s needed, but generally not later.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a65336a15f9053c4606f5654dd5ab6217">setFile</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/dir_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:dir_dz">DzDir</a> dir, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> file )
+</p>
+
+<p>
+Sets the file to provide information about to <code>file</code> in <code>dir</code>.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a5b1e049655b331961fc0bcdc7d65a425">setFile</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/file_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:file_dz">DzFile</a> file )
+</p>
+
+<p>
+Sets the file to provide information about to <code>file</code>.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a21a561d0d4d0fd9e88e6a0fa3ccf8902">setFile</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> file )
+</p>
+
+<p>
+Sets the file to provide information about to <code>file</code>.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aef9cfaa32cf14a460b890a056420fcda">size</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The file size in bytes. If the file does not exist or cannot be fetched, 0 is returned.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1ae33fda40e5c07f4f15debd0299d14166">sizeStr</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The file size in bytes, formatted in an easy-to-read manner.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/app_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:app_dz">DzApp</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/app_dz#a_1a71eb97d24a603e50d7df0c381cf6458a" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:app_dz">byteSizeToString</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a474a5de389e0d116d90ebc9c047cda08">suffix</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> All characters in the file after, but not including, the last &#039;.&#039;.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a5bb6ced07fac1cc90f4906014533523a">symLinkTarget</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The absolute path that the file or directory a symbolic link (shortcut on Windows) points to, or a an empty string if the object is not a symbolic link.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.29</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz.txt</bdi> · Last modified: 2018/11/14 04:47 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/fileinfo_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Afileinfo_dz&amp;1639625247" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

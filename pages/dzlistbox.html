@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzListBox [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,listbox_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz">DzListBox</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dzlistbox">DzListBox</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#enumerations">Enumerations</a></div></li>
+<li class="level2"><div class="li"><a href="#properties">Properties</a></div></li>
+<li class="level2"><div class="li"><a href="#constructors">Constructors</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#signals">Signals</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#enumerations1">Enumerations</a></div></li>
+<li class="level3"><div class="li"><a href="#properties1">Properties</a></div></li>
+<li class="level3"><div class="li"><a href="#constructors1">Constructors</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+<li class="level3"><div class="li"><a href="#signals1">Signals</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Flistbox_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dzlistbox">DzListBox</h1>
+<div class="level1">
+
+<p>
+Script wrapper for <a href="http://doc.qt.io/archives/qt-4.8/Q3ListBox.html" class="urlextern" target="_blank" title="http://doc.qt.io/archives/qt-4.8/Q3ListBox.html" rel="nofollow noopener">Q3ListBox</a>.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1 node"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+<ul>
+<li class="level2 node"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a></div>
+<ul>
+<li class="level3"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/scrollview_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:scrollview_dz">DzScrollView (deprecated)</a></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+<h2 id="enumerations">Enumerations</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="#a_1ad8a470f4018bc3c13e3292cb3651757d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">LayoutMode</a></td><td class="col1 leftalign">{ <strong><a href="#a_1ad8a470f4018bc3c13e3292cb3651757dae0f36687034ba17ff41ef2123ea7bcb8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">FixedNumber</a>, <a href="#a_1ad8a470f4018bc3c13e3292cb3651757da67600118e8312d29ea0b38fa95dcd0dc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">FitToWidth</a>, <a href="#a_1ad8a470f4018bc3c13e3292cb3651757dac0543c7e4470a3e79b45895a86ff1150" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">FitToHeight</a>, <a href="#a_1ad8a470f4018bc3c13e3292cb3651757da18c03e9114911894d062ca85749aeed9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">Variable</a></strong> }  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="#a_1a7059dfa0ed70c89facc3d317fb4138b3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">SelectionMode</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a7059dfa0ed70c89facc3d317fb4138b3a68168ddfb80052045df470955d649258" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">Single</a>, <a href="#a_1a7059dfa0ed70c89facc3d317fb4138b3a6d3272154843979d20e3004a5db07df3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">Multi</a>, <a href="#a_1a7059dfa0ed70c89facc3d317fb4138b3afdedde49edaac3e89fc6ba9422d95384" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">Extended</a>, <a href="#a_1a7059dfa0ed70c89facc3d317fb4138b3a9d08c4a56d9596e81fcdb17f53d08ee4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">NoSelection</a></strong> }  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="properties">Properties</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 70%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="#a_1ad8a470f4018bc3c13e3292cb3651757d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">LayoutMode</a></td><td class="col1 leftalign"><strong><a href="#a_1a98cedad4b61eefbe10056fe8ebcc3cdd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">columnMode</a></strong>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ad43c3812e6d13e0518d9f8b8f463ffcf" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">count</a></strong>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a23878c0f7d1df2b90d84f6ccf5aeb083" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">currentItem</a></strong>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a8a39e73930161a0942e6fcda5141e472" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">currentText</a></strong>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a06fdfc082e8a28dfa66b5be1a9b78072" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">numColumns</a></strong>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1acbacb8e515747456ffd69b7827a5725f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">numItemsVisible</a></strong>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a0801460eb7eb6812bd4e0ce52ab29024" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">numRows</a></strong>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="#a_1ad8a470f4018bc3c13e3292cb3651757d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">LayoutMode</a></td><td class="col1 leftalign"><strong><a href="#a_1a4834dc608177041391ec6b4722a949da" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">rowMode</a></strong>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1adab4da51ba40d5a492becdceccccbfcd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">selected</a></strong>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="#a_1a7059dfa0ed70c89facc3d317fb4138b3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">SelectionMode</a></td><td class="col1 leftalign"><strong><a href="#a_1ad47698d5d65354c10694ccc5a2ace7c7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">selectionMode</a></strong>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aeed1c52ebab2c5e09e69568f474d4b05" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">topItem</a></strong>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a92d3943a8ce339a65a802ec4fd0d12c5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">variableHeight</a></strong>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ace4f27d658d09a205725840e969467b4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">variableWidth</a></strong>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="constructors">Constructors</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><strong><a href="#a_1ad59da02d5e7f9004768abb6f7ebab112" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">DzListBox</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a> parent )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ac8bb3912a3ce86b15842e79d0b421204" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">clear</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0e49a444cdba8ddde72c8df014393588" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">insertItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a47f998baa624f9f88a2117412094c516" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">isSelected</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a570cc6d622af8eb2bb16daf86533dfc9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">removeItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9c59c3265626f8ca1efb94887635dabe" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">setSelected</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> selected )</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1acf7c304b55ee5706c5319213b9860b4b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">text</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="signals">Signals</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<tr class="row0">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1cae00463d1c3438b14a29352855077d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">clicked</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9fa38a9f17a02fb880f856b88f624edd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">clicked</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a5e7ab162d69e213f84f805bd605b46e8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">contextMenuRequested</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab5ac4181a630e112ce616298b3be14da" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">currentChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aa6cc7d3dd69e4ed7bbabef97fd64487a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">doubleClicked</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a8da54e131b2070b024772e72e80f3db7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">highlighted</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1acb30d518bf6bf6c67ae98141aa3b498e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">highlighted</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a39cdb563dd9c245eb0617018ab4b37a2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">mouseButtonClicked</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> button, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a47b41fc50f25f31917340fed525380c4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">mouseButtonPressed</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> button, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a58b3c6bb86177b3f4a87b97d36ccacce" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">onItem</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1af96d6790105e8f9efd40e4deb11efc23" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">onViewport</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a17c7b5e8dbfdb6a6908bb00507004d5c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">pressed</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a8735bc38d0cf7c4af6d11a71d6a8648f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">pressed</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0a4ef3b3c6988dfde576129ca9d0b3e8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">returnPressed</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1af6f25bb07192ef0025f97d2a4f7c7d47" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">rightButtonClicked</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a072e161f92b2a27726243d8321398bcc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">rightButtonPressed</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae0d7047561a4b6ed68a492de249d0d12" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">selected</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1acf007df4a019c6f4b1c606984762e3ae" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">selected</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1d85de554564e69188e34457b463de1b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">selectionChanged</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a05f249fadcdf1ff7ec501fdceea2774d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">selectionChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+<div class="wrap_round wrap_todo plugin_wrap">
+<p>
+<strong>TODO:</strong>
+Add detailed description.
+</p>
+</div>
+</div>
+
+<h3 id="enumerations1">Enumerations</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a name="a_1ad8a470f4018bc3c13e3292cb3651757d"></a> : <strong>LayoutMode</strong>
+</p>
+
+<p>
+The possible layout modes for the columns and rows of the list box
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1ad8a470f4018bc3c13e3292cb3651757dae0f36687034ba17ff41ef2123ea7bcb8"></a><strong>FixedNumber</strong> - There is a fixed number of rows or columns</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1ad8a470f4018bc3c13e3292cb3651757da67600118e8312d29ea0b38fa95dcd0dc"></a><strong>FitToWidth</strong> - There are as many columns as will fit</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1ad8a470f4018bc3c13e3292cb3651757dac0543c7e4470a3e79b45895a86ff1150"></a><strong>FitToHeight</strong> - There are as many rows as will fit</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1ad8a470f4018bc3c13e3292cb3651757da18c03e9114911894d062ca85749aeed9"></a><strong>Variable</strong> - There are as many rows as required by the column mode and vice-versa</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1a7059dfa0ed70c89facc3d317fb4138b3"></a> : <strong>SelectionMode</strong>
+</p>
+
+<p>
+The possible selection modes for the list box
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a7059dfa0ed70c89facc3d317fb4138b3a68168ddfb80052045df470955d649258"></a><strong>Single</strong> - Single selection - only one item in the box can be selected at a time</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a7059dfa0ed70c89facc3d317fb4138b3a6d3272154843979d20e3004a5db07df3"></a><strong>Multi</strong> - Multi selection - when the user clicks on an item, its selection state is toggled, all other items remain the same</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a7059dfa0ed70c89facc3d317fb4138b3afdedde49edaac3e89fc6ba9422d95384"></a><strong>Extended</strong> - Extended selection - when the user clicks on an item, the current selection is replaced with that item. The ctrl and shift keys can be used to select multiple items.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a7059dfa0ed70c89facc3d317fb4138b3a9d08c4a56d9596e81fcdb17f53d08ee4"></a><strong>NoSelection</strong> - Items can not be selected</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="properties1">Properties</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="#a_1ad8a470f4018bc3c13e3292cb3651757d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">LayoutMode</a> : <strong><a name="a_1a98cedad4b61eefbe10056fe8ebcc3cdd">columnMode</a></strong>
+</p>
+
+<p>
+The layout mode for the columns of the list box
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ad43c3812e6d13e0518d9f8b8f463ffcf">count</a></strong>
+</p>
+
+<p>
+The number of items in the list box (read-only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a23878c0f7d1df2b90d84f6ccf5aeb083">currentItem</a></strong>
+</p>
+
+<p>
+The index of the currently highlighted item in the list box
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a8a39e73930161a0942e6fcda5141e472">currentText</a></strong>
+</p>
+
+<p>
+The text of the currently highlighted item in the list box
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a06fdfc082e8a28dfa66b5be1a9b78072">numColumns</a></strong>
+</p>
+
+<p>
+The number of columns in the list box (read-only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1acbacb8e515747456ffd69b7827a5725f">numItemsVisible</a></strong>
+</p>
+
+<p>
+The number of items visible in the list box (read-only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a0801460eb7eb6812bd4e0ce52ab29024">numRows</a></strong>
+</p>
+
+<p>
+The number of rows in the list box (read-only)
+</p>
+<hr />
+
+<p>
+<a href="#a_1ad8a470f4018bc3c13e3292cb3651757d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">LayoutMode</a> : <strong><a name="a_1a4834dc608177041391ec6b4722a949da">rowMode</a></strong>
+</p>
+
+<p>
+The layout mode for the rows of the list box
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1adab4da51ba40d5a492becdceccccbfcd">selected</a></strong>
+</p>
+
+<p>
+The index of the currently selected item in the list box (in single selection mode only)
+</p>
+<hr />
+
+<p>
+<a href="#a_1a7059dfa0ed70c89facc3d317fb4138b3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:listbox_dz ↵" class="wikilink1">SelectionMode</a> : <strong><a name="a_1ad47698d5d65354c10694ccc5a2ace7c7">selectionMode</a></strong>
+</p>
+
+<p>
+The selection mode of the list box
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aeed1c52ebab2c5e09e69568f474d4b05">topItem</a></strong>
+</p>
+
+<p>
+The index of the item at the top of the list box
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a92d3943a8ce339a65a802ec4fd0d12c5">variableHeight</a></strong>
+</p>
+
+<p>
+Whether or not the list box has variable height rows
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ace4f27d658d09a205725840e969467b4">variableWidth</a></strong>
+</p>
+
+<p>
+Whether or not the list box has variable width columns
+</p>
+
+</div>
+
+<h3 id="constructors1">Constructors</h3>
+<div class="level3">
+<hr />
+
+<p>
+<strong><a name="a_1ad59da02d5e7f9004768abb6f7ebab112">DzListBox</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/widget_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:widget_dz">DzWidget</a> parent )
+</p>
+
+<p>
+Creates a list box with the given parent widget
+</p>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1ac8bb3912a3ce86b15842e79d0b421204">clear</a></strong>()
+</p>
+
+<p>
+Clears all items in the list box
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0e49a444cdba8ddde72c8df014393588">insertItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+Inserts the given item into the list box
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a47f998baa624f9f88a2117412094c516">isSelected</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> true if the item at the given index is selected</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a570cc6d622af8eb2bb16daf86533dfc9">removeItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+Removes the given item from the list box
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9c59c3265626f8ca1efb94887635dabe">setSelected</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> selected )
+</p>
+
+<p>
+Sets whether the item at the given index is selected
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1acf7c304b55ee5706c5319213b9860b4b">text</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The text of the item at the given index</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="signals1">Signals</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1a1cae00463d1c3438b14a29352855077d">clicked</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“clicked(int)”</code>
+</p>
+
+<p>
+Emitted when an item is clicked (mouse button pressed and released).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9fa38a9f17a02fb880f856b88f624edd">clicked</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“clicked(int,const QPoint&amp;)”</code>
+</p>
+
+<p>
+Emitted when an item is clicked (mouse button pressed and released).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a5e7ab162d69e213f84f805bd605b46e8">contextMenuRequested</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“contextMenuRequested(int,const QPoint&amp;)”</code>
+</p>
+
+<p>
+Emitted when the user right clicks the list box for a context menu.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab5ac4181a630e112ce616298b3be14da">currentChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“currentChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the current item changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1aa6cc7d3dd69e4ed7bbabef97fd64487a">doubleClicked</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“doubleClicked(int)”</code>
+</p>
+
+<p>
+Emitted when an item is double clicked.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a8da54e131b2070b024772e72e80f3db7">highlighted</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“highlighted(const QString&amp;)”</code>
+</p>
+
+<p>
+Emitted when the highlighted item changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1acb30d518bf6bf6c67ae98141aa3b498e">highlighted</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“highlighted(int)”</code>
+</p>
+
+<p>
+Emitted when the highlighted item changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a39cdb563dd9c245eb0617018ab4b37a2">mouseButtonClicked</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> button, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“mouseButtonClicked(int,int,const QPoint&amp;)”</code>
+</p>
+
+<p>
+Emitted when an item is clicked with the a mouse button (mouse button pressed and released).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a47b41fc50f25f31917340fed525380c4">mouseButtonPressed</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> button, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pos )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“mouseButtonPressed(int,int,const QPoint&amp;)”</code>
+</p>
+
+<p>
+Emitted when an item is pressed with the a mouse button (mouse button pressed).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a58b3c6bb86177b3f4a87b97d36ccacce">onItem</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“onItem(int)”</code>
+</p>
+
+<p>
+Emitted mouse cursor moves onto an item.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1af96d6790105e8f9efd40e4deb11efc23">onViewport</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“onViewport()”</code>
+</p>
+
+<p>
+Emitted mouse cursor moves from an item to an empty part of the list box.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a17c7b5e8dbfdb6a6908bb00507004d5c">pressed</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“pressed(int,const QPoint&amp;)”</code>
+</p>
+
+<p>
+Emitted when an item is pressed (mouse button pressed).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a8735bc38d0cf7c4af6d11a71d6a8648f">pressed</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“pressed(int)”</code>
+</p>
+
+<p>
+Emitted when an item is pressed (mouse button pressed).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0a4ef3b3c6988dfde576129ca9d0b3e8">returnPressed</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“returnPressed(int)”</code>
+</p>
+
+<p>
+Emitted when return is pressed on the current item.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1af6f25bb07192ef0025f97d2a4f7c7d47">rightButtonClicked</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“rightButtonClicked(int,const QPoint&amp;)”</code>
+</p>
+
+<p>
+Emitted when an item is clicked with the right button (mouse button pressed and released).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a072e161f92b2a27726243d8321398bcc">rightButtonPressed</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/point" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:point">Point</a> pnt )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“rightButtonPressed(int,const QPoint&amp;)”</code>
+</p>
+
+<p>
+Emitted when an item is pressed with the right button (mouse button pressed).
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae0d7047561a4b6ed68a492de249d0d12">selected</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“selected(int)”</code>
+</p>
+
+<p>
+Emitted when the selected item changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1acf007df4a019c6f4b1c606984762e3ae">selected</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> text )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“selected(const QString&amp;)”</code>
+</p>
+
+<p>
+Emitted when the selected item changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a1d85de554564e69188e34457b463de1b">selectionChanged</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“selectionChanged()”</code>
+</p>
+
+<p>
+Emitted when the selection in the box changes.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a05f249fadcdf1ff7ec501fdceea2774d">selectionChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> index )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“selectionChanged(int)”</code>
+</p>
+
+<p>
+Emitted when a new item is selected in single selection mode.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz.txt</bdi> · Last modified: 2021/12/10 00:27 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/listbox_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Alistbox_dz&amp;1639625680" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzRenderOptions [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,renderoptions_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz">DzRenderOptions</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dzrenderoptions">DzRenderOptions</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#enumerations">Enumerations</a></div></li>
+<li class="level2"><div class="li"><a href="#properties">Properties</a></div></li>
+<li class="level2"><div class="li"><a href="#constructors">Constructors</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#signals">Signals</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#enumerations1">Enumerations</a></div></li>
+<li class="level3"><div class="li"><a href="#properties1">Properties</a></div></li>
+<li class="level3"><div class="li"><a href="#constructors1">Constructors</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+<li class="level3"><div class="li"><a href="#signals1">Signals</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Frenderoptions_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dzrenderoptions">DzRenderOptions</h1>
+<div class="level1">
+
+<p>
+This class manages the inclusion/exclusion of render options.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+</li>
+</ul>
+
+<p>
+<strong>Inherited By :</strong> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/textureconvertoroptions_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:textureconvertoroptions_dz" rel="nofollow">textureconvertoroptions_dz</a>
+</p>
+
+</div>
+
+<h2 id="enumerations">Enumerations</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="#a_1a259aa092332c0aa32887f38e891d4d5f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">GammaCorrection</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a259aa092332c0aa32887f38e891d4d5fab22cadcc323d740cd165feea53b92c14" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">GCOff</a>, <a href="#a_1a259aa092332c0aa32887f38e891d4d5fa8edfca1d01370861fef2b050627a6123" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">GCOn</a></strong> }  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="#a_1a05ab1dab49f374c18498f9f4cf9e35ec" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">PixelFilter</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a05ab1dab49f374c18498f9f4cf9e35eca0a9f2440a0985898b74432293e8f0d84" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">Box</a>, <a href="#a_1a05ab1dab49f374c18498f9f4cf9e35ecaf147b8d0c4922882854a09c7a5c6d339" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">Triangle</a>, <a href="#a_1a05ab1dab49f374c18498f9f4cf9e35eca2f82294517bcddf0fdb86ded321492b3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">CatmullRom</a>, <a href="#a_1a05ab1dab49f374c18498f9f4cf9e35eca2127e0b0e353a4950a9c1099101c5b08" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">Gaussian</a>, <a href="#a_1a05ab1dab49f374c18498f9f4cf9e35ecabe5d74f068252bab30042cd9d458d439" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">Sinc</a></strong> }  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="#a_1a2eb65b9506a07eeb5400d44add2ab90d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderImgTarget</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a2eb65b9506a07eeb5400d44add2ab90da502f3b275a91ed9fee75ab319a7663b4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">ActiveView</a>, <a href="#a_1a2eb65b9506a07eeb5400d44add2ab90da5488b6fe7ad13b010926d5e8a80dcd78" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">NewWindow</a>, <a href="#a_1a2eb65b9506a07eeb5400d44add2ab90da002f53a6e2d1a4ffe37110350332aa98" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">DirectToFile</a></strong> }  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="#a_1aadd6cd33b72d8bbe012d8f81baa939e3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderMovTarget</a></td><td class="col1 leftalign">{ <strong><a href="#a_1aadd6cd33b72d8bbe012d8f81baa939e3a019a6eaff6eefbdc5446cdc5d16e1f05" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">MovieFile</a>, <a href="#a_1aadd6cd33b72d8bbe012d8f81baa939e3a6665a7a04a831e940ef281173afdff2b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">ImageSeries</a></strong> }  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="#a_1acb8ea57e09ca2d752417be08f1db4971" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderStyle</a></td><td class="col1 leftalign">{ <strong><a href="#a_1acb8ea57e09ca2d752417be08f1db4971a1e721d3f919a97793dcbeb279de2318e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">Normal</a>, <a href="#a_1acb8ea57e09ca2d752417be08f1db4971aecd799950d84d04053fe30e60308a3bf" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">Cartoon</a></strong> }  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderType</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008a6e6a6eaf41c15592604a0955c62fc098" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">ScreenShot</a>, <a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008a690e05c31a727d59f0bb2ce32e6f6775" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">HardwareAssisted</a>, <a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008a213a63b9209d515d31adac05e28f2d21" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">Software</a></strong> }  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="properties">Properties</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 70%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aac3eca27b02c7c4923b7c7a52108c8f6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">aspect</a></strong>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a91d93f14b773dd1c0b7222c069b65486" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">aspectHeight</a></strong>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ac71dcaa78ae1624332c552fc88f58f08" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">aspectWidth</a></strong>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a57dd20a86f211594ddce9ca972e49988" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">doubleSided</a></strong>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a></td><td class="col1 leftalign"><strong><a href="#a_1a4b0dfe02ef0045c765739222241bd311" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">endTime</a></strong>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a6959b928900e056ce5fbe13291f55832" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">gain</a></strong>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1aa7458b54596ad5c3461d946551524b65" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">gamma</a></strong>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="#a_1a259aa092332c0aa32887f38e891d4d5f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">GammaCorrection</a></td><td class="col1 leftalign"><strong><a href="#a_1ad6695fc05c0f6405613cebef6a4781e5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">gammaCorrection</a></strong>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a></td><td class="col1 leftalign"><strong><a href="#a_1a876f7d929712643bb41bf1e3b108c290" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">imageSize</a></strong>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aa5fa27f7c697abdb69a323258212a7ac" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">isAspectConstrained</a></strong>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aba7133fc0eda093635f909e2eba56166" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">isCurrentFrameRender</a></strong>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1afcc305479db7e689ae97ab1ebf96e0d0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">lastRenderImgFilename</a></strong>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a47cea95deb9079ba7c30299b6ddf5660" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">lastRenderMovFilename</a></strong>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1aaae55a4b17d0cca7879f899bedb2f17d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">lastRenderSerFilename</a></strong>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a3dd631bc0f1de0f640ea1c59aabd677d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">motionBlurOffset</a></strong>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a2f7e4bf9220ef6f70d5cf4b7671a1739" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">motionBlurPct</a></strong>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a05a594d9cebca90be9ebfbefd58322a0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">motionBlurSamples</a></strong>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a059ed9e896fbd298e65edcec8bf721bc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">openGLPasses</a></strong>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  <a href="#a_1a05ab1dab49f374c18498f9f4cf9e35ec" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">PixelFilter</a></td><td class="col1 leftalign"><strong><a href="#a_1adc1fb4fc17467f54ed50b6091ca967fc" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">pixelFilter</a></strong>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a29e7ee174f39f2c7404fd422a900f6a0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">rayTraceDepth</a></strong>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1afa6060fb1c1e75a22709a612c2d27979" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderImgFilename</a></strong>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  <a href="#a_1a2eb65b9506a07eeb5400d44add2ab90d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderImgTarget</a></td><td class="col1 leftalign"><strong><a href="#a_1a5fd3e45cef17938d5e252105896d570e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderImgToId</a></strong>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a0395783bef21672c66b16041dcad74bf" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderMovFilename</a></strong>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  <a href="#a_1aadd6cd33b72d8bbe012d8f81baa939e3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderMovTarget</a></td><td class="col1 leftalign"><strong><a href="#a_1a12ab0252b29e1efa819a12ad28140e3d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderMovToId</a></strong>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1ac9a477592fd512ea9c95a7c378f7fb9a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderSerFilename</a></strong>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  <a href="#a_1acb8ea57e09ca2d752417be08f1db4971" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderStyle</a></td><td class="col1 leftalign"><strong><a href="#a_1abaf2bdaa619adad6cdff7b2ad0540dbd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderStyle</a></strong>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  <a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderType</a></td><td class="col1 leftalign"><strong><a href="#a_1a19395f4a3430ff3e0f468db2e9bcb9c4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderType</a></strong>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a4a548ecac1b30341228eb94a75c36ef8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderViewport</a></strong>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ab599ee2c309b2da3ca982b9792516096" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">shadingRate</a></strong>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a42b1bd029ab0ac915098c97c3ca4a185" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">shadowSamples</a></strong>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a91984561c9af7a9d218d7b3421ae5944" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">showPreview</a></strong>  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a></td><td class="col1 leftalign"><strong><a href="#a_1aa7adce27f08f579e00f2a23e240a3652" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">startTime</a></strong>  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a11353b7ac9ec492e4cb7c5250993a050" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">useGLSL</a></strong>  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1af5805c84176c659315ab5f2dcb66f100" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">useMotionBlur</a></strong>  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1ab961ad09432c148d41e599f90bd47160" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">xFilterWidth</a></strong>  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a0a4db16e7a65a8bde84df5421fe045bb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">xPixelSamples</a></strong>  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a5fda4e7e2af44ca814cbb158f92e067f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">yFilterWidth</a></strong>  </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a302486f6d23b529b56a114ba316124ee" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">yPixelSamples</a></strong>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="constructors">Constructors</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><strong><a href="#a_1af4f93149ad7234e30328ed3d680fd541" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">DzRenderOptions</a></strong> <em>()</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a53c75dd4ec4a123969cbd9afa1ec4969" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">applyChanges</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a2f57a74e93f595ba61105abc10daf7c3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">copyFrom</a></strong> <em>( </em>DzRenderOptions<em> opt )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/floatcolor_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:floatcolor_dz">DzFloatColor</a></td><td class="col1 leftalign"><strong><a href="#a_1a26cf0ae24ef312b496ad6cb1c14c9e9a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">gammaCorrectColor</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/floatcolor_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:floatcolor_dz">DzFloatColor</a> color )</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a7350df0356da600331916fc3bb3a61aa" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">resetOptions</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9e5c40806806442e9a409fc547f155fd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">restoreDefaultSettings</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a12ac673bf0972e572560e1b9e87effeb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">setAspectRatio</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> widthRatio, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> heightRatio )</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1abdcafcee30cce38cfd40b73f2dca889f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">setToDefaults</a></strong> <em>()</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="signals">Signals</h2>
+<div class="level2">
+<div class="table sectionedit5"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<tr class="row0">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a90ed37b499f29f58bf8153f8439abe02" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">aspectChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )</em>  </td>
+	</tr>
+	<tr class="row1">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1abca5a8600845a73f2fef5aa35868756b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">aspectChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> w, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> h )</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1b19bfc6609b40c5489c1b322c0feb54" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">aspectConstrainChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ac5e92a09f0dfc830382ac5835445e5b6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">defaultsRestored</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0fca5f3721d2f8fdb052dcab649f39ce" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">doubleSidedChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1e5ba2750279ec146887fade04468dca" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">endTimeChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a> time )</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a3195d6b2a995a009ea0056c6d25c609b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">gainChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> gain )</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9d2bc4988a3c3014ae47f7268328809d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">gammaChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> gamma )</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1afce271608090398c4ab1ca575fd581bf" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">gammaCorrectionChanged</a></strong> <em>( </em>DzRenderOptions<em>::<a href="#a_1a259aa092332c0aa32887f38e891d4d5f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">GammaCorrection</a> gc )</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a5717aff04ad44ca753a0826a2230452d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">imageSizeChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a> size )</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1af70c9c7564c9114deb038f08af5be5e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">motionBlurOffsetChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> offset )</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a9e247162d3d6b5041aef119dbd41ce4b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">motionBlurPctChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> pct )</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1add23e474dfab100e25dcc39dd67f6c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">motionBlurSamplesChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a6dc27f13270b9ce8f7acb925caf1e786" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">openGLPassesChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> passes )</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aaaccf0aef5d705a68559058d97b5e06d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">pixelFilterChanged</a></strong> <em>( </em>DzRenderOptions<em>::<a href="#a_1a05ab1dab49f374c18498f9f4cf9e35ec" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">PixelFilter</a> filter )</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1af532fc8f701a9e9c5e1435c0f6eb16d2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">rayTraceDepthChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> depth )</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a2863266e10ddee9f5279ff33d59e4b25" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderCurrentFrameChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a33618755f35b4f572277efc28ba1cac3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderImgFilenameChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> filename )</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a63ed8b85b8949375fbf10ec1e6bf2eca" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderImgTargetChanged</a></strong> <em>( </em>DzRenderOptions<em>::<a href="#a_1a2eb65b9506a07eeb5400d44add2ab90d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderImgTarget</a> id )</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a6685651ba0f0e0e52ac712ef201c24b5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderMovFilenameChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> filename )</em>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a189c8b2cb698ade312a6c61940b3342d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderMovTargetChanged</a></strong> <em>( </em>DzRenderOptions<em>::<a href="#a_1aadd6cd33b72d8bbe012d8f81baa939e3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderMovTarget</a> id )</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a8ade60da57dff34463592e98428e778f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderSerFilenameChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> filename )</em>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a8ae8787d5be40ee844355910a62df46b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderStyleChanged</a></strong> <em>( </em>DzRenderOptions<em>::<a href="#a_1acb8ea57e09ca2d752417be08f1db4971" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderStyle</a> style )</em>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1adf4d6a744d949cc89e1543ada923766d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderTypeChanged</a></strong> <em>( </em>DzRenderOptions<em>::<a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderType</a> type )</em>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a1d8bdfc3a33da7de095016d44fe7ce6f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">renderViewportChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a246e9e4685b979d5e0b83ea1442be478" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">settingsChanged</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab579ab744a2f174f712cf2964c9e17a4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">shadingRateChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> rate )</em>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aff34aa0abe816d20516d5065e516e45e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">shadowSamplesChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )</em>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aec81796073adbb4041c65f90a78bcafd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">showPreviewChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onoff )</em>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab135b027eae2e249f4c2bdb1cd38a8a5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">startTimeChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a> time )</em>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1acd2350bc3476e28d39e60db96bc16346" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">useGLSLChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aa690d61525f96bcb4e8233af22c36f5e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">useMotionBlurChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a801fba80359dd9f150ba2be963234d28" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">xFilterWidthChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> width )</em>  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1abe8e47f31678a2ee9f26d61f9c382631" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">xPixelSamplesChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )</em>  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0a9db452a18426343b7bc11b82ad8703" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">yFilterWidthChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> width )</em>  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a7de3e80fc00304d4b34b8cce2b8980a2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">yPixelSamplesChanged</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+
+<p>
+The RenderOptions class is responsible for the inclusion/exclusion of certain aspects of a render.
+</p>
+
+</div>
+
+<h3 id="enumerations1">Enumerations</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a name="a_1a259aa092332c0aa32887f38e891d4d5f"></a> : <strong>GammaCorrection</strong>
+</p>
+
+<p>
+States for gamma correction.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a259aa092332c0aa32887f38e891d4d5fab22cadcc323d740cd165feea53b92c14"></a><strong>GCOff</strong> - Gamma correction off.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a259aa092332c0aa32887f38e891d4d5fa8edfca1d01370861fef2b050627a6123"></a><strong>GCOn</strong> - Gamma correction on.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1a05ab1dab49f374c18498f9f4cf9e35ec"></a> : <strong>PixelFilter</strong>
+</p>
+
+<p>
+The types of pixel filters available for RenderMan renders.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a05ab1dab49f374c18498f9f4cf9e35eca0a9f2440a0985898b74432293e8f0d84"></a><strong>Box</strong> - The Box filter.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a05ab1dab49f374c18498f9f4cf9e35ecaf147b8d0c4922882854a09c7a5c6d339"></a><strong>Triangle</strong> - The triangle filter.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a05ab1dab49f374c18498f9f4cf9e35eca2f82294517bcddf0fdb86ded321492b3"></a><strong>CatmullRom</strong> - The Catmull-Rom filter.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a05ab1dab49f374c18498f9f4cf9e35eca2127e0b0e353a4950a9c1099101c5b08"></a><strong>Gaussian</strong> - The Gaussian filter.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a05ab1dab49f374c18498f9f4cf9e35ecabe5d74f068252bab30042cd9d458d439"></a><strong>Sinc</strong> - The Sinc filter.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1a2eb65b9506a07eeb5400d44add2ab90d"></a> : <strong>RenderImgTarget</strong>
+</p>
+
+<p>
+Types of Render Destinations
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a2eb65b9506a07eeb5400d44add2ab90da502f3b275a91ed9fee75ab319a7663b4"></a><strong>ActiveView</strong> - Renders the image in the active viewport.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a2eb65b9506a07eeb5400d44add2ab90da5488b6fe7ad13b010926d5e8a80dcd78"></a><strong>NewWindow</strong> - Renders the image in a new window.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a2eb65b9506a07eeb5400d44add2ab90da002f53a6e2d1a4ffe37110350332aa98"></a><strong>DirectToFile</strong> - Renders the image directly to a file.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1aadd6cd33b72d8bbe012d8f81baa939e3"></a> : <strong>RenderMovTarget</strong>
+</p>
+
+<p>
+The Types of Movies that can be rendered
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1aadd6cd33b72d8bbe012d8f81baa939e3a019a6eaff6eefbdc5446cdc5d16e1f05"></a><strong>MovieFile</strong> - A video file created/compressed by system specific video <abbr title="Application Programming Interface">API</abbr>&#039;s.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1aadd6cd33b72d8bbe012d8f81baa939e3a6665a7a04a831e940ef281173afdff2b"></a><strong>ImageSeries</strong> - A series of image files, one for each frame in the movie.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1acb8ea57e09ca2d752417be08f1db4971"></a> : <strong>RenderStyle</strong>
+</p>
+
+<p>
+The style of the render
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1acb8ea57e09ca2d752417be08f1db4971a1e721d3f919a97793dcbeb279de2318e"></a><strong>Normal</strong> - The shaders/materials for the objects will be used to render.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1acb8ea57e09ca2d752417be08f1db4971aecd799950d84d04053fe30e60308a3bf"></a><strong>Cartoon</strong> - The entire scene will be rendered with a cartoon style shader.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1a5aaed4dd67686dbac1c6b0cab53b2008"></a> : <strong>RenderType</strong>
+</p>
+
+<p>
+Types of Render Operations
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a5aaed4dd67686dbac1c6b0cab53b2008a6e6a6eaf41c15592604a0955c62fc098"></a><strong>ScreenShot</strong> - Performs a &#039;viewport&#039; render, grabbing a frame from the interactive viewport. <strong>See Also:</strong> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/drawstyle_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:drawstyle_dz">DzDrawStyle</a></div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a5aaed4dd67686dbac1c6b0cab53b2008a690e05c31a727d59f0bb2ce32e6f6775"></a><strong>HardwareAssisted</strong> - Performs a &#039;multi-pass&#039; OpenGL render to produce a higher quality image.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a5aaed4dd67686dbac1c6b0cab53b2008a213a63b9209d515d31adac05e28f2d21"></a><strong>Software</strong> - Performs an &#039;offline&#039; render with the active software renderer. <strong>See Also:</strong> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderer_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderer_dz">DzRenderer</a></div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="properties1">Properties</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aac3eca27b02c7c4923b7c7a52108c8f6">aspect</a></strong>
+</p>
+
+<p>
+Holds the currently set aspect ratio (w / h). (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a91d93f14b773dd1c0b7222c069b65486">aspectHeight</a></strong>
+</p>
+
+<p>
+Holds the currently set aspect ratio height. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ac71dcaa78ae1624332c552fc88f58f08">aspectWidth</a></strong>
+</p>
+
+<p>
+Holds the currently set aspect ratio width. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a57dd20a86f211594ddce9ca972e49988">doubleSided</a></strong>
+</p>
+
+<p>
+Holds whether or not to render polygons as double sided.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a> : <strong><a name="a_1a4b0dfe02ef0045c765739222241bd311">endTime</a></strong>
+</p>
+
+<p>
+Holds the scene time of the last frame to render.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a6959b928900e056ce5fbe13291f55832">gain</a></strong>
+</p>
+
+<p>
+Holds the gain value.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1aa7458b54596ad5c3461d946551524b65">gamma</a></strong>
+</p>
+
+<p>
+Holds the gamma value.
+</p>
+<hr />
+
+<p>
+<a href="#a_1a259aa092332c0aa32887f38e891d4d5f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">GammaCorrection</a> : <strong><a name="a_1ad6695fc05c0f6405613cebef6a4781e5">gammaCorrection</a></strong>
+</p>
+
+<p>
+Holds whether or not gamma correction is enabled.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a> : <strong><a name="a_1a876f7d929712643bb41bf1e3b108c290">imageSize</a></strong>
+</p>
+
+<p>
+Holds the size of the image to render.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aa5fa27f7c697abdb69a323258212a7ac">isAspectConstrained</a></strong>
+</p>
+
+<p>
+Holds whether or not to constrain the pixel dimensions of the render to the aspect ratio.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aba7133fc0eda093635f909e2eba56166">isCurrentFrameRender</a></strong>
+</p>
+
+<p>
+Holds whether or not to render only the current frame.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1afcc305479db7e689ae97ab1ebf96e0d0">lastRenderImgFilename</a></strong>
+</p>
+
+<p>
+Holds the filename of the last image rendered. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a47cea95deb9079ba7c30299b6ddf5660">lastRenderMovFilename</a></strong>
+</p>
+
+<p>
+Holds the filename of the last movie rendered. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1aaae55a4b17d0cca7879f899bedb2f17d">lastRenderSerFilename</a></strong>
+</p>
+
+<p>
+Holds the base filename of the image series rendered. (Read Only)
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a3dd631bc0f1de0f640ea1c59aabd677d">motionBlurOffset</a></strong>
+</p>
+
+<p>
+Holds the time offset for blurring.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a2f7e4bf9220ef6f70d5cf4b7671a1739">motionBlurPct</a></strong>
+</p>
+
+<p>
+Holds the amount of time between frames to blur across (0.0 - 1.0).
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a05a594d9cebca90be9ebfbefd58322a0">motionBlurSamples</a></strong>
+</p>
+
+<p>
+Holds the number of samples for motion blur.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a059ed9e896fbd298e65edcec8bf721bc">openGLPasses</a></strong>
+</p>
+
+<p>
+Holds the number of passes for rendering in OpenGL.
+</p>
+<hr />
+
+<p>
+<a href="#a_1a05ab1dab49f374c18498f9f4cf9e35ec" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">PixelFilter</a> : <strong><a name="a_1adc1fb4fc17467f54ed50b6091ca967fc">pixelFilter</a></strong>
+</p>
+
+<p>
+Holds the pixel filter to use.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a29e7ee174f39f2c7404fd422a900f6a0">rayTraceDepth</a></strong>
+</p>
+
+<p>
+Holds the raytrace depth.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1afa6060fb1c1e75a22709a612c2d27979">renderImgFilename</a></strong>
+</p>
+
+<p>
+Holds the filename to save individual images to.
+</p>
+<hr />
+
+<p>
+<a href="#a_1a2eb65b9506a07eeb5400d44add2ab90d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderImgTarget</a> : <strong><a name="a_1a5fd3e45cef17938d5e252105896d570e">renderImgToId</a></strong>
+</p>
+
+<p>
+Holds the target for rendering individual images.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a0395783bef21672c66b16041dcad74bf">renderMovFilename</a></strong>
+</p>
+
+<p>
+Holds the filename to save movies to.
+</p>
+<hr />
+
+<p>
+<a href="#a_1aadd6cd33b72d8bbe012d8f81baa939e3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderMovTarget</a> : <strong><a name="a_1a12ab0252b29e1efa819a12ad28140e3d">renderMovToId</a></strong>
+</p>
+
+<p>
+Holds the target for rendering animations.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1ac9a477592fd512ea9c95a7c378f7fb9a">renderSerFilename</a></strong>
+</p>
+
+<p>
+Holds the base filename to use when saving image series.
+</p>
+<hr />
+
+<p>
+<a href="#a_1acb8ea57e09ca2d752417be08f1db4971" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderStyle</a> : <strong><a name="a_1abaf2bdaa619adad6cdff7b2ad0540dbd">renderStyle</a></strong>
+</p>
+
+<p>
+Holds the style of the render.
+</p>
+<hr />
+
+<p>
+<a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderType</a> : <strong><a name="a_1a19395f4a3430ff3e0f468db2e9bcb9c4">renderType</a></strong>
+</p>
+
+<p>
+Holds the type of the render.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a4a548ecac1b30341228eb94a75c36ef8">renderViewport</a></strong>
+</p>
+
+<p>
+Holds whether or not to use the aspect and size of the current viewport for the render.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ab599ee2c309b2da3ca982b9792516096">shadingRate</a></strong>
+</p>
+
+<p>
+Holds the shading rate.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a42b1bd029ab0ac915098c97c3ca4a185">shadowSamples</a></strong>
+</p>
+
+<p>
+Holds the number of samples when rendering shadows.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a91984561c9af7a9d218d7b3421ae5944">showPreview</a></strong>
+</p>
+
+<p>
+Holds whether or not to show a preview.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a> : <strong><a name="a_1aa7adce27f08f579e00f2a23e240a3652">startTime</a></strong>
+</p>
+
+<p>
+Holds the scene time of the first frame to render.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a11353b7ac9ec492e4cb7c5250993a050">useGLSL</a></strong>
+</p>
+
+<p>
+Holds whether or not to use shaders when rendering in OpenGL.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1af5805c84176c659315ab5f2dcb66f100">useMotionBlur</a></strong>
+</p>
+
+<p>
+Holds whether or not to use motion blur.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1ab961ad09432c148d41e599f90bd47160">xFilterWidth</a></strong>
+</p>
+
+<p>
+Holds the width of the pixel filter in x.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a0a4db16e7a65a8bde84df5421fe045bb">xPixelSamples</a></strong>
+</p>
+
+<p>
+Holds the number of samples per pixel in x.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a5fda4e7e2af44ca814cbb158f92e067f">yFilterWidth</a></strong>
+</p>
+
+<p>
+Holds the width of the pixel filter in y.
+</p>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a302486f6d23b529b56a114ba316124ee">yPixelSamples</a></strong>
+</p>
+
+<p>
+Holds the number of samples per pixel in y.
+</p>
+
+</div>
+
+<h3 id="constructors1">Constructors</h3>
+<div class="level3">
+<hr />
+
+<p>
+<strong><a name="a_1af4f93149ad7234e30328ed3d680fd541">DzRenderOptions</a></strong>()
+</p>
+
+<p>
+Default Constructor. Initializes render options.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.57</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1a53c75dd4ec4a123969cbd9afa1ec4969">applyChanges</a></strong>()
+</p>
+
+<p>
+Writes render options via the settings manager.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a2f57a74e93f595ba61105abc10daf7c3">copyFrom</a></strong>( <em>DzRenderOptions</em> opt )
+</p>
+
+<p>
+Copies the settings from another render options object.
+</p>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.57</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/floatcolor_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:floatcolor_dz">DzFloatColor</a> : <strong><a name="a_1a26cf0ae24ef312b496ad6cb1c14c9e9a">gammaCorrectColor</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/floatcolor_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:floatcolor_dz">DzFloatColor</a> color )
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>color</em> - The color to gamma correct.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> If gamma correction is enabled, a linearized version of <code>color</code>. If gamma correction is off, <code>color</code> is returned unchanged.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a7350df0356da600331916fc3bb3a61aa">resetOptions</a></strong>()
+</p>
+
+<p>
+Sets values for render options found in the stored settings.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9e5c40806806442e9a409fc547f155fd">restoreDefaultSettings</a></strong>()
+</p>
+
+<p>
+Restores the applications default settings and replaces the stored values.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a12ac673bf0972e572560e1b9e87effeb">setAspectRatio</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> widthRatio, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> heightRatio )
+</p>
+
+<p>
+Set current aspect width for this render. Represented as widthRatio : heightRatio.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1abdcafcee30cce38cfd40b73f2dca889f">setToDefaults</a></strong>()
+</p>
+
+<p>
+Sets all options to the default values, but does not affect values of stored/remembered settings. Also, no “changed” signals are emitted when calling this method.
+</p>
+
+</div>
+
+<h3 id="signals1">Signals</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1a90ed37b499f29f58bf8153f8439abe02">aspectChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“aspectChanged(double)”</code>
+</p>
+
+<p>
+Emitted when the aspect for the render has changed, or the viewport render status has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1abca5a8600845a73f2fef5aa35868756b">aspectChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> w, <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> h )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“aspectChanged(float,float)”</code>
+</p>
+
+<p>
+Emitted when the aspect for the render has changed, or the viewport render status has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a1b19bfc6609b40c5489c1b322c0feb54">aspectConstrainChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“aspectConstrainChanged(bool)”</code>
+</p>
+
+<p>
+Emitted when the constrain aspect ratio setting has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1ac5e92a09f0dfc830382ac5835445e5b6">defaultsRestored</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“defaultsRestored()”</code>
+</p>
+
+<p>
+Emitted when the default options have been restored.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0fca5f3721d2f8fdb052dcab649f39ce">doubleSidedChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“doubleSidedChanged(bool)”</code>
+</p>
+
+<p>
+Emitted when the double sided setting has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a1e5ba2750279ec146887fade04468dca">endTimeChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a> time )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“endTimeChanged(DzTime)”</code>
+</p>
+
+<p>
+Emitted when the end time has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a3195d6b2a995a009ea0056c6d25c609b">gainChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> gain )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“gainChanged(double)”</code>
+</p>
+
+<p>
+Emitted when the gain value has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9d2bc4988a3c3014ae47f7268328809d">gammaChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> gamma )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“gammaChanged(double)”</code>
+</p>
+
+<p>
+Emitted when the gamma value has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1afce271608090398c4ab1ca575fd581bf">gammaCorrectionChanged</a></strong>( <em>DzRenderOptions</em>::<a href="#a_1a259aa092332c0aa32887f38e891d4d5f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">GammaCorrection</a> gc )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“gammaCorrectionChanged(DzRenderOptions::GammaCorrection)”</code>
+</p>
+
+<p>
+Emitted when gamma correction state has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a5717aff04ad44ca753a0826a2230452d">imageSizeChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/size" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:size">Size</a> size )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“imageSizeChanged(const QSize&amp;)”</code>
+</p>
+
+<p>
+Emitted when the image size has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1af70c9c7564c9114deb038f08af5be5e1">motionBlurOffsetChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> offset )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“motionBlurOffsetChanged(double)”</code>
+</p>
+
+<p>
+Emitted when the motion blur offset has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a9e247162d3d6b5041aef119dbd41ce4b">motionBlurPctChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> pct )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“motionBlurPctChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the motion blur percentage has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a1add23e474dfab100e25dcc39dd67f6c">motionBlurSamplesChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“motionBlurSamplesChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the motion blur samples has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a6dc27f13270b9ce8f7acb925caf1e786">openGLPassesChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> passes )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“openGLPassesChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the number of OpenGL passes has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1aaaccf0aef5d705a68559058d97b5e06d">pixelFilterChanged</a></strong>( <em>DzRenderOptions</em>::<a href="#a_1a05ab1dab49f374c18498f9f4cf9e35ec" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">PixelFilter</a> filter )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“pixelFilterChanged(DzRenderOptions::PixelFilter)”</code>
+</p>
+
+<p>
+Emitted when the pixel filter has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1af532fc8f701a9e9c5e1435c0f6eb16d2">rayTraceDepthChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> depth )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“rayTraceDepthChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the ray trace depth has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a2863266e10ddee9f5279ff33d59e4b25">renderCurrentFrameChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderCurrentFrameChanged(bool)”</code>
+</p>
+
+<p>
+Emitted when the render current frame setting has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a33618755f35b4f572277efc28ba1cac3">renderImgFilenameChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> filename )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderImgFilenameChanged(const QString&amp;)”</code>
+</p>
+
+<p>
+Emitted when the image filename for the render has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a63ed8b85b8949375fbf10ec1e6bf2eca">renderImgTargetChanged</a></strong>( <em>DzRenderOptions</em>::<a href="#a_1a2eb65b9506a07eeb5400d44add2ab90d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderImgTarget</a> id )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderImgTargetChanged(DzRenderOptions::RenderImgTarget)”</code>
+</p>
+
+<p>
+Emitted when the image target type for the render has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a6685651ba0f0e0e52ac712ef201c24b5">renderMovFilenameChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> filename )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderMovFilenameChanged(const QString&amp;)”</code>
+</p>
+
+<p>
+Emitted when the movie filename for the render has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a189c8b2cb698ade312a6c61940b3342d">renderMovTargetChanged</a></strong>( <em>DzRenderOptions</em>::<a href="#a_1aadd6cd33b72d8bbe012d8f81baa939e3" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderMovTarget</a> id )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderMovTargetChanged(DzRenderOptions::RenderMovTarget)”</code>
+</p>
+
+<p>
+Emitted when the movie target type for the render has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a8ade60da57dff34463592e98428e778f">renderSerFilenameChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> filename )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderSerFilenameChanged(const QString&amp;)”</code>
+</p>
+
+<p>
+Emitted when the image series filename for the render has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a8ae8787d5be40ee844355910a62df46b">renderStyleChanged</a></strong>( <em>DzRenderOptions</em>::<a href="#a_1acb8ea57e09ca2d752417be08f1db4971" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderStyle</a> style )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderStyleChanged(DzRenderOptions::RenderStyle)”</code>
+</p>
+
+<p>
+Emitted when the render type has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1adf4d6a744d949cc89e1543ada923766d">renderTypeChanged</a></strong>( <em>DzRenderOptions</em>::<a href="#a_1a5aaed4dd67686dbac1c6b0cab53b2008" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:renderoptions_dz ↵" class="wikilink1">RenderType</a> type )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderTypeChanged(DzRenderOptions::RenderType)”</code>
+</p>
+
+<p>
+Emitted when the render type has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a1d8bdfc3a33da7de095016d44fe7ce6f">renderViewportChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“renderViewportChanged(bool)”</code>
+</p>
+
+<p>
+Emitted when the render to viewport setting has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a246e9e4685b979d5e0b83ea1442be478">settingsChanged</a></strong>()
+</p>
+
+<p>
+<strong>Signature:</strong><code>“settingsChanged()”</code>
+</p>
+
+<p>
+Emitted when any of the settings has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab579ab744a2f174f712cf2964c9e17a4">shadingRateChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> rate )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“shadingRateChanged(double)”</code>
+</p>
+
+<p>
+Emitted when the shading rate has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1aff34aa0abe816d20516d5065e516e45e">shadowSamplesChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“shadowSamplesChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the number of shadow samples has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1aec81796073adbb4041c65f90a78bcafd">showPreviewChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onoff )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“showPreviewChanged(bool)”</code>
+</p>
+
+<p>
+Emitted when the show preview setting has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab135b027eae2e249f4c2bdb1cd38a8a5">startTimeChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/time_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:time_dz">DzTime</a> time )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“startTimeChanged(DzTime)”</code>
+</p>
+
+<p>
+Emitted when the start time has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1acd2350bc3476e28d39e60db96bc16346">useGLSLChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“useGLSLChanged(bool)”</code>
+</p>
+
+<p>
+Emitted when the use GLSL setting has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1aa690d61525f96bcb4e8233af22c36f5e">useMotionBlurChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“useMotionBlurChanged(bool)”</code>
+</p>
+
+<p>
+Emitted when the motion blur setting has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a801fba80359dd9f150ba2be963234d28">xFilterWidthChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> width )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“xFilterWidthChanged(double)”</code>
+</p>
+
+<p>
+Emitted when the X-axis filter width has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1abe8e47f31678a2ee9f26d61f9c382631">xPixelSamplesChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“xPixelSamplesChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the number of X-axis pixel samples has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0a9db452a18426343b7bc11b82ad8703">yFilterWidthChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> width )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“yFilterWidthChanged(double)”</code>
+</p>
+
+<p>
+Emitted when the Y-axis filter width has changed.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a7de3e80fc00304d4b34b8cce2b8980a2">yPixelSamplesChanged</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> samples )
+</p>
+
+<p>
+<strong>Signature:</strong><code>“yPixelSamplesChanged(int)”</code>
+</p>
+
+<p>
+Emitted when the number of Y-axis pixel samples has changed.
+</p>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz.txt</bdi> · Last modified: 2021/07/04 17:57 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/renderoptions_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Arenderoptions_dz&amp;1639626180" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

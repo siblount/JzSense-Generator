@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzTransferUtility [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,transferutility_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz">DzTransferUtility</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dztransferutility">DzTransferUtility</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#enumerations">Enumerations</a></div></li>
+<li class="level2"><div class="li"><a href="#constructors">Constructors</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#enumerations1">Enumerations</a></div></li>
+<li class="level3"><div class="li"><a href="#constructors1">Constructors</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Ftransferutility_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dztransferutility">DzTransferUtility</h1>
+<div class="level1">
+
+<p>
+Implements the logic of transferring weights, morph, maps, etc using projection.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 id="enumerations">Enumerations</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">AssetType</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9aa3783d634fc640d4cfb4fc118905f16f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">NoAsset</a>, <a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9a14aa076deaefbdc075a33a45e88962e8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">GeometryAsset</a>, <a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9adbc6160074804525f50202e36a38296f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">NodeAsset</a></strong> }  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="#a_1ae96315ee246bd4a509133af84c88c5e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseType</a></td><td class="col1 leftalign">{ <strong><a href="#a_1ae96315ee246bd4a509133af84c88c5e1a210dc11d5899943558970b03b5fbdeb9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseGeom</a>, <a href="#a_1ae96315ee246bd4a509133af84c88c5e1a7b595fc8a3d8402b9dadeaabe20d42c1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseMorph</a>, <a href="#a_1ae96315ee246bd4a509133af84c88c5e1a0c9c542ec8d51050a32544b3c114514f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseCurrent</a></strong> }  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="#a_1acafecf45c7b29e690980ee8671b5971c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">SourceMorphTransferType</a></td><td class="col1 leftalign">{ <strong><a href="#a_1acafecf45c7b29e690980ee8671b5971ca190d19b8c2499d179f773771040c51bd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">NoMorphs</a>, <a href="#a_1acafecf45c7b29e690980ee8671b5971ca00d2e3da679522324927993a1b50bc52" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">NameList</a>, <a href="#a_1acafecf45c7b29e690980ee8671b5971cafd6df02fa66eaa93f2a62e232bed3b4f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">Favorites</a>, <a href="#a_1acafecf45c7b29e690980ee8671b5971ca0304ab9ab98cb65b5c7681018b1f7867" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">FavoritesAndSubComponets</a>, <a href="#a_1acafecf45c7b29e690980ee8671b5971cabe07755c18470e3237d7f500e38c7041" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">ShapingAndPoseType</a>, <a href="#a_1acafecf45c7b29e690980ee8671b5971caf428be3e3359b35bfada7c68a234a0a1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">AllMorphs</a></strong> }  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="constructors">Constructors</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><strong><a href="#a_1a0a3afa5fd10020544ac7f240826ce4e9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">DzTransferUtility</a></strong> <em>()</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a2742c3cff79c1dc535bb5d71eb4c9996" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">doTransfer</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a8da20362eb506965f9e96b7919f63850" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getAdaptiveTolerance</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a2f1032bb93bd05efc3fd46dc348945b2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getAddSmoothModifier</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a0e5f78e7a8f5e82c8987c7cee70b4764" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getAdjustTargetBase</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a48f49aea5e7ad86ee9a77e830690430b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getConsiderLinesAsRigid</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a5d5e9cba737b192604fdb597b4e3b2a8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getContentType</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  float</td><td class="col1 leftalign"><strong><a href="#a_1add8355db0ba9fd6083fb299fea32ff6e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getDistanceSquaredTolerance</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1afdebdfeeb92b3a5bba2a1c2d9904d45d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getFitToFigure</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a0fc4d23ee6b5fe20f86cb7e3ece83acf" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getLockViewOnTransfer</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1af3cb15e32b02dd4adb0ff6eb57201b87" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getMergeHierarchies</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a></td><td class="col1 leftalign"><strong><a href="#a_1a2aec33599d4d613341c2907975ca3eb7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getMorphTransferList</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a></td><td class="col1 leftalign"><strong><a href="#a_1a1d0d2aa0e5fde899713655a3cf6d0054" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getNearness</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a5b86b295a994e018775926044d93434d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getOverrideExistingMorphs</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ac037baabb95ddd0461c871e09d22398f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getParentToFigure</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a></td><td class="col1 leftalign"><strong><a href="#a_1a68832b0a6d9d786735653e2747bada1d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getProjectionTemplatePath</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a8e8a6fe634ea83dc2fb7fbc56d00b082" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getRemoveUnusedTargetBones</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a584ddafe752e7bb6e597c0148897b4b5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getRespectHiddenFacets</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a36aa026fc328560dbdd337872d7a3eb8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getSmartLeftRightHandling</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  <a href="#a_1ae96315ee246bd4a509133af84c88c5e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseType</a></td><td class="col1 leftalign"><strong><a href="#a_1ab1ae500485aac07be32b29d390ed41bd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getSourceBase</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a></td><td class="col1 leftalign"><strong><a href="#a_1ac996f205b07793a005cd838e1e0b92dd" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getSourceBaseMorph</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a></td><td class="col1 leftalign"><strong><a href="#a_1a2546a1d5c4e6708f250dc96fc9814f0e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getSourceGeom</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a></td><td class="col1 leftalign"><strong><a href="#a_1a08f199a8e30fb9d3cb3eb3f1839aaf86" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getSourceNode</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row23">
+		<td class="col0 rightalign">  <a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">AssetType</a></td><td class="col1 leftalign"><strong><a href="#a_1a592fd7c1f255ed177f8d6d2701a67a3a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getSourceType</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row24">
+		<td class="col0 rightalign">  <a href="#a_1ae96315ee246bd4a509133af84c88c5e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseType</a></td><td class="col1 leftalign"><strong><a href="#a_1a3f237b5c92ed93a3416f6a4305be68f4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTargetBase</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row25">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a></td><td class="col1 leftalign"><strong><a href="#a_1aeaef755d5a7388d5ff7e48ee96b9a801" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTargetBaseMorph</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row26">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a></td><td class="col1 leftalign"><strong><a href="#a_1a85062f7308e2363c84f7ba0e2ed165d1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTargetGeom</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row27">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a></td><td class="col1 leftalign"><strong><a href="#a_1afe56f083c71f349354a263f4f18c3f59" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTargetNode</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row28">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/figure_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:figure_dz">DzFigure</a></td><td class="col1 leftalign"><strong><a href="#a_1a7befd7ce7b7b9c7c4c336f5f194e819d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTargetOutputFigure</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row29">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a714e7d7c7586008c8aa668ec14a53f6c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTargetReplacesSource</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row30">
+		<td class="col0 rightalign">  <a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">AssetType</a></td><td class="col1 leftalign"><strong><a href="#a_1aef7cb09b46ec11322d64f5ffa3cfcdf6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTargetType</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row31">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a5d8bf0c42f32cfaaece8b6471453b487" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferBinding</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row32">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a18e1bd969439e79c9b00485e0967178a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferFaceGroups</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row33">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a43c41e14f8ceaebb1841f8dfd49fa5ec" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferMaterialGroups</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row34">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a22eb1676e694538c516645f57690341a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferMorphs</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row35">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a04db21a341f8b339b983781734a3f1f1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferRegionGroups</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row36">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a09c6b9a3a9db04e246058924499239b5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferSelectionMap</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row37">
+		<td class="col0 rightalign">  <a href="#a_1acafecf45c7b29e690980ee8671b5971c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">SourceMorphTransferType</a></td><td class="col1 leftalign"><strong><a href="#a_1aa82630e668fd842514178456e401beaa" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferSourceMorphs</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row38">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a32f3e8f8c7a11c85b59cc686021041d2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferTemplateMorphs</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row39">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a367dc1bf5ba56e3f3bfe5dedc22a85f4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getTransferUVs</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row40">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ab2d1a46804c59dd85bf0d7f2828d9d02" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getUseNearness</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row41">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a314861795dd7a50ee665f20fa0d66c49" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getUseSpecifiedContentType</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row42">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ac75d57c80140633b24b0b9e365b8dbb9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getUVSpaceProjection</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row43">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a858d9ec87629e44826e3b699ad5e6a2a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">getVertexFirstProjection</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row44">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1af427179dd76f0448cd1294ec2d37e5ef" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">isSourceBaseMorphClone</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row45">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a77f23947a802ab6588171bf802a5db94" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">removeUnusedBones</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/figure_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:figure_dz">DzFigure</a> figure )</em>  </td>
+	</tr>
+	<tr class="row46">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a02b112f8ef98737fccefe4e30ede59ab" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setAdaptiveTolerance</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )</em>  </td>
+	</tr>
+	<tr class="row47">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a39d6a3bec5bc13d5e56d4dc8f18fdc5b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setAddSmoothModifier</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row48">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1afa2faa2d7cfc1bfef947597221c57ce5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setAdjustTargetBase</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row49">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1af06c546bf5d53b5358bb00c017dbd49f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setConsiderLinesAsRigid</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row50">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ac0ae3d0cfc1af66f267f259318acd947" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setContentType</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> conType )</em>  </td>
+	</tr>
+	<tr class="row51">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a126c3a15290e0fc81f8090536dd7e1f6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setDistanceSquaredTolerance</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )</em>  </td>
+	</tr>
+	<tr class="row52">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ad6aad9a8f3cf1ad7058c0c22249fd40f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setFitToFigure</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row53">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae35d50f611058715a12229e63f280971" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setLockViewOnTransfer</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row54">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a440ae3c68ad45bce773cc216dc5ee492" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setMergeHierarchies</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row55">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1adfca2bc07540781748eba181354c94d7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setMorphTransferList</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> list )</em>  </td>
+	</tr>
+	<tr class="row56">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1af76df35ccfb4ce1200b6037d8fa55891" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setNearness</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )</em>  </td>
+	</tr>
+	<tr class="row57">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0167fee3e26ba29f71ef57a9688933ef" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setOverrideExistingMorphs</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row58">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a756a92a20f4641c430dbcfec0e4e5e64" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setParentToFigure</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row59">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae079a059770bbb2611a7cc1b88143d81" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setProjectionTemplatePath</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> path )</em>  </td>
+	</tr>
+	<tr class="row60">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a74003471585bfa147fbe08b3e68eb451" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setRemoveUnusedTargetBones</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row61">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a4d8e8ab025705664f1c751fc5c64ae6a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setRespectHiddenFacets</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row62">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a0e200eaa81a436c09a70db0e1838c7de" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setSilentImporters</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row63">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a08b713977ec12a542a9c23a9a7e6c1fe" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setSmartLeftRightHandling</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row64">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a4e9969b0547ace64b63d47762c839995" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setSource</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )</em>  </td>
+	</tr>
+	<tr class="row65">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a3297aeab322fb0339b100be8d8ffc8a8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setSource</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a> geom )</em>  </td>
+	</tr>
+	<tr class="row66">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1af5f6b922d6932bbc4452efd7a76b9e33" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setSourceBaseCurrent</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row67">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a1703fda62596aa861f7199252517924f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setSourceBaseMorph</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a> morph )</em>  </td>
+	</tr>
+	<tr class="row68">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1af53bf97e93bef9a17836515dadf14c11" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTarget</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )</em>  </td>
+	</tr>
+	<tr class="row69">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aa82343df995f5a4523c33db04293821a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTarget</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a> geom )</em>  </td>
+	</tr>
+	<tr class="row70">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1ac8f50045cc407df508e6a75b3de3b995" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTargetBaseCurrent</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row71">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a948aa6c07bc8e2c642ea5d806392ba3b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTargetBaseMorph</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a> morph )</em>  </td>
+	</tr>
+	<tr class="row72">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab18bb8d8ba6c3c588ef03a32df553ef0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTargetReplacesSource</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row73">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a54f58ba7e5489831cffad86996fff651" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferBinding</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row74">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a6169d172098590d4ac4022fe7780a270" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferFaceGroups</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row75">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a61274178d4b7b59ac221856ce2d07c10" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferMaterialGroups</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row76">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a447827a744a52845d74826903273fd47" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferMorphs</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row77">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a8b01ca2a44fe4a9172ee51e9de6e0d38" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferRegionGroups</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row78">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aedac56bf2d8951343ba438d7792811a5" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferSelectionMap</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row79">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aac4ec8aa6faa56d13996652ea196155c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferSourceMorphs</a></strong> <em>( <a href="#a_1acafecf45c7b29e690980ee8671b5971c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">SourceMorphTransferType</a> type )</em>  </td>
+	</tr>
+	<tr class="row80">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a57ea2378512d0e5d2a247180bfa130c6" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferTemplateMorphs</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row81">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a241b7a4e47bfd0c6c5c6b2861b2beb3e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTransferUVs</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row82">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a897dd340a6b3f74c12ea04dda59a7aed" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setUseNearness</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row83">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1abd847eb91116d7f294fed0424e98ce4c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setUseSpecifiedContentType</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row84">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ab24df3721e2a42151d34d1618ecca18b" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setUVSpaceProjection</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+	<tr class="row85">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a849db9019a6f6c9fecc1def7fc3b720e" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setVertexFirstProjection</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> This object is provided by the Transfer Utility plugin. It is only available when the Transfer Utility plugin is activated and enabled.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.6.2.85</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="enumerations1">Enumerations</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a name="a_1a72d924d1cb8e1544b6d5198e98d52ca9"></a> : <strong>AssetType</strong>
+</p>
+
+<p>
+The type of the asset to use during projection.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1a72d924d1cb8e1544b6d5198e98d52ca9aa3783d634fc640d4cfb4fc118905f16f"></a><strong>NoAsset</strong> - The type of the asset is not defined.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a72d924d1cb8e1544b6d5198e98d52ca9a14aa076deaefbdc075a33a45e88962e8"></a><strong>GeometryAsset</strong> - The type of the asset is a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a>.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a72d924d1cb8e1544b6d5198e98d52ca9adbc6160074804525f50202e36a38296f"></a><strong>NodeAsset</strong> - The type of the asset is a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a>.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1ae96315ee246bd4a509133af84c88c5e1"></a> : <strong>BaseType</strong>
+</p>
+
+<p>
+The type of base geometry to use during projection.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1ae96315ee246bd4a509133af84c88c5e1a210dc11d5899943558970b03b5fbdeb9"></a><strong>BaseGeom</strong> - The unmodified base geometry.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1ae96315ee246bd4a509133af84c88c5e1a7b595fc8a3d8402b9dadeaabe20d42c1"></a><strong>BaseMorph</strong> - The base geometry as modified by a morph target.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1ae96315ee246bd4a509133af84c88c5e1a0c9c542ec8d51050a32544b3c114514f"></a><strong>BaseCurrent</strong> - The current world-space cached geometry.</div>
+</li>
+</ul>
+
+<p>
+—–
+</p>
+
+<p>
+<a name="a_1acafecf45c7b29e690980ee8671b5971c"></a> : <strong>SourceMorphTransferType</strong>
+</p>
+
+<p>
+The type of source morphs to project.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a name="a_1acafecf45c7b29e690980ee8671b5971ca190d19b8c2499d179f773771040c51bd"></a><strong>NoMorphs</strong> - No morphs.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1acafecf45c7b29e690980ee8671b5971ca00d2e3da679522324927993a1b50bc52"></a><strong>NameList</strong> - A specific list of named morphs.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1acafecf45c7b29e690980ee8671b5971cafd6df02fa66eaa93f2a62e232bed3b4f"></a><strong>Favorites</strong> - The morphs in which their respective value control properties are marked as a favorite.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1acafecf45c7b29e690980ee8671b5971ca0304ab9ab98cb65b5c7681018b1f7867"></a><strong>FavoritesAndSubComponets</strong> - Same as <a href="#a_1acafecf45c7b29e690980ee8671b5971cafd6df02fa66eaa93f2a62e232bed3b4f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">Favorites</a>, plus the properties that are controlled by them via <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a>.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1acafecf45c7b29e690980ee8671b5971cabe07755c18470e3237d7f500e38c7041"></a><strong>ShapingAndPoseType</strong> - The morphs that have their respective control property in the “Modifier/Shape” or “Modifier/Pose” property groups.</div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1acafecf45c7b29e690980ee8671b5971caf428be3e3359b35bfada7c68a234a0a1"></a><strong>AllMorphs</strong> - All morphs.</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="constructors1">Constructors</h3>
+<div class="level3">
+<hr />
+
+<p>
+<strong><a name="a_1a0a3afa5fd10020544ac7f240826ce4e9">DzTransferUtility</a></strong>()
+</p>
+
+<p>
+Default Constructor. Creates a Transfer Utility that can be used to transfer weights, morph, maps, etc using projection.
+</p>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a2742c3cff79c1dc535bb5d71eb4c9996">doTransfer</a></strong>()
+</p>
+
+<p>
+Performs the projection transfer based on the current settings.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the transfer was successful, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a8da20362eb506965f9e96b7919f63850">getAdaptiveTolerance</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The adaptive tolerance factor for calculating the projection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.8.1.78</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a2f1032bb93bd05efc3fd46dc348945b2">getAddSmoothModifier</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if a smoothing modifier will be added to the target figure, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a0e5f78e7a8f5e82c8987c7cee70b4764">getAdjustTargetBase</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the target geometry will be adjusted to the source base geometry, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Reverse Source Shape From Target” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a48f49aea5e7ad86ee9a77e830690430b">getConsiderLinesAsRigid</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if polylines are projected as rigid topology, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.11.0.66</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a5d5e9cba737b192604fdb597b4e3b2a8">getContentType</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The content type to be set on the presentation of the figure.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+float : <strong><a name="a_1add8355db0ba9fd6083fb299fea32ff6e">getDistanceSquaredTolerance</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The distance squared tolerance for calculating the projection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.10.0.50</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1afdebdfeeb92b3a5bba2a1c2d9904d45d">getFitToFigure</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the target figure will be fit to the source figure once the projection has been performed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a0fc4d23ee6b5fe20f86cb7e3ece83acf">getLockViewOnTransfer</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the view will be locked during the transfer, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1af3cb15e32b02dd4adb0ff6eb57201b87">getMergeHierarchies</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if node hierarchies will be merged on the target figure, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> : <strong><a name="a_1a2aec33599d4d613341c2907975ca3eb7">getMorphTransferList</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> A list of morph names that will be transfered (if any).</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> : <strong><a name="a_1a1d0d2aa0e5fde899713655a3cf6d0054">getNearness</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The nearness factor for calculating the projection.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a5b86b295a994e018775926044d93434d">getOverrideExistingMorphs</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if existing morphs on the target figure will be replaced, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ac037baabb95ddd0461c871e09d22398f">getParentToFigure</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the target figure will be parented to the source figure once the projection has been performed, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.10.0.50</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> : <strong><a name="a_1a68832b0a6d9d786735653e2747bada1d">getProjectionTemplatePath</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The path to a template figure to use for projection.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.48</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a8e8a6fe634ea83dc2fb7fbc56d00b082">getRemoveUnusedTargetBones</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if unused bones should be removed from the target after skin binding is transfered, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a584ddafe752e7bb6e597c0148897b4b5">getRespectHiddenFacets</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the transfer of weightmaps will respect hidden facets on the target figure, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a36aa026fc328560dbdd337872d7a3eb8">getSmartLeftRightHandling</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if smart left/right handling will be used during projection calculation, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1ae96315ee246bd4a509133af84c88c5e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseType</a> : <strong><a name="a_1ab1ae500485aac07be32b29d390ed41bd">getSourceBase</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The type of projection base that will be used for the source asset.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a> : <strong><a name="a_1ac996f205b07793a005cd838e1e0b92dd">getSourceBaseMorph</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The morph that will be used for the source projection base, or NULL if a different base type will be used.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a> : <strong><a name="a_1a2546a1d5c4e6708f250dc96fc9814f0e">getSourceGeom</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The shape containing the source asset if the source asset type is GeometryAsset, otherwise null.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> : <strong><a name="a_1a08f199a8e30fb9d3cb3eb3f1839aaf86">getSourceNode</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The node containing the source asset if the source asset type is NodeAsset, otherwise null.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">AssetType</a> : <strong><a name="a_1a592fd7c1f255ed177f8d6d2701a67a3a">getSourceType</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The type of asset currently set for the projection source.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1ae96315ee246bd4a509133af84c88c5e1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">BaseType</a> : <strong><a name="a_1a3f237b5c92ed93a3416f6a4305be68f4">getTargetBase</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The type of projection base that will be used for the target asset.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a> : <strong><a name="a_1aeaef755d5a7388d5ff7e48ee96b9a801">getTargetBaseMorph</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The morph that will be used for the target projection base, or NULL if a different base type will be used.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a> : <strong><a name="a_1a85062f7308e2363c84f7ba0e2ed165d1">getTargetGeom</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The shape containing the target asset if the target asset type is GeometryAsset, otherwise null.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> : <strong><a name="a_1afe56f083c71f349354a263f4f18c3f59">getTargetNode</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The node containing the target asset if the target asset type is NodeAsset, otherwise null.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/figure_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:figure_dz">DzFigure</a> : <strong><a name="a_1a7befd7ce7b7b9c7c4c336f5f194e819d">getTargetOutputFigure</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The target output figure.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a714e7d7c7586008c8aa668ec14a53f6c">getTargetReplacesSource</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the target will replace the source in the scene, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Replace Source With Target” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1a72d924d1cb8e1544b6d5198e98d52ca9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">AssetType</a> : <strong><a name="a_1aef7cb09b46ec11322d64f5ffa3cfcdf6">getTargetType</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The type of asset currently set for the projection target.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a5d8bf0c42f32cfaaece8b6471453b487">getTransferBinding</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if skin binding will be projected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Weight Maps” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a18e1bd969439e79c9b00485e0967178a">getTransferFaceGroups</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if face grouping will be projected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a43c41e14f8ceaebb1841f8dfd49fa5ec">getTransferMaterialGroups</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if material grouping will be projected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Surface Groups” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a22eb1676e694538c516645f57690341a">getTransferMorphs</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if morphs will be projected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a04db21a341f8b339b983781734a3f1f1">getTransferRegionGroups</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if region grouping will be projected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a09c6b9a3a9db04e246058924499239b5">getTransferSelectionMap</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the selection map will be projected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="#a_1acafecf45c7b29e690980ee8671b5971c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">SourceMorphTransferType</a> : <strong><a name="a_1aa82630e668fd842514178456e401beaa">getTransferSourceMorphs</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Which morphs are projected from the source figure.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a32f3e8f8c7a11c85b59cc686021041d2">getTransferTemplateMorphs</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if morphs should be projected from the template figure, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.48</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a367dc1bf5ba56e3f3bfe5dedc22a85f4">getTransferUVs</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if UV maps will be projected, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ab2d1a46804c59dd85bf0d7f2828d9d02">getUseNearness</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if near vertices will be used for calculation of the projection, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a314861795dd7a50ee665f20fa0d66c49">getUseSpecifiedContentType</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the specified content type should be used to set the target content type, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ac75d57c80140633b24b0b9e365b8dbb9">getUVSpaceProjection</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if UV space will be used during projection calculation, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.1</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a858d9ec87629e44826e3b699ad5e6a2a">getVertexFirstProjection</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if vertices are looked at first on the source for projection, <code>false</code> if facets are looked at first.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.38</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1af427179dd76f0448cd1294ec2d37e5ef">isSourceBaseMorphClone</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the morph that will be used for the source projection base is “Modifier/Clone”, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.4.84</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a77f23947a802ab6588171bf802a5db94">removeUnusedBones</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/figure_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:figure_dz">DzFigure</a> figure )
+</p>
+
+<p>
+Removes unused bones from the given figure; unused bones are those whose bone binding weight maps are all filled with zero.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>figure</em> - The figure to remove the unused bones from.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a02b112f8ef98737fccefe4e30ede59ab">setAdaptiveTolerance</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )
+</p>
+
+<p>
+Sets the adaptive tolerance factor if near vertices will be used to calculate the projection.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>val</em> - The adaptive tolerance factor to set.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.8.1.78</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a39d6a3bec5bc13d5e56d4dc8f18fdc5b">setAddSmoothModifier</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not to add a smoothing modifier to the target figure.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1afa2faa2d7cfc1bfef947597221c57ce5">setAdjustTargetBase</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not the target will be adjusted to the unmodified base geometry of the source.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the target geometry will be adjusted. If <code>false</code>, the target geometry will not be changed.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Reverse Source Shape From Target” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1af06c546bf5d53b5358bb00c017dbd49f">setConsiderLinesAsRigid</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not polylines are projected as rigid topology; whether or not all vertices of a given polyline transform based on the relative position of its first vertex, or individually based on their own respective positions.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, polylines are projected as rigid topology. If <code>false</code>, polylines are projected as non-rigid topology.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.11.0.66</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ac0ae3d0cfc1af66f267f259318acd947">setContentType</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> conType )
+</p>
+
+<p>
+Sets the content type to be set on the presentation of the figure.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>conType</em> - The content type to set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a126c3a15290e0fc81f8090536dd7e1f6">setDistanceSquaredTolerance</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )
+</p>
+
+<p>
+Sets the distance squared tolerance to use for calculating the projection.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>val</em> - The distance squared tolerance value to set.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.10.0.50</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ad6aad9a8f3cf1ad7058c0c22249fd40f">setFitToFigure</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the target figure will be fit to the source figure once the projection has been performed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the target figure will be fit to the source figure.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae35d50f611058715a12229e63f280971">setLockViewOnTransfer</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not the view will be locked during the transfer.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the view will be locked during the transfer.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a440ae3c68ad45bce773cc216dc5ee492">setMergeHierarchies</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not node hierarchies will be merged on the target figure.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, node hierarchies will be merged.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1adfca2bc07540781748eba181354c94d7">setMorphTransferList</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> list )
+</p>
+
+<p>
+Sets the list of morph names to transfer.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>list</em> - The list of morph names to set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1af76df35ccfb4ce1200b6037d8fa55891">setNearness</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/number" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:number">Number</a> val )
+</p>
+
+<p>
+Sets the nearness factor if near vertices will be used to calculate the projection.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>val</em> - The nearness factor to set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0167fee3e26ba29f71ef57a9688933ef">setOverrideExistingMorphs</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not to override morphs that already exist onthe target figure.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code> (default), existing morphs on the target figure will be replaced.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a756a92a20f4641c430dbcfec0e4e5e64">setParentToFigure</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the target figure will be parented to the source figure once the projection has been performed.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the target figure will be parented to the source figure.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.10.0.50</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae079a059770bbb2611a7cc1b88143d81">setProjectionTemplatePath</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/string" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:string">String</a> path )
+</p>
+
+<p>
+Sets the path to a template figure to use for projection.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>path</em> - The path of the projection template to set.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.48</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a74003471585bfa147fbe08b3e68eb451">setRemoveUnusedTargetBones</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not unused bones should be removed from the target after skin binding is transfered.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, unused bones will be removed from the target after skin binding is transfered. If <code>false</code>, unused bones will not be removed from the target.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a4d8e8ab025705664f1c751fc5c64ae6a">setRespectHiddenFacets</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not the transfer of weightmaps will respect hidden facets on the target figure.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the transfer of weightmaps will respect hidden facets on the target figure.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a0e200eaa81a436c09a70db0e1838c7de">setSilentImporters</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether importers that may need to be invoked should run silently, or with user input. Currently this only affects transfers using DzTransferPoserFigureAssets. This needs to be called before <a href="#a_1a3297aeab322fb0339b100be8d8ffc8a8" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setSource</a>() or <a href="#a_1aa82343df995f5a4523c33db04293821a" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">setTarget</a>() are called.
+</p>
+<hr />
+
+<p>
+void : <strong><a name="a_1a08b713977ec12a542a9c23a9a7e6c1fe">setSmartLeftRightHandling</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not smart left/right handling will be used during projection calculation.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, smart left/right handling will be used. If <code>false</code>, smart left/right handling will not be used.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a4e9969b0547ace64b63d47762c839995">setSource</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )
+</p>
+
+<p>
+Sets the source asset to be the geometry contained by the given node.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>node</em> - The node to use as a projection source.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a3297aeab322fb0339b100be8d8ffc8a8">setSource</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a> geom )
+</p>
+
+<p>
+Sets the source asset to be the geometry contained by the given shape.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>shape</em> - The shape containing the geometry to use as a projection source.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1af5f6b922d6932bbc4452efd7a76b9e33">setSourceBaseCurrent</a></strong>()
+</p>
+
+<p>
+Sets the Transfer Utility to use the current world-space cached geometry of the source asset for the projection base instead of a morph or the unmodified base geometry. Only valid if the source asset is a node.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>false</code> if the source asset is not a node, otherwise <code>true</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a1703fda62596aa861f7199252517924f">setSourceBaseMorph</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a> morph )
+</p>
+
+<p>
+Sets the morph that will be applied to the source geometry before the projection is calculated. Only valid if the source asset is a node.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>morph</em> - The morph that will act as the projection base.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the morph will be used, <code>false</code> if the morph is invalid or the source asset is not a node.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1af53bf97e93bef9a17836515dadf14c11">setTarget</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )
+</p>
+
+<p>
+Sets the target asset to be the geometry contained by the given node.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>node</em> - The node to use as a projection target.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aa82343df995f5a4523c33db04293821a">setTarget</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/shape_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:shape_dz" rel="nofollow">shape_dz</a> geom )
+</p>
+
+<p>
+Sets the target asset to be the geometry contained by the given shape.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>shape</em> - The shape containing the geometry to use as a projection target.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1ac8f50045cc407df508e6a75b3de3b995">setTargetBaseCurrent</a></strong>()
+</p>
+
+<p>
+Sets the Transfer Utility to use the current world-space cached geometry of the target asset for the projection base instead of a morph or the unmodified base geometry. Only valid if the target asset is a node.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>false</code> if the target asset is not a node, otherwise <code>true</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a948aa6c07bc8e2c642ea5d806392ba3b">setTargetBaseMorph</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/morph_dz" class="wikilink2" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:morph_dz" rel="nofollow">morph_dz</a> morph )
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The morph that will be used for the target projection base, or NULL if a different base type will be used.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab18bb8d8ba6c3c588ef03a32df553ef0">setTargetReplacesSource</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+ets whether or not the target will replace the source in the scene.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the source will be replaced by the target. If <code>false</code>, the source will not be replaced by the target.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Replace Source With Target” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a54f58ba7e5489831cffad86996fff651">setTransferBinding</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not skin binding will be projected to the target.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the skin binding weights will be projected. If <code>false</code>, the skin binding weights will not be projected.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Weight Maps” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a6169d172098590d4ac4022fe7780a270">setTransferFaceGroups</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not face grouping will be projected to the target.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the face groups will be projected. If <code>false</code>, the face groups will not be projected.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a61274178d4b7b59ac221856ce2d07c10">setTransferMaterialGroups</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not material grouping will be projected to the target.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the material groups will be projected. If <code>false</code>, the material groups will not be projected.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Provides access to the “Surface Groups” option in the Transfer Utility dialog.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a447827a744a52845d74826903273fd47">setTransferMorphs</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not morphs will be projected to the target.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the morphs will be projected. If <code>false</code>, no morphs will be projected.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a8b01ca2a44fe4a9172ee51e9de6e0d38">setTransferRegionGroups</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not region grouping will be projected to the target.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the face groups will be projected. If <code>false</code>, the face groups will not be projected.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aedac56bf2d8951343ba438d7792811a5">setTransferSelectionMap</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not the selection map will be created on the target.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the selection map will be projected. If <code>false</code>, the selection map will not be projected.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aac4ec8aa6faa56d13996652ea196155c">setTransferSourceMorphs</a></strong>( <a href="#a_1acafecf45c7b29e690980ee8671b5971c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:transferutility_dz ↵" class="wikilink1">SourceMorphTransferType</a> type )
+</p>
+
+<p>
+Sets which type of morphs to project from the source figure.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>type</em> - The type of morphs on the source figure to project.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a57ea2378512d0e5d2a247180bfa130c6">setTransferTemplateMorphs</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not morphs should be projected from the template figure.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, morphs will be projected from the template figure.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.48</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a241b7a4e47bfd0c6c5c6b2861b2beb3e">setTransferUVs</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not UV maps will be projected to the target.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, the UV maps will be projected. If <code>false</code>, the UV maps will not be projected.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a897dd340a6b3f74c12ea04dda59a7aed">setUseNearness</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not face near vertices will be used to calculate the projection.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, near vertices will be used, otherwise only the closest mesh location will be used.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1abd847eb91116d7f294fed0424e98ce4c">setUseSpecifiedContentType</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the specified content type should be used to set the target content type.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the specified content type will be used to set the target content type. If <code>false</code>, the specified content type will not be used to set the target content type.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ab24df3721e2a42151d34d1618ecca18b">setUVSpaceProjection</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether or not UV space will be used during projection calculation.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, UV space will be used during projection calculation. If <code>false</code>, UV space will not be used during projection calculation.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.1</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a849db9019a6f6c9fecc1def7fc3b720e">setVertexFirstProjection</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> onOff )
+</p>
+
+<p>
+Sets whether vertices or facets on the source are looked at first for projection.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>onOff</em> - If <code>true</code>, vertices are looked at first. If <code>false</code>, facets are looked at first.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.38</div>
+</li>
+</ul>
+
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz.txt</bdi> · Last modified: 2020/01/17 16:35 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/transferutility_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Atransferutility_dz&amp;1639626600" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>

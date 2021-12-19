@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8" />
+    <title>DzERCFreeze [Documentation Center]</title>
+    <script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+    <meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="public,software,dazstudio,4,referenceguide,scripting,api_reference,object_index,ercfreeze_dz"/>
+<meta name="googlebot" content="noodp"/>
+<meta name="msnbot" content="noodp"/>
+<meta name="slurp" content="noodp"/>
+<meta name="robots" content="noodp"/>
+<meta name="msapplication-config" content="none"/>
+<meta name="cse" content="1"/>
+<meta name="google-site-verification" content="PcXQR7P17zEc5J0HU2PkrTC5XOKXwP4EMRizGtqUcoY"/>
+<link rel="search" type="application/opensearchdescription+xml" href="http://docs.daz3d.com/lib/exe/opensearch.php" title="Documentation Center"/>
+<link rel="start" href="http://docs.daz3d.com/"/>
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://docs.daz3d.com/feed.php"/>
+<link rel="alternate" type="application/rss+xml" title="Current namespace" href="http://docs.daz3d.com/feed.php?mode=list&amp;ns=public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index"/>
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz?do=export_xhtml"/>
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz?do=export_raw"/>
+<link rel="canonical" href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz"/>
+<link rel="stylesheet" type="text/css" href="http://docs.daz3d.com/lib/exe/css.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index';var JSINFO = {"id":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz","namespace":"public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index","toc":{"initial_state":1},"plugin_enforcesummary":{"enforce_summary":0,"default_minoredit":0,"enforce_preview":1},"move_renameokay":false};
+/*!]]>*/</script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/jquery.php?tseed=23f888679b4f1dc26eef34902aca964f"></script>
+<script type="text/javascript" charset="utf-8" src="http://docs.daz3d.com/lib/exe/js.php?t=dazdoccenter&amp;tseed=469f8b62f0d6804943506604d65ea17f&amp;template=dazdoccenter"></script>
+<!--<![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="shortcut icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/favicon.ico" />
+<link rel="apple-touch-icon" href="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/apple-touch-icon.png" />
+    <!-- <link href="http://beta.daz3d.com/skin/frontend/enterprise/daznew/groups/design-white-17359270516302b00e72474b54c8fce4.css" rel="stylesheet" type="text/css"/> -->    <script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script><script type="text/javascript">try {var pageTracker = _gat._getTracker("UA-777182-8");pageTracker._setDomainName(".daz3d.com");pageTracker._trackPageview();} catch(err) {}</script></head>
+
+<body>
+    <!--[if lte IE 7 ]><div id="IE7"><![endif]--><!--[if IE 8 ]><div id="IE8"><![endif]-->
+    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site dokuwiki mode_show tpl_dazdoccenter    showSidebar hasSidebar">
+
+        
+<!-- ********** HEADER ********** -->
+<div id="dokuwiki__header"><div class="pad group">
+
+    
+    <div class="headings group">
+        <ul class="a11y skip">
+            <li><a href="#dokuwiki__content">skip to content</a></li>
+        </ul>
+
+        <h1><a href="http://www.daz3d.com"  accesskey="h" title="Documentation Center"><img src="http://www.daz3d.com/skin/frontend/enterprise/daznew/images/logo/daz-logo-main.png" width="135" height="33" style="width:135px;height:33px;" /></a></h1>
+        <h3><a href="http://docs.daz3d.com/doku.php/start" >Documentation Center</a></h3>
+    </div>
+
+    <div class="tools group">
+        <!-- USER TOOLS -->
+                    <div id="dokuwiki__usertools">
+                <h3 class="a11y">User Tools</h3>
+                <ul>
+                    <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz?do=login&amp;sectok="  class="action login" rel="nofollow" title="Log In">Log In</a></li>                </ul>
+            </div>
+        
+        <!-- SITE TOOLS -->
+                    <div id="dokuwiki__sitetools">
+                <h3 class="a11y">Site Tools</h3>
+                <form action="http://docs.daz3d.com/doku.php/start" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input type="hidden" name="do" value="googlecustomsearch" /><input type="text" id="qsearch__in" accesskey="f" name="id" class="edit" title="[ALT+F]" /><input type="submit" value="Search" class="button" title="Search" /></div></form>                <div class="mobileTools">
+                    <form action="http://docs.daz3d.com/doku.php" method="get" accept-charset="utf-8"><div class="no"><input type="hidden" name="id" value="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz" /><select name="do" class="edit quickselect" title="Tools"><option value="">Tools</option><optgroup label="Page Tools"><option value="edit">Show pagesource</option><option value="revisions">Old revisions</option><option value="backlink">Backlinks</option></optgroup><optgroup label="Site Tools"><option value="recent">Recent Changes</option><option value="media">Media Manager</option></optgroup><optgroup label="User Tools"><option value="login">Log In</option></optgroup></select><button type="submit">&gt;</button></div></form>                </div>
+                <ul>
+                                    </ul>
+            </div>
+                
+        <div id="dokuwiki__topnav">
+            <bdi><a href="http://docs.daz3d.com/doku.php/public/software/install_manager/start" class="wikilink1" title="public:software:install_manager:start">Install Manager</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dson_importer/start" class="wikilink1" title="public:software:dson_importer:start">DSON Importer</a></bdi><br/><bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/carrara/start" class="wikilink1" title="public:software:carrara:start">Carrara</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/hexagon/start" class="wikilink1" title="public:software:hexagon:start">Hexagon</a></bdi> | <bdi><a href="http://docs.daz3d.com/doku.php/public/software/bryce/start" class="wikilink1" title="public:software:bryce:start">Bryce</a></bdi>        </div>        
+    </div>   
+
+</div>
+    <!-- BREADCRUMBS -->
+            <div class="breadcrumbs">
+                            <div class="youarehere"><span class="bchead">You are here: </span><span class="home"><bdi><a href="http://docs.daz3d.com/doku.php/start" class="wikilink1" title="start">Home</a></bdi></span> » <bdi><a href="http://docs.daz3d.com/doku.php/public/start" class="wikilink1" title="public:start">Public</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/start" class="wikilink1" title="public:software:start">Software</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/start" class="wikilink1" title="public:software:dazstudio:start">Daz Studio</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/start" class="wikilink1" title="public:software:dazstudio:4:start">v4.x</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:start">API Reference</a></bdi> » <bdi><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:start">Object Index</a></bdi> » <bdi><span class="curid"><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz">DzERCFreeze</a></span></bdi></div>
+                                </div>
+    
+    
+    <hr class="a11y" />
+</div><!-- /header -->
+
+        <div class="wrapper group">
+
+            
+                            <!-- ********** ASIDE ********** -->
+                <div id="dokuwiki__aside"><div class="pad aside include group">
+                    <h3 class="toggle">Sidebar</h3>
+                    <div class="content">
+                                                                            <!-- TOC START -->
+<div id="dw__toc">
+<h3>Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#dzercfreeze">DzERCFreeze</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#enumerations">Enumerations</a></div></li>
+<li class="level2"><div class="li"><a href="#constructors">Constructors</a></div></li>
+<li class="level2"><div class="li"><a href="#methods">Methods</a></div></li>
+<li class="level2"><div class="li"><a href="#signals">Signals</a></div></li>
+<li class="level2"><div class="li"><a href="#detailed_description">Detailed Description</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#enumerations1">Enumerations</a></div></li>
+<li class="level3"><div class="li"><a href="#constructors1">Constructors</a></div></li>
+<li class="level3"><div class="li"><a href="#methods1">Methods</a></div></li>
+<li class="level3"><div class="li"><a href="#signals1">Signals</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+			    <hr aria-expanded="true" style="">
+                                                                        
+
+
+<h3 id="daz_studio_4x">DAZ Studio 4.x</h3>
+<div class="level3">
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:start">Reference Guide</a>
+</p>
+
+</div>
+
+<h4 id="general">General</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/terms/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:terms:start">Terms (Glossary)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/interface/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:interface:start">User Interface (UI)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/plugins/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:plugins:start">Plugins</a></div>
+</li>
+</ul>
+
+</div>
+
+<h4 id="technical">Technical</h4>
+<div class="level4">
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/tech_articles/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:tech_articles:start">Technical Articles</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:start">Scripting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/styling/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:styling:start">User Interface Styling</a></div>
+</li>
+</ul>
+
+</div>
+                        <div class="main_sidebar sidebar_box">
+	<div class="level2">
+		<hr>
+		<ul>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://www.daz3d.com">DAZ 3D Home</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/home">Knowledge Base</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="https://helpdaz.zendesk.com/requests/new">Contact Us</a>
+				</div>
+			</li>
+			<li class="level1">
+				<div class="li">
+					<a class="urlextern" rel="nofollow" target="_blank" href="http://bugs.daz3d.com">Report A Bug</a>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>                        <hr><ul><li class="level1"><div class="li"><bdi><a href="http://docs.daz3d.com/doku.php/public/terms/qr_code/start" class="wikilink1" title="public:terms:qr_code:start">QR Code</a></bdi></div><img src="http://chart.apis.google.com/chart?cht=qr&chl=http%3A%2F%2Fdocs.daz3d.com%2Fdoku.php%2Fpublic%2Fsoftware%2Fdazstudio%2F4%2Freferenceguide%2Fscripting%2Fapi_reference%2Fobject_index%2Fercfreeze_dz&chs=120x120" alt="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz" title="QR Code: http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz" /></li></ul>                    </div>
+                </div></div><!-- /aside -->
+            
+            <!-- ********** CONTENT ********** -->
+            <div id="dokuwiki__content"><div class="pad group">
+
+                <!-- <div class="pageId"><span>public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz</span></div> -->
+
+                <div class="page group">
+                                                            <!-- wikipage start -->
+                    
+<h1 id="dzercfreeze">DzERCFreeze</h1>
+<div class="level1">
+
+<p>
+Implements the logic of &#039;freezing&#039; the numeric properties to a controller property.
+</p>
+
+<p>
+<a href="#detailed_description" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">More...</a>
+</p>
+
+<p>
+<strong>Inherits :</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/object_q" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:object_q">QObject</a></div>
+</li>
+</ul>
+
+</div>
+
+<h2 id="enumerations">Enumerations</h2>
+<div class="level2">
+<div class="table sectionedit1"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="#a_1a49ce5e7b7f4b90abaf0586676a83ab71" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">AttenuateMode</a></td><td class="col1 leftalign">{ <strong><a href="#a_1a49ce5e7b7f4b90abaf0586676a83ab71a03df8fca3156199e335d3aa40dd73dde" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">SubComponents</a>, <a href="#a_1a49ce5e7b7f4b90abaf0586676a83ab71a136ecf0dcbee8ef8e4b40affb1273c02" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">Controller</a></strong> }  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="constructors">Constructors</h2>
+<div class="level2">
+<div class="table sectionedit2"><table class="inline" style="min-width: 0px; width: 70%;">
+
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign"><strong><a href="#a_1a90ce342026e3b108f82157bc6c245ef4" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">DzERCFreeze</a></strong> <em>()</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="methods">Methods</h2>
+<div class="level2">
+<div class="table sectionedit3"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<thead>
+	<tr class="row0">
+		<th class="col0 rightalign" colspan="2">  <abbr title="Digital Art Zone">DAZ</abbr> Script</th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a547dc3bd4530851d0ccf21c265ce0c90" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">addPropertiesToFreeze</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )</em>  </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aafb911e90547fc64e37ab04263c2584d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">doFreeze</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a990fbf93a8e85571195803d072a61422" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getApplyController</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0 rightalign">  AttenuateMode</td><td class="col1 leftalign"><strong><a href="#a_1a4615b6661b561d08805d764941da8fad" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getAttenuateMode</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a></td><td class="col1 leftalign"><strong><a href="#a_1ae9753e5cc6c6481b7106dc240f5f6bb9" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getAttenuateProperty</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a></td><td class="col1 leftalign"><strong><a href="#a_1a822b1519bdcc83e68e5adc1b7ed0f62f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getControllerNode</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a></td><td class="col1 leftalign"><strong><a href="#a_1a0fa552d18aa130c9ad8ac83f17d1f89d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getControllerProperty</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row8">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a067c66a5516de56d2079b9eeadd5916f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getKeyed</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row9">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a></td><td class="col1 leftalign"><strong><a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row10">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1aa9773d22a81042d26e0fcfc8ad5eb76c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getRestoreFigure</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row11">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1af280e5069e588d148d57f3b4bbad8468" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getRestoreRigging</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row12">
+		<td class="col0 rightalign">  <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a></td><td class="col1 leftalign"><strong><a href="#a_1a58ac5f7abbe8e9a7355bd0578ee5c146" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getRestoreSelectedItems</a></strong> <em>()</em>  </td>
+	</tr>
+	<tr class="row13">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae8b618a2f3db5ba91cb7ae6ea7436606" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setApplyController</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row14">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ae312d1e6eab8ec6579ccd8a29114010f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setAttenuateMode</a></strong> <em>( AttenuateMode mode )</em>  </td>
+	</tr>
+	<tr class="row15">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1adac322abc6f8e757e9780baf103a6d19" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setAttenuateProperty</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a> prop )</em>  </td>
+	</tr>
+	<tr class="row16">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1aa5ca64112a8ff7307e131bd4304c0929" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setControllerNode</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )</em>  </td>
+	</tr>
+	<tr class="row17">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a188e0343d22fce17fdf3f84886329ebb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setControllerProperty</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a> prop )</em>  </td>
+	</tr>
+	<tr class="row18">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a071baa7abcfc53315c7e118012389ca7" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setKeyed</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row19">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1ac482fded7da88cccf71a3c98db18ddcb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setPropertiesToFreeze</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> propList )</em>  </td>
+	</tr>
+	<tr class="row20">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a8256e845ae507716bcd74b1ff65b21a0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setRestoreFigure</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row21">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a3bd7c6082418d3ee11bcc9b48deb1891" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setRestoreRigging</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+	<tr class="row22">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a3bfce0c402a828fa825e1610f7a053fb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setRestoreSelectedItems</a></strong> <em>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="signals">Signals</h2>
+<div class="level2">
+<div class="table sectionedit4"><table class="inline" style="min-width: 0px; width: 95%;">
+<col style="width: 20%" />
+	<tr class="row0">
+		<td class="col0 rightalign">  void</td><td class="col1 leftalign"><strong><a href="#a_1a67c055d39a9243c3add2f26bcd00e7a0" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">ERCChanged</a></strong> <em>()</em>  </td>
+	</tr>
+</table></div>
+
+</div>
+
+<h2 id="detailed_description">Detailed Description</h2>
+<div class="level2">
+
+<p>
+This utility class implements the logic of &#039;freezing&#039; (linking) the current state of numeric properties on a node (or multiple nodes) to a controller property, such that adjusting the controller property adjusts the linked properties in kind. The <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a> between the &#039;frozen&#039; properties and the controller are created such that when the controller is set to the value it is at when the &#039;freeze&#039; operation is performed, the &#039;frozen&#039; properties will be at the respective values they were at in that moment of time.
+</p>
+
+<p>
+The controller node (the <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> that the controlling property is located on) and the controller property (the <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a> that ultimately does the controlling) must be set before calling <a href="#a_1aafb911e90547fc64e37ab04263c2584d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">doFreeze</a>(); see <a href="#a_1aa5ca64112a8ff7307e131bd4304c0929" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setControllerNode</a>() and <a href="#a_1a188e0343d22fce17fdf3f84886329ebb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setControllerProperty</a>().
+</p>
+
+<p>
+An additional property can be set and used to attenuate the effect of the controller property on the &#039;frozen&#039; properties, or have its value attenuated as the controller property is applied, depending on the AttenuateMode set.
+</p>
+
+<p>
+The <a href="#a_1a547dc3bd4530851d0ccf21c265ce0c90" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">addPropertiesToFreeze</a>() method is used to inspect the current state of the numeric properties on a a given node that are not currently set to their respective raw values and add them to the list of those properties to be linked to the controller property. This list of properties can be inspected and/or modified using the <a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a>() and <a href="#a_1ac482fded7da88cccf71a3c98db18ddcb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setPropertiesToFreeze</a>() methods.
+</p>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> Sample: <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/samples/properties/erc_freeze/start" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:samples:properties:erc_freeze:start">ERC Freeze</a></div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> This object is provided by the Property Hierarchy plugin. It is only available when the Property Hierarchy plugin is activated and enabled.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.9.3.95</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="enumerations1">Enumerations</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a name="a_1a49ce5e7b7f4b90abaf0586676a83ab71"></a> : <strong>AttenuateMode</strong>
+</p>
+<div class="wrap_round wrap_todo plugin_wrap">
+<p>
+<strong>TODO:</strong>
+Add description.
+</p>
+</div><ul>
+<li class="level1"><div class="li"> <a name="a_1a49ce5e7b7f4b90abaf0586676a83ab71a03df8fca3156199e335d3aa40dd73dde"></a><strong>SubComponents</strong> - <span class="wrap_round wrap_todo "><strong>TODO:</strong> Add description.</span></div>
+</li>
+<li class="level1"><div class="li"> <a name="a_1a49ce5e7b7f4b90abaf0586676a83ab71a136ecf0dcbee8ef8e4b40affb1273c02"></a><strong>Controller</strong> - <span class="wrap_round wrap_todo "><strong>TODO:</strong> Add description.</span></div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="constructors1">Constructors</h3>
+<div class="level3">
+<hr />
+
+<p>
+<strong><a name="a_1a90ce342026e3b108f82157bc6c245ef4">DzERCFreeze</a></strong>()
+</p>
+
+<p>
+Default constructor.
+</p>
+
+</div>
+
+<h3 id="methods1">Methods</h3>
+<div class="level3">
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a547dc3bd4530851d0ccf21c265ce0c90">addPropertiesToFreeze</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )
+</p>
+
+<p>
+Adds all numeric properties on <code>node</code> whose values differ from their raw values to the list of properties to &#039;freeze&#039; (link) to the controller property.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>node</em> - The node to add the numeric properties from.</div>
+</li>
+</ul>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if <code>node</code>, <a href="#a_1a822b1519bdcc83e68e5adc1b7ed0f62f" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getControllerNode</a>(), and <a href="#a_1a0fa552d18aa130c9ad8ac83f17d1f89d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getControllerProperty</a>() are defined and it succeeds, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="#a_1ac482fded7da88cccf71a3c98db18ddcb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setPropertiesToFreeze</a>()</div>
+</li>
+<li class="level1"><div class="li"> <a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aafb911e90547fc64e37ab04263c2584d">doFreeze</a></strong>()
+</p>
+
+<p>
+Performs the ERC freeze based on the current settings.
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the freeze operation was successful, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a990fbf93a8e85571195803d072a61422">getApplyController</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the controller property will be set to the value that causes the &#039;frozen&#039; properties to be at their current value once the &#039;freeze&#039; operation is complete, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+AttenuateMode : <strong><a name="a_1a4615b6661b561d08805d764941da8fad">getAttenuateMode</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The mode that determines how the attenuate property will be used.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a> : <strong><a name="a_1ae9753e5cc6c6481b7106dc240f5f6bb9">getAttenuateProperty</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> If set, the property that will be used to attenuate either the controller property, or the affect of the controller property on the properties returned by <a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a>(), depending on the AttenuateMode set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> : <strong><a name="a_1a822b1519bdcc83e68e5adc1b7ed0f62f">getControllerNode</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The node that the controller property is on.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> This is used to determine the root node that the “Restore Figure” and the “Restore Rigging” options are applied to if <a href="#a_1aa9773d22a81042d26e0fcfc8ad5eb76c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getRestoreFigure</a>() and/or <a href="#a_1af280e5069e588d148d57f3b4bbad8468" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getRestoreRigging</a>() return <code>true</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a> : <strong><a name="a_1a0fa552d18aa130c9ad8ac83f17d1f89d">getControllerProperty</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The property that the properties returned by <a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a>() will be linked to when <a href="#a_1aafb911e90547fc64e37ab04263c2584d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">doFreeze</a>() is called.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a067c66a5516de56d2079b9eeadd5916f">getKeyed</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a> created between the controller property and the &#039;frozen&#039; properties will be a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz#a_1a960973af59906e47948eb9713a614572abb755e0e620454e722f49a2bdc1efbee" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">ERCKeyed</a>, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> : <strong><a name="a_1a7011db289201e378ee09f10113ef137c">getPropertiesToFreeze</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> The list of properties that will be linked to the property returned by <a href="#a_1a0fa552d18aa130c9ad8ac83f17d1f89d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getControllerProperty</a>() when <a href="#a_1aafb911e90547fc64e37ab04263c2584d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">doFreeze</a>() is called.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1aa9773d22a81042d26e0fcfc8ad5eb76c">getRestoreFigure</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the Restore Figure action will be executed once the &#039;freeze&#039; operation is complete, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1af280e5069e588d148d57f3b4bbad8468">getRestoreRigging</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the Restore Figure Rigging action will be executed once the &#039;freeze&#039; operation is complete, otherwise <code>false</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> : <strong><a name="a_1a58ac5f7abbe8e9a7355bd0578ee5c146">getRestoreSelectedItems</a></strong>()
+</p>
+
+<p>
+<strong>Return Value:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <code>true</code> if the Restore Selected Item(s) action will be executed once the &#039;freeze&#039; operation is complete, otherwise <code>false</code>.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.11.0.362</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae8b618a2f3db5ba91cb7ae6ea7436606">setApplyController</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the controller property will be set to the value that causes the &#039;frozen&#039; properties to be at their current value once the &#039;freeze&#039; operation is complete.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the controller property will be applied.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ae312d1e6eab8ec6579ccd8a29114010f">setAttenuateMode</a></strong>( AttenuateMode mode )
+</p>
+
+<p>
+Sets the mode that determines how the attenuate property will be used.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>mode</em> - The attenuate mode to set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1adac322abc6f8e757e9780baf103a6d19">setAttenuateProperty</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a> prop )
+</p>
+
+<p>
+Sets the property that will be used to attenuate either the controller property, or the affect of the controller property on the properties returned by <a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a>(), depending on the AttenuateMode set.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>prop</em> - The property to set.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1aa5ca64112a8ff7307e131bd4304c0929">setControllerNode</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/node_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:node_dz">DzNode</a> node )
+</p>
+
+<p>
+Sets the node that the controller property is on.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>node</em> - The node to set.</div>
+</li>
+</ul>
+
+<p>
+<strong>Attention:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> This is used to determine the root node that the “Restore Figure” and the “Restore Rigging” options are applied to if <a href="#a_1aa9773d22a81042d26e0fcfc8ad5eb76c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getRestoreFigure</a>() and/or <a href="#a_1af280e5069e588d148d57f3b4bbad8468" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getRestoreRigging</a>() return <code>true</code>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a188e0343d22fce17fdf3f84886329ebb">setControllerProperty</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/numericproperty_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:numericproperty_dz">DzNumericProperty</a> prop )
+</p>
+
+<p>
+Sets the property that the properties returned by <a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a>() will be linked to when <a href="#a_1aafb911e90547fc64e37ab04263c2584d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">doFreeze</a>() is called.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>prop</em> - The property to set as the controller.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="#a_1a547dc3bd4530851d0ccf21c265ce0c90" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">addPropertiesToFreeze</a>()</div>
+</li>
+<li class="level1"><div class="li"> <a href="#a_1ac482fded7da88cccf71a3c98db18ddcb" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">setPropertiesToFreeze</a>()</div>
+</li>
+<li class="level1"><div class="li"> <a href="#a_1a7011db289201e378ee09f10113ef137c" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getPropertiesToFreeze</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a071baa7abcfc53315c7e118012389ca7">setKeyed</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a> created between the controller property and the &#039;frozen&#039; properties will be a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz#a_1a960973af59906e47948eb9713a614572abb755e0e620454e722f49a2bdc1efbee" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">ERCKeyed</a> (using the keys in timeline) or a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz#a_1a960973af59906e47948eb9713a614572a9ce3cb043228d28c3f043fc343f4c3dd" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">ERCDeltaAdd</a>.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a> will be a <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">DzERCLink</a>::<a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/erclink_dz#a_1a960973af59906e47948eb9713a614572abb755e0e620454e722f49a2bdc1efbee" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:erclink_dz">ERCKeyed</a>.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1ac482fded7da88cccf71a3c98db18ddcb">setPropertiesToFreeze</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/array" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:array">Array</a> propList )
+</p>
+
+<p>
+Sets the list of properties that will be linked to the property returned by <a href="#a_1a0fa552d18aa130c9ad8ac83f17d1f89d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">getControllerProperty</a>() when <a href="#a_1aafb911e90547fc64e37ab04263c2584d" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">doFreeze</a>() is called.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>propList</em> - The list of properties.</div>
+</li>
+</ul>
+
+<p>
+<strong>See Also:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="#a_1a547dc3bd4530851d0ccf21c265ce0c90" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:ercfreeze_dz ↵" class="wikilink1">addPropertiesToFreeze</a>()</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a8256e845ae507716bcd74b1ff65b21a0">setRestoreFigure</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the Restore Figure action will be executed once the &#039;freeze&#039; operation is complete.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the Restore Figure action will be executed.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a3bd7c6082418d3ee11bcc9b48deb1891">setRestoreRigging</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the Restore Figure Rigging action will be executed once the &#039;freeze&#039; operation is complete.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the Restore Figure Rigging action will be executed.</div>
+</li>
+</ul>
+<hr />
+
+<p>
+void : <strong><a name="a_1a3bfce0c402a828fa825e1610f7a053fb">setRestoreSelectedItems</a></strong>( <a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/boolean" class="wikilink1" title="public:software:dazstudio:4:referenceguide:scripting:api_reference:object_index:boolean">Boolean</a> yesNo )
+</p>
+
+<p>
+Sets whether or not the Restore Selected Item(s) action will be executed once the &#039;freeze&#039; operation is complete.
+</p>
+
+<p>
+<strong>Parameter(s):</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>yesNo</em> - If <code>true</code>, the Restore Selected Item(s) action will be executed.</div>
+</li>
+</ul>
+
+<p>
+<strong>Since:</strong>
+</p>
+<ul>
+<li class="level1"><div class="li"> 4.11.0.362</div>
+</li>
+</ul>
+
+</div>
+
+<h3 id="signals1">Signals</h3>
+<div class="level3">
+<hr />
+
+<p>
+void : <strong><a name="a_1a67c055d39a9243c3add2f26bcd00e7a0">ERCChanged</a></strong>()
+</p>
+<div class="wrap_round wrap_todo plugin_wrap">
+<p>
+<strong>TODO:</strong>
+Add description.
+</p>
+</div>
+</div>
+
+                    <!-- wikipage stop -->
+                                    </div>
+
+                <!-- <div class="docInfo"><bdi>public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz.txt</bdi> · Last modified: 2020/01/17 15:56 (external edit)</div> -->
+
+                            </div></div><!-- /content -->
+
+            <hr class="a11y" />
+
+            <!-- PAGE ACTIONS -->
+            <div id="dokuwiki__pagetools">
+                <h3 class="a11y">Page Tools</h3>
+                <div class="tools">
+                    <ul>
+                        <li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz?do=backlink"  class="action backlink" rel="nofollow" title="Backlinks"><span>Backlinks</span></a></li><li><a href="http://docs.daz3d.com/doku.php/public/software/dazstudio/4/referenceguide/scripting/api_reference/object_index/ercfreeze_dz?do=export_pdf"  class="action export_pdf" rel="nofollow" title="Export to PDF"><span>Export to PDF</span></a></li><li class="plugin_move_page"><a href=""><span>Rename Page</span></a></li><li><a href="#dokuwiki__top"  class="action top" accesskey="t" rel="nofollow" title="Back to top [T]"><span>Back to top</span></a></li>                    </ul>
+                </div>
+            </div>
+        </div><!-- /wrapper -->
+
+        
+<!-- ********** FOOTER ********** -->
+<div id="dokuwiki__footer"><div class="pad">
+    <div class="license">Except where otherwise noted, content on this wiki is licensed under the following license: <bdi><a href="http://creativecommons.org/licenses/by/3.0/" rel="license" class="urlextern" target="_blank">CC Attribution 3.0 Unported</a></bdi></div>
+    <div class="buttons">
+        <a href="http://creativecommons.org/licenses/by/3.0/" rel="license" target="_blank"><img src="http://docs.daz3d.com/lib/images/license/button/cc.png" alt="CC Attribution 3.0 Unported" /></a>        <a href="http://www.php.net" title="Powered by PHP" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-php.gif" width="80" height="15" alt="Powered by PHP" /></a>
+        <a href="http://validator.w3.org/check/referer" title="Valid HTML5" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-html5.png" width="80" height="15" alt="Valid HTML5" /></a>
+        <a href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3" title="Valid CSS" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-css.png" width="80" height="15" alt="Valid CSS" /></a>
+        <a href="http://dokuwiki.org/" title="Driven by DokuWiki" target="_blank"><img
+            src="http://docs.daz3d.com/lib/tpl/dazdoccenter/images/button-dw.png" width="80" height="15" alt="Driven by DokuWiki" /></a>
+    </div>
+</div></div><!-- /footer -->
+
+    </div></div><!-- /site -->
+
+    <div class="no"><img src="http://docs.daz3d.com/lib/exe/indexer.php?id=public%3Asoftware%3Adazstudio%3A4%3Areferenceguide%3Ascripting%3Aapi_reference%3Aobject_index%3Aercfreeze_dz&amp;1639625167" width="2" height="1" alt="" /></div>
+    <div id="screen__mode" class="no"></div>    <!--[if ( lte IE 7 | IE 8 ) ]></div><![endif]-->
+</body>
+</html>
