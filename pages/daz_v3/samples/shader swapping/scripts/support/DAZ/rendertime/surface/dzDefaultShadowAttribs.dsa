@@ -1,0 +1,47 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzDefaultShadowAttribs.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+var oNODE = App.getRenderMgr().getActiveRenderer().getCurrentNode();
+var oOWNER = Shader.getOwner();
+
+/*********************************************************************/
+// --- Identification
+// If we've got a node
+if( oNODE )
+{
+	// Set the attribute
+	Shader.setStringAttrib( "user", "string node", oNODE.name );
+}
+// Set the attribute
+Shader.setStringAttrib( "identifier", "name", String("/%1/%2".arg(oNODE.name).arg(oOWNER.name) );
+
+// --- Opacity
+var sOpacity = "primitive";
+// If we've got a node and it casts shadows
+if( oNODE && oNODE.castsShadow() ){
+	// Get the opacity property
+	var oProperty = oOWNER.getOpacityProperty();
+	// If the property is mapped use "shader", otherwise use "primitive"
+	sOpacity = ( oProperty.isMapped() ? "shader" : "primitive" ) ;
+	Shader.setIntegerAttrib( "visibility", "integer transmission", 1 );
+}
+// Set the attributes
+Shader.setStringAttrib( "shade", "string transmissionhitmode", sOpacity );
+Shader.setStringAttrib( "shade", "string diffusehitmode", sOpacity );
+//Shader.setStringAttrib( "shade", "string specularhitmode", "shader" );//default

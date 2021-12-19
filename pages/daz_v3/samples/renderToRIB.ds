@@ -1,0 +1,520 @@
+/**********************************************************************
+	File: renderToRIB.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script Globals
+*****************************/
+const g_sTOOL_NAME = "Render To RIB";
+const g_sTOOL_KEY = "3Delight";
+const g_oFILE = new DzFileInfo( getScriptFileName() );
+const g_sSCRIPT_NAME = String( "%1.%2" ).arg( g_oFILE.baseName() ).arg( g_oFILE.extension() );
+
+const g_bSHIFT_PRESSED = shiftPressed();
+const g_bCONTROL_PRESSED = ctrlPressed();
+
+const g_sRIB_PATH_KEY = 'ribPath';
+const g_sKEEP_SHADOWS_KEY = 'keepShadows';
+const g_sCOLLECT_ASSETS_KEY = 'collectAssets';
+
+var g_oTmpFile = new DzFileInfo( Scene.getFilename() );
+const g_sDEFAULT_RIB_PATH = String( "%1/%2" ).arg( App.getTempPath() )
+	.arg( g_oTmpFile.exists() ? String( "%1.rib" ).arg( g_oTmpFile.baseName() ) : "dzTest.rib" );
+	
+delete g_oTmpFile;
+g_oTmpFile = undefined;
+
+var g_oSettings = new DsSettings;
+var g_oGui = new DsInterface;
+var g_oActions = new DsActions;
+
+/*********************************************************************/
+//   DsSettings - A class for setting/getting stored values
+/*********************************************************************/
+class DsSettings{
+	/*****************************
+	   Class Members
+	*****************************/
+	var m_oMgr = App.getAppSettingsMgr();
+	
+	/*********************************************************************/
+	// void : Method for recording settings
+	function set( sPath, sName, oValue ){
+		// Add a temporary 'sub-directory' onto the settings manager path
+		m_oMgr.pushPath( sPath );
+		// Store the setting; dependant on type
+		switch( typeof oValue ){
+			// If value is a string
+			case "string":
+				// Set as String
+				m_oMgr.setStringValue( sName, oValue );
+				break;
+			// If value is bool
+			case "boolean":
+				// Set as a Bool
+				m_oMgr.setBoolValue( sName, oValue );
+				break;
+			// If value is an int, float or double
+			case "number":
+				// Set as Float
+				m_oMgr.setFloatValue( sName, oValue );
+				break;
+			// If none of the above
+			default:
+				// Don't do anything
+				break;
+		}
+		// Return the settings manager path to it's previous state.
+		m_oMgr.popPath();
+	}
+	
+	/*********************************************************************/
+	// QObject : Method for retrieving settings
+	function get( sPath, sName, oValue ){
+		// Create a variable to store the value
+		var v;
+		// Add a temporary 'sub-directory' onto the settings manager path
+		m_oMgr.pushPath( sPath );
+		// Retrieve the setting; dependant on type
+		switch( typeof oValue ){
+			// If value is a string
+			case "string":
+				v = m_oMgr.getStringValue( sName, oValue );
+				break;
+			// If value is a bool
+			case "boolean":
+				v = m_oMgr.getBoolValue( sName, oValue );
+				break;
+			// If value is an int, float or double
+			case "number":
+				v = m_oMgr.getFloatValue( sName, oValue );
+				break;
+			// If none of the above
+			default:
+				// Don't do anything
+				break;
+		}
+		// Return the settings manager path to it's previous state.
+		m_oMgr.popPath();
+		// Return the value
+		return v;
+	}
+}
+
+/*********************************************************************/
+//   DsInterface - A class for interfacing with the user
+/*********************************************************************/
+class DsInterface{
+	/*****************************
+	   Class Members
+	*****************************/
+	const m_nMARGIN = 5;
+	const m_nSPACING = 5;
+	const m_nMIN_BTN_WIDTH = 80;
+	const m_nMAX_BTN_HEIGHT = 20;
+	const m_nNOTES_WIDTH = 290;
+	
+	// List of Boolean options
+	var m_aBoolNames = new Array;
+	var m_aBoolObjs = new Array;
+	// List of String options
+	var m_aStrNames = new Array;
+	var m_aStrObjs = new Array;
+	// List of ComboBox options
+	var m_aCmbNames = new Array;
+	var m_aCmbObjs = new Array;
+	//
+	var m_wDlg, m_wTabStack;
+	var m_wOptionPage, m_wPrefsPage;
+	var m_wPathGB, m_wPrefsGB;
+	var m_wRibPath;
+	var m_wKeepShadows, m_wCollect;
+	var m_wHelpBtn, m_wAcceptBtn, m_wCancelBtn;
+	var m_wRcrdOnExec, m_wRcrdBtn, m_wRdBtn, m_wDfltBtn;
+	
+	/*********************************************************************/
+	// void : Build the 'common' portion of the interface (used in hidden and unhidden modes)
+	function doCommon(){
+		// --------------------- 
+		// --- Main dialog
+		// --------------------- 
+		m_wDlg = new DzDialog;
+		m_wTabStack = new DzTabWidget( m_wDlg );
+		// --------------------- 
+		// --- Options Page
+		// --------------------- 
+		m_wOptionPage = new DzVGroupBox( m_wTabStack );
+		// --- Path
+		m_wPathGB = new DzVGroupBox( m_wOptionPage );
+		m_wRibPath = new DzLineEdit( m_wPathGB );
+		m_aStrObjs.push( m_wRibPath );
+		m_aStrNames.push( g_sRIB_PATH_KEY );
+		// --- Shadow Maps
+		m_wKeepShadows = new DzCheckBox( m_wOptionPage );
+		m_aBoolObjs.push( m_wKeepShadows );
+		m_aBoolNames.push( g_sKEEP_SHADOWS_KEY );
+		// --- Collect
+		m_wCollect = new DzCheckBox( m_wOptionPage );
+		m_aBoolObjs.push( m_wCollect );
+		m_aBoolNames.push( g_sCOLLECT_ASSETS_KEY );
+		// --------------------- 
+		// --- Preferences Page
+		// --------------------- 
+		m_wPrefsPage = new DzVGroupBox( m_wTabStack );
+		m_wPrefsGB = new DzVGroupBox( m_wPrefsPage );
+		// --- Record on Execution
+		m_wRcrdOnExec = new DzCheckBox( m_wPrefsGB );
+		m_aBoolObjs.push( m_wRcrdOnExec );
+		m_aBoolNames.push( 'rcrdOnExec' );
+		// Set the initial options
+		setDefaults();
+	}
+	
+	/*********************************************************************/
+	// void : Method for running with the dialog unhidden
+	function doDialog(){
+		// Build the common portion of the dialog
+		doCommon();
+		// Get the Help Manager for "What's This?" and tool tips
+		var oHelpMgr = App.getHelpMgr();
+		// find the "What's This?" action; for the help button
+		var oActionMgr = MainWindow.getActionMgr();
+		var oAction = oActionMgr ? oActionMgr.findAction( "DzWhatsThisAction" ) : undefined;
+		// --------------------- 
+		// --- Main dialog
+		// --------------------- 
+		m_wDlg.caption = g_sTOOL_NAME;
+		m_wDlg.whatsThis =
+			String( "<b>File : </b> %1<br>" ).arg( g_sSCRIPT_NAME ) +
+			String( "<b>Type : </b> %2<br>" ).arg( getScriptType() ) +
+			String( "<b>Size : </b> %3<br>" ).arg( g_oFILE.sizeStr() ) +
+			String( "<b>Version : </b> %4<br>" ).arg( getScriptVersionString() ) +
+			String( "<b>Created : </b> %5<br>" ).arg( g_oFILE.created().toString( "dddd, MMMM d yyyy h:mm ap" ) ) +
+			String( "<b>Modified : </b> %6" ).arg( g_oFILE.lastModified().toString( "dddd, MMMM d yyyy h:mm ap" ) );
+		// --- Main dialog layout
+		var wDlgLayout = new DzGridLayout( m_wDlg );
+		wDlgLayout.margin = m_nMARGIN;
+		wDlgLayout.spacing = m_nSPACING;
+		wDlgLayout.addMultiCellWidget( m_wTabStack, 0, 0, 0, 2 );
+		// --- Dialog Buttons
+		var wDlgBtnsGB = new DzGroupBox( m_wDlg );
+		wDlgBtnsGB.flat = true;
+		var wDlgBtnsLyt = new DzGridLayout( wDlgBtnsGB );
+		wDlgBtnsLyt.margin = m_nMARGIN;
+		wDlgBtnsLyt.spacing = m_nSPACING;
+		// --- Help button
+		m_wHelpBtn = new DzPushButton( wDlgBtnsGB );
+		m_wHelpBtn.pixmap = new Pixmap( String( "%1/images/icons/whatsthissmallicon.png" ).arg( App.getResourcesPath() ) );
+		m_wHelpBtn.maxHeight = m_nMAX_BTN_HEIGHT;
+		if( oAction )
+			connect( m_wHelpBtn, "clicked()", oAction, "activate()" );
+		m_wHelpBtn.toolTip = oHelpMgr.getToolTip( "WhatsThis" );
+		m_wHelpBtn.whatsThis = oHelpMgr.getHelpString( "WhatsThis" );
+		wDlgBtnsLyt.addWidget( m_wHelpBtn, 0, 0 );
+		// --- Space
+		wDlgBtnsLyt.setColStretch( 1, 1 );
+		// --- Accept button
+		m_wAcceptBtn = new DzPushButton( wDlgBtnsGB );
+		m_wAcceptBtn.text = "&Render";
+		m_wAcceptBtn.minWidth = m_nMIN_BTN_WIDTH;
+		m_wAcceptBtn.maxHeight = m_nMAX_BTN_HEIGHT;
+		m_wDlg.setAcceptButton( m_wAcceptBtn );
+		m_wAcceptBtn.toolTip = oHelpMgr.getToolTip( "AcceptDialog" );
+		m_wAcceptBtn.whatsThis = "<b>Render:</b><br>"
+			+ "Click here to render the current scene to the RIB specified.<br><br>"
+			+ "Accepting this dialog will commit the affect of the settings in this dialog, and close it.";
+		wDlgBtnsLyt.addWidget( m_wAcceptBtn, 0, 2 );
+		// --- Cancel button
+		m_wCancelBtn = new DzPushButton( wDlgBtnsGB );
+		m_wCancelBtn.text = "&Cancel";
+		m_wCancelBtn.minWidth = m_nMIN_BTN_WIDTH;
+		m_wCancelBtn.maxHeight = m_nMAX_BTN_HEIGHT;
+		m_wDlg.setRejectButton( m_wCancelBtn );
+		m_wCancelBtn.toolTip = oHelpMgr.getToolTip( "CancelDialog" );
+		m_wCancelBtn.whatsThis = oHelpMgr.getHelpString( "CancelDialog" );
+		wDlgBtnsLyt.addWidget( m_wCancelBtn, 0, 3 );
+		
+		wDlgLayout.addMultiCellWidget( wDlgBtnsGB, 1, 1, 0, 2 );
+		// --------------------- 
+		// --- Options Page
+		// --------------------- 
+		m_wOptionPage.whatsThis = oHelpMgr.getHelpString( "PresetOptionTab" );
+		m_wOptionPage.flat = true;
+		m_wOptionPage.insideMargin = m_nMARGIN;
+		m_wOptionPage.insideSpacing = m_nSPACING;
+		// --- Path
+		m_wPathGB.title = "Path:";
+		m_wPathGB.margin = m_nMARGIN;
+		m_wPathGB.whatsThis = "<b>" + m_wPathGB.title + "</b><br>"
+			+ "This field allows you to specify the absolute path for the RIB file you would like to render to.";
+		// --- Keep Shadows
+		m_wKeepShadows.text = "Keep Shadows";
+		m_wKeepShadows.whatsThis = "<b>" + m_wKeepShadows.text + ":</b><br>"
+			+ "This option allows you to choose if you would like to keep the generated shadow map files.";
+		// --- Collect
+		m_wCollect.text = "Collect and Localize";
+		m_wCollect.whatsThis = "<b>" + m_wCollect.text + ":</b><br>"
+			+ "This option allows you to choose if you would like to collect all of the associated files and localize their paths in the RIB.";
+		// Add the 'Options Page' widget to the tab stack
+		m_wTabStack.addTab( m_wOptionPage, "Options" );
+		// --------------------- 
+		// --- Preferences Page
+		// --------------------- 
+		m_wPrefsPage.whatsThis = oHelpMgr.getHelpString( "PresetPrefTab" );
+		m_wPrefsPage.flat = true;
+		m_wPrefsPage.insideMargin = m_nMARGIN;
+		m_wPrefsPage.insideSpacing = m_nSPACING;
+		m_wPrefsGB.margin = m_nMARGIN;
+		m_wPrefsGB.spacing = m_nSPACING;
+		// --- Record on Execution CheckBox
+		m_wRcrdOnExec.text = "Set Preferred Options on Accept";
+		m_wRcrdOnExec.whatsThis = oHelpMgr.getHelpString( "PresetPrefOnAccept" );
+		// --- Set Preferred Options Button
+		m_wRcrdBtn = new DzPushButton( m_wPrefsGB );
+		m_wRcrdBtn.text = "&Set Preferred Options";
+		m_wRcrdBtn.whatsThis = oHelpMgr.getHelpString( "PresetSetPref" );
+		connect( m_wRcrdBtn, "pressed()", setOptions );
+		// --- Read Preferred Options Button
+		m_wRdBtn = new DzPushButton( m_wPrefsGB );
+		m_wRdBtn.text = "&Read Preferred Options";
+		m_wRdBtn.whatsThis = oHelpMgr.getHelpString( "PresetReadPref" );
+		connect( m_wRdBtn, "pressed()", getOptions );
+		// --- Restore Default Options Button
+		m_wDfltBtn = new DzPushButton( m_wPrefsGB );
+		m_wDfltBtn.text = "Restore &Default Options";
+		m_wDfltBtn.whatsThis = oHelpMgr.getHelpString( "PresetRestoreDef" );
+		connect( m_wDfltBtn, "pressed()", setDefaults );
+		// --- Notes
+		var wNotesGB = new DzVGroupBox( m_wPrefsPage );
+		wNotesGB.title = "Notes :";
+		wNotesGB.margin = m_nMARGIN;
+		wNotesGB.spacing = m_nSPACING;
+		wNotesGB.minWidth = m_nNOTES_WIDTH;
+		var wKeyLbl = new DzLabel( wNotesGB );
+		wKeyLbl.text = oHelpMgr.getHelpString( "PresetNotes" );
+		// Add the 'Preferences Page' widget to the tab stack
+		m_wTabStack.addTab( m_wPrefsPage, "Preferences" );
+		// --------------------- 
+		// --- Polish
+		// --------------------- 
+		m_wDlg.maxWidth = m_wDlg.minWidth;
+		m_wDlg.maxHeight = m_wDlg.minHeight;
+		// Get the users prefered options
+		getOptions();
+		// If the dialog is not canceled
+		if( m_wDlg.exec() ){
+			// If the 'Record on Execute' checkbox is checked, record the current options
+			if( m_wRcrdOnExec.checked ){ setOptions(); }
+			// Do... whatever it is that we do
+			g_oActions.begin();
+		}
+	}
+	
+	/*********************************************************************/
+	// void : Method for running with the dialog hidden
+	function doNoDialog(){
+		// Build the common portion of the dialog
+		doCommon();
+		// If the user was holding the shift modifier, update the options from the ones recorded
+		if( g_bSHIFT_PRESSED ){ getOptions(); }
+		// Do... whatever it is that we do
+		g_oActions.begin();
+	}
+	
+	/*********************************************************************/
+	// void : Method for setting initial option values
+	function setDefaults(){
+		// --- String Options
+		m_wRibPath.text = g_sDEFAULT_RIB_PATH;
+		// --- Boolean options
+		m_wKeepShadows.checked = false;
+		m_wCollect.checked = false;
+		m_wRcrdOnExec.checked = false;
+	}
+	
+	/*********************************************************************/
+	// void : Method for retrieving options
+	function getOptions(){
+		// Iterate over all boolean option objects
+		for( var i = 0; i < m_aBoolObjs.length; i++ ){
+			// Set the 'current' boolean option to the recorded value
+			m_aBoolObjs[ i ].checked = g_oSettings.get( g_sTOOL_KEY, m_aBoolNames[ i ], m_aBoolObjs[ i ].checked );
+		}
+		// Iterate over all string option objects
+		for( var i = 0; i < m_aStrObjs.length; i++ ){
+			// Set the 'current' string option to the recorded value
+			m_aStrObjs[ i ].text = g_oSettings.get( g_sTOOL_KEY, m_aStrNames[ i ], m_aStrObjs[ i ].text );
+		}
+		// Iterate over all combobox option objects
+		for( var i = 0; i < m_aCmbObjs.length; i++ ){
+			// Get the recorded currentText value
+			var tStr = g_oSettings.get( g_sTOOL_KEY, m_aCmbNames[ i ], m_aCmbObjs[ i ].currentText );
+			// Iterate over all combo box option objects
+			for( var j = 0; j < m_aCmbObjs[ i ].count; j++ ){
+				// If the recorded value is valid
+				if( m_aCmbObjs[ i ].text( j ) == tStr ){
+					// Set the currentItem string option to the recorded value
+					m_aCmbObjs[ i ].currentItem = j;
+					break;
+				}
+			}
+		}
+	}
+	
+	/*********************************************************************/
+	// void : Method for recording options
+	function setOptions(){
+		// Iterate over all boolean option objects
+		for( var i = 0; i < m_aBoolObjs.length; i++ ){
+			// Record the current boolean option
+			g_oSettings.set( g_sTOOL_KEY, m_aBoolNames[ i ], m_aBoolObjs[ i ].checked );
+		}
+		// Iterate over all string option objects
+		for( var i = 0; i < m_aStrObjs.length; i++ ){
+			// Record the current string option
+			g_oSettings.set( g_sTOOL_KEY, m_aStrNames[ i ], m_aStrObjs[ i ].text );
+		}
+		// Iterate over all combobox option objects
+		for( var i = 0; i < m_aCmbObjs.length; i++ ){
+			// Record the currentText string option
+			g_oSettings.set( g_sTOOL_KEY, m_aCmbNames[ i ], m_aCmbObjs[ i ].currentText );
+		}
+	}
+	
+	/*********************************************************************/
+	// String : Method for retrieving the path
+	function getPath(){ return m_wRibPath.text; }
+	
+	/*********************************************************************/
+	// Boolean : Method for retrieving the shadows option
+	function getKeepShadows(){ return m_wKeepShadows.checked; }
+	
+	/*********************************************************************/
+	// Boolean : Method for retrieving the collect option
+	function getCollect(){ return m_wCollect.checked; }
+	
+	/*********************************************************************/
+	// Boolean : Method for retrieving the record option
+	function getRecord(){ return m_wRcrdOnExec.checked; }
+}
+
+/*********************************************************************/
+//   DsActions - A class for performing various actions
+/*********************************************************************/
+class DsActions{
+	/*****************************
+	   Class Members
+	*****************************/
+	var m_sRibPath, m_sTmpRibPath;
+	var m_bKeepShadows, m_bTmpShadows, m_bCollect, m_bTmpCollect, m_bRecord;
+	var m_oProcess : DzProcess;
+	
+	/*********************************************************************/
+	// void : Method to inform the user of errors
+	function readFromStderr(){
+		MessageBox.critical( m_oProcess.readStderr(), "Process Error", "&OK" );
+	}
+	
+	/*********************************************************************/
+	// void : Method to do whatever it is we do
+	function begin(){
+		// Get the user options
+		m_sRibPath = g_oGui.getPath();
+		m_bKeepShadows = g_oGui.getKeepShadows();
+		m_bCollect = g_oGui.getCollect();
+		m_bRecord = g_oGui.getRecord();
+		
+		// Create new file info for easy path operations
+		var oFile = new DzFileInfo( m_sRibPath );
+		
+		// If the user didn't record preferred settings
+		if( !m_bRecord ){
+			// Record any previous values
+			m_sTmpRibPath = g_oSettings.get( g_sTOOL_KEY, g_sRIB_PATH_KEY, g_sDEFAULT_RIB_PATH );
+			m_bTmpShadows = g_oSettings.get( g_sTOOL_KEY, g_sKEEP_SHADOWS_KEY, false );
+			m_bTmpCollect = g_oSettings.get( g_sTOOL_KEY, g_sCOLLECT_ASSETS_KEY, false );
+			// Temporarily set the flags
+			g_oSettings.set( g_sTOOL_KEY, g_sRIB_PATH_KEY, m_sRibPath );
+			g_oSettings.set( g_sTOOL_KEY, g_sKEEP_SHADOWS_KEY, m_bKeepShadows );
+			g_oSettings.set( g_sTOOL_KEY, g_sCOLLECT_ASSETS_KEY, m_bCollect );
+		}
+		
+		// Set the flag used by DzDelightRenderer
+		g_oSettings.set( g_sTOOL_KEY, "toRib", true );
+		// Do the "render"
+		App.getRenderMgr().doRender();
+		// Set the flag used by DzDelightRenderer
+		g_oSettings.set( g_sTOOL_KEY, "toRib", false );
+		
+		// If the user didn't record preferred settings
+		if( !m_bRecord ){
+			// Restore to the previous values
+			g_oSettings.set( g_sTOOL_KEY, g_sRIB_PATH_KEY, m_sTmpRibPath );
+			g_oSettings.set( g_sTOOL_KEY, g_sKEEP_SHADOWS_KEY, m_bTmpShadows );
+			g_oSettings.set( g_sTOOL_KEY, g_sCOLLECT_ASSETS_KEY, m_bTmpCollect );
+		}
+		
+		// Let the user know we're busy
+		setBusyCursor();
+		// If we're collecting assets and the path is valid
+		if( m_bCollect && oFile.exists() ){
+			// Create a new dir
+			var oDir = new DzDir( oFile.path() );
+			// Construct the name of a sub-directory to collect into
+			var sCollectDir = String( "%1_collected" ).arg( oFile.baseName() );
+			// If the sub-directory is successfully created
+			if( oDir.mkdir( sCollectDir ) )
+				// Change to the created directory
+				oDir.cd( String( "%1/%2" ).arg( oDir.absPath() ).arg( sCollectDir ) );
+			
+			// Create a new process
+			m_oProcess = new DzProcess;
+			// Set the communication flags for the process
+			m_oProcess.communication = m_oProcess.Stdin|m_oProcess.Stdout|m_oProcess.Stderr;
+			// Set the working directory
+			m_oProcess.workingDirectory = App.getUtilitiesPath();
+			// Connect to recieve error messages
+			connect( m_oProcess, "readyReadStderr()", readFromStderr );
+			// Create an array to hold process args
+			var aArgs = new Array;
+			// Populate the args array
+			aArgs.push( String( "%1/%2" ).arg( m_oProcess.workingDirectory ).arg( "ribdepends" ) );
+			aArgs.push( "-noinit" );
+			aArgs.push( "-package" );
+			aArgs.push( oDir.absPath() );
+			aArgs.push( oFile.absFileName() );
+			// Assign the args
+			m_oProcess.arguments = aArgs;
+			
+			// If starting the process fails
+			if( !m_oProcess.start() )
+				// Inform the user
+				MessageBox.critical( "Could not start the process.", "Fatal Error", "&OK" );
+			
+			// Wait for the process to exit;
+			// Otherwise the script will complete and in so cleaning up, the process object
+			// will be destroyed before said process can actually do anything
+			while( m_oProcess.running ){}
+		}
+		// Let the user know we're done
+		clearBusyCursor();
+	}
+}
+
+/*********************************************************************/
+// If the user was holding the CTRL modifier key launch the dialog, otherwise run without the dialog
+g_bCONTROL_PRESSED ? g_oGui.doDialog() : g_oGui.doNoDialog();

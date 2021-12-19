@@ -1,0 +1,139 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzDistantLightAttribs.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************
+"Shader" - is a transient global variable provided by the interpreter
+when this script is called via DzRSLShader::setDefinitionFile(),
+that references the current DzRSLShader.
+**********************************************************************/
+var oOWNER = Shader.getOwner();
+
+var oProperty;
+
+var bNonDiff = true;
+var bNonSpec = true;
+
+var sPath = "";
+var bAdjustBlur = false;
+var fBlur = 0;
+
+/*********************************************************************/
+// Box3 : Method for building a box
+function buildShadowBox( oLight )
+{
+	// A box to grow; encompassing target nodes
+	var boxTarget = new DzBox3;
+	// A flag for whether or not any node warranted inclusion
+	var bValid = false;
+	
+	// Get the number of nodes in the scene
+	var nNodes = Scene.getNumNodes();
+	// Iterate over the nodes
+	for( var i = 0; i < nNodes; i++ )
+	{
+		// Get the 'current' node
+		var oNode = Scene.getNode( i );
+		// If the node is defined and it casts a shadow
+		if( oNode && oNode.castsShadow() )
+		{
+			// Grow the box to include the node bounding box
+			boxTarget.include( oNode.getWSBoundingBox() );
+			// BINGO!... we got one!
+			bValid = true;
+		}
+	}
+	// If the scene is empty or there were no worthy nodes
+	if( !nNodes || !bValid )
+	{
+		// Um... Houston?
+		return undefined;
+	}
+	// Ahh... done.
+	return boxTarget;
+}
+
+/*********************************************************************/
+// --- Illumination
+// Get the illumination property
+oProperty = oOWNER.findProperty( "Illumination" );
+// If the property was found and its a enum property
+if( oProperty && oProperty.className() == "DzEnumProperty" )
+{
+	//
+	switch( oProperty.getItem( oProperty.getValue() ) )
+	{
+		case "Diffuse Only":
+			bNonDiff = false;
+			break;
+		case "Specular Only":
+			bNonSpec = false;
+			break;
+		case "On":
+			bNonSpec = false;
+			bNonDiff = false;
+			break;
+		default:
+			break;
+	}
+	// Set the token
+	Shader.setIntegerToken( "__nonspecular", bNonSpec ? 1 : 0 );
+	Shader.setIntegerToken( "__nondiffuse", bNonDiff ? 1 : 0 );
+}
+
+// --- Shadows
+// If we're dealing with shadows
+if( Shader.isActiveInShadowPass() )
+{
+	// Get the shadow type property
+	oProperty = oOWNER.getShadowTypeControl();
+	// Set the path depending on the value
+	switch( oProperty.getValue() )
+	{
+		case DzLight.DeepShadowMap:
+			sPath = oOWNER.getShadowMapPath();
+			bAdjustBlur = true;
+			break;
+		case DzLight.Raytraced:
+			sPath = "raytrace";
+			break;
+		default:
+			break;
+	}
+	// Set the token
+	Shader.setStringToken( "shadowmap", sPath );
+	
+	// Get the shadow blur property
+	oProperty = oOWNER.findProperty( "Shadow Softness" );
+	// If the property was found and its a float property
+	if( oProperty && oProperty.className() == "DzFloatProperty" )
+	{
+		// Get the value
+		fBlur = oProperty.getValue();
+		// If blur needs to be adjusted
+		if( bAdjustBlur )
+		{
+			// Adjust to coincide with DzDistantLight
+			fBlur /= buildShadowBox( oOWNER ).getSize() / 10;
+		}
+		// Set the token
+		Shader.setFloatToken( "blur", fBlur );
+	}
+}

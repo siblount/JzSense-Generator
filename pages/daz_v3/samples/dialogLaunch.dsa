@@ -1,0 +1,11 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+
+var loader = new DzUiLoader();
+var dialog = new DzDialog();
+
+var dialogWgt = loader.load("C:/temp/test.ui",dialog);
+
+var btn = dialog.findChildOfWidget("closeBtn");
+debug(btn);
+btn.clicked.connect(dialog.close);
+dialog.exec();

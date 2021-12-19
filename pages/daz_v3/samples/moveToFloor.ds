@@ -1,0 +1,137 @@
+/**********************************************************************
+	File: moveToFloor.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************/
+const g_sTOOL_NAME = "Move To Floor";
+const g_bSHIFT_PRESSED = shiftPressed();
+const g_bCONTROL_PRESSED = ctrlPressed();
+
+var g_aNodes = new Array;
+
+/*********************************************************************/
+// Array<QObject*> : Method for collecting the nodes we want to process
+function collectNodes( bSelected, bRecurse, bFromRoot ){
+	// An array to hold the collected nodes
+	var aRootNodes = new Array;
+	// Get the number of nodes
+	var nNodes = bSelected ? Scene.getNumSelectedNodes() : Scene.getNumNodes();
+	// If getting only selected nodes and there are none
+	if( bSelected && nNodes < 1 ){
+		// Inform the user
+		MessageBox.warning( "This action requires an item within the scene to be selected.",
+		"Selection Error", "&OK", "" );
+	}
+	//
+	var oNode;
+	// Iterate over the nodes
+	for( var n = 0; n < nNodes; n++ ){
+		// Get the 'current' node
+		oNode = bSelected ? Scene.getSelectedNode( n ) : Scene.getNode( n );
+		// Just in case
+		if( oNode == undefined ){
+			continue;
+		}
+		//
+		var oTopNode;
+		// If the node is a bone
+		if( oNode.inherits( "DzBone" ) ){
+			// If we're collecting from the root
+			if( bFromRoot ){
+				// Get the skeleton for the 'current' node
+				oNode = oNode.getSkeleton();
+			}
+			// If we're not collecting from the root, but we are recursing
+			else if( bRecurse ){
+				// Set the top-most node to the current node
+				oTopNode = oNode;
+				// Until we reach the root
+				while( !oTopNode.inherits( "DzSkeleton" ) ){
+					// Make the top node the 'current' nodes' parent
+					oTopNode = oTopNode.getNodeParent();
+					// If the parent node is selected
+					if( oTopNode.isSelected() ){
+						// Update the node we care about to be the top-most selected node
+						oNode = oTopNode;
+					}
+				}
+			}
+		}
+		// If we are recursing
+		else if( bRecurse ){
+			// Set the top-most node to the current node
+			oTopNode = oNode;
+			// Until we reach the root
+			while( !oTopNode.isRootNode() ){
+				// Make the top node the 'current' nodes' parent
+				oTopNode = oTopNode.getNodeParent();
+				// If the parent node is selected
+				if( oTopNode ){
+					// Update the node we care about to be the top-most selected node
+					oNode = oTopNode;
+				}
+			}
+		}
+		// Update the array to include the 'current' node
+		aRootNodes.pushIfNotExists( oNode );
+	}
+	// Ahh... done!
+	return aRootNodes;
+}
+
+/*********************************************************************/
+// void : Method for moving a node to the ground plane
+function moveToFloor( oNode ){
+	// Get the world space position of the node
+	var vecNodePos = oNode.getWSPos();
+	// Get the world space y component for the bottom of the bounding box of the node
+	var vecBoxPos = oNode.getWSBoundingBox().min;
+	// Get the new world space position
+	var vecAdjustedPos = new DzVec3( vecNodePos.x, vecNodePos.y - vecBoxPos.y, vecNodePos.z );
+	// Set the world space position of the node
+	oNode.setWSPos( vecAdjustedPos );
+}
+
+/*********************************************************************/
+// Default
+var bSelected = true;
+var bRecurse = false;
+// If the shift key is pressed
+if( g_bSHIFT_PRESSED ){
+	bSelected = false;
+}
+// If the ctrl key is pressed
+if( g_bCONTROL_PRESSED ){
+	bRecurse = true;
+}
+// Set the busy cursor to let the user know we're working
+setBusyCursor();
+// Populate the array that holds all nodes we'll be modifying
+g_aNodes = collectNodes( bSelected, bRecurse, true );
+// Begin collecting actions for the undo stack
+beginUndo();
+// Iterate over the nodes array
+for( var n = 0; n < g_aNodes.length; n++ ) {
+	// Move the 'current' node to the floor
+	moveToFloor( g_aNodes[ n ] );
+}
+// Add the collective actions to the undo stack
+acceptUndo( g_sTOOL_NAME );
+// We're done working, let the user know
+clearBusyCursor();

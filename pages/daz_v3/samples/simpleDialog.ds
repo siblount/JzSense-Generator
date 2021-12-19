@@ -1,0 +1,98 @@
+/**********************************************************************
+	File: simpleDialog.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+
+// declare/define some constants
+const nMARGIN = 5;
+const nSPACING = 5;
+const nMIN_BTN_WIDTH = 80;
+const nMAX_BTN_HEIGHT = 20;
+
+// Get the Help Manager for "What's This?" and tool tips
+var oHelpMgr = App.getHelpMgr();
+
+// find the "What's This?" action; for the help button
+var oActionMgr = MainWindow.getActionMgr();
+var oHelpAction = oActionMgr ? oActionMgr.findAction( "DzWhatsThisAction" ) : undefined;
+
+// create a new dialog
+var wDlg = new DzDialog;
+wDlg.caption = "MyDialog";
+
+// create the main layout
+var wDlgLayout = new DzGridLayout( wDlg );
+wDlgLayout.margin = nMARGIN;
+wDlgLayout.spacing = nSPACING;
+
+// create a label
+var wLbl = new DzLabel( wDlg );
+wLbl.text = "This is a DzLabel.";
+wDlgLayout.addMultiCellWidget( wLbl, 0, 0, 0, 2 );
+
+// create a group box for the dialog buttons
+var wDlgBtnsGB = new DzGroupBox( wDlg );
+wDlgBtnsGB.flat = true;
+
+//create a layout for the dialog buttons
+var wDlgBtnsLyt = new DzGridLayout( wDlgBtnsGB );
+wDlgBtnsLyt.margin = nMARGIN;
+wDlgBtnsLyt.spacing = nSPACING;
+
+// create the interactive help ("What's This?") button
+var wHelpBtn = new DzPushButton( wDlgBtnsGB );
+wHelpBtn.pixmap = new Pixmap( String( "%1/images/icons/whatsthissmallicon.png" ).arg( App.getResourcesPath() ) );
+wHelpBtn.maxHeight = nMAX_BTN_HEIGHT;
+if( oHelpAction )
+	connect( wHelpBtn, "clicked()", oHelpAction, "activate()" );
+wHelpBtn.toolTip = oHelpMgr.getToolTip( "WhatsThis" );
+wHelpBtn.whatsThis = oHelpMgr.getHelpString( "WhatsThis" );
+wDlgBtnsLyt.addWidget( wHelpBtn, 0, 0 );
+
+wDlgBtnsLyt.setColStretch( 1, 1 );
+
+// create the accept button
+var wAcceptBtn = new DzPushButton( wDlgBtnsGB );
+wAcceptBtn.text = "&Accept";
+wAcceptBtn.minWidth = nMIN_BTN_WIDTH;
+wAcceptBtn.maxHeight = nMAX_BTN_HEIGHT;
+wDlg.setAcceptButton( wAcceptBtn );
+wAcceptBtn.toolTip = oHelpMgr.getToolTip( "AcceptDialog" );
+wAcceptBtn.whatsThis = oHelpMgr.getHelpString( "AcceptDialog" );
+wDlgBtnsLyt.addWidget( wAcceptBtn, 0, 2 );
+
+// create the cancel button
+var wCancelBtn = new DzPushButton( wDlgBtnsGB );
+wCancelBtn.text = "&Cancel";
+wCancelBtn.minWidth = nMIN_BTN_WIDTH;
+wCancelBtn.maxHeight = nMAX_BTN_HEIGHT;
+wDlg.setRejectButton( wCancelBtn );
+wCancelBtn.toolTip = oHelpMgr.getToolTip( "CancelDialog" );
+wCancelBtn.whatsThis = oHelpMgr.getHelpString( "CancelDialog" );
+wDlgBtnsLyt.addWidget( wCancelBtn, 0, 3 );
+
+wDlgLayout.addMultiCellWidget( wDlgBtnsGB, 1, 1, 0, 2 );
+
+// limit the dialog size to the minimum required size
+wDlg.maxWidth = wDlg.minWidth;
+wDlg.maxHeight = wDlg.minHeight;
+
+// launch the dialog and do something depending on the button pressed
+if( wDlg.exec() )
+	MessageBox.information( "Accept pressed.", "Information", "&OK" );
+else
+	MessageBox.information( "Cancel pressed.", "Information", "&OK" );

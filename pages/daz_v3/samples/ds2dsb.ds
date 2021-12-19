@@ -1,0 +1,113 @@
+/**********************************************************************
+	File: ds2dsb.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************/
+const g_bSHIFT_PRESSED = shiftPressed();
+const g_bCONTROL_PRESSED = ctrlPressed();
+
+/*********************************************************************/
+// Path variables
+var sSrcPath, sDestPath;
+// If the user had the shift key pressed
+if( g_bSHIFT_PRESSED )
+	// Prompt for a directory (batch)
+	sSrcPath = FileDialog.doDirectoryDialog( "Select a Directory" );
+// If no modifier was pressed
+else
+	// Prompt for an ascii script
+	sSrcPath = FileDialog.doFileDialog( true, "Select the source file", "", "DAZ Script Plain Text (*.ds)" );
+
+// If the user didn't cancel
+if( sSrcPath ){
+	// Create a file object for the source script(s)
+	var oFile = new DzFile( sSrcPath );
+	// Create a directory object for the source script(s)
+	var oDir = new DzDir( g_bSHIFT_PRESSED ? sSrcPath : oFile.path() );
+	// Create a new script object
+	var oScript = new DzScript;
+	// Create an array to hold source file short names
+	var aScripts = new Array;
+	// Get the basename of the file
+	var sShortName = String( "%1.ds" ).arg( oFile.baseName() );
+	// Clean up
+	delete oFile;
+	oFile = undefined;
+	
+	// Get the list of all ascii scripts
+	aScripts = g_bSHIFT_PRESSED ? oDir.entryList( "*.ds", oDir.Files ) : [ sShortName ];
+	
+	// While there are source files to be converted
+	while( aScripts.length ){
+		// Let the user know we're busy
+		setBusyCursor();
+		
+		// Make sure we're working with a new script
+		oScript.clear();
+		
+		// Get the short filename
+		sShortName = aScripts.pop();
+		// Construct the source file path
+		sSrcPath = String( "%1/%2" ).arg( oDir.absPath() ).arg( sShortName );
+		// Construct the destination file path
+		sDestPath = String( "%1b" ).arg( sSrcPath );
+		
+		// If an error occurs when loading the chosen file into the script object
+		if( !oScript.loadFromFile( sSrcPath ) ){
+			// Let the user know we're done
+			clearBusyCursor();
+			// Warn the user
+			MessageBox.warning( String( "An error occured while reading the file:\n%1" ).arg( sSrcPath ), "Warning", "&OK", "" );
+			// NEXT!!!
+			continue;
+		}
+		// If no error occurs
+		else{
+			// If the script syntax is flawed
+			if( !oScript.checkSyntax() ){
+				// Let the user know we're done
+				clearBusyCursor();
+				// Warn the user
+				MessageBox.warning( String( "The syntax of the source file is invalid:\n%1" ).arg( sSrcPath ), "Warning", "&OK", "" );
+				// NEXT!!!
+				continue;
+			}
+			
+			// Write the encrypted script, record if there are errors
+			var nWriteErr = oScript.saveToFile( sDestPath, oScript.EncDAZScriptFile );
+			
+			// Let the user know we're done
+			clearBusyCursor();
+			
+			// If there were no errors writing the file
+			if( nWriteErr == 0x00000000 )
+				// Inform the user
+				MessageBox.information( String( "Saved encrypted script:\n%1" ).arg( sDestPath ), "Information", "&OK" );
+			// If an error occurs
+			else
+				// Warn the user
+				MessageBox.warning( String( "An error occured while trying to save:\n%1").arg( sDestPath ), "Warning", "&OK", "" );
+		}
+		
+		// If the user had the shift key pressed
+		if( g_bSHIFT_PRESSED )
+			// NEXT!!!
+			continue;
+	}
+}

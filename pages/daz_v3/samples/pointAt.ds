@@ -1,0 +1,94 @@
+/**********************************************************************
+	File: pointAt.ds
+	
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************/
+const g_sTOOL_NAME = "Point At";
+
+/*********************************************************************/
+// void : Method for pointing a non-DzCamera derived node at the center of the bounding box for another node
+function pointAt( oNode, oTgtNode ){
+	// Get the vector from the node origin to the center of the bounding box for the target
+	var vecToTarget = oTgtNode.getWSBoundingBox().getCenter().subtract( oNode.getWSPos() );
+	// Get the vector from the node origin to the node endpoint
+	var vecToEndPoint  = oNode.getEndPoint().subtract( oNode.getOrigin() );
+	// Get the world space rotations on the node
+	var quatWSRot = oNode.getWSRot();
+	// Transform the vector (origin -> endpoint) into the 'local' space of the node
+	vecToEndPoint = quatWSRot.multVec( vecToEndPoint );
+	// Get the rotation required to align the vectors
+	var quatRotTo = vecToEndPoint.getRotationTo( vecToTarget );
+	// Rotate the node in world space
+	oNode.setWSRot( quatWSRot.multiply( quatRotTo.inverse() ) );
+}
+
+/*********************************************************************/
+// void : Method for pointing a DzCamera derived node at the center of the bounding box for another node
+function aimAt( oCamera, oTgtNode ){
+	// Translate the focal point of the 'camera' to the center of the bounding box, of the target
+	oCamera.aimAt( oTgtNode.getWSBoundingBox().getCenter() );
+}
+
+/*********************************************************************/
+// Get the highlighted node; the 'target'
+var oTgtNode = Scene.getHighlightNode();
+// Get the number of selected nodes
+var nNodes = Scene.getNumSelectedNodes();
+
+// If there are nodes defined
+if( nNodes > 0 && oTgtNode ){
+	// Set the busy cursor to let the user know we're working
+	setBusyCursor();
+	
+	// Begin collecting events for the undo stack
+	beginUndo();
+	// Iterate over all selected nodes
+	for( var n = 0; n < nNodes; n++ ){
+		// Get the 'current' node
+		var oNode = Scene.getSelectedNode( n );
+		// If the node is NOT DzCamera derived
+		if( !oNode.inherits( "DzCamera" ) ){
+			// Point the 'current' node at the target
+			pointAt( oNode, oTgtNode );
+		}
+		// If the node is DzCamera derived
+		else{
+			// Point the 'current' node at the target
+			aimAt( oNode, oTgtNode );
+		}
+	}
+	// Stop collecting events and accept
+	acceptUndo( g_sTOOL_NAME );
+	
+	// We're done working, let the user know
+	clearBusyCursor();
+}
+// Otherwise
+else{
+	// If no nodes are selected
+	if( nNodes == 0 ){
+		// Inform the user
+		MessageBox.warning( "This action requires an item within the scene to be selected.", "Selection Error", "&OK", "" );
+	}
+	// If no target is defined
+	if( !oTgtNode ){
+		// Inform the user
+		MessageBox.warning( "No target defined.", "Target Error", "&OK", "" );
+	}
+}

@@ -1,0 +1,20 @@
+var oSender = CallBack.getSender();
+var sMessage = String( "Sender Class: %1\n" +
+			"Sender Name: %2\n\n" +
+			"CallBack Args: %3" )
+			.arg( oSender.className() )
+			.arg( oSender.name )
+			.arg( CallBack.getArgCount() );
+
+var nArgs = CallBack.getArgCount();
+if( nArgs > 0 )
+{
+	for( var i = 0; i < nArgs; i += 1 )
+	{
+		sMessage += String( "\nArg %1 : %2" )
+				.arg( i )
+				.arg( CallBack.getArg( i ) );
+	}
+}
+
+MessageBox.information( sMessage, CallBack.className(), "&OK" );

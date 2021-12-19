@@ -1,0 +1,380 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzdefaultspecSurf.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************
+"Shader" - is a transient global variable provided by the interpreter
+when this script is called via DzRSLShader::setDefinitionFile(),
+that references the current DzRSLShader.
+*********************************************************************/
+var oOWNER = Shader.getOwner();
+
+/*********************************************************************/
+function addFloatProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, fMin, fMax, fDefault, fValue, bClamped, bPercent, bMappable, bMustMap, sShadMapVar, oShadMap )
+{
+	var oProperty;
+	if( sShadVar == "Os" )
+	{
+		oProperty = oOWNER.getOpacityProperty();
+	}
+	else
+	{
+		oProperty = oOWNER.findProperty( sPropertyName );
+	}
+
+	if( !oProperty || ( oProperty && oProperty.className() != "DzFloatProperty" ) )
+	{
+		oProperty = new DzFloatProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setMinMax( fMin, fMax );
+	oProperty.setIsClamped( bClamped );
+	oProperty.setDefaultValue( fDefault );
+	oProperty.setDisplayAsPercent( bPercent );
+	oProperty.setIsMappable( bMappable );
+	fValue != undefined ? oProperty.setValue( fValue ) : oProperty.setValue( fDefault );
+	if( sShadVar == "Os" && sShadMapVar != undefined )
+	{
+		Shader.addMapProperty( oProperty, sShadMapVar );
+		if( oShadMap != undefined )
+		{
+			oProperty.setMap( oShadMap );
+		}
+	}
+	else if( sShadVar != undefined && sShadMapVar != undefined && bMappable )
+	{
+		Shader.addMappableProperty( oProperty, sShadVar, sShadMapVar );
+		oProperty.setMustHaveMap( bMustMap );
+		if( oShadMap != undefined )
+		{
+			oProperty.setMap( oShadMap );
+		}
+	}
+	else if( sShadVar != "Os" && sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addIntProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, nMin, nMax, nDefault, nValue, bClamped, bMappable, bMustMap, sShadMapVar, oShadMap )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzIntProperty" ) )
+	{
+		oProperty = new DzIntProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setMinMax( nMin, nMax );
+	oProperty.setIsClamped( bClamped );
+	oProperty.setDefaultValue( nDefault );
+	oProperty.setIsMappable( bMappable );
+	nValue != undefined ? oProperty.setValue( nValue ) : oProperty.setValue( nDefault );
+	if( sShadVar != undefined && sShadMapVar != undefined && bMappable )
+	{
+		Shader.addMappableProperty( oProperty, sShadVar, sShadMapVar );
+		oProperty.setMustHaveMap( bMustMap );
+		if( oShadMap != undefined )
+		{
+			oProperty.setMap( oShadMap );
+		}
+	}
+	else if( sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addBoolProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, bDefault, bValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzBoolProperty" ) )
+	{
+		oProperty = new DzBoolProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setDefaultValue( bDefault ? 1 : 0 );
+	bValue != undefined ? oProperty.setBoolValue( bValue ) : oProperty.setBoolValue( bDefault );
+	if( sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addColorProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, clrDefault, clrValue, bMappable, bMustMap, sShadMapVar, oShadMap )
+{
+	var oProperty;
+	if( sShadVar == "Cs" )
+	{
+		oProperty = oOWNER.getDiffuseProperty();
+	}
+	else
+	{
+		oProperty = oOWNER.findProperty( sPropertyName );
+	}
+
+	if( !oProperty || ( oProperty && oProperty.className() != "DzColorProperty" ) )
+	{
+		oProperty = new DzColorProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setIsMappable( bMappable );
+	if( clrDefault != undefined )
+	{
+		oProperty.setDefaultValue( clrDefault.rgb );
+	}
+	
+	if( clrValue != undefined )
+	{
+		oProperty.setColorValue( clrValue );
+	}
+	
+	if( sShadVar == "Cs" && sShadMapVar != undefined )
+	{
+		Shader.addMapProperty( oProperty, sShadMapVar );
+		if( oShadMap != undefined )
+		{
+			oProperty.setColorMap( oShadMap );
+		}
+	}
+	else if( sShadVar != undefined && sShadMapVar != undefined && bMappable )
+	{
+		Shader.addMappableProperty( oProperty, sShadVar, sShadMapVar );
+		oProperty.setMustHaveMap( bMustMap );
+		if( oShadMap != undefined )
+		{
+			oProperty.setMap( oShadMap );
+		}
+	}
+	else if( sShadVar != "Cs" && sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addEnumProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, aItems, nValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzEnumProperty" ) )
+	{
+		oProperty = new DzEnumProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( aItems.length > 0 )
+	{
+		for( var i = 0; i < aItems.length; i++ )
+		{
+			oProperty.addItem( aItems[ i ], i );
+		}
+	}
+	
+	if( nValue != undefined )
+	{
+		oProperty.setValue( nValue );
+	}
+	
+	if( sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addImageProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, oValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzImageProperty" ) )
+	{
+		oProperty = new DzImageProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( oValue != undefined )
+	{
+		oProperty.setValue( oValue );
+	}
+	if( sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addStringProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, sValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzStringProperty" ) )
+	{
+		oProperty = new DzStringProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( sValue != undefined )
+	{
+		oProperty.setValue( sValue );
+	}
+	
+	if( sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addFileProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, sValue, sFilter, nType )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzFileProperty" ) )
+	{
+		oProperty = new DzFileProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( sValue != undefined )
+	{
+		oProperty.setValue( sValue );
+	}
+	
+	if( sFilter != undefined )
+	{
+		oProperty.setFilter( sFilter );
+	}
+	
+	if( nType != undefined )
+	{
+		oProperty.setType( nType );
+	}
+	
+	if( sShadVar != undefined )
+	{
+		Shader.addShaderProperty( oProperty, sShadVar );
+	}
+	else
+	{
+		oOWNER.addProperty( oProperty );
+	}
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function buildShaderProperties()
+{
+	var sPropertyGroup;
+	var oProperty;
+	
+	sPropertyGroup = "Diffuse";
+	
+	oProperty = addColorProperty( sPropertyGroup, "Diffuse Color", "Color", "Cs", new Color( 180, 180, 180 ), undefined, true, false, "DiffuseColorMap", undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Diffuse Strength", "Strength", "DiffuseStrength", 0, 1, 1, undefined, true, true, true, false, "DiffuseValueMap", undefined );
+	
+	sPropertyGroup = "Opacity";
+	
+	oProperty = addFloatProperty( sPropertyGroup, "Opacity Strength", "Strength", "Os", 0, 1, 1, undefined, true, true, true, false, "OpacityValueMap", undefined );
+	
+	sPropertyGroup = "Specular";
+	
+	oProperty = addFloatProperty( sPropertyGroup, "Glossiness", "Glossiness", undefined, 0, 1, 0.98, undefined, true, true, true, false, "GlossinessValueMap", undefined );
+	oProperty = addBoolProperty( sPropertyGroup, "Glossiness Linear Adjustment", "Glossiness Linear Adjustment", undefined, false, undefined );
+	oProperty = addColorProperty( sPropertyGroup, "Specular Color", "Color", "SpecularColor", new Color( 255, 255, 255 ), undefined, true, false, "SpecularColorMap", undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Specular Strength", "Strength", "SpecularStrength", 0, 1, 1, undefined, true, true, true, false, "SpecularValueMap", undefined );
+	oProperty = addBoolProperty( sPropertyGroup, "Multiply Specular Through Opacity", "Multiply Specular Through Opacity", "SpecularThroughOpacity", true, undefined );
+	
+	sPropertyGroup = "Ambient";
+	
+	oProperty = addColorProperty( sPropertyGroup, "Ambient Color", "Color", "AmbientColor", new Color( 0, 0, 0 ), undefined, true, false, "AmbientColorMap", undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Ambient Strength", "Strength", "AmbientStrength", 0, 1, 1, undefined, true, true, true, false, "AmbientValueMap", undefined );
+	
+	sPropertyGroup = "Reflection";
+	
+	oProperty = addColorProperty( sPropertyGroup, "Reflection Color", "Color", "ReflectionColor", new Color( 0, 0, 0 ), undefined, true, false, "ReflectionColorMap", undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Reflection Strength", "Strength", "ReflectionStrength", 0, 1, 0, undefined, true, true, true, false, "ReflectionValueMap", undefined );
+	
+	sPropertyGroup = "Refraction";
+	
+	oProperty = addColorProperty( sPropertyGroup, "Refraction Color", "Color", "RefractionColor", new Color( 0, 0, 0 ), undefined, true, false, "RefractionColorMap", undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Refraction Strength", "Strength", "RefractionStrength", 0, 1, 0, undefined, true, true, true, false, "RefractionValueMap", undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Index of Refraction", "Index of Refraction", "eta", 0, 3, 0, undefined, true, false, false, false, undefined, undefined );
+	
+	sPropertyGroup = "Shadow";
+	
+	oProperty = addBoolProperty( sPropertyGroup, "Accept Shadows", "Accept Shadows", undefined, true, undefined );
+}
+
+/*********************************************************************/
+buildShaderProperties();

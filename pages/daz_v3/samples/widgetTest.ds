@@ -1,0 +1,243 @@
+/**********************************************************************
+	File: widgetTest.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+const nMARGIN = 5;
+const nSPACING = 5;
+const nMIN_BTN_WIDTH = 80;
+const nMAX_BTN_HEIGHT = 20;
+
+const clrBLACK = new Color( 0, 0, 0 );
+const clrWHITE = new Color( 255, 255, 255 );
+const clrRED = new Color( 255, 0, 0 );
+const clrGREEN = new Color( 0, 255, 0 );
+const clrBLUE = new Color( 0, 0, 255 );
+
+// Get the Help Manager for "What's This?" and tool tips
+var oHelpMgr = App.getHelpMgr();
+
+// find the "What's This?" action; for the help button
+var oActionMgr = MainWindow.getActionMgr();
+var oHelpAction = oActionMgr ? oActionMgr.findAction( "DzWhatsThisAction" ) : undefined;
+
+/*****************************
+   Dialog
+*****************************/
+var wDlg = new DzDialog;
+wDlg.caption = "DAZ Script Widget Test";
+
+// Main Layout
+var wDlgLyt = new DzVBoxLayout( wDlg );
+wDlgLyt.autoAdd = true;
+wDlgLyt.margin = nMARGIN;
+wDlgLyt.spacing = nSPACING;
+
+// Create a check box
+var wBtn = new DzCheckBox( wDlg );
+wBtn.text = "DzCheckBox 0";
+
+// Create a combo box
+var wComboBox = new DzComboBox( wDlg );
+wComboBox.insertItem( "DzComboBox Item 0" );
+wComboBox.insertItem( "DzComboBox Item 1" );
+wComboBox.insertItem( "DzComboBox Item 2" );
+wComboBox.currentItem = 1;
+
+// Create a date edit
+var wDateEdit = new DzDateEdit( wDlg );
+wDateEdit.date = new Date;
+
+// Create a time edit
+var wTimeEdit = new DzTimeEdit( wDlg );
+wTimeEdit.date = new Date;
+
+// Create a date time edit
+var wDateTimeEdit = new DzDateTimeEdit( wDlg );
+wDateTimeEdit.date = wDateEdit.date;
+
+// Create a group box
+var wHBox = new DzHGroupBox( wDlg );
+
+// Create a dial
+var wDial = new DzDial( wHBox );
+wDial.minWidth = 100;
+wDial.minHeight = 100;
+wDial.min = 0;
+wDial.max = 255;
+wDial.notchesVisible = true;
+wDial.notchTarget = nSPACING;
+wDial.wrapping = false;
+
+// Create a LCD number
+var wLCD = new DzLCDNumber( wHBox );
+wLCD.value = wDial.value;
+wLCD.segmentStyle = wLCD.Flat;
+setLCDValue( wDial.value );
+
+function setLCDValue( nValue ){
+    wLCD.value = nValue;
+    if( nValue < 85 )
+		wLCD.paletteForegroundColor = clrRED;
+    else if( nValue < 170 )
+		wLCD.paletteForegroundColor = clrGREEN;
+    else
+		wLCD.paletteForegroundColor = clrBLUE;
+}
+connect( wDial, "valueChanged(int)", setLCDValue );
+
+// Create a color widget
+var wColor = new DzColorWgt( wDlg );
+wColor.value = clrRED;
+
+// Create a int slider
+var wSlider = new DzIntSlider( wDlg );
+wSlider.min = 0;
+wSlider.max = 9;
+wSlider.clamped = true;
+wSlider.sensitivity = 1;
+wSlider.value = 2;
+wSlider.textEditable = true;
+wSlider.textVisible = true;
+
+// Create a enum slider
+wSlider = new DzEnumSlider( wDlg );
+wSlider.addItem( "Zero" );
+wSlider.addItem( "One" );
+wSlider.addItem( "Two" );
+wSlider.addItem( "Three" );
+wSlider.addItem( "Four" );
+wSlider.addItem( "Five" );
+wSlider.addItem( "Six" );
+wSlider.addItem( "Seven" );
+wSlider.addItem( "Eight" );
+wSlider.addItem( "Nine" );
+wSlider.value = 2;
+
+// Create a float slider
+wSlider = new DzFloatSlider( wDlg );
+wSlider.min = 0;
+wSlider.max = 9;
+wSlider.clamped = true;
+wSlider.sensitivity = 0.5;
+wSlider.value = 2;
+wSlider.textEditable = true;
+wSlider.textVisible = true;
+
+// Create a button group
+var wBtnGrp = new DzVButtonGroup( wDlg );
+wBtnGrp.title = "DzVButtonGroup";
+wBtnGrp.columns = 2;
+wBtnGrp.title += String( " (columns = %1)" ).arg( wBtnGrp.columns );
+wBtnGrp.checkable = true;
+
+// Create some radio buttons
+wBtn = new DzRadioButton( wBtnGrp );
+wBtn.text = "DzRadioButton 0";
+wBtn = new DzRadioButton( wBtnGrp );
+wBtn.text = "DzRadioButton 1";
+wBtn = new DzRadioButton( wBtnGrp );
+wBtn.text = "DzRadioButton 2";
+wBtn = new DzRadioButton( wBtnGrp );
+wBtn.text = "DzRadioButton 3";
+wBtn = new DzRadioButton( wBtnGrp );
+wBtn.text = "DzRadioButton 4";
+wBtn = new DzRadioButton( wBtnGrp );
+wBtn.text = "DzRadioButton 5";
+
+wBtnGrp.selected = 3;
+
+// Create a label
+var wLbl = new DzLabel( wDlg );
+wLbl.text = "This is a DzLabel.";
+
+//  Create a line edit
+var wLineEdit = new DzLineEdit( wDlg );
+wLineEdit.text = "DzLineEdit Highlighted";
+wLineEdit.setSelection( 11, wLineEdit.text.length - 1 );
+
+// Create a listbox
+var wListBox = new DzListBox( wDlg );
+wListBox.insertItem( "DzListBox Item 0" );
+wListBox.insertItem( "DzListBox Item 1" );
+wListBox.insertItem( "DzListBox Item 2" );
+wListBox.setSelected( 1, true );
+
+// Create a listview
+var wListView = new DzListView( wDlg );
+wListView.rootIsDecorated = true;
+wListView.allColumnsShowFocus = true;
+wListView.addColumn( "Column 0" );
+wListView.addColumn( "Column 1" );
+var wListviewItem;
+for( var i = 0; i < 3; i++ ){
+	ListViewItem = new DzListViewItem( wListView );
+	ListViewItem.setText( 0, String( "DzListViewItem %1" ).arg( i ) );
+	var ListViewItemChild;
+	for( var j = 0; j < 3; j++ ){
+		ListViewItemChild = new DzListViewItem( ListViewItem );
+		ListViewItemChild.setText( 0, String( "DzListViewItem %1 Child %2" ).arg( i ).arg( j ) );
+	}
+}
+
+// Create a group box for the dialog buttons
+var wDlgBtnsGB = new DzGroupBox( wDlg );
+wDlgBtnsGB.flat = true;
+
+// Create a layout for the dialog buttons
+var wDlgBtnsLyt = new DzGridLayout( wDlgBtnsGB );
+wDlgBtnsLyt.margin = nMARGIN;
+wDlgBtnsLyt.spacing = nSPACING;
+
+// Create the interactive help ("What's This?") push button
+var wHelpBtn = new DzPushButton( wDlgBtnsGB );
+wHelpBtn.pixmap = new Pixmap( String( "%1/images/icons/whatsthissmallicon.png" ).arg( App.getResourcesPath() ) );
+wHelpBtn.maxHeight = nMAX_BTN_HEIGHT;
+if( oHelpAction )
+	connect( wHelpBtn, "clicked()", oHelpAction, "activate()" );
+wHelpBtn.toolTip = oHelpMgr.getToolTip( "WhatsThis" );
+wHelpBtn.whatsThis = oHelpMgr.getHelpString( "WhatsThis" );
+wDlgBtnsLyt.addWidget( wHelpBtn, 0, 0 );
+
+// Stretch the column between the left and right sides
+wDlgBtnsLyt.setColStretch( 1, 1 );
+
+// Create the accept push button
+var wAcceptBtn = new DzPushButton( wDlgBtnsGB );
+wAcceptBtn.text = "&Accept";
+wAcceptBtn.minWidth = nMIN_BTN_WIDTH;
+wAcceptBtn.maxHeight = nMAX_BTN_HEIGHT;
+wDlg.setAcceptButton( wAcceptBtn );
+wAcceptBtn.toolTip = oHelpMgr.getToolTip( "AcceptDialog" );
+wAcceptBtn.whatsThis = oHelpMgr.getHelpString( "AcceptDialog" );
+wDlgBtnsLyt.addWidget( wAcceptBtn, 0, 2 );
+
+// Create the cancel push button
+var wCancelBtn = new DzPushButton( wDlgBtnsGB );
+wCancelBtn.text = "&Cancel";
+wCancelBtn.minWidth = nMIN_BTN_WIDTH;
+wCancelBtn.maxHeight = nMAX_BTN_HEIGHT;
+wDlg.setRejectButton( wCancelBtn );
+wCancelBtn.toolTip = oHelpMgr.getToolTip( "CancelDialog" );
+wCancelBtn.whatsThis = oHelpMgr.getHelpString( "CancelDialog" );
+wDlgBtnsLyt.addWidget( wCancelBtn, 0, 3 );
+
+// Polish
+wDlg.width = wDlg.minWidth > 400 ? wDlg.minWidth : 400;
+wDlg.height = wDlg.minHeight;
+
+// Launch
+wDlg.exec();

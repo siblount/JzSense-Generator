@@ -1,0 +1,115 @@
+/**********************************************************************
+	File: setDefaultPropertyGroups.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*********************************************************************/
+// void : The main function of this script
+function setDefaultPropertyGroups(){
+	// Rotation
+	const sROTATION_GRP = "/General/Transforms/Rotation";
+	const aROTATION_PROPS = [ "XRotate", "YRotate", "ZRotate" ];
+	// Translation
+	const sTRANSLATION_GRP = "/General/Transforms/Translation";
+	const aTRANSLATION_PROPS = [ "XTranslate", "YTranslate", "ZTranslate" ];
+	// Scale
+	const sSCALE_GRP = "/General/Transforms/Scale";
+	const aSCALE_PROPS = [ "Scale", "XScale", "YScale", "ZScale" ];
+	// Misc
+	const sMISC_GRP = "/General/Misc";
+	// Light
+	const sLIGHT_GRP = "/Light";
+	const aLIGHT_PROPS = [ "Illumination", "Color", "Intensity", "Spread Angle" ];
+	// Camera
+	const sCAMERA_GRP = "/Camera";
+	const aCAMERA_PROPS = [ "Perspective", "Focal Length", "DOF", "Depth of Field", "Aperature" ];
+	// Shadow
+	const sSHADOW_GRP = "/Shadow";
+	const aSHADOW_PROPS = [ "Cast Shadows", "Shadow Type", "Shadow Softness", "Shadow Bias" ];
+	
+	// Declare local variables
+	var i, j, numI, numJ;
+	var oNode, oProp;
+	
+	// Get the number of selected nodes
+	numI = Scene.getNumSelectedNodes();
+	// Iterate over each selected node
+	for( i = 0; i < numI; i++ ){
+		// Get the selected node
+		oNode = Scene.getSelectedNode( i );
+		// Get the number of properties
+		numJ = oNode.getNumProperties();
+		// Iterate over each property
+		for( j = 0; j < numJ; j++ ){
+			// Get the current property
+			oProp = oNode.getProperty( j );
+			// Check if the property belongs in the rotation group
+			if( aROTATION_PROPS.find( oProp.name ) != -1 ){
+				// Set the group for the property
+				oProp.setPath( sROTATION_GRP );
+				// NEXT!!!
+				continue;
+			}
+			// or if the property belongs in the translation group
+			else if( aTRANSLATION_PROPS.find( oProp.name ) != -1 ){
+				// Set the group for the property
+				oProp.setPath( sTRANSLATION_GRP );
+				// NEXT!!!
+				continue;
+			}
+			// or if the property belongs in the scale group
+			else if( aSCALE_PROPS.find( oProp.name ) != -1 ){
+				// Set the group for the property
+				oProp.setPath( sSCALE_GRP );
+				// NEXT!!!
+				continue;
+			}
+			// or if the property belongs in the light group
+			else if( aLIGHT_PROPS.find( oProp.name ) != -1 ){
+				// Set the group for the property
+				oProp.setPath( sLIGHT_GRP );
+				// NEXT!!!
+				continue;
+			}
+			// or if the property belongs in the camera group
+			else if( aCAMERA_PROPS.find( oProp.name ) != -1 ){
+				// Set the group for the property
+				oProp.setPath( sCAMERA_GRP );
+				// NEXT!!!
+				continue;
+			}
+			// or if the property belongs in the shadow group
+			else if( aSHADOW_PROPS.find( oProp.name ) != -1 ){
+				// Set the group for the property
+				oProp.setPath( sSHADOW_GRP );
+				// NEXT!!!
+				continue;
+			}
+			// or... the property belongs in a default miscellaneous group
+			else
+				// Set the group for the property
+				oProp.setPath( sMISC_GRP );
+		}
+	}
+}
+
+/*********************************************************************/
+// Set the busy cursor to let the user know we're working
+setBusyCursor();
+// Do... that thing that we do
+setDefaultPropertyGroups();
+// We're done working, let the user know
+clearBusyCursor();

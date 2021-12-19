@@ -1,0 +1,116 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: exampleAreaLightDef.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************
+"Material" - is a transient global variable provided by the interpreter,
+that references the current DzShaderMaterial, when this script is
+executed via DzShaderMaterial::setDefinitionFile().
+*********************************************************************/
+var oShader;
+
+/**********************************************************************/
+setBusyCursor();
+
+Material.setMaterialName( "Area Light Example - RENDER TO RIB" );
+
+// Surface Shader : Beauty Pass
+oShader = new DzRSLShader;
+Material.addShader( oShader );
+oShader.setShaderType( DzRSLShader.Surface );
+oShader.setShaderFile( "null" );
+oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/surface/exampleSurf.dsa" );
+oShader.setRenderTimeFile( "support/DAZ/rendertime/surface/dzExampleAttribs.dsa" );
+
+// Surface Shader : Shadow Pass
+//oShader = new DzRSLShader;
+//Material.addShader( oShader );
+//oShader.setShaderType( DzRSLShader.Surface );
+//oShader.setShaderFile( "dzdefaultshadow" );
+//oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/surface/exampleShadowSurf.dsa" );
+//oShader.setRenderTimeFile( "support/DAZ/rendertime/surface/dzExampleShadowAttribs.dsa" );
+//oShader.setOnlyInShadowPass( true );
+
+// Displacement/Bump Shader
+//oShader = new DzRSLShader;
+//Material.addShader( oShader );
+//oShader.setShaderType( DzRSLShader.Displacement );
+//oShader.setShaderFile( "dzdisplace" );
+//oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/displacement/exampleDisplace.dsa" );
+//oShader.setRenderTimeFile( "support/DAZ/rendertime/displacement/exampleDisplaceAttribs.dsa" );
+//oShader.setActiveInShadowPass( true );
+
+// Light Shader : Area Light
+if( App.version >= 50331695 )//3.0.0.47
+{
+	oShader = new DzRSLShader;
+	Material.addShader( oShader );
+	oShader.setShaderType( DzRSLShader.LightArea );
+	oShader.setShaderFile( "null" );
+	oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/surface/exampleSurf.dsa" );
+	oShader.setRenderTimeFile( "support/DAZ/rendertime/surface/dzExampleAttribs.dsa" );
+	
+	Material.enablePropagateRenderPriorityToNodes( true );
+	var oRenderMgr = App.getRenderMgr();
+	Material.setRenderPriority( oRenderMgr.RENDER_PRIORITY_HIGHEST );
+	//Material.setRenderPriority( DzRenderMgr.RENDER_PRIORITY_HIGHEST );
+	
+	var oProperty = Material.getRenderPriorityControl();
+	if( oProperty != undefined ){
+		oProperty.lock( true );
+	}
+	oProperty = Material.getPropagatePriorityControl();
+	if( oProperty != undefined ){
+		oProperty.lock( true );
+	}
+	
+	// Block the headlamp from being sent to the renderer when
+	// Area Lights are the only 'lights' that exist in the scene.
+	var aLights = Scene.getLightList();
+	var bHasNullLight = false;
+	var oLight;
+	for( var i = 0; i < aLights.length; i++ )
+	{
+		oLight = aLights[ i ];
+		if( oLight.inherits( "DzShaderLight" ) &&
+		oLight.getLightType() == DzShaderLight.NullLight )
+		{
+			bHasNullLight = true;
+			break;
+		}
+	}
+	
+	if( !bHasNullLight )
+	{
+		oLight = new DzShaderLight;
+		oLight.setLightType( DzShaderLight.NullLight );
+		oLight.name = 'AreaLightSupport';
+		oLight.setLabel( 'AreaLight - HeadLamp Blocker' );
+		Scene.addNode( oLight );
+	}
+}
+else
+{
+	MessageBox.information( String( 'Area Lights are not supported in this version of %1. '
+		+ 'Please install 3.0.0.47 or newer for support of this feature.' )
+		.arg( App.appName ), 'Information', '&OK' );
+}
+
+clearBusyCursor();

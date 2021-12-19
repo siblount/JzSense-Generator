@@ -1,0 +1,74 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzDefaultDisplaceAttribs.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+var oOWNER = Shader.getOwner();
+
+/*********************************************************************/
+// --- Displacement
+// Get the displacement strength property
+oProperty = oOWNER.findProperty( "Displacement Strength" );
+// If the property is found and its a float property
+if( oProperty && oProperty.className() == "DzFloatProperty" )
+{
+	// Get the value of the property
+	var fValue = oProperty.getValue();
+	// If the value is not zero and its mapped
+	if( fValue != 0 && oProperty.isMapped() )
+	{
+		// Initialize
+		var fMin = 0;
+		var fMax = 0;
+		// Find the property for the lower extent of displacement
+		oProperty = oOWNER.findProperty( "Minimum Displacement" );
+		// If the property was found and its a float property, get its absolute value
+		if( oProperty && oProperty.className() == "DzFloatProperty" )
+		{
+			fMin = Math.abs( oProperty.getValue() );
+		}
+		// Find the property for the upper extent of displacement
+		oProperty = oOWNER.findProperty( "Maximum Displacement" );
+		// If the property was found and its a float property, get its absolute value
+		if( oProperty && oProperty.className() == "DzFloatProperty" )
+		{
+			fMax = Math.abs( oProperty.getValue() );
+		}
+		// Multiply the displacement strength by the furthest extent
+		fValue *= ( fMax > fMin ? fMax : fMin );
+		// Set the attribute
+		Shader.setFloatAttrib( "displacementbound", "float sphere", fValue );
+		// Set the attribute
+		Shader.setStringAttrib( "displacementbound", "string coordinatesystem", "shader" );
+		// --- Raytracing
+		// Initialize
+		var nDisplacement = 1;
+		bValue = true;
+		// Find the property for the whether or not to trace displacement
+		oProperty = oOWNER.findProperty( "Trace Displacements" );
+		// If the property was found and its a bool property
+		if( oProperty && oProperty.className() == "DzBoolProperty" )
+		{
+			// Get the property value
+			bValue = oProperty.getBoolValue();
+			// Convert the value to a number
+			nDisplacement = ( bValue ? 1 : 0 );
+		}
+		// Set the attribute
+		Shader.setIntegerAttrib( "trace", "displacements", nDisplacement );
+	}
+}

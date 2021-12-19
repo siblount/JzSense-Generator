@@ -1,0 +1,502 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: calculator.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************/
+var g_oFILE = new DzFile( getScriptFileName() );
+var g_sSCRIPT_NAME = String( "%1.%2" ).arg( g_oFILE.baseName() ).arg( g_oFILE.extension() );
+
+var g_bSHIFT_PRESSED = shiftPressed();
+var g_bCONTROL_PRESSED = ctrlPressed();
+
+var g_nMARGIN = 5;
+var g_nSPACING = 5;
+var g_nMIN_BTN_WIDTH = 80;
+var g_nMAX_BTN_HEIGHT = 20;
+
+// Modes:
+var g_nMNone = 0;
+var g_nMDivide = 1;
+var g_nMMultiply = 2;
+var g_nMSubtract = 3;
+var g_nMAdd = 4;
+
+/***********************************************************************
+***** DsCalculator Prototype *****
+***********************************************************************/
+function DsCalculator()
+{
+	this.m_bMemoryIsSet = false;
+	this.m_nValue = 0;
+	this.m_nMemory = 0;
+	this.m_nMode = g_nMNone;
+	this.m_nPending = g_nMNone;
+	this.m_bClearEntry = true;
+	
+	this.m_wDlg = new DzDialog;
+	
+	this.m_wEntry = new DzLineEdit( this.m_wDlg );
+	
+	this.m_wMode = new DzLabel( this.m_wDlg );
+	
+	this.m_wMemClear = new DzPushButton( this.m_wDlg );
+	this.m_wMemReplace = new DzPushButton( this.m_wDlg );
+	this.m_wMemStore = new DzPushButton( this.m_wDlg );
+	this.m_wMemAdd = new DzPushButton( this.m_wDlg );
+	
+	this.m_wClear = new DzPushButton( this.m_wDlg );
+	this.m_wClearEntry = new DzPushButton( this.m_wDlg );
+	
+	this.m_wZero = new DzPushButton( this.m_wDlg );
+	this.m_wOne = new DzPushButton( this.m_wDlg );
+	this.m_wTwo = new DzPushButton( this.m_wDlg );
+	this.m_wThree = new DzPushButton( this.m_wDlg );
+	this.m_wFour = new DzPushButton( this.m_wDlg );
+	this.m_wFive = new DzPushButton( this.m_wDlg );
+	this.m_wSix = new DzPushButton( this.m_wDlg );
+	this.m_wSeven = new DzPushButton( this.m_wDlg );
+	this.m_wEight = new DzPushButton( this.m_wDlg );
+	this.m_wNine = new DzPushButton( this.m_wDlg );
+	
+	this.m_wDivide = new DzPushButton( this.m_wDlg );
+	this.m_wMultiply = new DzPushButton( this.m_wDlg );
+	this.m_wSubtract = new DzPushButton( this.m_wDlg );
+	this.m_wAdd = new DzPushButton( this.m_wDlg );
+	
+	this.m_wSignBtn = new DzPushButton( this.m_wDlg );
+	this.m_wPointBtn = new DzPushButton( this.m_wDlg );
+	
+	this.m_wResult = new DzPushButton( this.m_wDlg );
+	
+	this.m_wDlgBtnsGB = new DzGroupBox( this.m_wDlg );
+	this.m_wHelpBtn = new DzPushButton( this.m_wDlgBtnsGB );
+	this.m_wAcceptBtn = new DzPushButton( this.m_wDlgBtnsGB );
+}
+
+/***********************************************************************/
+DsCalculator.superclass = Object;
+
+/*********************************************************************/
+DsCalculator.prototype.doDialog = function()
+{
+	var oHelpMgr = App.getHelpMgr();
+	
+	var oActionMgr = MainWindow.getActionMgr();
+	var oHelpAction = oActionMgr ? oActionMgr.findAction( "DzWhatsThisAction" ) : undefined;
+	
+	var nRow = 0, nColumn = 0;
+	
+	this.m_wDlg.caption = "DAZ Calculator";
+	
+	var wDlgLayout = new DzGridLayout( this.m_wDlg );
+	wDlgLayout.margin = g_nMARGIN;
+	wDlgLayout.spacing = g_nSPACING;
+	
+	this.m_wEntry.alignment = this.m_wEntry.AlignRight;
+	this.m_wEntry.text = this.m_nValue;
+	wDlgLayout.addMultiCellWidget( this.m_wEntry, nRow, nRow, nColumn, nColumn + 3 );
+	
+	nColumn += 4;
+	
+	wDlgLayout.addWidget( this.m_wMode, nRow, nColumn++ );
+	
+	// --- next row
+	nRow++;
+	nColumn = 0;
+	
+	this.m_wMemClear.text = "MC";
+	this.m_wMemClear.clicked.connect( this, "memClear" );
+	wDlgLayout.addWidget( this.m_wMemClear, nRow, nColumn++ );
+	
+	this.m_wMemReplace.text = "MR";
+	this.m_wMemReplace.clicked.connect( this, "memRecall" );
+	wDlgLayout.addWidget( this.m_wMemReplace, nRow, nColumn++ );
+	
+	this.m_wMemStore.text = "MS";
+	this.m_wMemStore.clicked.connect( this, "memSet" );
+	wDlgLayout.addWidget( this.m_wMemStore, nRow, nColumn++ );
+	
+	this.m_wMemAdd.text = "M+";
+	this.m_wMemAdd.clicked.connect( this, "memAdd" );
+	wDlgLayout.addWidget( this.m_wMemAdd, nRow, nColumn++ );
+	
+	this.m_wClear.text = "C";
+	this.m_wClear.clicked.connect( this, "clear" );
+	wDlgLayout.addWidget( this.m_wClear, nRow, nColumn++ );
+	
+	// --- next row
+	nRow++;
+	nColumn = 0;
+	
+	this.m_wSeven.text = "7";
+	this.m_wSeven.clicked.connect( this, "seven" );
+	wDlgLayout.addWidget( this.m_wSeven, nRow, nColumn++ );
+	
+	this.m_wEight.text = "8";
+	this.m_wEight.clicked.connect( this, "eight" );
+	wDlgLayout.addWidget( this.m_wEight, nRow, nColumn++ );
+	
+	this.m_wNine.text = "9";
+	this.m_wNine.clicked.connect( this, "nine" );
+	wDlgLayout.addWidget( this.m_wNine, nRow, nColumn++ );
+	
+	this.m_wDivide.text = "/";
+	this.m_wDivide.clicked.connect( this, "divide" );
+	wDlgLayout.addWidget( this.m_wDivide, nRow, nColumn++ );
+	
+	this.m_wClearEntry.text = "CE";
+	this.m_wClearEntry.clicked.connect( this, "clearEntry" );
+	wDlgLayout.addWidget( this.m_wClearEntry, nRow, nColumn++ );
+	
+	// --- next row
+	nRow++;
+	nColumn = 0;
+	
+	this.m_wFour.text = "4";
+	this.m_wFour.clicked.connect( this, "four" );
+	wDlgLayout.addWidget( this.m_wFour, nRow, nColumn++ );
+	
+	this.m_wFive.text = "5";
+	this.m_wFive.clicked.connect( this, "five" );
+	wDlgLayout.addWidget( this.m_wFive, nRow, nColumn++ );
+	
+	this.m_wSix.text = "6";
+	this.m_wSix.clicked.connect( this, "six" );
+	wDlgLayout.addWidget( this.m_wSix, nRow, nColumn++ );
+	
+	this.m_wMultiply.text = "*";
+	this.m_wMultiply.clicked.connect( this, "multiply" );
+	wDlgLayout.addWidget( this.m_wMultiply, nRow, nColumn++ );
+	
+	// --- next row
+	nRow++;
+	nColumn = 0;
+	
+	this.m_wOne.text = "1";
+	this.m_wOne.clicked.connect( this, "one" );
+	wDlgLayout.addWidget( this.m_wOne, nRow, nColumn++ );
+	
+	this.m_wTwo.text = "2";
+	this.m_wTwo.clicked.connect( this, "two" );
+	wDlgLayout.addWidget( this.m_wTwo, nRow, nColumn++ );
+	
+	this.m_wThree.text = "3";
+	this.m_wThree.clicked.connect( this, "three" );
+	wDlgLayout.addWidget( this.m_wThree, nRow, nColumn++ );
+	
+	this.m_wSubtract.text = "-";
+	this.m_wSubtract.clicked.connect( this, "subtract" );
+	wDlgLayout.addWidget( this.m_wSubtract, nRow, nColumn++ );
+	
+	// --- next row
+	nRow++;
+	nColumn = 0;
+	
+	this.m_wZero.text = "0";
+	this.m_wZero.clicked.connect( this, "zero" );
+	wDlgLayout.addWidget( this.m_wZero, nRow, nColumn++ );
+	
+	this.m_wSignBtn.text = "+/-";
+	this.m_wSignBtn.clicked.connect( this, "changeSign" );
+	wDlgLayout.addWidget( this.m_wSignBtn, nRow, nColumn++ );
+	
+	this.m_wPointBtn.text = ".";
+	this.m_wPointBtn.clicked.connect( this, "point" );
+	wDlgLayout.addWidget( this.m_wPointBtn, nRow, nColumn++ );
+	
+	this.m_wAdd.text = "+";
+	this.m_wAdd.clicked.connect( this, "add" );
+	wDlgLayout.addWidget( this.m_wAdd, nRow, nColumn++ );
+	
+	this.m_wResult.text = "=";
+	this.m_wResult.clicked.connect( this, "result" );
+	wDlgLayout.addWidget( this.m_wResult, nRow, nColumn++ );
+	
+	// --- next row
+	nRow++;
+	nColumn = 0;
+	
+	this.m_wDlgBtnsGB.flat = true;
+	var wDlgBtnsLyt = new DzGridLayout( this.m_wDlgBtnsGB );
+	wDlgBtnsLyt.margin = g_nMARGIN;
+	wDlgBtnsLyt.spacing = g_nSPACING;
+	
+	this.m_wHelpBtn.pixmap = new Pixmap( String( "%1/images/icons/whatsthissmallicon.png" ).arg( App.getResourcesPath() ) );
+	this.m_wHelpBtn.maxHeight = g_nMAX_BTN_HEIGHT;
+	if( oHelpAction )
+	{
+		 this.m_wHelpBtn.clicked.connect( oHelpAction, "trigger()" );
+	}
+	this.m_wHelpBtn.toolTip = oHelpMgr.getToolTip( "WhatsThis" );
+	this.m_wHelpBtn.whatsThis = oHelpMgr.getHelpString( "WhatsThis" );
+	wDlgBtnsLyt.addWidget( this.m_wHelpBtn, 0, 0 );
+	
+	wDlgBtnsLyt.setColStretch( 1, 1 );
+	
+	this.m_wAcceptBtn.text = "&Close";
+	this.m_wAcceptBtn.minWidth = g_nMIN_BTN_WIDTH;
+	this.m_wAcceptBtn.maxHeight = g_nMAX_BTN_HEIGHT;
+	this.m_wAcceptBtn.toolTip = oHelpMgr.getToolTip( "OKDialog" );
+	this.m_wAcceptBtn.whatsThis = oHelpMgr.getHelpString( "OKDialog" ).replace( "<b>OK:</b>", "<b>Close:</b>" );
+	this.m_wDlg.setAcceptButton( this.m_wAcceptBtn );
+	wDlgBtnsLyt.addWidget( this.m_wAcceptBtn, 0, 2 );
+	
+	wDlgLayout.addMultiCellWidget( this.m_wDlgBtnsGB, nRow, nRow, nColumn, nColumn + 4 );
+	
+	this.m_wDlg.exec();
+}
+
+/*********************************************************************/
+DsCalculator.prototype.getNumber = function()
+{
+	return Number( this.m_wEntry.text );
+}
+
+/*********************************************************************/
+DsCalculator.prototype.setNumber = function( num )
+{
+	this.m_wEntry.text = num;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.numPress = function()
+{
+	if( this.m_bClearEntry )
+	{
+		this.m_wEntry.text = "";
+		this.m_bClearEntry = false;
+	}
+	this.btnPress();
+}
+
+/*********************************************************************/
+DsCalculator.prototype.btnPress = function()
+{
+	if( this.m_nPending != this.m_nMode )
+		this.m_nPending = this.m_nMode;
+	this.m_wMode.text = "";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.operatorPress = function()
+{
+	if( this.m_nPending == g_nMNone )
+		this.m_nValue = this.getNumber();
+	else
+	{
+		var operand = this.getNumber();
+		switch( this.m_nPending )
+		{
+			case g_nMDivide:
+				this.m_nValue /= operand;
+				break;
+
+			case g_nMMultiply:
+				this.m_nValue *= operand;
+				break;
+
+			case g_nMSubtract:
+				this.m_nValue -= operand;
+				break;
+
+			case g_nMAdd:
+				this.m_nValue += operand;
+				break;
+		}
+		this.m_nPending = g_nMNone;
+		this.setNumber( this.m_nValue );
+	}
+
+	this.m_bClearEntry = true;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.zero = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "0";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.one = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "1";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.two = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "2";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.three = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "3";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.four = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "4";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.five = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "5";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.six = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "6";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.seven = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "7";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.eight = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "8";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.nine = function()
+{
+	this.numPress();
+	this.m_wEntry.text += "9";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.changeSign = function()
+{
+	this.setNumber( -this.getNumber() );
+}
+
+/*********************************************************************/
+DsCalculator.prototype.point = function()
+{
+	this.btnPress();
+	if( this.m_wEntry.text.find( "." ) < 0 )
+		this.m_wEntry.text += ".";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.clear = function()
+{
+	this.clearEntry();
+	this.m_nPending = g_nMNone;
+	this.m_nMode = g_nMNone;
+	this.m_wMode.text = "";
+}
+
+/*********************************************************************/
+DsCalculator.prototype.clearEntry = function()
+{
+	this.setNumber( 0 );
+	this.m_bClearEntry = true;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.divide = function()
+{
+	this.operatorPress();
+	this.m_wMode.text = "/";
+	this.m_nMode = g_nMDivide;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.multiply = function()
+{
+	this.operatorPress();
+	this.m_wMode.text = "*";
+	this.m_nMode = g_nMMultiply;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.subtract = function()
+{
+	this.operatorPress();
+	this.m_wMode.text = "-";
+	this.m_nMode = g_nMSubtract;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.add = function()
+{
+	this.operatorPress();
+	this.m_wMode.text = "+";
+	this.m_nMode = g_nMAdd;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.result = function()
+{
+	this.operatorPress();
+	this.m_nMode = g_nMNone;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.memClear = function()
+{
+	this.m_nMemory = 0;
+	this.m_bMemoryIsSet = false;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.memRecall = function()
+{
+	if( this.m_bMemoryIsSet )
+	{
+		this.btnPress();
+		this.setNumber( this.m_nMemory );
+	}
+}
+
+/*********************************************************************/
+DsCalculator.prototype.memSet = function()
+{
+	this.m_nMemory = this.getNumber();
+	this.m_bMemoryIsSet = true;
+}
+
+/*********************************************************************/
+DsCalculator.prototype.memAdd = function()
+{
+	this.m_nMemory += this.getNumber();
+	this.m_bMemoryIsSet = true;
+}
+
+/*********************************************************************/
+var oCalc = new DsCalculator;
+oCalc.doDialog();

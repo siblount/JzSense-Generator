@@ -1,0 +1,53 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzskinDef.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+var oShader;
+
+/**********************************************************************/
+setBusyCursor();
+
+Material.setMaterialName( "DAZ Studio Skin" );
+
+// Beauty Pass
+oShader = new DzRSLShader;
+Material.addShader( oShader );
+oShader.setShaderType( DzRSLShader.Surface );
+oShader.setShaderFile( "dzskin" );
+oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/surface/dzdefaultskinSurf.dsa" );
+oShader.setRenderTimeFile( "support/DAZ/rendertime/surface/dzDefaultAttribs.dsa" );
+
+// Shadow Pass
+oShader = new DzRSLShader;
+Material.addShader( oShader );
+oShader.setShaderType( DzRSLShader.Surface );
+oShader.setShaderFile( "dzdefaultshadow" );
+oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/surface/dzdefaultshadowSurf.dsa" );
+oShader.setRenderTimeFile( "support/DAZ/rendertime/surface/dzDefaultShadowAttribs.dsa" );
+oShader.setOnlyInShadowPass( true );
+
+// Displacement/Bump
+oShader = new DzRSLShader;
+Material.addShader( oShader );
+oShader.setShaderType( DzRSLShader.Displacement );
+oShader.setShaderFile( "dzdisplace" );
+oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/displacement/dzdisplaceSurf.dsa" );
+oShader.setRenderTimeFile( "support/DAZ/rendertime/displacement/dzDefaultDisplaceAttribs.dsa" );
+oShader.setActiveInShadowPass( true );
+
+clearBusyCursor();

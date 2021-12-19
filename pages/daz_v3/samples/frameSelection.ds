@@ -1,0 +1,83 @@
+/**********************************************************************
+	File: frameSelection.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************/
+const g_sTOOL_NAME = "Frame Camera";
+
+/*********************************************************************/
+// Box3 : Method for building a box
+function buildBox( oCamera ){
+	// A box to grow; encompassing target nodes
+	var boxTarget = new DzBox3;
+	// Check if a node is selected
+	var oPrimaryNode = Scene.getPrimarySelection();
+	// A flag for whether or not any node warranted inclusion
+	var bValid = false;
+	
+	// If nodes are selected, get the number of selected nodes, otherwise get the number of all nodes in the scene
+	var nNodes = oPrimaryNode ? Scene.getNumSelectedNodes() : Scene.getNumNodes();
+	// Iterate over the nodes
+	for( var n = 0; n < nNodes; n++ ) {
+		// If nodes are selected, get the 'current' selected node, otherwise get the 'current' node
+		var oNode = oPrimaryNode ? Scene.getSelectedNode( n ) : Scene.getNode( n );
+		// If the node is defined and it is not the 'current' camera
+		if( oNode != undefined && oNode != oCamera ) {
+			// Grow the box to include the node bounding box
+			boxTarget.include( oNode.getWSBoundingBox() );
+			// BINGO!... we got one!
+			bValid = true;
+		}
+	}
+	// If the scene is empty or there were no worthy nodes
+	if( !nNodes || !bValid ) {
+		// Um... Houston?
+		return undefined;
+	}
+	// Ahh... done.
+	return boxTarget;
+}
+
+/*********************************************************************/
+// Set the busy cursor to let the user know we're working
+setBusyCursor();
+// Get the active viewport
+var oViewport = MainWindow.getViewportMgr().getActiveViewport();
+// Get the current camera
+var oCamera = oViewport.get3DViewport().getCamera();
+// Get a box encompassing the nodes to aim at
+var boxTarget = buildBox( oCamera );
+
+// If the box is defined
+if( boxTarget ){ 
+	// Start collecting actions for the undo stack; for non-'view' cameras
+	if( !oCamera.isViewCamera() ) {
+		beginUndo();
+		oCamera.beginEdit();
+	}
+	// Frame the box in the camera
+	oCamera.frame( boxTarget, oViewport.width / oViewport.height );
+	// Stop collecting events and accept; for non-'view' cameras
+	if( !oCamera.isViewCamera() ) {
+		oCamera.finishEdit();
+		acceptUndo( g_sTOOL_NAME );
+	}
+}
+// We're done working, let the user know
+clearBusyCursor();

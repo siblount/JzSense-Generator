@@ -1,0 +1,554 @@
+/**********************************************************************
+	File: calculator.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************/
+const g_oFILE = new DzFile( getScriptFileName() );
+const g_sSCRIPT_NAME = String( "%1.%2" ).arg( g_oFILE.baseName() ).arg( g_oFILE.extension() );
+
+const g_bSHIFT_PRESSED = shiftPressed();
+const g_bCONTROL_PRESSED = ctrlPressed();
+
+const g_nMARGIN = 5;
+const g_nSPACING = 5;
+const g_nMIN_BTN_WIDTH = 80;
+const g_nMAX_BTN_HEIGHT = 20;
+
+// Mode constants:
+const g_nMNone = 0;
+const g_nMDivide = 1;
+const g_nMMultiply = 2;
+const g_nMSubtract = 3;
+const g_nMAdd = 4;
+
+/*********************************************************************/
+//   DsCalculator - A class for building a ...calculator?
+/*********************************************************************/
+class DsCalculator {
+	/*****************************
+	   Class members
+	*****************************/
+	var m_wDlg;
+	// entry fields
+	var m_wEntry;
+	// labels
+	var m_wMode;
+	// buttons
+	var m_wZero, m_wOne, m_wTwo, m_wThree, m_wFour;
+	var m_wFive, m_wSix, m_wSeven, m_wEight, m_wNine;
+	var m_wDivide, m_wMultiply, m_wSubtract, m_wAdd, m_wResult;
+	var m_wClear, m_wClearEntry, m_wMemClear, m_wMemReplace, m_wMemStore, m_wMemAdd;
+	var m_wHelpBtn, m_wAcceptBtn;
+	//
+	var m_wDlgBtnsGB;
+	//
+	var m_nValue, m_nMemory, m_bMemoryIsSet;
+	var m_nMode, m_nPending;
+	var m_bClearEntry;
+	
+	/*********************************************************************/
+	// DsCalculator : Constructor
+	function DsCalculator(){
+		//
+		m_bMemoryIsSet = false;
+		m_nValue = 0;
+		m_nMemory = 0;
+		m_nMode = g_nMNone;
+		m_nPending = g_nMNone;
+		m_bClearEntry = true;
+		
+		// create the dialog
+		m_wDlg = new DzDialog;
+		
+		// create the entry field
+		m_wEntry = new DzLineEdit( m_wDlg );
+		
+		// create the mode display label
+		m_wMode = new DzLabel( m_wDlg );
+		
+		// create the memory buttons
+		m_wMemClear = new DzPushButton( m_wDlg );
+		m_wMemReplace = new DzPushButton( m_wDlg );
+		m_wMemStore = new DzPushButton( m_wDlg );
+		m_wMemAdd = new DzPushButton( m_wDlg );
+		
+		// create the clear buttons
+		m_wClear = new DzPushButton( m_wDlg );
+		m_wClearEntry = new DzPushButton( m_wDlg );
+		
+		// create the numeric buttons
+		m_wZero = new DzPushButton( m_wDlg );
+		m_wOne = new DzPushButton( m_wDlg );
+		m_wTwo = new DzPushButton( m_wDlg );
+		m_wThree = new DzPushButton( m_wDlg );
+		m_wFour = new DzPushButton( m_wDlg );
+		m_wFive = new DzPushButton( m_wDlg );
+		m_wSix = new DzPushButton( m_wDlg );
+		m_wSeven = new DzPushButton( m_wDlg );
+		m_wEight = new DzPushButton( m_wDlg );
+		m_wNine = new DzPushButton( m_wDlg );
+		
+		// create the mode buttons
+		m_wDivide = new DzPushButton( m_wDlg );
+		m_wMultiply = new DzPushButton( m_wDlg );
+		m_wSubtract = new DzPushButton( m_wDlg );
+		m_wAdd = new DzPushButton( m_wDlg );
+		
+		// create the other misc buttons
+		m_signBtn = new DzPushButton( m_wDlg );
+		m_pointBtn = new DzPushButton( m_wDlg );
+
+		// create the result button
+		m_wResult = new DzPushButton( m_wDlg );
+		
+		// create the dialog buttons
+		m_wDlgBtnsGB = new DzGroupBox( m_wDlg );
+		m_wHelpBtn = new DzPushButton( m_wDlgBtnsGB );
+		m_wAcceptBtn = new DzPushButton( m_wDlgBtnsGB );
+	}
+	
+	/*********************************************************************/
+	// void : Method for displaying the dialog
+	function doDialog(){
+		// Get the Help Manager for "What's This?" and tool tips
+		var oHelpMgr = App.getHelpMgr();
+		
+		// find the "What's This?" action; for the help button
+		var oActionMgr = MainWindow.getActionMgr();
+		var oHelpAction = oActionMgr ? oActionMgr.findAction( "DzWhatsThisAction" ) : undefined;
+		
+		// variables used for building layout
+		var nRow = 0, nColumn = 0;
+		
+		// create the dialog
+		m_wDlg.caption = "DAZ Calculator";
+		
+		// create the dialog layout
+		var wDlgLayout = new DzGridLayout( m_wDlg );
+		wDlgLayout.margin = g_nMARGIN;
+		wDlgLayout.spacing = g_nSPACING;
+		
+		// entry field
+		m_wEntry.alignment = m_wEntry.AlignRight;
+		m_wEntry.text = m_nValue;
+		wDlgLayout.addMultiCellWidget( m_wEntry, nRow, nRow, nColumn, nColumn + 3 );
+		
+		nColumn += 4;
+		
+		// mode display label
+		wDlgLayout.addWidget( m_wMode, nRow, nColumn++ );
+		
+		// --- next row
+		nRow++;
+		nColumn = 0;
+		
+		// memory clear button
+		m_wMemClear.text = "MC";
+		connect( m_wMemClear, "clicked()", memClear );
+		wDlgLayout.addWidget( m_wMemClear, nRow, nColumn++ );
+		
+		// memory recall button
+		m_wMemReplace.text = "MR";
+		connect( m_wMemReplace, "clicked()", memRecall );
+		wDlgLayout.addWidget( m_wMemReplace, nRow, nColumn++ );
+		
+		// memory store button
+		m_wMemStore.text = "MS";
+		connect( m_wMemStore, "clicked()", memSet );
+		wDlgLayout.addWidget( m_wMemStore, nRow, nColumn++ );
+		
+		// memory store button
+		m_wMemAdd.text = "M+";
+		connect( m_wMemAdd, "clicked()", memAdd );
+		wDlgLayout.addWidget( m_wMemAdd, nRow, nColumn++ );
+		
+		// clear (all) button
+		m_wClear.text = "C";
+		connect( m_wClear, "clicked()", clear );
+		wDlgLayout.addWidget( m_wClear, nRow, nColumn++ );
+		
+		// --- next row
+		nRow++;
+		nColumn = 0;
+		
+		// 7 button
+		m_wSeven.text = "7";
+		connect( m_wSeven, "clicked()", seven );
+		wDlgLayout.addWidget( m_wSeven, nRow, nColumn++ );
+		
+		// 8 button
+		m_wEight.text = "8";
+		connect( m_wEight, "clicked()", eight );
+		wDlgLayout.addWidget( m_wEight, nRow, nColumn++ );
+		
+		// 9 button
+		m_wNine.text = "9";
+		connect( m_wNine, "clicked()", nine );
+		wDlgLayout.addWidget( m_wNine, nRow, nColumn++ );
+		
+		// division button
+		m_wDivide.text = "/";
+		connect( m_wDivide, "clicked()", divide );
+		wDlgLayout.addWidget( m_wDivide, nRow, nColumn++ );
+		
+		// clear (entry) button
+		m_wClearEntry.text = "CE";
+		connect( m_wClearEntry, "clicked()", clearEntry );
+		wDlgLayout.addWidget( m_wClearEntry, nRow, nColumn++ );
+		
+		// --- next row
+		nRow++;
+		nColumn = 0;
+		
+		// 4 button
+		m_wFour.text = "4";
+		connect( m_wFour, "clicked()", four );
+		wDlgLayout.addWidget( m_wFour, nRow, nColumn++ );
+		
+		// 5 button
+		m_wFive.text = "5";
+		connect( m_wFive, "clicked()", five );
+		wDlgLayout.addWidget( m_wFive, nRow, nColumn++ );
+		
+		// 6 button
+		m_wSix.text = "6";
+		connect( m_wSix, "clicked()", six );
+		wDlgLayout.addWidget( m_wSix, nRow, nColumn++ );
+		
+		/// multiplication button
+		m_wMultiply.text = "*";
+		connect( m_wMultiply, "clicked()", multiply );
+		wDlgLayout.addWidget( m_wMultiply, nRow, nColumn++ );
+		
+		// --- next row
+		nRow++;
+		nColumn = 0;
+		
+		// 1 button
+		m_wOne.text = "1";
+		connect( m_wOne, "clicked()", one );
+		wDlgLayout.addWidget( m_wOne, nRow, nColumn++ );
+		
+		// 2 button
+		m_wTwo.text = "2";
+		connect( m_wTwo, "clicked()", two );
+		wDlgLayout.addWidget( m_wTwo, nRow, nColumn++ );
+		
+		// 3 button
+		m_wThree.text = "3";
+		connect( m_wThree, "clicked()", three );
+		wDlgLayout.addWidget( m_wThree, nRow, nColumn++ );
+		
+		// subtraction button
+		m_wSubtract.text = "-";
+		connect( m_wSubtract, "clicked()", subtract );
+		wDlgLayout.addWidget( m_wSubtract, nRow, nColumn++ );
+		
+		// --- next row
+		nRow++;
+		nColumn = 0;
+		
+		// 0 button
+		m_wZero.text = "0";
+		connect( m_wZero, "clicked()", zero );
+		wDlgLayout.addWidget( m_wZero, nRow, nColumn++ );
+		
+		// change sign button
+		m_signBtn.text = "+/-";
+		connect( m_signBtn, "clicked()", changeSign );
+		wDlgLayout.addWidget( m_signBtn, nRow, nColumn++ );
+		
+		// decimal point button
+		m_pointBtn.text = ".";
+		connect( m_pointBtn, "clicked()", point );
+		wDlgLayout.addWidget( m_pointBtn, nRow, nColumn++ );
+		
+		// addition button
+		m_wAdd.text = "+";
+		connect( m_wAdd, "clicked()", add );
+		wDlgLayout.addWidget( m_wAdd, nRow, nColumn++ );	
+		
+		// equals button
+		m_wResult.text = "=";
+		connect( m_wResult, "clicked()", result );
+		wDlgLayout.addWidget( m_wResult, nRow, nColumn++ );
+		
+		// --- next row
+		nRow++;	
+		nColumn = 0;
+		
+		// group box for the dialog buttons
+		m_wDlgBtnsGB.flat = true;
+		
+		// create the layout for the dialog buttons
+		var wDlgBtnsLyt = new DzGridLayout( m_wDlgBtnsGB );
+		wDlgBtnsLyt.margin = g_nMARGIN;
+		wDlgBtnsLyt.spacing = g_nSPACING;
+		
+		// interactive help ("What's This?") button
+		m_wHelpBtn.pixmap = new Pixmap( String( "%1/images/icons/whatsthissmallicon.png" ).arg( App.getResourcesPath() ) );
+		m_wHelpBtn.maxHeight = g_nMAX_BTN_HEIGHT;
+		if( oHelpAction )
+			connect( m_wHelpBtn, "clicked()", oHelpAction, "activate()" );
+		m_wHelpBtn.toolTip = oHelpMgr.getToolTip( "WhatsThis" );
+		m_wHelpBtn.whatsThis = oHelpMgr.getHelpString( "WhatsThis" );
+		wDlgBtnsLyt.addWidget( m_wHelpBtn, 0, 0 );
+		
+		wDlgBtnsLyt.setColStretch( 1, 1 );
+		
+		// accept button
+		m_wAcceptBtn.text = "&Close";
+		m_wAcceptBtn.minWidth = g_nMIN_BTN_WIDTH;
+		m_wAcceptBtn.maxHeight = g_nMAX_BTN_HEIGHT;
+		m_wAcceptBtn.toolTip = oHelpMgr.getToolTip( "OKDialog" );
+		m_wAcceptBtn.whatsThis = oHelpMgr.getHelpString( "OKDialog" ).replace( "<b>OK:</b>", "<b>Close:</b>" );
+		m_wDlg.setAcceptButton( m_wAcceptBtn );
+		wDlgBtnsLyt.addWidget( m_wAcceptBtn, 0, 2 );
+		
+		wDlgLayout.addMultiCellWidget( m_wDlgBtnsGB, nRow, nRow, nColumn, nColumn + 4 );
+		
+		// display the dialog
+		m_wDlg.exec();
+	}
+	
+	/*********************************************************************/
+	// String : Method for retrieving the contents of the entry field
+	function getNumber(){ return Number( m_wEntry.text ); }
+	
+	/*********************************************************************/
+	// void : Method for displaying num
+	function setNumber( num ){ m_wEntry.text = num; }
+	
+	/*********************************************************************/
+	// void : Method for...
+	function numPress(){
+		if( m_bClearEntry ){
+			m_wEntry.text = "";
+			m_bClearEntry = false;
+		}
+		btnPress();
+	}
+	
+	/*********************************************************************/
+	// void : Method for...
+	function btnPress(){
+		if( m_nPending != m_nMode )
+			m_nPending = m_nMode;
+		
+		m_wMode.text = ""; 
+	}
+	
+	/*********************************************************************/
+	// void : Method for...
+	function operatorPress(){
+		if( m_nPending == g_nMNone )
+			m_nValue = getNumber();
+		else{
+			var operand = getNumber();
+			switch( m_nPending ){
+				case g_nMDivide:
+					m_nValue /= operand;
+					break;
+				case g_nMMultiply:
+					m_nValue *= operand;
+					break;
+				case g_nMSubtract:
+					m_nValue -= operand;
+					break;
+				case g_nMAdd:
+					m_nValue += operand;
+					break;
+			}
+			m_nPending = g_nMNone;
+			setNumber( m_nValue );
+		}
+		m_bClearEntry = true;
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 0
+	function zero(){ 
+		numPress(); 
+		m_wEntry.text += "0"; 
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 1
+	function one(){ 
+		numPress(); 
+		m_wEntry.text += "1"; 
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 2
+	function two(){ 
+		numPress(); 
+		m_wEntry.text += "2"; 
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 3
+	function three(){ 
+		numPress(); 
+		m_wEntry.text += "3"; 
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 4
+	function four(){
+		numPress();
+		m_wEntry.text += "4";
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 5
+	function five(){
+		numPress();
+		m_wEntry.text += "5";
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 6
+	function six(){
+		numPress();
+		m_wEntry.text += "6";
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 7
+	function seven(){
+		numPress();
+		m_wEntry.text += "7";
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 8
+	function eight(){
+		numPress();
+		m_wEntry.text += "8";
+	}
+	
+	/*********************************************************************/
+	// void : Method for inserting the numeral 9
+	function nine(){
+		numPress();
+		m_wEntry.text += "9";
+	}
+	
+	/*********************************************************************/
+	// void : Method for inverting the value in the entry field
+	function changeSign() { setNumber( -getNumber() ); }
+	
+	/*********************************************************************/
+	// void : Method for inserting a decimal point (if one isn't already there)
+	function point(){ 
+		btnPress(); 
+		if( m_wEntry.text.find( "." ) < 0 ) 
+			m_wEntry.text += "."; 
+	}
+	
+	/*********************************************************************/
+	// void : Method for clearing (all)
+	function clear(){
+		clearEntry();
+		m_nPending = g_nMNone;
+		m_nMode = g_nMNone;
+		m_wMode.text = "";
+	}
+	
+	/*********************************************************************/
+	// void : Method for clearing the entry field
+	function clearEntry(){
+		setNumber( 0 );
+		m_bClearEntry = true;
+	}
+	
+	/*********************************************************************/
+	// void : Method for entering division mode
+	function divide(){ 
+		operatorPress();
+		m_wMode.text = "/";
+		m_nMode = g_nMDivide;
+	}
+	
+	/*********************************************************************/
+	// void : Method for entering multiplication mode
+	function multiply(){ 
+		operatorPress();
+		m_wMode.text = "*";
+		m_nMode = g_nMMultiply;
+	}
+	
+	/*********************************************************************/
+	// void : Method for entring subtraction mode
+	function subtract(){ 
+		operatorPress();
+		m_wMode.text = "-";
+		m_nMode = g_nMSubtract;
+	}
+	
+	/*********************************************************************/
+	// void : Method for entering addition mode
+	function add(){ 
+		operatorPress();
+		m_wMode.text = "+";
+		m_nMode = g_nMAdd;
+	}
+	
+	/*********************************************************************/
+	// void : Method for triggering calculation
+	function result(){ 
+		operatorPress();
+		m_nMode = g_nMNone;
+	}
+	
+	/*********************************************************************/
+	// void : Method for clearing memory
+	function memClear(){
+		m_nMemory = 0;
+		m_bMemoryIsSet = false;
+	}
+	
+	/*********************************************************************/
+	// void : Method for retrieving memory
+	function memRecall(){
+		if( m_bMemoryIsSet ){
+			btnPress();
+			setNumber( m_nMemory );
+		}
+	}
+	
+	/*********************************************************************/
+	// void : Method for setting memory
+	function memSet(){
+		m_nMemory = getNumber();
+		m_bMemoryIsSet = true;
+	}
+	
+	/*********************************************************************/
+	// void : Method for clearing memory
+	function memAdd(){
+		m_nMemory += getNumber();
+		m_bMemoryIsSet = true;
+	}
+}
+
+/*********************************************************************/
+var calc = new DsCalculator;
+calc.doDialog();

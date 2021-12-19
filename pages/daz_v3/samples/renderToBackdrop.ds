@@ -1,0 +1,70 @@
+/**********************************************************************
+	File: renderToBackdrop.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*********************************************************************/
+// Get the backdrop for the scene
+var oBackDrop = Scene.getBackdrop();
+// Clear the backdrop
+oBackDrop.clear();
+//Get the Render Manager
+var oRenderMgr = App.getRenderMgr();
+// Render the scene; using the current settings
+oRenderMgr.doRender();
+// Retrieve the path to the rendered image
+var sLastRender = oRenderMgr.getLastSavedRenderPath();
+// If the path is valid
+if ( !sLastRender.isEmpty() ){
+	// Set the busy cursor to let the user know we're working
+	setBusyCursor();
+	// Create a file info object for easy pathing operations
+	var oFile = new DzFileInfo( sLastRender );
+	// Get the absolute path for the directory the image is in
+	var sDirPath = oFile.path();
+	// Construct the short name for the source file
+	var sSrcFilename = String( "%1.%2" ).arg( oFile.baseName() ).arg( oFile.extension() );
+	// Construct the short name for the target file
+	var sTgtFilename = String( "%1.%2" ).arg( "background" ).arg( oFile.extension() );
+	// Create a dir object for file access operations
+	var oDir = new DzDir( sDirPath );
+	// Copy the source file to the target file;
+	// We step back a directory on the target file because we expect the render to be
+	// in ./temp/render and that directory is cleared wholesale at each render,
+	// but temp isn't cleared until a new scene action, application quit or launch.
+	oDir.copy( sSrcFilename, String( "../%1" ).arg( sTgtFilename ) );
+	// Update the target directory path
+	oDir.cdUp();
+	sDirPath = oDir.path();
+	// Get the image manager
+	var oImgMgr = App.getImageMgr();
+	// Get an image object for the target file
+	var oImg = oImgMgr.getImage( String( "%1/%2" ).arg( sDirPath ).arg( sTgtFilename ) );
+	// If the last render is a png
+	if( sTgtFilename.lower().right( 4 ) == ".png" ){
+		// Since png is converted to jpg before being sent to tdlmake,
+		// replace the target path with the jpg extension.
+		sTgtFilename = String( "%1.jpg" ).arg( sTgtFilename.substring( 0, sTgtFilename.length - 4 ) );
+		// Remove the jpg to force the tdl to be recreated when the png is refreshed
+		oDir.remove( sTgtFilename );
+	}
+	// Refresh the image from disk
+	oImg.refresh();
+	// Set the backdrop's image to the target image
+	oBackDrop.setImage( oImg );
+	// We're done working, let the user know
+	clearBusyCursor();
+}

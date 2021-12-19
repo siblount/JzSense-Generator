@@ -1,0 +1,58 @@
+/**********************************************************************
+	File: dzOptions.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************
+"Camera" - is a transient global variable provided by the interpreter,
+that references the current DzShaderCamera, when this script is
+executed via DzShaderCamera::setDefinitionFile().
+*********************************************************************/
+
+var aTokens = [ "Nn", "Pp", "Cc", "Ff" ];
+var aParams = [ "varying normal", "varying point", "varying color", "varying float" ];
+Camera.declare( aTokens, aParams );
+
+aTokens = [ "integer jitter" ];
+aParams = [ 1 ];
+Camera.setHider( "hidden", aTokens, aParams );
+
+aTokens = [ "string edgevariables", "float edgethreshold", "float edgefilterwidth", "color edgecolor" ];
+aParams = [ "Oi", 0.1, 2.5, new Color( 255, 255, 255 ) ];
+Camera.setDisplay( "+outlineOi.tif", "tiff", "outline", aTokens, aParams );
+
+aTokens = [ "string edgevariables", "float edgethreshold", "float edgefilterwidth", "color edgecolor" ];
+aParams = [ "N", 0.3, 1.5, new Color( 255, 255, 255 ) ];
+Camera.setDisplay( "+outlineN.tif", "tiff", "outline", aTokens, aParams );
+
+aTokens = [ "string edgevariables", "float edgethreshold", "float edgefilterwidth", "color edgecolor" ];
+aParams = [ "z", 0.5, 0.5, new Color( 255, 255, 255 ) ];
+Camera.setDisplay( "+outlineZ.tif", "tiff", "outline", aTokens, aParams );
+
+aTokens = [ "float[2] efficiency" ];
+aParams = [ [ 1.0, 1.0 ] ];
+Camera.setOption( "shutter", aTokens, aParams );
+
+aTokens = [ "integer[2] bucketsize" ];
+aParams = [ [ 16, 16 ] ];
+Camera.setOption( "limits", aTokens, aParams );
+
+
+aTokens = [ "string myArrayString", "float myArrayFloat1", "float[4] myArrayFloat4", "integer myArrayInteger1",
+	"integer[4] myArrayInteger4", "color myArrayColor1" ];
+	
+aParams = [ "foo.bar", 1.234, [ 1.234, 5.678, 9.101, 1.121 ], 16, [ 12, 34 , 56, 78 ], new Color( 255, 255, 255 ) ];
+
+Camera.setOption( "user", aTokens, aParams );

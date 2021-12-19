@@ -1,0 +1,307 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: LoadRenderScript.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+var oOWNER;
+var oRENDER_MANAGER = App.getRenderMgr();
+var oRENDERER = oRENDER_MANAGER.findRenderer("DzScriptedRenderer");
+var sRENDER_SCRIPT = "support/ScriptedRendererExample/StandardRenderPass.dsa";
+
+if( oRENDERER )
+{
+	oOWNER = oRENDERER.getPropertyHolder();
+}
+
+/*********************************************************************/
+function addFloatProperty( sPropertyGroup, sPropertyName, sPropertyLabel, fMin, fMax, fDefault, fValue, bClamped, bPercent, bMappable, bMustMap, oShadMap )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzFloatProperty" ) )
+	{
+		oProperty = new DzFloatProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setMinMax( fMin, fMax );
+	oProperty.setIsClamped( bClamped );
+	oProperty.setDefaultValue( fDefault );
+	oProperty.setDisplayAsPercent( bPercent );
+	oProperty.setIsMappable( bMappable );
+	fValue != undefined ? oProperty.setValue( fValue ) : oProperty.setValue( fDefault );
+	if( bMappable )
+	{
+		oProperty.setMustHaveMap( bMustMap );
+		if( oShadMap != undefined )
+		{
+			oProperty.setMap( oShadMap );
+		}
+	}
+	oOWNER.addProperty( oProperty );
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addIntProperty( sPropertyGroup, sPropertyName, sPropertyLabel, nMin, nMax, nDefault, nValue, bClamped, bMappable, bMustMap, oShadMap )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzIntProperty" ) )
+	{
+		oProperty = new DzIntProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setMinMax( nMin, nMax );
+	oProperty.setIsClamped( bClamped );
+	oProperty.setDefaultValue( nDefault );
+	oProperty.setIsMappable( bMappable );
+	nValue != undefined ? oProperty.setValue( nValue ) : oProperty.setValue( nDefault );
+	if( bMappable )
+	{
+		oProperty.setMustHaveMap( bMustMap );
+		if( oShadMap != undefined )
+		{
+			oProperty.setMap( oShadMap );
+		}
+	}
+	oOWNER.addProperty( oProperty );
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addBoolProperty( sPropertyGroup, sPropertyName, sPropertyLabel, bDefault, bValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzBoolProperty" ) )
+	{
+		oProperty = new DzBoolProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setDefaultValue( bDefault ? 1 : 0 );
+	bValue != undefined ? oProperty.setBoolValue( bValue ) : oProperty.setBoolValue( bDefault );
+	oOWNER.addProperty( oProperty );
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addColorProperty( sPropertyGroup, sPropertyName, sPropertyLabel, clrDefault, clrValue, bMappable, bMustMap, oShadMap )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzColorProperty" ) )
+	{
+		oProperty = new DzColorProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	oProperty.setIsMappable( bMappable );
+	if( clrDefault != undefined )
+	{
+		oProperty.setDefaultValue( clrDefault.rgb );
+	}
+	
+	if( clrValue != undefined )
+	{
+		oProperty.setColorValue( clrValue );
+	}
+	
+	if( bMappable )
+	{
+		oProperty.setMustHaveMap( bMustMap );
+		if( oShadMap != undefined )
+		{
+			oProperty.setMap( oShadMap );
+		}
+	}
+	oOWNER.addProperty( oProperty );
+
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addEnumProperty( sPropertyGroup, sPropertyName, sPropertyLabel, aItems, nValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzEnumProperty" ) )
+	{
+		oProperty = new DzEnumProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( aItems.length > 0 )
+	{
+		for( var i = 0; i < aItems.length; i++ )
+		{
+			oProperty.addItem( aItems[ i ], i );
+		}
+	}
+	
+	if( nValue != undefined )
+	{
+		oProperty.setDefaultValue( nValue );
+		oProperty.setValue( nValue );
+	}
+	oOWNER.addProperty( oProperty );
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addImageProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, oValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzImageProperty" ) )
+	{
+		oProperty = new DzImageProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( oValue != undefined )
+	{
+		oProperty.setValue( oValue );
+	}
+	oOWNER.addProperty( oProperty );
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addStringProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sShadVar, sValue )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzStringProperty" ) )
+	{
+		oProperty = new DzStringProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( sValue != undefined )
+	{
+		oProperty.setValue( sValue );
+	}
+	oOWNER.addProperty( oProperty );
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function addFileProperty( sPropertyGroup, sPropertyName, sPropertyLabel, sValue, sFilter, nType )
+{
+	var oProperty = oOWNER.findProperty( sPropertyName );
+	if( !oProperty || ( oProperty && oProperty.className() != "DzFileProperty" ) )
+	{
+		oProperty = new DzFileProperty;
+		oProperty.name = sPropertyName;
+	}
+	oProperty.setLabel( sPropertyLabel );
+	oProperty.setPath( sPropertyGroup );
+	if( sValue != undefined )
+	{
+		oProperty.setValue( sValue );
+	}
+	
+	if( sFilter != undefined )
+	{
+		oProperty.setFilter( sFilter );
+	}
+	
+	if( nType != undefined )
+	{
+		oProperty.setType( nType );
+	}
+	oOWNER.addProperty( oProperty );
+
+	return oProperty;
+}
+
+/*********************************************************************/
+function buildRenderProperties(){
+	var sPropertyGroup;
+	var oProperty;
+    
+	sPropertyGroup = "Renderer Options";
+
+	oProperty = addEnumProperty( sPropertyGroup, "Bucket Order", "Bucket Order", [ "Horizontal", "Vertical", "ZigZag", "Spiral", "Circle" ], 0 );
+	oProperty = addIntProperty( sPropertyGroup, "Bucket Size", "Bucket Size", 8, 128, 16, undefined, true, false, false, undefined );
+	oProperty.setSensitivity( 8 );
+	oProperty = addIntProperty( sPropertyGroup, "Max Ray Depth", "Max Ray Depth", 0, 16, 4, undefined, true, false, false, undefined );
+	oProperty = addIntProperty( sPropertyGroup, "Pixel Samples X", "Pixel Samples (X)", 1, 8, 4, undefined, true, false, false, undefined );
+	oProperty = addIntProperty( sPropertyGroup, "Pixel Samples Y", "Pixel Samples (Y)", 1, 8, 4, undefined, true, false, false, undefined );
+	oProperty = addIntProperty( sPropertyGroup, "Shadow Samples", "Shadow Samples", 1, 32, 16, undefined, true, false, false, undefined );
+	oProperty.setSensitivity( 2 );
+	oProperty = addFloatProperty( sPropertyGroup, "Gain", "Gain", 0, 10, 1, undefined, true, false, false, false, undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Gamma", "Gamma", 0.01, 10, 1, undefined, true, false, false, false, undefined );
+	oProperty = addFloatProperty( sPropertyGroup, "Shading Rate", "Shading Rate", 0.01, 256, 1, undefined, true, false, false, false, undefined );
+	oProperty = addEnumProperty( sPropertyGroup, "Pixel Filter", "Pixel Filter", [ "Box", "Triangle", "Catmull-Rom", "Gaussian", "Sinc" ], 4 );
+	oProperty = addIntProperty( sPropertyGroup, "Pixel Filter Width X", "Pixel Filter Width (X)", 1, 32, 6, undefined, true, false, false, undefined );
+	oProperty = addIntProperty( sPropertyGroup, "Pixel Filter Width Y", "Pixel Filter Width (Y)", 1, 32, 6, undefined, true, false, false, undefined );
+	
+	sPropertyGroup = "Renderer Options/RIB Export";
+	
+	oProperty = addBoolProperty( sPropertyGroup, "Render to RIB", "Render to RIB", false, undefined );
+	oProperty = addFileProperty( sPropertyGroup, "RIB Path", "RIB Path", undefined, "RenderMan Interface Bytestream (*.rib)", undefined );
+}
+
+/*********************************************************************/
+if( oRENDERER && oOWNER )
+{
+	// Check to make sure the render script exists
+	var oFile = new DzFileInfo( App.getAbsoluteScriptPath( sRENDER_SCRIPT ) );
+	if( oFile.exists() )
+	{
+		// Let the user know we're busy
+		setBusyCursor();
+		
+		// Remove any old properties
+		var nProperties = oOWNER.getNumProperties();
+		// Iterate in reverse order to ensure a valid index as properties are removed.
+		for( var i = nProperties - 1; i >= 0; i -= 1 ) 
+		{
+			oOWNER.removeProperty( oOWNER.getProperty(i) );
+		}
+		
+		// Build our render properties
+		buildRenderProperties();	
+		// Set the render script
+		oRENDERER.setRenderScript( sRENDER_SCRIPT );
+		// Set active renderer
+		oRENDER_MANAGER.setActiveRenderer( oRENDERER );
+		
+		// Let the user know we're done
+		clearBusyCursor();
+	}
+	else
+	{
+		MessageBox.critical( String( "The Render Script could not be found.\n\"%1\"" ).arg(sRENDER_SCRIPT), "File Not Found", "&OK", "");
+	}
+}
+else
+{
+	MessageBox.critical( "This action requires the Scripted Renderer included with DAZ Studio 3.x Advanced.\n" +
+				"Please verify that you have a valid serial number.", "Version Error", "&OK", "");
+}

@@ -1,0 +1,296 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: StandardRenderPass.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+// This script is called once per frame
+/**********************************************************************/
+var oOWNER = Renderer.getPropertyHolder();
+
+// Initialize
+var aShadows = [""];
+var aParams = [1];
+var aTokens = [""];
+var sizeRender = Renderer.getHandler().getSize();
+var i = 0;
+
+//SHADOW PASS
+/**********************************************************************/
+// This will reuse shadows
+var sShadowPass = String( "%1/shadowMaps" ).arg( App.getTempPath() );
+aShadows = Renderer.doDefaultShadowPass( RenderOptions, Camera, sShadowPass, true );
+// This will generate new shadows
+//aShadows = Renderer.doDefaultShadowPass( RenderOptions, Camera, sShadowPass, false );
+
+// OTHER PASSES
+/**********************************************************************/
+// Add other passes as desired. 
+// Passes start with Renderer.riBegin() and end with Renderer.EndWorld();
+//..........
+
+// BEAUTY PASS
+/**********************************************************************/	
+// Default to a standard render
+var sRIB = "";
+// Find the "Render to RIB" property
+oProperty = oOWNER.findProperty( "Render to RIB" );
+// If the property was found and its a bool property
+if( oProperty && oProperty.className() == "DzBoolProperty" && oProperty.getBoolValue() == true )
+{
+	oProperty = oOWNER.findProperty( "RIB Path" );
+	// If the property was found and its a file property
+	if( oProperty && oProperty.className() == "DzFileProperty" )
+	{
+		// Get the property value
+		sRIB = oProperty.getValue();
+	}
+}
+// Begin describing the render
+Renderer.riBegin(sRIB);
+
+// Start with the default
+var nFilter = RenderOptions.pixelFilter;
+// Find the "Pixel Filter" property
+oProperty = oOWNER.findProperty( "Pixel Filter" );
+// If the property was found and its an enum property
+if( oProperty && oProperty.className() == "DzEnumProperty" )
+{
+	switch(oProperty.getValue())
+	{
+		case 0:
+			nFilter = RenderOptions.Box;
+			break;
+		case 1:
+			nFilter = RenderOptions.Triangle;
+			break;
+		case 2:
+			nFilter = RenderOptions.CatmullRom;
+			break;
+		case 3:
+			nFilter = RenderOptions.Gaussian;
+			break;
+		default:
+		case 4:
+			nFilter = RenderOptions.Sinc;
+			break;
+	}
+}
+	
+// Start with the default
+var nWidthX = RenderOptions.xFilterWidth;
+// Find the "Pixel Filter Width X" property
+oProperty = oOWNER.findProperty( "Pixel Filter Width X" );
+// If the property was found and its a float property
+if( oProperty && oProperty.className() == "DzFloatProperty" )
+{
+	nWidthX = oProperty.getValue();
+}
+
+// Start with the default
+var nWidthY = RenderOptions.xFilterWidth;
+// Find the "Pixel Filter Width X" property
+oProperty = oOWNER.findProperty( "Pixel Filter Width Y" );
+// If the property was found and its a float property
+if( oProperty && oProperty.className() == "DzFloatProperty" )
+{
+	nWidthY = oProperty.getValue();
+}
+
+// Set pixel filter
+Renderer.riPixelFilter( nFilter, nWidthX, nWidthY );
+
+// Specify shader search path
+aTokens = ["string shader"];
+aParams = [Renderer.getDefaultShaderSearchPath()];
+Renderer.riOption( "searchpath", aTokens, aParams );
+
+
+// Start with the default
+var sOrder = "horizontal";
+// Find the "Bucket Order" property
+oProperty = oOWNER.findProperty( "Bucket Order" );
+// If the property was found and its an enum property
+if( oProperty && oProperty.className() == "DzEnumProperty" )
+{
+	sOrder = oProperty.getStringValue();
+}
+// Set bucket order
+aTokens = ["bucketorder"];
+aParams = [sOrder.lower()];
+Renderer.riOption( "render", aTokens, aParams );
+
+
+// Start with the default
+var nSize = 16;
+// Find the "Bucket Size" property
+oProperty = oOWNER.findProperty( "Bucket Size" );
+// If the property was found and its an int property
+if( oProperty && oProperty.className() == "DzIntProperty" )
+{
+	nSize = oProperty.getValue();
+}
+// Set bucket size
+aTokens = ["integer bucketsize[2]"];
+aParams = [[nSize, nSize]];
+Renderer.riOption( "limits", aTokens, aParams );
+
+
+// Start with the default
+var nDepth = RenderOptions.rayTraceDepth;
+// Find the "Max Ray Depth" property
+oProperty = oOWNER.findProperty( "Max Ray Depth" );
+// If the property was found and its an int property
+if( oProperty && oProperty.className() == "DzIntProperty" )
+{
+	nDepth = oProperty.getValue();
+}
+// Set max trace depth
+aTokens = ["integer maxdepth"];
+aParams = [nDepth];
+Renderer.riOption( "trace", aTokens, aParams );
+
+
+// Start with the default
+var nGain = RenderOptions.gain;
+// Find the "Gain" property
+oProperty = oOWNER.findProperty( "Gain" );
+// If the property was found and its a float property
+if( oProperty && oProperty.className() == "DzFloatProperty" )
+{
+	nGain = oProperty.getValue();
+}
+
+// Start with the default
+var nGamma = RenderOptions.gamma;
+// Find the "Gain" property
+oProperty = oOWNER.findProperty( "Gamma" );
+// If the property was found and its a float property
+if( oProperty && oProperty.className() == "DzFloatProperty" )
+{
+	nGamma = oProperty.getValue();
+}
+
+// Set exposure
+Renderer.riExposure( nGain, nGamma );
+
+
+// Start with the default
+var nRate = RenderOptions.shadingRate;
+// Find the "Shading Rate" property
+oProperty = oOWNER.findProperty( "Shading Rate" );
+// If the property was found and its a float property
+if( oProperty && oProperty.className() == "DzFloatProperty" )
+{
+	nRate = oProperty.getValue();
+}
+// Set shading rate
+Renderer.riShadingRate( nRate );
+
+
+// Start with the default
+var nSamplesX = RenderOptions.xPixelSamples;
+// Find the "Pixel Samples X" property
+oProperty = oOWNER.findProperty( "Pixel Samples X" );
+// If the property was found and its a int property
+if( oProperty && oProperty.className() == "DzIntProperty" )
+{
+	nSamplesX = oProperty.getValue();
+}
+
+// Start with the default
+var nSamplesY = RenderOptions.yPixelSamples;
+// Find the "Pixel Samples Y" property
+oProperty = oOWNER.findProperty( "Pixel Samples Y" );
+// If the property was found and its a int property
+if( oProperty && oProperty.className() == "DzIntProperty" )
+{
+	nSamplesY = oProperty.getValue();
+}
+
+// Set pixel samples
+Renderer.riPixelSamples( nSamplesX, nSamplesY );
+
+
+// Set number of sides
+Renderer.riSides( 2 );
+
+// Set up the camera
+Renderer.cameraProject( Camera, sizeRender.width, sizeRender.height );
+
+// Set up crop window
+Renderer.setCropWindow(Renderer.getHandler());
+
+// Set up the display(s)
+Renderer.doDefaultDisplay();
+
+// Set the background color; from the active viewport
+if( BackDrop && BackDrop.getTexture()  )
+{
+	Renderer.renderBackDrop( BackDrop, sizeRender.width, sizeRender.height );
+}
+else // TODO: Check for DzShaderCamera & DzBrickCamera with Imager
+{
+	var oVIEWPORT_MANAGER = MainWindow.getViewportMgr();
+	var oVIEWPORT = oVIEWPORT_MANAGER.getActiveViewport();
+	var o3DVIEWPORT = oVIEWPORT.get3DViewport();
+	
+	aTokens = ["color bgcolor"];
+	//aParams = [[o3DVIEWPORT.background.red, o3DVIEWPORT.background.green, o3DVIEWPORT.background.blue]];
+	aParams = [o3DVIEWPORT.background];
+	Renderer.riImager ("background", aTokens, aParams);
+}
+
+// Begin describing the scene
+Renderer.riWorldBegin();
+
+// Render each light
+var nCount = Renderer.getLightCount();
+// TODO: Check for only Area Light(s) in the scene
+// Use the headlamp if there are no lights
+if( nCount < 1 )
+{
+    Renderer.createLight( Camera.getHeadlight(), "" );
+}
+else
+{
+	var sShadow = "";
+	for( i = 0; i < nCount; i += 1 ){
+		if( aShadows.length > i )
+		{
+			sShadow = aShadows[i];
+		}
+		Renderer.createLight( Renderer.getLight(i), sShadow );
+	}
+}
+
+// Render each node
+for( i = 0; i < Renderer.getNodeCount(); i += 1 )
+{
+	Renderer.renderNode( Renderer.getNode( i ) );
+}
+
+// Start rendering; the string argument is shown in the progress dialog
+Renderer.riEndWorld( "Rendering: Scripted Render Example..." );
+
+// Clean up shadows, if desired
+//Renderer.deleteFiles( aShadows );
+
+// OTHER PASSES
+/**********************************************************************/
+// Add other passes as desired. 
+// Passes start with Renderer.riBegin() and end with Renderer.EndWorld();
+//..........

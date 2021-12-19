@@ -1,0 +1,215 @@
+// DAZ Studio version 1.7  filetype DAZ Script
+
+/**********************************************************************
+	File: userSettings.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+
+/**
+  Creates a new setting node parented to oParent with a name attribute and
+  an optional text value to be placed in between the opening and closing tags
+  oDoc - The document the new setting node will be a part of
+  oParent - The parent of the new setting node
+  sNameVal - The name associated with the new setting node
+  sTextVal - The value of the setting to be placed between the opening and closing tags
+**/
+function createSettingNode(oDoc, oParent, sNameVal, sTextVal)
+{
+    //Create and parent the setting
+    var oSetting = oDoc.createElement("setting");
+    oParent.appendChild(oSetting);
+    
+    //Add the name attribute to the setting
+    oSetting.setAttribute("name", sNameVal);
+    
+    //If a text value is provided, create a new node and parent it to the new setting node
+    if (sTextVal != "" && sTextVal != undefined)
+    {
+	var oText = oDoc.createTextNode(sTextVal);
+	oSetting.appendChild(oText);
+    }
+    
+    return oSetting;
+}
+
+/**
+  Writes an XML file to the location specified by sSavePath
+  sSavePath - The path (including filename with extension) where the file will be saved
+**/
+function writeXML(sSavePath)
+{
+    //Variables used in this function
+    var oDoc, oRoot, oUser, oSettings;
+    var oColorSetting, oRed, oBlue, oGreen;
+    
+    //Create the XML Document tree
+    oDoc = new DzDomDocument();
+    
+    //Root node.  Aside from comments, this should be the only child of the document node
+    oRoot = oDoc.createElement("userSettings");
+    oDoc.appendChild(oRoot);
+    
+    //Create a user, add an attribute, and parent it to the root node
+    oUser = oDoc.createElement("user");
+    oUser.setAttribute("userName", "amd126");
+    oRoot.appendChild(oUser);
+    
+    //Create the settings node for the user
+    oSettings = oDoc.createElement("settings");
+    oUser.appendChild(oSettings);
+    
+    //Create individual setting nodes to the settings node for the user
+    createSettingNode(oDoc, oSettings, "firstName", "John");
+    createSettingNode(oDoc, oSettings, "lastName", "Doe");
+    createSettingNode(oDoc, oSettings, "age", "32");
+    createSettingNode(oDoc, oSettings, "married", "No");
+    
+    //Create a setting node that will have child nodes as part of its setting value
+    oColorSetting = createSettingNode(oDoc, oSettings, "favoriteColor", "");
+    
+    //Create the color sub-nodes
+    oRed = oDoc.createElement("r");
+    oGreen = oDoc.createElement("g");
+    oBlue = oDoc.createElement("b");
+    
+    //Add a text value to the sub-nodes
+    oRed.appendChild(oDoc.createTextNode(47));
+    oGreen.appendChild(oDoc.createTextNode(148));
+    oBlue.appendChild(oDoc.createTextNode(201));
+    
+    //Add the sub-nodes as children to oColorSetting
+    oColorSetting.appendChild(oRed);
+    oColorSetting.appendChild(oGreen);
+    oColorSetting.appendChild(oBlue);
+    
+    //Append a comment to the end of the file to give a description of the file
+    oDoc.appendChild(oDoc.createComment("This file was create using DAZ Script"));
+    
+    //Write the document to file
+    oDoc.saveContent(sSavePath);
+}
+
+/**
+  Read an XML file and display user settings from the file read in
+  sReadPath - The path (including filename with extension) of the file to be read
+  
+  WARNING: Although a few error/validation checks are done in this function, typically
+  many more checks need to be performed to ensure the script can handle problems with 
+  reading files.  Always assume the file being read in will contain errors and provide 
+  error/validation checks and appropriate handling. There are some hints in the function 
+  as to where error/validation checks may need to be done.  Note that these do not 
+  indicate the only times error/validation checking should occur. They are only 
+  guidelines and are marked with the following comment: 'Error Checks!'
+**/
+function readXML(sReadPath)
+{
+    //Variables used in this function
+    var oDoc, oRoot, iUserNum, oCurUser, oCurSetting;
+    var sUser, sFirstName, sLastName, iAge, sMarried;
+    var sAttribVal, iRed, iGreen, iBlue;
+    
+    //Create an empty XML document tree and load the data from file
+    oDoc = new DzDomDocument();
+    oDoc.loadContent(sReadPath);
+    
+    //Ensure the file is of the expected type
+    oRoot = oDoc.firstChild();
+    if (oRoot.isNull() || !oRoot.isElement() || oRoot.tagName != "userSettings")
+    {
+	print ("Error parsing file:  Incorrect file type");
+	return;
+    }
+    
+    //Loop over all the users and print their settings
+    iUserNum = 1;
+    oCurUser = oRoot.firstChild();
+    while (!oCurUser.isNull())
+    {
+	//Comments can be skipped while parsing
+	if (!oCurUser.isComment())
+	{
+	    sUser = oCurUser.attribute("userName");
+	    
+	    //Loop over all the settings for the current user 
+	    oCurSetting = oCurUser.namedItem("settings").firstChild(); //Error Checks!
+	    while (!oCurSetting.isNull())
+	    {
+		//Comments can be skipped while parsing
+		if (!oCurSetting.isComment())
+		{
+		    //Error Checks!
+		    sAttribVal = oCurSetting.attribute("name");
+		    if (sAttribVal == "firstName")
+			sFirstName = oCurSetting.firstChild().nodeValue;
+		    else if (sAttribVal == "lastName")
+			sLastName = oCurSetting.firstChild().nodeValue;
+		    else if (sAttribVal == "age")
+			iAge = oCurSetting.firstChild().nodeValue;
+		    else if (sAttribVal == "married")
+			sMarried = oCurSetting.firstChild().nodeValue;
+		    else if (sAttribVal == "favoriteColor")
+		    {
+			//Error Checks!
+			iRed = oCurSetting.namedItem("r").firstChild().nodeValue;
+			iGreen = oCurSetting.namedItem("g").firstChild().nodeValue;
+			iBlue = oCurSetting.namedItem("b").firstChild().nodeValue;
+		    }			
+		}
+		oCurSetting = oCurSetting.nextSibling();
+	    }
+	    
+	    //Display the user information
+	    print("\n----- User " + iUserNum + "-----");
+	    print("User Name: " + sUser);
+	    print("Full Name: " + sFirstName + " " + sLastName);
+	    print("Age: " + iAge);
+	    print("Married: " + sMarried);
+	    print("Favorite Color: " + "r(" + iRed + ")   g(" + iGreen + ")   b(" + iBlue + ")\n");
+	    
+	    iUserNum++;
+	}
+	
+	//Get the next user, if there is one
+	oCurUser = oCurUser.nextSibling();
+    }
+    print ("\n");
+}
+
+/************************* Script Main *************************/
+var sPath, oDir;
+var sFileName = "userSettingsXML.xml"; //The name of the file to create/read
+
+var sFolder = FileDialog.doDirectoryDialog("XML File", "Select the directory where the XML file will/does reside");
+
+if (sFolder != "")
+{
+    sPath = sFolder + "/" + sFileName;
+    oDir = new DzDir(sFolder);
+    
+    /*
+      The XML file is only created if it doesn't already exist in the selected directory.
+      This allows you to modify the file (i.e. change setting values, add users, etc...)
+      and view the results of reading the file without having to modify the source code
+      for creating the XML file.
+    */    
+    if (!oDir.fileExists(sFileName))
+    	writeXML(sPath);
+    
+    readXML(sPath);
+}
+/*********************** End  Script Main ***********************/
+

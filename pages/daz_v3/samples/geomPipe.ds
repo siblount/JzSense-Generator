@@ -1,0 +1,620 @@
+/**********************************************************************
+	File: geomPipe.ds
+
+	Copyright © 2002-2006 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script Globals
+*****************************/
+const g_sTOOL_NAME = "Geometry Pipeline Sample";
+const g_oFILE = new DzFile( getScriptFileName() );
+const g_sSCRIPT_NAME = String( "%1.%2" ).arg( g_oFILE.baseName() ).arg( g_oFILE.extension() );
+const g_bSHIFT_PRESSED = shiftPressed();
+const g_bCONTROL_PRESSED = ctrlPressed();
+
+var g_oSettings = new DsSettings;
+var g_oGui = new DsInterface;
+var g_oActions = new DsActions;
+
+/*********************************************************************/
+//   DsSettings - A class for setting/getting stored values
+/*********************************************************************/
+class DsSettings{
+	/*****************************
+	   Class Members
+	*****************************/
+	var m_oMgr = App.getAppSettingsMgr();
+	
+	/*********************************************************************/
+	// void : Method for recording settings
+	function set( sPath, sName, oValue ){
+		// Add a temporary 'sub-directory' onto the settings manager path
+		m_oMgr.pushPath( sPath );
+		// Store the setting; dependant on type
+		switch( typeof oValue ){
+			// If value is a string
+			case "string":
+				// Set as String
+				m_oMgr.setStringValue( sName, oValue );
+				break;
+			// If value is bool
+			case "boolean":
+				// Set as a Bool
+				m_oMgr.setBoolValue( sName, oValue );
+				break;
+			// If value is an int, float or double
+			case "number":
+				// Set as Float
+				m_oMgr.setFloatValue( sName, oValue );
+				break;
+			// If none of the above
+			default:
+				// Don't do anything
+				break;
+		}
+		// Return the settings manager path to it's previous state.
+		m_oMgr.popPath();
+	}
+	
+	/*********************************************************************/
+	// QObject : Method for retrieving settings
+	function get( sPath, sName, oValue ){
+		// Create a variable to store the value
+		var v;
+		// Add a temporary 'sub-directory' onto the settings manager path
+		m_oMgr.pushPath( sPath );
+		// Retrieve the setting; dependant on type
+		switch( typeof oValue ){
+			// If value is a string
+			case "string":
+				v = m_oMgr.getStringValue( sName, oValue );
+				break;
+			// If value is a bool
+			case "boolean":
+				v = m_oMgr.getBoolValue( sName, oValue );
+				break;
+			// If value is an int, float or double
+			case "number":
+				v = m_oMgr.getFloatValue( sName, oValue );
+				break;
+			// If none of the above
+			default:
+				// Don't do anything
+				break;
+		}
+		// Return the settings manager path to it's previous state.
+		m_oMgr.popPath();
+		// Return the value
+		return v;
+	}
+}
+
+/*********************************************************************/
+//   DsInterface - A class for interfacing with the user
+/*********************************************************************/
+class DsInterface{
+	/*****************************
+	   Class Members
+	*****************************/
+	const m_nMARGIN = 5;
+	const m_nSPACING = 5;
+	const m_nMIN_BTN_WIDTH = 80;
+	const m_nMAX_BTN_HEIGHT = 20;
+	const m_nWIDGET_WIDTH = 190;
+	
+	// List of Boolean options
+	var m_aBoolNames = new Array;
+	var m_aBoolObjs = new Array;
+	// List of String options
+	var m_aStrNames = new Array;
+	var m_aStrObjs = new Array;
+	// List of ComboBox options
+	var m_aCmbNames = new Array;
+	var m_aCmbObjs = new Array;
+	//
+	var m_wDlg, m_wTabStack;
+	var m_wOptionPage, m_wPrefsPage;
+	var m_wCombGB, m_wPrefsGB;
+	var m_wSizeLbl, m_wDivsnLbl;
+	var m_wSize, m_wSizeUnits, m_wDivisions;
+	var m_wHelpBtn, m_wAcceptBtn, m_wCancelBtn;
+	var m_wRcrdOnExec, m_wRcrdBtn, m_wRdBtn, m_wDfltBtn;
+	
+	/*********************************************************************/
+	// void : Build the 'common' portion of the interface (used in hidden and unhidden modes)
+	function doCommon(){
+		// --------------------- 
+		// --- Main dialog
+		// --------------------- 
+		m_wDlg = new DzDialog;
+		m_wTabStack = new DzTabWidget( m_wDlg );
+		// --------------------- 
+		// --- Options Page
+		// --------------------- 
+		m_wOptionPage = new DzVGroupBox( m_wTabStack );
+		m_wCombGB = new DzVGroupBox( m_wOptionPage );
+		// --- Size
+		m_wSizeLbl = new DzLabel( m_wCombGB );
+		m_wSize = new DzLineEdit( m_wCombGB );
+		m_aStrObjs.push( m_wSize );
+		m_aStrNames.push( 'size' );
+		m_wSizeUnits = new DzComboBox( m_wCombGB );
+		m_wSizeUnits.insertItem( "m" );
+		m_wSizeUnits.insertItem( "cm" );
+		m_wSizeUnits.insertItem( "yd" );
+		m_wSizeUnits.insertItem( "ft" );
+		m_wSizeUnits.insertItem( "in" );
+		m_aCmbObjs.push( m_wSizeUnits );
+		m_aCmbNames.push( 'units' );
+		// --- Divisions
+		m_wDivsnLbl = new DzLabel( m_wCombGB );
+		m_wDivisions = new DzLineEdit( m_wCombGB );
+		m_aStrObjs.push( m_wDivisions );
+		m_aStrNames.push( 'divisions' );
+		// --------------------- 
+		// --- Preferences Page
+		// --------------------- 
+		m_wPrefsPage = new DzVGroupBox( m_wTabStack );
+		m_wPrefsGB = new DzVGroupBox( m_wPrefsPage );
+		// --- Record on Execution
+		m_wRcrdOnExec = new DzCheckBox( m_wPrefsGB );
+		m_aBoolObjs.push( m_wRcrdOnExec );
+		m_aBoolNames.push( 'rcrdOnExec' );
+		// Set the initial options
+		setDefaults();
+	}
+	
+	/*********************************************************************/
+	// void : Method for running with the dialog unhidden
+	function doDialog(){
+		// Build the common portion of the dialog
+		doCommon();
+		var oHelp = App.getHelpMgr();
+		var oMgr = MainWindow.getActionMgr();
+		var oAction = oMgr ? oMgr.findAction( "DzWhatsThisAction" ) : undefined;
+		// --------------------- 
+		// --- Main dialog
+		// --------------------- 
+		m_wDlg.caption = String( "%1 (%2)" ).arg( g_sTOOL_NAME ).arg( g_sSCRIPT_NAME );
+		m_wDlg.whatsThis =
+			String( "<b>File : </b> %1<br>" ).arg( g_sSCRIPT_NAME ) +
+			String( "<b>Type : </b> %2<br>" ).arg( getScriptType() ) +
+			String( "<b>Size : </b> %3<br>" ).arg( g_oFILE.sizeStr() ) +
+			String( "<b>Version : </b> %4<br>" ).arg( getScriptVersionString() ) +
+			String( "<b>Created : </b> %5<br>" ).arg( g_oFILE.created().toString( "dddd, MMMM d yyyy h:mm ap" ) ) +
+			String( "<b>Modified : </b> %6" ).arg( g_oFILE.lastModified().toString( "dddd, MMMM d yyyy h:mm ap" ) );
+		// --- Main dialog layout
+		var wDlgLayout = new DzGridLayout( m_wDlg );
+		wDlgLayout.margin = m_nMARGIN;
+		wDlgLayout.spacing = m_nSPACING;
+		wDlgLayout.addMultiCellWidget( m_wTabStack, 0, 0, 0, 2 );
+		// --- Dialog Buttons
+		var wDlgBtnsGB = new DzGroupBox( m_wDlg );
+		wDlgBtnsGB.flat = true;
+		var wDlgBtnsLyt = new DzGridLayout( wDlgBtnsGB );
+		wDlgBtnsLyt.margin = m_nMARGIN;
+		wDlgBtnsLyt.spacing = m_nSPACING;
+		// --- Help button
+		m_wHelpBtn = new DzPushButton( wDlgBtnsGB );
+		m_wHelpBtn.pixmap = new Pixmap( String( "%1/images/icons/whatsthissmallicon.png" ).arg( App.getResourcesPath() ) );
+		m_wHelpBtn.maxHeight = m_nMAX_BTN_HEIGHT;
+		if( oAction )
+			connect( m_wHelpBtn, "clicked()", oAction, "activate()" );
+		m_wHelpBtn.toolTip = oHelp.getToolTip( "WhatsThis" );
+		m_wHelpBtn.whatsThis = oHelp.getHelpString( "WhatsThis" );
+		wDlgBtnsLyt.addWidget( m_wHelpBtn, 0, 0 );
+		// --- Space
+		wDlgBtnsLyt.setColStretch( 1, 1 );
+		// --- Accept button
+		m_wAcceptBtn = new DzPushButton( wDlgBtnsGB );
+		m_wAcceptBtn.text = "&Accept";
+		m_wAcceptBtn.minWidth = m_nMIN_BTN_WIDTH;
+		m_wAcceptBtn.maxHeight = m_nMAX_BTN_HEIGHT;
+		m_wDlg.setAcceptButton( m_wAcceptBtn );
+		m_wAcceptBtn.toolTip = oHelp.getToolTip( "AcceptDialog" );
+		m_wAcceptBtn.whatsThis = oHelp.getHelpString( "AcceptDialog" );
+		wDlgBtnsLyt.addWidget( m_wAcceptBtn, 0, 2 );
+		// --- Cancel button
+		m_wCancelBtn = new DzPushButton( wDlgBtnsGB );
+		m_wCancelBtn.text = "&Cancel";
+		m_wCancelBtn.minWidth = m_nMIN_BTN_WIDTH;
+		m_wCancelBtn.maxHeight = m_nMAX_BTN_HEIGHT;
+		m_wDlg.setRejectButton( m_wCancelBtn );
+		m_wCancelBtn.toolTip = oHelp.getToolTip( "CancelDialog" );
+		m_wCancelBtn.whatsThis = oHelp.getHelpString( "CancelDialog" );
+		wDlgBtnsLyt.addWidget( m_wCancelBtn, 0, 3 );
+		
+		wDlgLayout.addMultiCellWidget( wDlgBtnsGB, 1, 1, 0, 2 );
+		// --------------------- 
+		// --- Options Page
+		// --------------------- 
+		m_wOptionPage.whatsThis = oHelp.getHelpString( "PresetOptionTab" );
+		m_wOptionPage.flat = true;
+		m_wOptionPage.insideMargin = m_nMARGIN;
+		m_wOptionPage.insideSpacing = m_nSPACING;
+		m_wCombGB.columns = 3;
+		// --- Size
+		m_wSizeLbl.text = "Size :";
+		m_wSizeLbl.alignment = m_wSizeLbl.AlignRight;
+		m_wSizeLbl.whatsThis = oHelp.getHelpString( "PrimitiveSize" );
+		m_wSize.alignment = m_wSize.AlignRight;
+		m_wSize.whatsThis = m_wSizeLbl.whatsThis;
+		m_wSizeUnits.whatsThis = m_wSizeLbl.whatsThis;
+		// --- Divisions
+		m_wDivsnLbl.text = "Divisions :";
+		m_wDivsnLbl.alignment = m_wDivsnLbl.AlignRight;
+		m_wDivsnLbl.whatsThis = oHelp.getHelpString( "PrimitiveDivisions" );
+		m_wDivisions.alignment = m_wDivisions.AlignRight;
+		m_wDivisions.whatsThis = m_wDivsnLbl.whatsThis;
+		// Add the 'Options Page' widget to the tab stack
+		m_wTabStack.addTab( m_wOptionPage, "Options" );
+		// --------------------- 
+		// --- Preferences Page
+		// --------------------- 
+		m_wPrefsPage.whatsThis = oHelp.getHelpString( "PresetPrefTab" );
+		m_wPrefsPage.flat = true;
+		m_wPrefsPage.insideMargin = m_nMARGIN;
+		m_wPrefsPage.insideSpacing = m_nSPACING;
+		m_wPrefsGB.margin = m_nMARGIN;
+		m_wPrefsGB.spacing = m_nSPACING;
+		// --- Record on Execution CheckBox
+		m_wRcrdOnExec.text = "Set Preferred Options on Accept";
+		m_wRcrdOnExec.whatsThis = oHelp.getHelpString( "PresetPrefOnAccept" );
+		// --- Set Preferred Options Button
+		m_wRcrdBtn = new DzPushButton( m_wPrefsGB );
+		m_wRcrdBtn.text = "&Set Preferred Options";
+		m_wRcrdBtn.whatsThis = oHelp.getHelpString( "PresetSetPref" );
+		connect( m_wRcrdBtn, "pressed()", setOptions );
+		// --- Read Preferred Options Button
+		m_wRdBtn = new DzPushButton( m_wPrefsGB );
+		m_wRdBtn.text = "&Read Preferred Options";
+		m_wRdBtn.whatsThis = oHelp.getHelpString( "PresetReadPref" );
+		connect( m_wRdBtn, "pressed()", getOptions );
+		// --- Restore Default Options Button
+		m_wDfltBtn = new DzPushButton( m_wPrefsGB );
+		m_wDfltBtn.text = "Restore &Default Options";
+		m_wDfltBtn.whatsThis = oHelp.getHelpString( "PresetRestoreDef" );
+		connect( m_wDfltBtn, "pressed()", setDefaults );
+		// --- Notes
+		var wNotesGB = new DzVGroupBox( m_wPrefsPage );
+		wNotesGB.title = "Notes :";
+		wNotesGB.margin = m_nMARGIN;
+		wNotesGB.spacing = m_nSPACING;
+		wNotesGB.minWidth = m_nWIDGET_WIDTH + 100;
+		var wKeyLbl = new DzLabel( wNotesGB );
+		wKeyLbl.text = oHelp.getHelpString( "PresetNotes" );
+		// Add the 'Preferences Page' widget to the tab stack
+		m_wTabStack.addTab( m_wPrefsPage, "Preferences" );
+		// --------------------- 
+		// --- Polish
+		// --------------------- 
+		m_wDlg.maxWidth = m_wDlg.minWidth;
+		m_wDlg.maxHeight = m_wDlg.minHeight;
+		// Get the users prefered options
+		getOptions();
+		// If the dialog is not canceled
+		if( m_wDlg.exec() ){
+			// If the 'Record on Execute' checkbox is checked, record the current options
+			if( m_wRcrdOnExec.checked ){ setOptions(); }
+			// Do... whatever it is that we do
+			g_oActions.begin();
+		}
+	}
+	
+	/*********************************************************************/
+	// void : Method for running with the dialog hidden
+	function doNoDialog(){
+		// Build the common portion of the dialog
+		doCommon();
+		// If the user was holding the shift modifier, update the options from the ones recorded
+		if( g_bSHIFT_PRESSED ){ getOptions(); }
+		// Do... whatever it is that we do
+		g_oActions.begin();
+	}
+	
+	/*********************************************************************/
+	// void : Method for setting initial option values
+	function setDefaults(){
+		// --- ComboBox options
+		// Iterate over all items for the surfaces combo box
+		for( var i = 0; i < m_wSizeUnits.count; i++ ){
+			// If we find one equal to the default we want
+			if( m_wSizeUnits.text( i ) == "cm" ){
+				// Set the current item
+				m_wSizeUnits.currentItem = i;
+				// We found it, we're done here
+				break;
+			}
+			// As a backup, default to the first item
+			m_wSizeUnits.currentItem = 0;
+		}
+		
+		// --- String options
+		m_wSize.text = 10;
+		m_wDivisions.text = 3;
+		
+		// --- Boolean options
+		m_wRcrdOnExec.checked = false;
+	}
+	
+	/*********************************************************************/
+	// void : Method for retrieving options
+	function getOptions(){
+		// Iterate over all boolean option objects
+		for( var i = 0; i < m_aBoolObjs.length; i++ ){
+			// Set the 'current' boolean option to the recorded value
+			m_aBoolObjs[ i ].checked = g_oSettings.get( g_oActions.stripSpaces( g_sTOOL_NAME ), m_aBoolNames[ i ], m_aBoolObjs[ i ].checked );
+		}
+		// Iterate over all string option objects
+		for( var i = 0; i < m_aStrObjs.length; i++ ){
+			// Set the 'current' string option to the recorded value
+			m_aStrObjs[ i ].text = g_oSettings.get( g_oActions.stripSpaces( g_sTOOL_NAME ), m_aStrNames[ i ], m_aStrObjs[ i ].text );
+		}
+		// Iterate over all combobox option objects
+		for( var i = 0; i < m_aCmbObjs.length; i++ ){
+			// Get the recorded currentText value
+			var tStr = g_oSettings.get( g_oActions.stripSpaces( g_sTOOL_NAME ), m_aCmbNames[ i ], m_aCmbObjs[ i ].currentText );
+			// Iterate over all combo box option objects
+			for( var j = 0; j < m_aCmbObjs[ i ].count; j++ ){
+				// If the recorded value is valid
+				if( m_aCmbObjs[ i ].text( j ) == tStr ){
+					// Set the currentItem string option to the recorded value
+					m_aCmbObjs[ i ].currentItem = j;
+					break;
+				}
+			}
+		}
+	}
+	
+	/*********************************************************************/
+	// void : Method for recording options
+	function setOptions(){
+		// Iterate over all boolean option objects
+		for( var i = 0; i < m_aBoolObjs.length; i++ ){
+			// Record the current boolean option
+			g_oSettings.set( g_oActions.stripSpaces( g_sTOOL_NAME ), m_aBoolNames[ i ], m_aBoolObjs[ i ].checked );
+		}
+		// Iterate over all string option objects
+		for( var i = 0; i < m_aStrObjs.length; i++ ){
+			// Record the current string option
+			g_oSettings.set( g_oActions.stripSpaces( g_sTOOL_NAME ), m_aStrNames[ i ], m_aStrObjs[ i ].text );
+		}
+		// Iterate over all combobox option objects
+		for( var i = 0; i < m_aCmbObjs.length; i++ ){
+			// Record the currentText string option
+			g_oSettings.set( g_oActions.stripSpaces( g_sTOOL_NAME ), m_aCmbNames[ i ], m_aCmbObjs[ i ].currentText );
+		}
+	}
+	
+	/*********************************************************************/
+	// QString : Method for retrieving the size
+	function getSize(){ return parseFloat( m_wSize.text ); }
+	
+	/*********************************************************************/
+	// QString : Method for retrieving the units of size
+	function getSizeUnits(){ return m_wSizeUnits.currentText; }
+	
+	/*********************************************************************/
+	// QString : Method for retrieving the number of divisions
+	function getDivisions(){ return parseInt( m_wDivisions.text ); }
+}
+
+/*********************************************************************/
+//   DsActions - A class for performing various actions
+/*********************************************************************/
+class DsActions{
+	/*********************************************************************/
+	// String : Method for striping spaces out of a string
+	function stripSpaces( sString ){
+		var rePattern = RegExp( " " );
+		rePattern.global = true;
+		return sString.replace( rePattern, "" );
+	}
+	
+	/*********************************************************************/
+	// Number : A method to convert from meters/yards/feet/inches to centimeters
+	function convertToCM( fVal, sFromUnit : String ){
+		switch( sFromUnit.lower() ){
+			case "m":
+				return fVal * 100;
+			case "yd":
+				return fVal * 36.0 * 2.54;
+			case "ft":
+				return fVal * 12.0 * 2.54;
+			case "in":
+				return fVal * 2.54;
+		}
+	
+		return fVal;
+	}
+	
+	/*********************************************************************/
+	// String : A method for coming up with a unique name
+	function getUniqueName( sName ){
+		// Initialize
+		var sUnqName = sName;
+		// If a node by the same nam e already exists
+		if( Scene.findNode( sUnqName ) ){
+			// Create an array of the name parts
+			var aName = sUnqName.split( " " );
+			// Initialize
+			var sPreName = sUnqName;
+			// If the last name part is a number
+			if( !isNaN( aName[ aName.length - 1 ] ) ){
+				// Get rid of the number
+				aName.pop();
+				// Reconstruct the name without the number
+				sPreName = aName.join( " " );
+			}
+			// Initialize a count
+			var i = 2;
+			// Until we cannot find a node with the label
+			while( Scene.findNode( String( "%1 %2" ).arg( sPreName ).arg( i ) ) )
+				// Increment the count
+				i++;
+			// Construct the unique name
+			sUnqName = String( "%1 %2" ).arg( sPreName ).arg( i );
+		}
+		
+		// Return the unique name
+		return sUnqName;
+	}
+	
+	/*********************************************************************/
+	// String : A method for coming up with a unique label
+	function getUniqueLabel( sLabel ){
+		// Initialize
+		var sUnqLabel = sLabel;
+		// If a node by the same label already exists
+		if( Scene.findNodeByLabel( sUnqLabel ) ){
+			// Create an array of the label parts
+			var aLabel = sUnqLabel.split( " " );
+			// Initialize
+			var sPreLabel = sUnqLabel;
+			// Get the last label part
+			var sLastPart = aLabel[ aLabel.length - 1 ];
+			// If the last label part is a number enclosed in parens
+			if( sLastPart.startsWith( "(" ) && sLastPart.endsWith( ")" ) &&
+				!isNaN( sLastPart.substring( 1, sLastPart.length - 1 ) ) ){
+				// Get rid of the number
+				aLabel.pop();
+				// Reconstruct the Label without the number
+				sPreLabel = aLabel.join( " " );
+			}
+			// Initialize a count
+			var i = 2;
+			// Until we cannot find a node with the label
+			while( Scene.findNodeByLabel( String( "%1 (%2)" ).arg( sPreLabel ).arg( i ) ) )
+				// Increment the count
+				i++;
+			// Construct the unique Label
+			sUnqLabel = String( "%1 (%2)" ).arg( sPreLabel ).arg( i );
+		}
+		
+		// Return the unique Label
+		return sUnqLabel;
+	}
+	
+	/*********************************************************************/
+	// void : Method to do whatever it is we do
+	function begin(){
+		// Get the user input
+		var fSize = g_oGui.getSize();
+		var sUnit = g_oGui.getSizeUnits();
+		var nDivisions = g_oGui.getDivisions();
+		
+		// Let the user know we're busy
+		setBusyCursor();
+		
+		// Build the name of the node
+		var sName = String( "Plane_%1x%2_%3%4" ).arg( nDivisions ).arg( nDivisions ).arg( fSize ).arg( sUnit );
+		
+		// Create new node
+		var oNode = new DzNode;
+		oNode.setName( getUniqueName( sName ) );
+		oNode.setLabel( getUniqueLabel( sName ) );
+		
+		// Create a new object
+		var oObject = new DzObject;
+		oObject.name = sName;
+		
+		// Create a new polygonal shape
+		var oPolyShape = new DzPolyShape;
+		oPolyShape.name = "Default";
+		oPolyShape.setLabel( oPolyShape.name );
+		
+		// Create a new polygonal mesh
+		var oPolyMesh = new DzPolyMesh;
+		
+		// Get the [uv] map
+		var oMap = oPolyMesh.getUVs();
+		
+		// Set the mesh for the shape
+		oPolyShape.setPolyMesh( oPolyMesh );
+		
+		// Create a new default material
+		var oMaterial = new DzDefaultMaterial;
+		oMaterial.name = "Default";
+		oMaterial.setLabel( oMaterial.name );
+		
+		// Add the material to the shape
+		oPolyShape.addMaterial( oMaterial );
+		
+		// Begin editing the mesh
+		oPolyMesh.beginEdit();
+		
+		// Activate the material - all new geometry will be added to this
+		oPolyMesh.activateMaterial( oPolyShape.findMaterialIndex( oMaterial ) );
+		
+		// Convert the input value to centimeters
+		fSize = convertToCM( fSize, sUnit );
+		
+		// Declare some variables for generating the mesh
+		var i, j, idx, numVerts = nDivisions + 1;
+		var x, z, fHalfSize = fSize / 2;
+		var vecUVs = new DzVec3( 0, 0, 0 );
+		
+		// Create the vertices
+		for( i = 0; i < numVerts; i++ ){
+			z = i / nDivisions;
+			vecUVs.y = z;
+			for( j = 0; j < numVerts; j++ ){
+				x = j / nDivisions;
+				vecUVs.x = x;
+				oPolyMesh.addVertex( x * fSize - fHalfSize, 0, fHalfSize - z * fSize );
+				oMap.appendPnt2Vec( vecUVs );
+			}
+		}
+		
+		// Create the faces
+		for( i = 0; i < nDivisions; i++ ){
+			for( j = 0; j < nDivisions; j++ ){
+				oPolyMesh.startFace();
+				idx = j + (i * numVerts);
+				oPolyMesh.addFaceEdge( idx, idx );
+		
+				idx = j + (i * numVerts) + 1;
+				oPolyMesh.addFaceEdge( idx, idx );
+		
+				idx = j + ((i + 1) * numVerts) + 1;
+				oPolyMesh.addFaceEdge( idx, idx );
+		
+				idx = j + ((i + 1) * numVerts);
+				oPolyMesh.addFaceEdge( idx, idx );
+				oPolyMesh.finishFace();
+			}
+		}
+		
+		// Finish editing the mesh
+		oPolyMesh.finishEdit();
+		
+		// Add the shape to the object
+		oObject.addShape( oPolyShape );
+		
+		// Add the object to the node
+		oNode.setObject( oObject );
+		
+		// Add the node to the scene
+		Scene.addNode( oNode );
+		
+		// Let the user know we're done
+		clearBusyCursor();
+	}
+}
+
+/*********************************************************************/
+// Do... whatever it is that we do
+g_oGui.doDialog();

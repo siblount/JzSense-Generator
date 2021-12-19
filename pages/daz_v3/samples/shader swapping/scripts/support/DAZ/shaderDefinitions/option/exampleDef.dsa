@@ -1,0 +1,42 @@
+/**********************************************************************
+	File: exampleDef.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************
+"Camera" - is a transient global variable provided by the interpreter,
+that references the current DzShaderCamera, when this script is
+executed via DzShaderCamera::setDefinitionFile().
+*********************************************************************/
+var oShader;
+
+/**********************************************************************/
+setBusyCursor();
+
+Camera.setCameraName( "Option Example - RENDER TO RIB" );
+Camera.setRenderTimeFile( "support/DAZ/rendertime/camera/dzOptions.dsa" );
+
+// Options
+oShader = new DzRSLShader;
+Camera.addShader( oShader );
+oShader.setShaderType( DzRSLShader.None );
+//oShader.setShaderFile( "null" );
+oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/option/exampleOption.dsa" );
+oShader.setRenderTimeFile( "support/DAZ/rendertime/option/dzExampleAttribs.dsa" );
+
+clearBusyCursor();

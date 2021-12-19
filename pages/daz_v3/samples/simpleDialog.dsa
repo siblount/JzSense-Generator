@@ -1,0 +1,44 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: simpleDialog.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+// Create a new dialog
+var wDlg = new DzBasicDialog;
+wDlg.caption = "My DzBasicDialog";
+wDlg.whatsThis = "This is the \"What\'s This?\" text for the dialog.";
+
+// Create a label
+var wLbl = new DzLabel( wDlg );
+wLbl.text = "This is a DzLabel.";
+wLbl.whatsThis = "This is the \"What\'s This?\" text for the label.";
+wDlg.addWidget( wLbl );
+
+// Limit the dialog size to the minimum required size
+wDlg.maxWidth = wDlg.minWidth;
+wDlg.maxHeight = wDlg.minHeight;
+
+// Launch the dialog and do something depending on the button pressed
+if( wDlg.exec() )
+{
+	MessageBox.information( "Dialog accepted.", "Information", "&OK" );
+}
+else
+{
+	MessageBox.information( "Dialog rejected.", "Information", "&OK" );
+}
+

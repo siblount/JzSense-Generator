@@ -1,0 +1,87 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzPointLightAttribs.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************
+"Shader" - is a transient global variable provided by the interpreter
+when this script is called via DzRSLShader::setDefinitionFile(),
+that references the current DzRSLShader.
+**********************************************************************/
+var oOWNER = Shader.getOwner();
+
+var oProperty;
+
+var bNonDiff = true;
+var bNonSpec = true;
+
+var sPath = "";
+
+/*********************************************************************/
+// --- Illumination
+// Get the illumination property
+oProperty = oOWNER.findProperty( "Illumination" );
+// If the property was found and its a enum property
+if( oProperty && oProperty.className() == "DzEnumProperty" )
+{
+	//
+	switch( oProperty.getItem( oProperty.getValue() ) )
+	{
+		case "Diffuse Only":
+			bNonDiff = false;
+			break;
+		case "Specular Only":
+			bNonSpec = false;
+			break;
+		case "On":
+			bNonSpec = false;
+			bNonDiff = false;
+			break;
+		default:
+			break;
+	}
+	// Set the token
+	Shader.setIntegerToken( "__nonspecular", bNonSpec ? 1 : 0 );
+	Shader.setIntegerToken( "__nondiffuse", bNonDiff ? 1 : 0 );
+}
+
+// --- Shadows
+// If we're dealing with shadows
+if( Shader.isActiveInShadowPass() )
+{
+	// Get the Shadow Type property
+	oProperty = oOWNER.getShadowTypeControl();
+	// Set the path depending on the value
+	switch( oProperty.getValue() )
+	{
+		case DzLight.DeepShadowMap:
+		case DzLight.Raytraced:
+			sPath = "raytrace";
+			break;
+		default:
+			break;
+	}
+	// Set the token
+	Shader.setStringToken( "shadowmap_posx", sPath );
+	Shader.setStringToken( "shadowmap_negx", sPath );
+	Shader.setStringToken( "shadowmap_posy", sPath );
+	Shader.setStringToken( "shadowmap_negy", sPath );
+	Shader.setStringToken( "shadowmap_posz", sPath );
+	Shader.setStringToken( "shadowmap_negz", sPath );
+}

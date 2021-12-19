@@ -1,0 +1,134 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzExampleAttribs.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************
+"Shader" - is a transient global variable provided by the interpreter
+when this script is called via DzRSLShader::setDefinitionFile(),
+that references the current DzRSLShader.
+**********************************************************************/
+var oNODE = App.getRenderMgr().getActiveRenderer().getCurrentNode();
+var oOWNER = Shader.getOwner();
+
+var oProperty;
+
+/*********************************************************************/
+if( oNODE )
+{
+	Shader.setStringAttrib( "user", "string node", oNODE.name );
+}
+Shader.setStringAttrib( "identifier", "name", oOWNER.name );
+
+//
+oProperty = oOWNER.findProperty( "Float Attrib" );
+if( oProperty && oProperty.className() == "DzFloatProperty" )
+{
+	var fValue = oProperty.getValue();
+	Shader.setFloatAttrib( "user", "float myFloat", fValue );
+	
+	Shader.setFloatToken( "myFloatToken", fValue );
+}
+
+oProperty = oOWNER.findProperty( "Int Attrib" );
+if( oProperty && oProperty.className() == "DzIntProperty" )
+{
+	var nValue = oProperty.getValue();
+	Shader.setIntegerAttrib( "user", "integer myInteger", nValue );
+	
+	Shader.setIntegerToken( "myIntegerToken", nValue );
+}
+
+oProperty = oOWNER.findProperty( "Bool Attrib" );
+if( oProperty && oProperty.className() == "DzBoolProperty" )
+{
+	var nValue = oProperty.getBoolValue() ? 1 : 0;
+	Shader.setIntegerAttrib( "user", "integer myBool", nValue );
+	
+	Shader.setIntegerToken( "myBoolToken", nValue );
+}
+
+oProperty = oOWNER.findProperty( "Color Attrib" );
+if( oProperty && oProperty.className() == "DzColorProperty" )
+{
+	var clrValue = oProperty.getColorValue();
+	var vecColor = new DzVec3( clrValue.red, clrValue.green, clrValue.blue );
+	var vecWhite = new DzVec3( 255, 255, 255 );
+	
+	Shader.setColorAttrib ( "user", "color myRGBrawColor", clrValue.red, clrValue.green, clrValue.blue, false );
+	Shader.setColorAttrib ( "user", "color myRGBfloatColor", clrValue.red, clrValue.green, clrValue.blue, true );
+	//Shader.setColorAttrib ( "user", "color myColor", clrValue );
+	//Shader.setColorAttrib ( "user", "color myVec3rawColor", vecColor );
+	//Shader.setColorAttrib ( "user", "color myVec3floatColor", vecColor.divide( vecWhite ) );
+	
+	Shader.setColorToken ( "myColorToken", clrValue );
+}
+
+oProperty = oOWNER.findProperty( "Enum Attrib" );
+if( oProperty && oProperty.className() == "DzEnumProperty" )
+{
+	var sValue = oProperty.getStringValue();
+	Shader.setIntegerAttrib( "user", "integer myEnum", oProperty.getValue() );
+	Shader.setStringAttrib( "user", "string myEnumString", sValue );
+	
+	Shader.setIntegerToken( "myEnumToken", oProperty.getValue() );
+	Shader.setStringToken( "myEnumStringToken", sValue );
+}
+
+oProperty = oOWNER.findProperty( "Image Attrib" );
+if( oProperty && oProperty.className() == "DzImageProperty" )
+{
+	var oTexture = oProperty.getValue();
+	var sFilename = oTexture ? oTexture.getFilename() : "";
+	var sTempFile = oTexture ? oTexture.getTempFilename() : "";
+	Shader.setStringAttrib( "user", "string myImage", sFilename );
+	
+	Shader.setStringToken( "myImageToken", sTempFile );
+}
+
+oProperty = oOWNER.findProperty( "String Attrib" );
+if( oProperty && oProperty.className() == "DzStringProperty" )
+{
+	var sValue = oProperty.getValue();
+	Shader.setStringAttrib( "user", "string myString", sValue );
+	
+	Shader.setStringToken( "myStringToken", sValue );
+}
+
+oProperty = oOWNER.findProperty( "File Attrib" );
+if( oProperty && oProperty.className() == "DzFileProperty" )
+{
+	var sValue = oProperty.getValue();
+	Shader.setStringAttrib( "user", "string myFile", sValue );
+	
+	Shader.setStringToken( "myFileToken", sValue );
+}
+
+var vecUnit = new DzVec3( 1, 1, 1 );
+var mtxIdentity = new DzMatrix4();
+
+Shader.setNormalAttrib( "user", "normal myNormal", vecUnit );
+Shader.setPointAttrib( "user", "point myPoint", vecUnit );
+Shader.setVectorAttrib( "user", "vector myVector", vecUnit );
+Shader.setMatrixAttrib( "user", "matrix myMatrix", mtxIdentity );
+
+Shader.setNormalToken( "myNormalToken", vecUnit );
+Shader.setPointToken( "myPointToken", vecUnit );
+Shader.setVectorToken( "myVectorToken", vecUnit );
+Shader.setMatrixToken( "myMatrixToken", mtxIdentity );

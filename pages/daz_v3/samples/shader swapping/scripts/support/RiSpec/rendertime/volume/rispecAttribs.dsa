@@ -1,0 +1,61 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: rispecAttribs.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+/*****************************
+   Script globals
+*****************************
+"Shader" - is a transient global variable provided by the interpreter
+when this script is called via DzRSLShader::setDefinitionFile(),
+that references the current DzRSLShader.
+**********************************************************************/
+var oOWNER = Shader.getOwner();
+
+var oVIEWPORT_MANAGER = MainWindow.getViewportMgr();
+var oVIEWPORT = oVIEWPORT_MANAGER.getActiveViewport();
+var o3DVIEWPORT = oVIEWPORT.get3DViewport();
+
+var bUseCustom = false;
+var oProperty = oOWNER.findProperty( "Volume Color" );
+if( oProperty && oProperty.className() == "DzEnumProperty" )
+{
+	var sValue = oProperty.getStringValue();
+	if( sValue == "Custom" )
+	{
+		bUseCustom = true;
+	}
+}
+
+if( bUseCustom )
+{
+	oProperty = oOWNER.findProperty( "Custom Color" );
+	if( oProperty && oProperty.className() == "DzColorProperty" )
+	{
+		var clrValue = oProperty.getColorValue();
+		Shader.setColorToken( "background", clrValue );
+	}
+	else
+	{
+		Shader.setColorToken( "background", o3DVIEWPORT.background );
+	}
+
+}
+else
+{
+	Shader.setColorToken( "background", o3DVIEWPORT.background );
+}

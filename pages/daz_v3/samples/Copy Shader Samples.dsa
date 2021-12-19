@@ -1,0 +1,257 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	
+	File: Copy Shader Samples.dsa
+	
+**********************************************************************/
+
+var g_bDEBUG = true;
+
+var g_aARGS = getArguments();
+var g_sTOOL_NAME = g_aARGS.length >= 1 ? g_aARGS[ 0 ] : "Copy Shader Samples";
+
+var g_bSHIFT_PRESSED = shiftPressed();
+var g_bCONTROL_PRESSED = ctrlPressed();
+
+var g_oFILE = new DzFile( getScriptFileName() );
+var g_sSCRIPT_NAME = String( "%1.%2" ).arg( g_oFILE.baseName() ).arg( g_oFILE.extension() );
+
+var g_oActions = new DsActions;
+
+/***********************************************************************
+***** DsActions Prototype *****
+***********************************************************************/
+/*********************************************************************/
+function DsActions()
+{
+	// Instance Members
+	this.m_oContentSourceDir = undefined;
+	this.m_oScriptSourceDir = undefined;
+	this.m_oShaderSourceDir = undefined;
+	
+	this.m_oContentTargetDir = undefined;
+	this.m_oScriptTargetDir = undefined;
+	this.m_oShaderTargetDir = undefined;
+	
+	this.m_aCopyPaths = new Array();
+}
+
+/***********************************************************************/
+DsActions.superclass = Object;
+
+/*********************************************************************/
+// Array<DzFile> : A method to get an array of the immediate files of a directory
+DsActions.prototype.getFiles = function( oDIR, regxFILTER, nFILTER, nSORT )
+{
+	var aFiles = new Array;
+	
+	var aFILE_NAMES = oDIR.entryList( regxFILTER, nFILTER, nSORT );
+	for( var i = 0; i < aFILE_NAMES.length; i += 1 )
+	{
+		aFiles.push( new DzFile( oDIR.absFilePath( aFILE_NAMES[ i ] ) ) );
+	}
+	
+	return aFiles;
+}
+
+/*********************************************************************/
+// Array<DzDir> : A method to get an array of the immediate subdirectories of a directory
+DsActions.prototype.getDirectories = function( oDIR, regxFILTER, nFILTER, nSORT )
+{
+	var aDirectories = new Array;
+	
+	var aDIRECTORY_NAMES = oDIR.entryList( regxFILTER, nFILTER, nSORT );
+	for( var i = 2; i < aDIRECTORY_NAMES.length; i += 1 )
+	{
+		aDirectories.push( new DzDir( String( "%1/%2" ).arg( oDIR.absPath() ).arg( aDIRECTORY_NAMES[ i ] ) ) );
+	}
+	
+	return aDirectories;
+}
+
+/*********************************************************************/
+// Array<DzDir> : A method to get an array of all subdirectories of a directory
+DsActions.prototype.getRecursiveDirectories = function( oDIR, regxFILTER, nFILTER, nSORT )
+{
+	var aDirectories = this.getDirectories( oDIR, regxFILTER, nFILTER, nSORT );
+	
+	var aSubDirectories;
+	var oDir, oSubDir;
+	for( var i = 0; i < aDirectories.length; i += 1 )
+	{
+		oDir = aDirectories[ i ];
+		aSubDirectories = this.getDirectories( oDir, regxFILTER, nFILTER, nSORT );
+		for( var j = 0; j < aSubDirectories.length; j += 1 )
+		{
+			oSubDir = aSubDirectories[ j ];
+			aDirectories.push( oSubDir );
+		}
+	}
+	
+	return aDirectories;
+}
+
+/*********************************************************************/
+// Array<DzFile> : A method to get an array of all files in all subdirectories of a directory
+DsActions.prototype.getRecursiveFiles = function( oDIR, regxDIR_FILTER, nDIR_FILTER, nDIR_SORT,
+							regxFILE_FILTER, nFILE_FILTER, nFILE_SORT )
+{
+	var aFiles = new Array;
+	
+	var aDirectories = this.getRecursiveDirectories( oDIR, regxDIR_FILTER, nDIR_FILTER, nDIR_SORT );
+	
+	var aFileNames;
+	var oDir;
+	var sFileName;
+	for( var i = 0; i < aDirectories.length; i += 1 )
+	{
+		oDir = aDirectories[ i ];
+		aFileNames = oDir.entryList( regxFILE_FILTER, nFILE_FILTER, nFILE_SORT );
+		for( var j = 0; j < aFileNames.length; j += 1 )
+		{
+			sFileName = aFileNames[ j ];
+			aFiles.push( new DzFile( oDir.absFilePath( sFileName ) ) );
+		}
+	}
+	
+	return aFiles;
+}
+
+/*********************************************************************/
+// void : A method to begin doing whatever it is we do...
+DsActions.prototype.begin = function()
+{
+	this.m_oContentSourceDir = new DzDir( App.getDocumentationPath() );
+	this.m_oContentSourceDir.cd( "DAZScript/samples/shader swapping/content" );
+	
+	this.m_oScriptSourceDir = new DzDir( App.getDocumentationPath() );
+	this.m_oScriptSourceDir.cd( "DAZScript/samples/shader swapping/scripts" );
+	
+	this.m_oShaderSourceDir = new DzDir( App.getDocumentationPath() );
+	this.m_oShaderSourceDir.cd( "DAZScript/samples/shader swapping/shaders" );
+	
+	var sTargetContentPath;
+	var sDefaultContentPath = String( "%1/content" ).arg( App.getDocumentsPath() );
+	var oContentManager = App.getContentMgr();
+	var nContentDirectories = oContentManager.getNumContentDirectories();
+	for( var i = nContentDirectories - 1; i >= 0; i -= 1 )
+	{
+		sTargetContentPath = oContentManager.getContentDirectoryPath( i );
+		if( sTargetContentPath == sDefaultContentPath )
+		{
+			break;
+		}
+	}
+	this.m_oContentTargetDir = new DzDir( sTargetContentPath );
+	
+	this.m_oScriptTargetDir = new DzDir( App.getScriptsPath() );
+	
+	this.m_oShaderTargetDir = new DzDir( App.getShadersPath() );
+	
+	if( g_bDEBUG )
+	{
+		debug( String( "Source Content: %1" ).arg( this.m_oContentSourceDir.absPath() ) );
+		debug( String( "Source Scripts: %1" ).arg( this.m_oScriptSourceDir.absPath() ) );
+		debug( String( "Source Shaders: %1" ).arg( this.m_oShaderSourceDir.absPath() ) );
+		
+		debug( String( "Target Content: %1" ).arg( this.m_oContentTargetDir.absPath() ) );
+		debug( String( "Target Scripts: %1" ).arg( this.m_oScriptTargetDir.absPath() ) );
+		debug( String( "Target Shaders: %1" ).arg( this.m_oShaderTargetDir.absPath() ) );
+	}
+	
+	// Content files
+	var aFiles = this.getRecursiveFiles( this.m_oContentSourceDir, "*", DzDir.Dirs, DzDir.Name, "*.*", DzDir.Files, DzDir.Name );
+	
+	startProgress( "Copying Content Files...", aFiles.length );
+	var sFile, sRelativeSource, sDestination;
+	var oDir, oFile;
+	var aRelDirNames, aCompileFiles = new Array;
+	for( var i = 0; i < aFiles.length; i += 1 )
+	{
+		oFile = aFiles[ i ];
+		oDir = new DzDir( oFile.path() );
+		sFile = String( "...%1/%2.%3" ).arg( oDir.dirName() ).arg( oFile.baseName() ).arg( oFile.extension() );
+		App.statusLine( String( "Copying : %1" ).arg( sFile ) );
+		sRelativeSource = this.m_oContentSourceDir.relativeFilePath( oFile.absFileName() );
+		
+		aRelDirNames = sRelativeSource.split( "/" );
+		aRelDirNames.pop();
+		aRelDirNames.join( "/" );
+		this.m_oContentTargetDir.mkpath( aRelDirNames.join( "/" ) );
+		
+		sDestination = String( "%1/%2" ).arg( this.m_oContentTargetDir.absPath() ).arg( sRelativeSource );
+		
+		this.m_oContentSourceDir.copy( sRelativeSource, sDestination );
+		stepProgress();
+	}
+	oContentManager.refresh( true );
+	finishProgress();
+	
+	// Script files
+	aFiles = this.getRecursiveFiles( this.m_oScriptSourceDir, "*", DzDir.Dirs, DzDir.Name, "*.*", DzDir.Files, DzDir.Name );
+	
+	startProgress( "Copying Script Files...", aFiles.length );
+	for( var i = 0; i < aFiles.length; i += 1 )
+	{
+		oFile = aFiles[ i ];
+		oDir = new DzDir( oFile.path() );
+		sFile = String( "...%1/%2.%3" ).arg( oDir.dirName() ).arg( oFile.baseName() ).arg( oFile.extension() );
+		App.statusLine( String( "Copying : %1" ).arg( sFile ) );
+		sRelativeSource = this.m_oScriptSourceDir.relativeFilePath( oFile.absFileName() );
+		
+		aRelDirNames = sRelativeSource.split( "/" );
+		aRelDirNames.pop();
+		aRelDirNames.join( "/" );
+		this.m_oScriptTargetDir.mkpath( aRelDirNames.join( "/" ) );
+		
+		sDestination = String( "%1/%2" ).arg( this.m_oScriptTargetDir.absPath() ).arg( sRelativeSource );
+		
+		this.m_oScriptSourceDir.copy( sRelativeSource, sDestination );
+		stepProgress();
+	}
+	finishProgress();
+	
+	// Shader files
+	aFiles = this.getRecursiveFiles( this.m_oShaderSourceDir, "*", DzDir.Dirs, DzDir.Name, "*.*", DzDir.Files, DzDir.Name );
+	
+	startProgress( "Copying Shader Files...", aFiles.length );
+	for( var i = 0; i < aFiles.length; i += 1 )
+	{
+		oFile = aFiles[ i ];
+		oDir = new DzDir( oFile.path() );
+		sFile = String( "...%1/%2.%3" ).arg( oDir.dirName() ).arg( oFile.baseName() ).arg( oFile.extension() );
+		App.statusLine( String( "Copying : %1" ).arg( sFile ) );
+		sRelativeSource = this.m_oShaderSourceDir.relativeFilePath( oFile.absFileName() );
+		
+		aRelDirNames = sRelativeSource.split( "/" );
+		aRelDirNames.pop();
+		aRelDirNames.join( "/" );
+		this.m_oShaderTargetDir.mkpath( aRelDirNames.join( "/" ) );
+		
+		sDestination = String( "%1/%2" ).arg( this.m_oShaderTargetDir.absPath() ).arg( sRelativeSource );
+		
+		this.m_oShaderSourceDir.copy( sRelativeSource, sDestination );
+		aCompileFiles.push( sDestination );
+		stepProgress();
+	}
+	finishProgress();
+
+	var oRenderMgr = App.getRenderMgr();
+	var oRenderer = oRenderMgr.getActiveRenderer();
+	
+	if( oRenderer )
+	{
+		startProgress( "Compiling Shader Files...", aCompileFiles.length );
+		for( var i = 0; i < aCompileFiles.length; i += 1 )
+		{
+			oFile = new DzFile( aCompileFiles[ i ] );
+			App.statusLine( String( "Compiling : %1" ).arg( oFile.baseName() ) );
+			oRenderer.compileShader( aCompileFiles[ i ] );
+			stepProgress();
+		}
+		finishProgress();
+	}
+}
+
+/*********************************************************************/
+g_oActions.begin();

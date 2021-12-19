@@ -1,0 +1,45 @@
+// DAZ Studio version 3.0  filetype DAZ Script
+/**********************************************************************
+	File: dzpointDef.dsa
+
+	Copyright © 2002-2009 DAZ Productions. All Rights Reserved.
+
+	This file is part of the DAZ Script Documentation.
+
+	This file may be used only in accordance with the DAZ Script 
+	license provided with the DAZ Script Documentation.
+
+	The contents of this file may not be disclosed to third parties, 
+	copied or duplicated in any form, in whole or in part, without the 
+	prior written permission of DAZ Productions, except as explicitly
+	allowed in the DAZ Script license.
+
+	See http://www.daz3d.com to contact DAZ Productions or for more 
+	information about DAZ Script.
+**********************************************************************/
+var oShader;
+
+/**********************************************************************/
+setBusyCursor();
+
+Light.setLightName( "DAZ Studio Point Light" );
+
+Light.setUseLocalShaderSpace( true );
+
+oShader = new DzRSLShader;
+Light.addShader( oShader );
+oShader.setShaderType( DzRSLShader.Light );
+oShader.setShaderFile( "pointlight" );
+oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/light/dzpointLight.dsa" );
+oShader.setRenderTimeFile( "support/DAZ/rendertime/light/dzPointLightAttribs.dsa" );
+oShader.setActiveInShadowPass( false );
+
+oShader = new DzRSLShader;
+Light.addShader( oShader );
+oShader.setShaderType( DzRSLShader.Light );
+oShader.setShaderFile( "shadowpointlight" );
+oShader.setDefinitionFile( "support/DAZ/shaderDefinitions/light/dzpointshadowLight.dsa" );
+oShader.setRenderTimeFile( "support/DAZ/rendertime/light/dzPointLightAttribs.dsa" );
+oShader.setOnlyInShadowPass( true );
+
+clearBusyCursor();
