@@ -1,10 +1,13 @@
 # JzSense Generator
 This is the project that webscraps information from DAZ's Documentation website, processes the information, and outputs a file to allow the use of Visual Studio's Intellisense.
 
+We only use **Python** to make all of this work. 
+
 The result of this generator's output is: [JzSense](https://github.com/siblount/JzSense) - a javascript file that is used for Intellisense.
 
 ## Project Status
 Currently, the repository is a mess and the main program *barely* works. It is not at any stage to produce any files as of yet.
+Alpha
 
 ### How you can help? 😲
 
@@ -14,6 +17,7 @@ Here are some problems you can help solve:
 * Improve parsing data in cases where there are "Attention" or "Example" sections.
     * <font color='red'>Note:</font> It's easier said than done.  
 * Help clean up repo.
+* Add better documentation.
 * Find a way to capture all of the hidden functions not listed in DAZ version 3 and version 4 documentation.
     * The debugger pane for DAZ Studio has a list of all of available symbols - how do we get them all?
 * Of course, anything other problems/solutions you find will be very useful and appreciated.
@@ -95,6 +99,6 @@ You may get import errors when attempting to run scripts that aren't in the root
 
 ### Final Regards
 
-I apologize if this is all messed up. I am a student and all of this is new to me, so I'll try my best. So please be nice :).
+I apologize if I mess something up or I don't follow the norms. I am a student and all of this is new to me, so I'll try my best. So please be nice :).
 
-Oh, license, whatever license that says "don't use this for commercial means, if u do, it has to be free with all the contributors names on it."
+Thank you all!
