@@ -135,7 +135,7 @@ def _write_non_global(dazObj:DazObject) -> str:
             params = ""
             if signal.params is not None:
                 params = ", ".join([str(param) for param in signal.params])
-            working_strs.append(f"\tfunction {signal}({params}) {{}};")
+            working_strs.append(f"\t{signal}({params}) {{}};")
         except Exception as e:
             print(e)
     # We are done.
