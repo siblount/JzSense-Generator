@@ -122,9 +122,9 @@ def _write_non_global(dazObj:DazObject) -> str:
             if func.params is not None:
                 params = ", ".join([str(param) for param in func.params])
             if func.static:
-                working_strs.append(f"\tstatic function {func}({params}) {{}};")
+                working_strs.append(f"\tstatic {func}({params}) {{}};")
             else:
-                working_strs.append(f"\function {func}({params}) {{}};")
+                working_strs.append(f"\t{func}({params}) {{}};")
         except Exception:
             pass
     # Signals (basically the same thing as funcs)
