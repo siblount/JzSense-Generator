@@ -70,8 +70,9 @@ def _write_signal_documentation(signal:JSSignal) -> str:
     working_strs.append(f"@event")
     return str("\n".join(working_strs).encode("utf-8"),"utf-8")
 
-def convert(dazObj:DazObject) -> str:
-    """ Converts a DazObject into a representable JSDOC comment for JavaScript. """
+# Global vs non-global
+def _write_non_global(dazObj:DazObject) -> str:
+    """ Returns a string that contains the `dazObj`'s symbols wrapped inside a class along with it's documentation. """
     working_strs = []
     # Write class documentation comment.
     working_strs.append(str(Comment(_write_class_documentation(dazObj.jsclass))))
@@ -86,7 +87,9 @@ def convert(dazObj:DazObject) -> str:
             # Add constructor declaration.
             # If constructor has parameters...
             if len(constructor.params) != 0:
-                params = ", ".join([f"{name} {val}" for (name, val) in constructor.params])
+                params = ""
+                if constructor.params is not None:
+                    params = ", ".join([str(param) for param in constructor.params])
                 working_strs.append(f"\tconstructor({params}) {{}};")
             else:
                 working_strs.append(f"\tconstructor() {{}};")
@@ -115,10 +118,9 @@ def convert(dazObj:DazObject) -> str:
         # Write function description.
         try:
             working_strs.append(str(Comment(_write_function_documentation(func),"\t")))
-            params = []
-            for name, val in func.params:
-                params.append(name, val)
-            params = ", ".join(params)
+            params = ""
+            if func.params is not None:
+                params = ", ".join([str(param) for param in func.params])
             if func.static:
                 working_strs.append(f"\tstatic function {func}({params}) {{}};")
             else:
@@ -130,13 +132,71 @@ def convert(dazObj:DazObject) -> str:
         try:
             # Write signaltion description.
             working_strs.append(str(Comment(_write_signal_documentation(signal),"\t")))
-            params = []
-            for name, val in signal.params:
-                params.append(name, val)
-            params = ", ".join(params)
+            params = ""
+            if signal.params is not None:
+                params = ", ".join([str(param) for param in signal.params])
             working_strs.append(f"\tfunction {signal}({params}) {{}};")
         except Exception as e:
             print(e)
     # We are done.
     working_strs.append("\n}\n")
     return fix_str("\n".join(working_strs))
+def _write_global(dazObj:DazObject) -> str:
+    """ Returns a string that contains global symbols and its documentation. """
+    working_strs = []
+    # Write class documentation comment.
+    working_strs.append(str(Comment(_write_class_documentation(dazObj.jsclass))))
+    # Indent is now 1 tab level.
+    # Properties
+    for property in dazObj.properties:
+        try:
+            # Add property description.
+            working_strs.append(str(Comment(_write_property_documentation(property))))
+            # Add property definition.
+            working_strs.append(f"var {property};")
+        except Exception:
+            pass
+    # Enums
+    for enum in dazObj.enums:
+        try:
+            # Add enum description.
+            working_strs.append(str(Comment(_write_enum_documentation(enum))))
+            # Add enum definition.
+            working_strs.append(f"var {enum};")
+        except Exception:
+            pass
+    # Functions
+    for func in dazObj.functions:
+        # Write function description.
+        try:
+            working_strs.append(str(Comment(_write_function_documentation(func))))
+            params = ""
+            if func.params is not None:
+                params = ", ".join([str(param) for param in func.params])
+            if func.static:
+                working_strs.append(f"static function {func}({params}) {{}};")
+            else:
+                working_strs.append(f"function {func}({params}) {{}};")
+        except Exception:
+            pass
+    # Signals (basically the same thing as funcs)
+    for signal in dazObj.signals:
+        try:
+            # Write signaltion description.
+            working_strs.append(str(Comment(_write_signal_documentation(signal))))
+            params = ""
+            if signal.params is not None:
+                params = ", ".join([str(param) for param in signal.params])
+            working_strs.append(f"function {signal}({params}) {{}};")
+        except Exception as e:
+            print(e)
+    # We are done.
+    working_strs.append("\n")
+    return fix_str("\n".join(working_strs))
+
+def convert(dazObj:DazObject) -> str:
+    """ Converts a DazObject into a representable JSDOC comment for JavaScript. """
+    if dazObj.name != "Global":
+        return _write_non_global(dazObj)
+    else:
+        return _write_global(dazObj)
