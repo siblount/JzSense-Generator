@@ -84,10 +84,10 @@ If your current operating system is Windows 10, you may ignore this.
     *Note: An error may show up if "bs4" couldn't be installed, this is fine.*
 
 ### Points of Interest
-`jzsense\scrappers` - `ds4` and `ds3` are where the code for scrapping data off of the website / local drive is located.
-`jzsense\js` - where classes such as `JSType` are defined.
-`jzsense\converters` - code to convert the dataclasses into a `javascript` format or `typescript` format.
-`jzsense\common` - common functions, most of which are for webscrappers.<br>
+`jzsense\scrappers` - `ds4` and `ds3` are where the code for scrapping data off of the website / local drive is located.<br>
+`jzsense\js` - where classes such as `JSType` are defined.<br>
+`jzsense\converters` - code to convert the dataclasses into a `javascript` format or `typescript` format.<br>
+`jzsense\common` - common functions, most of which are for webscrappers.<br><br>
 `pages` - DAZ v3 Documentation located in `daz_v3` and current DAZ documentation webpages downloaded.
 
 ### Additonal Information
