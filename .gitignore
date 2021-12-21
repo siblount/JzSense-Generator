@@ -1,4 +1,6 @@
 .vscode/
+JzSense.js
+test_JzSense.js
 *.cpython
 *.pyc
 *__pycache__
