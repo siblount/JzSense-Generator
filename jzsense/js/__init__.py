@@ -76,9 +76,10 @@ class JSType():
             return name
     @classmethod
     def get_type(cls, type:str) -> Self:
-        type_name = JSType.cleanse_name(type).lower()
-        if type_name in cls.types:
-            return cls.types[type_name]
+        type_name = JSType.cleanse_name(type)
+        type_name_lower = type_name.lower()
+        if type_name_lower in cls.types:
+            return cls.types[type_name_lower]
         else:
             return JSType(type_name)
 class JSProperty():
