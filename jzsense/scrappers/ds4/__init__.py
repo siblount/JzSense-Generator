@@ -209,7 +209,7 @@ def __CreateConstuctors(DzObj:DazObject):
             d = p.findNext("p") # type: bs
             desc = get_description(d, p)
             # Create our variable.
-            JSconstructor = JSConstructor(cN,pA,DzObj.properties,desc)
+            JSconstructor = JSConstructor(cN,pA,desc)
             DzObj.constructors.append(JSconstructor)
             #print(f"Constructor Name: {cN} | Definition: {desc}")
 def __CreateStaticMethods(DzObj:DazObject):
@@ -282,8 +282,22 @@ def __CreateStaticMethods(DzObj:DazObject):
             # Get method name.
             mN = p.find("strong").get_text() # type: str
             # Get the parameters.
+            # pA = pA[pA.index("(")+1:pA.index(")")].strip()
             pA = str(p.get_text().encode("UTF-8"),"UTF-8").strip()
-            pA = pA[pA.index("(")+1:pA.index(")")].strip()
+            if "(" in pA and "deprecated" not in pA:
+                pA = pA[pA.index("(")+1:pA.index(")")].strip()
+            elif "(" in pA and "deprecated" in pA:
+                first_end_parenthesis_index = pA.index(")")
+                colon_index = pA.index(':')
+                # If : is behind the first ), then it is normal.
+                if colon_index < first_end_parenthesis_index:
+                    pA = pA[pA.index("(")+1:pA.rfind(")") + 1].strip()
+                else:
+                    # otherwise its in front of the :, meaning we gotta deal with this shit.
+                    # void : addManipulator( DzImageManip (deprecated) manip ) <--- wtf
+                    pA = pA[pA.index("(",first_end_parenthesis_index+1)+1:pA.rfind(")") + 1].strip()
+            else:
+                pA = pA.strip()+"()"
             # Get variable definition.
             d = p.findNext("p") # type: bs
             desc = get_description(d, p)
@@ -378,8 +392,19 @@ def __CreateMethods(DzObj:DazObject):
             mN = p.find("strong").get_text() # type: str
             # Get the parameters.
             pA = str(p.get_text().encode("UTF-8"),"UTF-8").strip()
-            if "(" in pA:
+            if "(" in pA and "deprecated" not in pA:
                 pA = pA[pA.index("(")+1:pA.index(")")].strip()
+            elif "(" in pA and "deprecated" in pA:
+                first_end_parenthesis_index = pA.index(")")
+                colon_index = pA.index(':')
+                # If : is behind the first ), then it is normal.
+                if colon_index < first_end_parenthesis_index:
+                    pA = pA[pA.index("(")+1:pA.rfind(")") + 1].strip()
+                else:
+                    # otherwise its in front of the :, meaning we gotta deal with this shit.
+                    # void : addManipulator( DzImageManip (deprecated) manip ) <--- wtf
+                    pA = pA[pA.index("(",first_end_parenthesis_index+1)+1:pA.rfind(")") + 1].strip()
+
             else:
                 pA = pA.strip()+"()"
             # Get variable definition.
@@ -584,11 +609,6 @@ def ProcessAllObjects(DzObjs:list[DazObject]):
 
     print("All done!")
 
-    
-    
-    
-
-   
 
 def RedoImplements(x:DazObject):
     __CreateImplements(x)
