@@ -67,14 +67,22 @@ class JSType():
     def __repr__(self) -> str:
         return self.name
 
+    @staticmethod
+    def cleanse_name(name:str) -> str:
+        """ Removes "deprecated" bullshit from the name."""
+        if "deprecated" in name:
+            return name[:name.index("(")].strip()
+        else:
+            return name
     @classmethod
     def get_type(cls, type:str) -> Self:
-        if type.lower() in cls.types:
-            return cls.types[type.lower()]
+        type_name = JSType.cleanse_name(type).lower()
+        if type_name in cls.types:
+            return cls.types[type_name]
         else:
-            return JSType(type)
+            return JSType(type_name)
 class JSProperty():
-    def __init__(self, name: str, jstype: str, description:str = "", dzObj:DazObject = None):
+    def __init__(self, name: str, jstype: JSType, description:str = "", dzObj:DazObject = None):
         self.name = name
         self.description = str(description.encode("UTF-8"),"UTF-8").strip()
         self.jstype = jstype
@@ -98,47 +106,17 @@ class JSProperty():
         totalMsg += "\t" + COMMENT_TEMPLATE_ENDING
         return totalMsg
 class JSConstructor():
-    def __init__(self, name:str, params:str="",properties:list[tuple[JSType, str]]=None, documentation:str = None):
+    def __init__(self, name:str, params:str="", documentation:str = None):
         self.name = str(name.encode("UTF-8"),"UTF-8")
-        self.params = self.ParseParams(params)
-        self.properties = properties
-        self.message = self.ConvertToJS(self)
+        self.params = JSParameter.parse_params(params)
+        # self.message = self.ConvertToJS(self)
         self.dzObj = DazObject.FindObjAll(name)
         self.documentation = self.GetJSDocDescription(documentation)
-
-
-    @staticmethod
-    def ParseParams(params:str) -> list[tuple[JSType,str]]:
-
-        # TO DO: ParseParams now creates params.
-        PARAM_IGNORE = ["…"]
-        #[0] - Type [1] - var Name
-        # Check if commas.
-        if "," in params:
-            # Constructor has multiple parameters.
-            param_type_tuples = []
-            _params = params.split(",")
-            for x in _params:
-                if x in PARAM_IGNORE:
-                    _params.remove(x)
-                    continue
-                x = x.strip().split(" ")
-                for y in x:
-                    y = fix_str(y)
-                x[0] = JSType.get_type(x[0])
-                param_type_tuples.append(tuple(x))
-            return param_type_tuples
-        else:
-            # Constructor has one or none parameter.
-            if params == "":
-                return None
-            else:
-                x = params.strip().split(" ")
-                for y in x:
-                    y = fix_str(y)
-                x[0] = JSType.get_type(x[0])
-                return list(tuple(x))
-
+    
+    def __repr__(self):
+        params = ", ".join(str(param) for param in self.params)
+        return f"{self.name} ({params})"
+    # DEPRECRATED: ONLY USED FOR DS3
     @classmethod
     def ConvertToJS(cls,j) -> str:
         SEPERATOR = ", "
@@ -183,6 +161,7 @@ class JSConstructor():
         totalMsg += "\n\t};"
         return totalMsg
 
+    # DEPRECRATED: ONLY USED FOR DS3
     @staticmethod
     def GetJSDocDescription(msg) -> str:
         # [0] - textDesc [1] - returnDesc [2] - sinceDesc [3] - paramsDesc [4] - attentionDesc
@@ -206,7 +185,7 @@ class JSFunction():
     def __init__(self, name:str, params:str, returnObj:str, desc:str, static:bool = False, dzObj:DazObject=None, otherInfo:tuple[str,str,str,str,str]=tuple()):
         # Order of these are important. Some need to be intialized before the others.
         self.name = name
-        self.params = self.ParseParams(params)
+        self.params = JSParameter.parse_params(params)
         # TODO: Use JSType for returnObj.
         self.returnObj = returnObj
         if desc is not None:
@@ -219,39 +198,18 @@ class JSFunction():
             
         self.dzObj = dzObj
         self.static = static
-        if dzObj.name == "Global":
-            self.message = self.ConvertToJSGlobal(self)
-        else:
-            self.message = self.ConvertToJS(self)
+        # if dzObj.name == "Global":
+        #     self.message = self.ConvertToJSGlobal(self)
+        # else:
+        #     self.message = self.ConvertToJS(self)
         self.other_info = desc
     def __str__(self) -> str:
         return self.name
     
     def __repr__(self) -> str:
         return f"{self.name} -> {self.returnObj} | {len(self.params)}"
-    @staticmethod
-    def ParseParams(params:str):
 
-        PARAM_IGNORE = ["…"]
-        #[0] - Type [1] - var Name
-        # Check if commas.
-        if "," in params:
-            # Constructor has multiple parameters.
-            _params = params.split(",")
-            for x in _params:
-                if x in PARAM_IGNORE:
-                    _params.remove(x)
-                    continue
-                if x == "function":
-                    x = "_function"
-                x = tuple(x.strip().split(" "))
-            return _params
-        else:
-            # Constructor has one or none parameter.
-            if params == "":
-                return None
-            else:
-                return tuple(params.strip().split(" "))
+    # DEPRECATED: BELOW FUNCS ONLY AVAILABLE FOR DS3
 
     @classmethod
     def ConvertToJS(cls,j) -> str:
@@ -390,13 +348,13 @@ class JSEnum():
     def GetMethodVersion(cls,self) -> str:
         return f"static {self.name};"
 class JSSignal():
-    def __init__(self, name, params, signature, documentation, dzObj):
+    def __init__(self, name:str, params:str, signature:str, documentation:str, dzObj:DazObject):
         self.name = name
-        self.params = self.ParseParams(params)
+        self.params = JSParameter.parse_params(params)
         self.signature = signature
         self.raw_doc = documentation
         self.documentation = self.GetJSDocDescription(documentation, signature)
-        self.message = self.ConvertToJS(self)
+        # self.message = self.ConvertToJS(self)
         self.dzObj = dzObj
 
     def __str__(self) -> str:
@@ -508,7 +466,10 @@ class JSClass():
     def get_class_definition(self):
         """ Returns the class defintion with `{` at the end."""
         extends_msg = "extends " + ", ".join(set(str(jstype) for jstype in self.implements))
-        return f"class {self.name} {extends_msg} {{"
+        if extends_msg == "extends ":
+            return f"class {self.name} {{"
+        else:
+            return f"class {self.name} {extends_msg} {{"
     
     def get_class_documentation(self):
             # TODO: Remove classinfo from dazobject and move to JSClass.
@@ -604,3 +565,66 @@ class JSParameter():
 
     def __repr__(self) -> str:
         return str(self)
+
+    @staticmethod
+    def parse_params(params:str) -> tuple["JSParameter"]:
+        PARAM_IGNORE = set("…")
+        properties = []
+        #[0] - Type [1] - var Name
+        # If comma in param string it means we have multiple params.
+        if "," in params:
+            # Constructor has multiple parameters.
+            _params = params.split(",")
+            for x in list(_params):
+                if x in PARAM_IGNORE:
+                    _params.remove(x)
+                    continue
+                # setScatterColorMap( DzTexture ) <-- Has type but not parameter name.
+                # void : addManipulator( DzImageManip (deprecated) manip )
+                # ┳━┳ ノ( ゜-゜ノ)(╯°□°）╯︵ ┻━┻
+                info = x.strip().split(" ")
+                if len(info) == 3:
+                    info[0] = info[0] + " " + info[1]
+                    del info[1]
+                if len(info) == 2:
+                    type = info[0]
+                    param = info[1]
+                else:
+                    type = info[0]
+                    param = type.split(" ")[0][2:].lower()
+                if "function" in param:
+                    # function is not allowed as a parameter name
+                    param = "func" + param[param.index("function") + len("function"):] # We don't want to remove the default value.
+                if "=" in param:
+                    param_name, default_val = param.strip().split("=")
+                    new_prop = JSParameter(param_name, JSType.get_type(type), default_val)
+                else:
+                    new_prop = JSParameter(param, JSType.get_type(type))
+                properties.append(new_prop) 
+        else:
+            # Constructor has one or none parameter.
+            if params == "":
+                return None
+            else:
+                # setScatterColorMap( DzTexture ) <-- Has type but not parameter name.
+                info = params.strip().split(" ")
+                if len(info) == 3:
+                    info[0] = info[0] + info[1]
+                    del info[1]
+                if len(info) == 2:
+                    type = info[0]
+                    param = info[1]
+                else:
+                    type = info[0]
+                    param = type.split(" ")[0][2:].lower()
+                if "function" in param:
+                    # function is not allowed as a parameter name
+                    param = "func" + param[param.index("function") + len("function"):] # We don't want to remove the default value.
+                if "=" in param:
+                    param_name, default_val = param.strip().split("=")
+                    new_prop = JSParameter(param_name, JSType.get_type(type), default_val)
+                else:
+                    new_prop = JSParameter(param, JSType.get_type(type))
+                properties.append(new_prop)
+
+        return tuple(properties)
