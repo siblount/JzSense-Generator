@@ -560,9 +560,9 @@ class JSParameter():
 
     def __str__(self) -> str:
         if self.value != "":
-            return f"{self.parameter_type} {self.parameter_name} = {self.value}"
+            return f"{self.parameter_name} = {self.value}"
         else:
-            return f"{self.parameter_type} {self.parameter_name}"
+            return f"{self.parameter_name}"
 
     def __repr__(self) -> str:
         return str(self)
