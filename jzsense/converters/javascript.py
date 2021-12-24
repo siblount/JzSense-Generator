@@ -26,7 +26,7 @@ def _write_class_documentation(class_:JSClass) -> str:
     return BeautifyText(class_.classinfo)
 def _write_constructor_documentation(constructor:JSConstructor) -> str:
     working_strs = []
-    constructor_msgs = constructor.documentation
+    constructor_msgs = constructor.raw_doc
     if constructor_msgs[0] is not None:
         working_strs.append(f"@description {constructor_msgs[0]}")
     if constructor_msgs[1] is not None:
@@ -34,9 +34,16 @@ def _write_constructor_documentation(constructor:JSConstructor) -> str:
     if constructor_msgs[2] is not None:
         working_strs.append(f"@since {constructor_msgs[2]}")
     if constructor_msgs[3] is not None:
-        params = constructor_msgs.split("|!|") #type: list[str]
+        params = constructor_msgs[3].split("|!|") #type: list[str]
         for param in params:
-            working_strs.append(f"@param {param}")
+            type = None
+            for _param in constructor.params:
+                if _param.parameter_name in param:
+                    type = _param.parameter_type
+            if type is not None:
+                working_strs.append(f"@param {{{type}}} {param}")
+            else:
+                working_strs.append(f"@param {param}")
     if constructor_msgs[4] is not None:
         working_strs.append(f"@attention {constructor_msgs[4]}")
     # TODO: If deprepcated, add deprecated.
@@ -49,19 +56,33 @@ def _write_function_documentation(func:JSFunction) -> str:
     if func_msgs[0] is not None:
         working_strs.append(f"@description {func_msgs[0]}")
     if func_msgs[1] is not None:
-        working_strs.append(f"@returns {func_msgs[1]}")
+        if func.returnObj == "void":
+            working_strs.append(f"@returns {func_msgs[1]}")
+        else:
+            working_strs.append(f"@returns {func.returnObj} {func_msgs[1]}")
+    else:
+        if func.returnObj != "void":
+            working_strs.append(f"@returns {func.returnObj}")
     if func_msgs[2] is not None:
         working_strs.append(f"@since {func_msgs[2]}")
     if func_msgs[3] is not None:
-        params = func_msgs.split("|!|") #type: list[str]
+        params = func_msgs[3].split("|!|") #type: list[str]
         for param in params:
-            working_strs.append(f"@param {param}")
+            # Find parameter type.
+            type = None
+            for _param in func.params:
+                if _param.parameter_name in param:
+                    type = _param.parameter_type
+            if type is not None:
+                working_strs.append(f"@param {{{type}}} {param}")
+            else:
+                working_strs.append(f"@param {param}")
     if func_msgs[4] is not None:
         working_strs.append(f"@attention {func_msgs[4]}")
     # TODO: If deprepcated, add deprecated.
     return str("\n".join(working_strs).encode("utf-8"),"utf-8")
 def _write_enum_documentation(enum:JSEnum) -> str:
-    return f"@description ENUM:{enum.raw_doc}"
+    return f"@description ENUM: {enum.raw_doc}"
 def _write_signal_documentation(signal:JSSignal) -> str:
     working_strs = []
     working_strs.append("**THIS IS A SIGNAL!**")
@@ -83,7 +104,7 @@ def _write_non_global(dazObj:DazObject) -> str:
     for constructor in dazObj.constructors:
         try:
             # Add constructor description.
-            working_strs.append(str(Comment(_write_constructor_documentation(constructor)),"\t"))
+            working_strs.append(str(Comment(_write_constructor_documentation(constructor),"\t")))
             # Add constructor declaration.
             # If constructor has parameters...
             if len(constructor.params) != 0:
@@ -93,8 +114,8 @@ def _write_non_global(dazObj:DazObject) -> str:
                 working_strs.append(f"\tconstructor({params}) {{}};")
             else:
                 working_strs.append(f"\tconstructor() {{}};")
-        except Exception:
-            pass
+        except Exception as e:
+            print(f"Constructor error: {e}")
     # Properties
     for property in dazObj.properties:
         try:
@@ -124,9 +145,9 @@ def _write_non_global(dazObj:DazObject) -> str:
             if func.static:
                 working_strs.append(f"\tstatic {func}({params}) {{}};")
             else:
-                working_strs.append(f"\t{func}({params}) {{}};")
-        except Exception:
-            pass
+                working_strs.append(f"\t{func}({params}) {{}};") # Weird cases when ) is
+        except Exception as e:
+            print(f"function error: {e}")
     # Signals (basically the same thing as funcs)
     for signal in dazObj.signals:
         try:
