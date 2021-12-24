@@ -56,6 +56,8 @@ def fetch_prev_sibling(s) -> bs:
     return None
 def fix_str(o: str) -> str:
     """ Fixes strings with non UTF-8 chars. It also changes C++ `::` to `.`. Returns a fixed string. """
+    # saveFile(filename, mode, filetype = "DAZ Script", version = DzApp.getVersion()  {};
+    # Fix fix_str so it doesn't remove the required ).
     additionalSolutions = {"::".encode("UTF-8") : b"."}
     additionalSolutions.update(COMMENT_UNICODE_REPLACEMENTS)
     # Split into a list of words.
@@ -63,6 +65,9 @@ def fix_str(o: str) -> str:
     # Search for problems.
     changed = False
     skipNextKey = False
+
+    # This obviously can be improved.
+    # TODO: Improve performance.
     for word in listOfWords:
         indexOfWord = listOfWords.index(word)
         for key in additionalSolutions.keys():
@@ -70,7 +75,7 @@ def fix_str(o: str) -> str:
                 changed = True
                 # Special condition.
                 if key.decode("utf-8") == "::":
-                    skipNextKey
+                    skipNextKey # wtf did i do o_o
                 indexOfKey = listOfWords[indexOfWord].find(key.decode("utf-8"))
                 _wordlist_ = list(listOfWords[indexOfWord])
                 _wordlist_[indexOfKey] = additionalSolutions[key].decode("utf-8")
@@ -247,5 +252,8 @@ def remove_deprecated_str(name:str) -> str:
     """ Returns a string where "(deprecated)" is removed. String is also trimmed."""
     if "(deprecated)" in name:
         return name[:name.find("(deprecated)")].strip()
+    elif "( deprecated )" in name:
+        return name[:name.find("( deprecated )")].strip()
+
     else:
         return name
