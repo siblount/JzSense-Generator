@@ -17,10 +17,11 @@ USE_LOCAL_FILES = True
 def __GetClassDescription(DzObj:DazObject):
     """ Gets the class detailed description and will be stored to `DzObj.classinfo`."""
     if USE_LOCAL_FILES:
-        soup = try_connect(DzObj.link)
+        soup = try_connect(DzObj.local_location)
         try:
-            DzObj.dzPage = urlopen(DzObj.link).read()
+            DzObj.dzPage = urlopen(DzObj.local_location).read()
         except:
+            # Fallback to online.
             while True:
                 try:
                     DzObj.dzPage = urlopen(DzObj.link).read()
@@ -264,11 +265,11 @@ def __CreateStaticMethods(DzObj:DazObject):
             if returnType is not None:
                 returnNextSib = returnType.find_next_sibling("strong")
             if returnType != None and returnNextSib is not None and returnNextSib.name == "strong":
-                rT = p.findNext("a",{"class" : "wikilink1"}).get_text() # type: str
+                rT = JSType.get_type(p.findNext("a",{"class" : "wikilink1"}).get_text()) # type: str
             elif p != None and p.findNext("a", {"class" : "wikilink2"}):
                 aCandidate = p.findNext("a", {"class" : "wikilink2"})
                 if is_in_range(hrSourcelineRange, aCandidate.sourceline):
-                    rT = convert_to_daz_nomen(aCandidate.get_text()) # type: str
+                    rT = JSType.get_type(convert_to_daz_nomen(aCandidate.get_text())) # type: str
                 else:
                     rT = "void"
             else:
@@ -276,7 +277,7 @@ def __CreateStaticMethods(DzObj:DazObject):
                     rT = p.get_text()
                 elif p != None and p.find("em") != None:
                     # We found a return type of ourselves.
-                    rT = p.find("em").text
+                    rT = JSType.get_type(p.find("em").text)
                 else:
                     rT = "void"
             # Get method name.
@@ -291,13 +292,13 @@ def __CreateStaticMethods(DzObj:DazObject):
                 colon_index = pA.index(':')
                 # If : is behind the first ), then it is normal.
                 if colon_index < first_end_parenthesis_index:
-                    pA = pA[pA.index("(")+1:pA.rfind(")") + 1].strip()
+                    pA = pA[pA.index("(")+1:pA.rfind(")")].strip()
                 else:
                     # otherwise its in front of the :, meaning we gotta deal with this shit.
                     # void : addManipulator( DzImageManip (deprecated) manip ) <--- wtf
-                    pA = pA[pA.index("(",first_end_parenthesis_index+1)+1:pA.rfind(")") + 1].strip()
+                    pA = pA[pA.index("(",first_end_parenthesis_index+1)+1:pA.rfind(")")].strip()
             else:
-                pA = pA.strip()+"()"
+                pA = ""
             # Get variable definition.
             d = p.findNext("p") # type: bs
             desc = get_description(d, p)
@@ -393,27 +394,27 @@ def __CreateMethods(DzObj:DazObject):
             # Get the parameters.
             pA = str(p.get_text().encode("UTF-8"),"UTF-8").strip()
             if "(" in pA and "deprecated" not in pA:
-                pA = pA[pA.index("(")+1:pA.index(")")].strip()
+                pA = pA[pA.index("(")+1:pA.rfind(")")].strip() # "DzApp:getVersion("
             elif "(" in pA and "deprecated" in pA:
                 first_end_parenthesis_index = pA.index(")")
                 colon_index = pA.index(':')
                 # If : is behind the first ), then it is normal.
                 if colon_index < first_end_parenthesis_index:
-                    pA = pA[pA.index("(")+1:pA.rfind(")") + 1].strip()
+                    pA = pA[pA.index("(")+1:pA.rfind(")")].strip()
                 else:
                     # otherwise its in front of the :, meaning we gotta deal with this shit.
                     # void : addManipulator( DzImageManip (deprecated) manip ) <--- wtf
-                    pA = pA[pA.index("(",first_end_parenthesis_index+1)+1:pA.rfind(")") + 1].strip()
-
+                    pA = pA[pA.index("(",first_end_parenthesis_index+1)+1:pA.rfind(")")].strip()
             else:
-                pA = pA.strip()+"()"
+                # someone forgot to add ().
+                pA = ""
             # Get variable definition.
             d = p.findNext("p") # type: bs
             desc = get_description(d, p)
             # Create our variable.
             JSmethod = JSFunction(mN,pA,rT,desc,False,DzObj)
             DzObj.functions.append(JSmethod)
-            i+= 1
+            i += 1
             #print(f"Method Name: {mN} | Method Parameters: {pA} |  Method Return Type: {rT} | Definition: {desc}")
     print("Created methods.")
 def __CreateEnums(DzObj:DazObject):
@@ -510,10 +511,21 @@ def __CreateSignals(DzObj:DazObject):
             mN = p.find("strong").get_text() # type: str
             # Get the parameters.
             pA = str(p.get_text().encode("UTF-8"),"UTF-8").strip()
-            if "(" in pA:
+            if "(" in pA and "deprecated" not in pA:
                 pA = pA[pA.index("(")+1:pA.index(")")].strip()
+            elif "(" in pA and "deprecated" in pA:
+                first_end_parenthesis_index = pA.index(")")
+                colon_index = pA.index(':')
+                # If : is behind the first ), then it is normal.
+                if colon_index < first_end_parenthesis_index:
+                    pA = pA[pA.index("(")+1:pA.rfind(")")].strip()
+                else:
+                    # otherwise its in front of the :, meaning we gotta deal with this shit.
+                    # void : addManipulator( DzImageManip (deprecated) manip ) <--- wtf
+                    pA = pA[pA.index("(",first_end_parenthesis_index+1)+1:pA.rfind(")")].strip()
             else:
-                pA = pA.strip()+"()"
+                # someone forgot to add ().
+                pA = ""
             workingP = fetch_next_sibling(p)
             if workingP is not None and workingP.name == "p":
                 code = workingP.find("code")
@@ -571,7 +583,7 @@ def ProcessObject(DzObj: DazObject) -> JSClass:
     # Use local file at current working directory.
     file_name = f"pages/{DzObj.lowered_name}.html"
     if USE_LOCAL_FILES and path.exists(file_name):
-        DzObj.local_location = "file://" + path.abspath(file_name)
+        DzObj.local_location = "file:\\\\" + path.abspath(file_name)
     elif USE_LOCAL_FILES:
         try:
             mkdir("pages")
@@ -580,7 +592,7 @@ def ProcessObject(DzObj: DazObject) -> JSClass:
         print(f"Downloading webpage to disk...")
         with open(file_name,"wb") as file:
             file.write(urlopen(DzObj.link).read())
-        DzObj.local_location = "file://" + path.abspath(file_name)
+        DzObj.local_location = "file:\\\\" + path.abspath(file_name)
     __GetClassDescription(DzObj)
     __CreateImplements(DzObj)
     __CreateConstuctors(DzObj)
