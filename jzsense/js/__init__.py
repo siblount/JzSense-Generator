@@ -113,6 +113,16 @@ class JSConstructor():
         # self.message = self.ConvertToJS(self)
         self.dzObj = DazObject.FindObjAll(name)
         self.documentation = self.GetJSDocDescription(documentation)
+        self.raw_doc = documentation
+    #     /**
+	#  * @description /
+	#  * @returns *
+	#  * @since *
+	#  * @param 
+	#  * 
+	#  * @attention  
+	#  */
+    # What.
     
     def __repr__(self):
         params = ", ".join(str(param) for param in self.params)
@@ -183,12 +193,11 @@ class JSConstructor():
         totalMsg += COMMENT_TEMPLATE_ENDING + "\n"
         return str(totalMsg.encode("utf-8"),"utf-8")
 class JSFunction():
-    def __init__(self, name:str, params:str, returnObj:str, desc:str, static:bool = False, dzObj:DazObject=None, otherInfo:tuple[str,str,str,str,str]=tuple()):
+    def __init__(self, name:str, params:str, returnObj:str|JSType, desc:str, static:bool = False, dzObj:DazObject=None, otherInfo:tuple[str,str,str,str,str]=tuple()):
         # Order of these are important. Some need to be intialized before the others.
         self.name = name
         self.params = JSParameter.parse_params(params)
-        # TODO: Use JSType for returnObj.
-        self.returnObj = returnObj
+        self.returnObj = returnObj # "void" or JSType.
         if desc is not None:
             self.desc = self.GetJSDocDescription(desc)
         else:
@@ -554,9 +563,12 @@ class JSClass():
 class JSParameter():
     #TODO: Use parameters for all placements of ParseParams
     def __init__(self, parameter_name:str, parameter_type:JSType, value:str="") -> None:
+        if parameter_name == "function":
+            parameter_name = "func"
         self.parameter_name = parameter_name
         self.parameter_type = parameter_type
         self.value = value
+
 
     def __str__(self) -> str:
         if self.value != "":
@@ -565,67 +577,84 @@ class JSParameter():
             return f"{self.parameter_name}"
 
     def __repr__(self) -> str:
-        return str(self)
+        return f"{self.parameter_name}:{self.parameter_type} = {self.value}"
 
     @staticmethod
     def parse_params(params:str) -> tuple["JSParameter"]:
-        PARAM_IGNORE = set("…")
+        """ Given a string `params` will be converted to (return) a tuple of `JSParamter`s."""
+        def _handle_param(param:str) -> JSParameter | JSRestParameter:
+            """ Converts the param in any format (incluing incomplete). Must not have () at beginning or end. `param` should be stripped.
+            
+            Returns:
+
+                `JSParameter` if the parameter has a name and/or a type.
+
+                `JSRestParameter` if it is an any argument (...args)
+            """
+            # Not sure if this gets called anymore.
+            if "…" in param:
+                return JSRestParameter()
+            # addManipulator((deprecated) manip) 
+            if "( deprecated )" in param or "(deprecated)" in param:
+                closing_parenthesis_index = param.find(")") + 1 # includes closing parenthesis
+                type = JSType.get_type(param[:closing_parenthesis_index])
+                param = param[closing_parenthesis_index:]
+                if "=" in param:
+                    name, val = param.split("=",1)
+                    name = name.strip()
+                    val = val.strip()
+                    return JSParameter(name, type, val)
+                else:
+                    return JSParameter(param.strip(),type)
+            else:
+                if " " in param:
+                    type, param = param.split(" ",1)
+                    type = JSType.get_type(type)
+                    if "=" in param:
+                        name, val = param.split("=",1)
+                        name = name.strip()
+                        val = val.strip()
+                        return JSParameter(name, type, val)
+                    else:
+                        return JSParameter(param.strip(),type)
+                else:
+                    # someFunc ( DzTexture ) <-- wtf; else statement handles this.
+                    if "=" in param:
+                        type, val = param.split("=",1)
+                        type = type.strip()
+                        name = type.lower()
+                        val = val.strip()
+                        return JSParameter(name, type, val)
+                    else:
+                        type = param.strip()
+                        name = type.lower()
+                        return JSParameter(name, type)
+
+            
+        # concat ( Object element1, … )
+        # create special JSParameter - rest parameter. --> ...args
         properties = []
         #[0] - Type [1] - var Name
         # If comma in param string it means we have multiple params.
         if "," in params:
             # Constructor has multiple parameters.
             _params = params.split(",")
-            for x in list(_params):
-                if x in PARAM_IGNORE:
-                    _params.remove(x)
-                    continue
-                # setScatterColorMap( DzTexture ) <-- Has type but not parameter name.
-                # void : addManipulator( DzImageManip (deprecated) manip )
-                # ┳━┳ ノ( ゜-゜ノ)(╯°□°）╯︵ ┻━┻
-                info = x.strip().split(" ")
-                if len(info) == 3:
-                    info[0] = info[0] + " " + info[1]
-                    del info[1]
-                if len(info) == 2:
-                    type = info[0]
-                    param = info[1]
-                else:
-                    type = info[0]
-                    param = type.split(" ")[0][2:].lower()
-                if "function" in param:
-                    # function is not allowed as a parameter name
-                    param = "func" + param[param.index("function") + len("function"):] # We don't want to remove the default value.
-                if "=" in param:
-                    param_name, default_val = param.strip().split("=")
-                    new_prop = JSParameter(param_name, JSType.get_type(type), default_val)
-                else:
-                    new_prop = JSParameter(param, JSType.get_type(type))
-                properties.append(new_prop) 
+            for p in _params:
+                properties.append(_handle_param(p.strip()))
         else:
             # Constructor has one or none parameter.
             if params == "":
-                return None
+                return tuple()
             else:
-                # setScatterColorMap( DzTexture ) <-- Has type but not parameter name.
-                info = params.strip().split(" ")
-                if len(info) == 3:
-                    info[0] = info[0] + info[1]
-                    del info[1]
-                if len(info) == 2:
-                    type = info[0]
-                    param = info[1]
-                else:
-                    type = info[0]
-                    param = type.split(" ")[0][2:].lower()
-                if "function" in param:
-                    # function is not allowed as a parameter name
-                    param = "func" + param[param.index("function") + len("function"):] # We don't want to remove the default value.
-                if "=" in param:
-                    param_name, default_val = param.strip().split("=")
-                    new_prop = JSParameter(param_name, JSType.get_type(type), default_val)
-                else:
-                    new_prop = JSParameter(param, JSType.get_type(type))
-                properties.append(new_prop)
+                properties.append(_handle_param(params.strip()))
 
         return tuple(properties)
+
+class JSRestParameter():
+    """ A parameter in which accepts any number of arguments."""
+    def __init__(self) -> None:
+        pass
+    def __str__(self) -> str:
+        return "...args"
+    def __repr__(self) -> str:
+        return str(self)
