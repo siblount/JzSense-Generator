@@ -626,7 +626,7 @@ def ProcessAllObjects(DzObjs:list[DazObject]):
 def RedoImplements(x:DazObject):
     __CreateImplements(x)
 # Generate object list from object index page.
-def construct_daz_objects() -> list[DazObject]:
+def get_ds4_objects() -> list[DazObject]:
     """
     Gets objects from the `OBJECT_INDEX_PAGE` page and constructs `DazObject`s.
     
@@ -646,6 +646,6 @@ def construct_daz_objects() -> list[DazObject]:
     return daz_objects
 
 if __name__ == "__main__":
-    daz_objects = construct_daz_objects()
+    daz_objects = get_ds4_objects()
     for object_ in daz_objects:
         ProcessObject(object_)

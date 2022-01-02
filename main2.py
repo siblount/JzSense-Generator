@@ -8,7 +8,7 @@ import multiprocessing                                                      # Pr
 # from DAZtoJSv4 import *
 from datetime import datetime                                               # Timestamp JzSense file because I'm lazy ._.
 def main():
-    daz_objects = construct_daz_objects()
+    daz_objects = get_ds4_objects()
 
     # with multiprocessing.Pool(10) as p:
     #     results = p.map(ProcessObject, daz_objects)
