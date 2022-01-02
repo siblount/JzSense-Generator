@@ -2,11 +2,11 @@ from jzsense.common.ds3 import *
 from jzsense.common.constants import *
 from jzsense.js import *
 
-
 def __GetClassDescription(DazObj:DazObject):
     """ Gets the class detailed description and will be stored to `DzObj.classinfo`."""
     #TODO: Update function for more advanced data dissecting.
-    soup = bs(DazObj.dzPage, features=HTML_PARSER)
+    soup = bs(DazObj.link, features=HTML_PARSER)
+    DazObj.dzPage = soup
     h2 = soup.find("h2",text="Detailed Description") # type: bs
     if h2 is not None:
         DazObj.classinfo = str(h2.nextSibling)
@@ -27,7 +27,7 @@ def __CreateImplements(DazObj:DazObject):
         print(DazObj.name, "does not implement anything.")
         return
 def __CreateProperties(DazObj:DazObject):
-    soup = bs(DazObj.dzPage,features="html5lib")
+    soup = DazObj.dzPage
     # Find all "level 3" class that is a div.
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
@@ -56,7 +56,7 @@ def __CreateProperties(DazObj:DazObject):
                 DazObj.properties.append(JsProperty)
                 lastTr = workingTr
 def __CreateConstuctors(DazObj:DazObject):
-    soup = bs(DazObj.dzPage,features=HTML_PARSER)
+    soup = DazObj.dzPage
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for DazObj in tableData:
         tD = DazObj # type: bs
@@ -90,7 +90,7 @@ def __CreateConstuctors(DazObj:DazObject):
                 print(desc,"|", cN)
                 lastTr = workingTr   
 def __CreateStaticMethods(DazObj:DazObject):
-    soup = bs(DazObj.dzPage,features=HTML_PARSER)
+    soup = DazObj.dzPage
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -124,8 +124,8 @@ def __CreateStaticMethods(DazObj:DazObject):
                 DazObj.functions.append(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr   
-def __CreateMethods(DzObj:DazObject):
-    soup = bs(DzObj.dzPage,features=HTML_PARSER)
+def __CreateMethods(DazObj:DazObject):
+    soup = DazObj.dzPage
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -155,12 +155,12 @@ def __CreateMethods(DzObj:DazObject):
                 mN = mN[:mN.index("(")].strip()
                 rV = GetReturnType(workingTr).strip() # wtf is char(180)
                 desc = GetDetailedInfo(workingTr, mN, "Member Function Documentation", pA)
-                JsStaticMethod = JSFunction(mN, pA, rV, desc, False, DzObj)
-                DzObj.functions.append(JsStaticMethod)
+                JsStaticMethod = JSFunction(mN, pA, rV, desc, False, DazObj)
+                DazObj.functions.append(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr
-def __CreateEnums(DzObj:DazObject):
-    soup = bs(DzObj.dzPage,features="html5lib")
+def __CreateEnums(DazObj:DazObject):
+    soup = DazObj.dzPage
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -195,12 +195,12 @@ def __CreateEnums(DzObj:DazObject):
                         # Get enum description.
                         eD = tr.find("em").parent.find_next("td").text.strip()
                         # Create enum and append to DzObj enum list.
-                        JsEnum = JSEnum(eN, eD, DzObj)
-                        DzObj.enums.append(JsEnum)
-                        print("ENUM:", eN, "DESC:",  eD, "Class:", DzObj.name)
+                        JsEnum = JSEnum(eN, eD, DazObj)
+                        DazObj.enums.append(JsEnum)
+                        print("ENUM:", eN, "DESC:",  eD, "Class:", DazObj.name)
                     lastfTBody = workingfT
-def __CreateSignals(DzObj:DazObject):
-    soup = bs(DzObj.dzPage,features="html5lib")
+def __CreateSignals(DazObj:DazObject):
+    soup = DazObj.dzPage
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         # Confirm if we have enumerations.
@@ -242,32 +242,26 @@ def __CreateSignals(DzObj:DazObject):
                     lastColonIndex = tdName.rindex(":")
                     sName = tdName[lastColonIndex+1:].strip()
                     # Create the object.
-                    JsSignal = JSSignal(sName, "", signature, desc, DzObj)
-                    DzObj.signals.append(JsSignal)
-                    print("JsSignal for", DzObj.name, ":", sName, ":", signature, ":" , desc)
+                    JsSignal = JSSignal(sName, "", signature, desc, DazObj)
+                    DazObj.signals.append(JsSignal)
+                    print("JsSignal for", DazObj.name, ":", sName, ":", signature, ":" , desc)
                     lastMemItem = workingMemItem
 
-def DetermineIfEligible(x: DazObject):
+def is_eligible(x: DazObject):
     """ Checks if the class is a ECMAScript. If it is, we will return false. Otherwise true."""
-    soup = bs(urlopen(x.dzPage),features=HTML_PARSER)
-    results = soup.find_next("h2", text="Detailed Description")
-    classDescription = None
-    # Double check to see that we got the description.
-    for y in results:
-        result = y # type: bs
-        prevElement = FetchPrevSibling(result)
-        if prevElement.text == x.name:
-            classDescription = y
-            break
-    if classDescription is not None:
-        if "ECMAScript".lower() in classDescription.text.lower():
+    soup = bs(urlopen(x.link),features=HTML_PARSER)
+    detailed_description = soup.find("h2", text="Detailed Description")
+    if detailed_description is not None:
+        if "ECMAScript".lower() in detailed_description.text.lower():
             SKIPPED_DZOBJS.append(x.name)
             return False
         else:
             return True
     else:
-        return True
-def ProcessObject(DzObj: DazObject) -> JSClass: 
+        raise Exception("bro wtf")
+def process_object(DzObj: DazObject) -> JSClass:
+    if not is_eligible(DzObj):
+        return None
     # if not DetermineIfEligible(DzObj) or DzObj in DS3_IGNORE_OBJECTS:
     #     print(DzObj.name + " is not eligble. Deleting.")
     #     return None
@@ -296,9 +290,45 @@ def BeginWork(ignoreList = []):
             print(f"Created DazObject for {link[1]}.")
     # Print working classes.
     for object in DazObject.DazObjects:
-       ProcessObject(object)
+       process_object(object)
     # with multiprocessing.Pool(4) as p:
     #     results = p.map(ProcessObject, DazObject.DzObjects)
     return JSClass.JsClasses
+
+def get_ds3_objects(dazobjects:list[DazObject]=None) -> list[DazObject]:
+    """
+    Gets objects from the `OBJECT_INDEX_PAGE` page and constructs `DazObject`s. 
+    
+    If `dazobjects` is not None, objects will be added if the object doesn't already exist. Scrapper will skip past objects already created.
+    
+    For example, if `DzObject` is in the dazobjects list, it will be skipped. Otherwise, we will extract data from the page source.
+    
+    Params:
+        `dazobjects` - A list of `DazObject`s already generated from another scrapper. Used to merge information.
+    Returns:
+        A list of `DazObject`'s
+    """
+    merge = dazobjects != None
+    soup = bs(urlopen(DS3_OBJECT_INDEX_PAGE),features=HTML_PARSER)
+    objects = set() # type: set[DazObject]
+    tds = soup.find_all("td")
+    for x in tds:
+        td = x # type: bs
+        possibleLink = td.find_next("a",{"class" : "el"})
+        if possibleLink:
+            # Check if we are in merge mode.
+            if merge:
+                # Does the name exist yet?
+                if (possibleLink.text.lower() in JSType.types or possibleLink.text in DS3_DELETED_OBJECTS):
+                    # if so, NEXT!!!
+                    print(f"{possibleLink.text} was skipped due to already being processed or is already deleted.")
+                    continue
+                objects.add(DazObject(possibleLink.text, get_page_path(possibleLink['href']),ds_version=3))
+            else:
+                objects.add(DazObject(possibleLink.text, get_page_path(possibleLink['href']),ds_version=3))
+    return objects
+
+
+
 if __name__ == "__main__":
     BeginWork()
