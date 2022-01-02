@@ -1,9 +1,11 @@
 from jzsense.common.constants import *                                      # Get constants for this project.
 from bs4 import BeautifulSoup as bs                                         # Our helpful HTML Parser. Used very often.
 from urllib.request import urlopen                                          # Download html sourcecode.
+from platform import system                                                 # For paths for different OS'
 import re                                                                   # Search for string escapes. Probably can remove. I'm not sure.
 import bs4                                                                  # Except, I think.
 import time                                                                 # Sleep for a moment.
+
 def TryReconnect(link) -> bs:
     for _ in range(HTML_RETRIES):
         try:
@@ -384,3 +386,9 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
         return (regularDesc, returnsDesc, parametersDesc, attentionDesc, None)
     else:
         print("WARNING: Got properties but didn't find Member Data Documentation.")
+def get_page_path(href:str) -> str:
+    """ Returns the appropriate file path depending on your OS. """
+    if system() == "Windows":
+        return RF"file:pages\daz_v3\{href}"
+    else:
+        return RF"file:pages/daz_v3/{href}"
