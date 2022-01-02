@@ -632,7 +632,7 @@ def get_ds4_objects() -> list[DazObject]:
     
     Returns:
         A list of `DazObject`'s
-     """
+    """
     soup = try_connect(OBJECT_INDEX_PAGE)
     uls = soup.find_all(attrs={"class" : "nspagesul"}) # type: list[bs]
     daz_objects = [] # type: list[DazObject]
