@@ -12,6 +12,7 @@ from jzsense.js import *                                                    # Cl
 # Methods need to check to see if they return themselves.
 
 USE_LOCAL_FILES = True
+USE_CACHED = False
 
 # Functions to parse information from web page source and create JSObjects. Returns nothing. Requires DazObject.
 def __GetClassDescription(DzObj:DazObject):
