@@ -59,8 +59,8 @@ def __CreateProperties(DazObj:DazObject, soup:bs):
                 lastTr = workingTr
 def __CreateConstuctors(DazObj:DazObject, soup:bs):
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
-    for DazObj in tableData:
-        tD = DazObj # type: bs
+    for _dazobj in tableData:
+        tD = _dazobj # type: bs
         possibleTDtext = tD.text == "Constructors"
         if possibleTDtext:
             minSourceLine = tD.parent.sourceline # td parent is tr.

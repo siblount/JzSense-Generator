@@ -4,6 +4,7 @@ from jzsense.common.constants import *
 from jzsense.common.ds4 import *
 
 import os
+
 # Classes used to hold parsed info.
 class DazObject():
     """ An object that is found via the object index and it's parsed information."""
@@ -145,15 +146,6 @@ class JSConstructor():
         # self.dzObj = DazObject.FindObjAll(name)
         self.documentation = self.GetJSDocDescription(documentation)
         self.raw_doc = documentation
-    #     /**
-	#  * @description /
-	#  * @returns *
-	#  * @since *
-	#  * @param 
-	#  * 
-	#  * @attention  
-	#  */
-    # What.
     
     def __repr__(self):
         params = ", ".join(str(param) for param in self.params)
