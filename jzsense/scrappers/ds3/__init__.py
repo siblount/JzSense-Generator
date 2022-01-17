@@ -2,8 +2,9 @@ from jzsense.common.ds3 import *
 from jzsense.common.constants import *
 from jzsense.js import *
 
+DS3_OBJECT_INDEX_SOUP = bs(CLASS_HIERARCHY_PAGE,features=HTML_PARSER)
 # NOTE: In DS4, we used .local_location. Here we use DazObject.link. local_location is not set.
-def __GetClassDescription(DazObj:DazObject):
+def __GetClassDescription(DazObj:DazObject, soup:bs):
     """ Gets the class detailed description and will be stored to `DzObj.classinfo`."""
     #TODO: Update function for more advanced data dissecting.
     DazObj.dzPage = urlopen(DazObj.link).read()
@@ -14,8 +15,9 @@ def __GetClassDescription(DazObj:DazObject):
     else:
         DazObj.classinfo = ""
 def __CreateImplements(DazObj:DazObject):
+    global DS3_OBJECT_INDEX_SOUP
     """ Reads the source code, recursively searches for the lowest level class and adds it to implements in the DzObj. """
-    soup = bs(CLASS_HIERARCHY_PAGE,features=HTML_PARSER)
+    soup = DS3_OBJECT_INDEX_SOUP
     us = soup.find('a', {"class" : "el"}, text=DazObj.name)
     aParent = us.parent
     liParent = aParent.parent
@@ -27,8 +29,7 @@ def __CreateImplements(DazObj:DazObject):
     else:
         print(DazObj.name, "does not implement anything.")
         return
-def __CreateProperties(DazObj:DazObject):
-    soup = bs(DazObj.dzPage, features=HTML_PARSER)
+def __CreateProperties(DazObj:DazObject, soup:bs):
     # Find all "level 3" class that is a div.
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
@@ -56,8 +57,7 @@ def __CreateProperties(DazObj:DazObject):
                 JsProperty = JSProperty(pN, JSType.get_type(rV), desc[0], DazObj)
                 DazObj.properties.add(JsProperty)
                 lastTr = workingTr
-def __CreateConstuctors(DazObj:DazObject):
-    soup = bs(DazObj.dzPage, features=HTML_PARSER)
+def __CreateConstuctors(DazObj:DazObject, soup:bs):
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for DazObj in tableData:
         tD = DazObj # type: bs
@@ -91,8 +91,7 @@ def __CreateConstuctors(DazObj:DazObject):
                 DazObj.constructors.add(JsConstructor)
                 print(desc,"|", cN)
                 lastTr = workingTr   
-def __CreateStaticMethods(DazObj:DazObject):
-    soup = bs(DazObj.dzPage, features=HTML_PARSER)
+def __CreateStaticMethods(DazObj:DazObject, soup:bs):
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -126,8 +125,7 @@ def __CreateStaticMethods(DazObj:DazObject):
                 DazObj.functions.add(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr   
-def __CreateMethods(DazObj:DazObject):
-    soup = bs(DazObj.dzPage, features=HTML_PARSER)
+def __CreateMethods(DazObj:DazObject, soup:bs):
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -167,8 +165,7 @@ def __CreateMethods(DazObj:DazObject):
                 DazObj.functions.add(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr
-def __CreateEnums(DazObj:DazObject):
-    soup = bs(DazObj.dzPage, features=HTML_PARSER)
+def __CreateEnums(DazObj:DazObject, soup:bs):
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -207,8 +204,7 @@ def __CreateEnums(DazObj:DazObject):
                         DazObj.enums.add(JsEnum)
                         print("ENUM:", eN, "DESC:",  eD, "Class:", DazObj.name)
                     lastfTBody = workingfT
-def __CreateSignals(DazObj:DazObject):
-    soup = bs(DazObj.dzPage, features=HTML_PARSER)
+def __CreateSignals(DazObj:DazObject, soup: bs):
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         # Confirm if we have enumerations.
@@ -257,33 +253,34 @@ def __CreateSignals(DazObj:DazObject):
                     print("JsSignal for", DazObj.name, ":", sName, ":", signature, ":" , desc)
                     lastMemItem = workingMemItem
 
-def is_eligible(x: DazObject):
+def is_eligible(DazObj: DazObject, soup:bs):
     """ Checks if the class is a ECMAScript. If it is, we will return false. Otherwise true."""
-    soup = bs(urlopen(x.link),features=HTML_PARSER)
     detailed_description = soup.find("h2", text="Detailed Description")
     if detailed_description is not None:
         if "ECMAScript".lower() in detailed_description.text.lower():
-            SKIPPED_DZOBJS.append(x.name)
+            SKIPPED_DZOBJS.append(DazObj.name)
             return False
         else:
             return True
     else:
         raise Exception("bro wtf")
-def process_object(DzObj: DazObject) -> JSClass:
-    if not is_eligible(DzObj):
+def process_object(DazObj: DazObject) -> JSClass:
+    DazObj.dzPage = urlopen(DazObj.link).read()
+    SOUP = bs(DazObj.dzPage, features=HTML_PARSER)
+    if not is_eligible(DazObj, SOUP):
         return None
     # if not DetermineIfEligible(DzObj) or DzObj in DS3_IGNORE_OBJECTS:
     #     print(DzObj.name + " is not eligble. Deleting.")
     #     return None
-    __GetClassDescription(DzObj)
-    __CreateImplements(DzObj)
-    __CreateConstuctors(DzObj)
-    __CreateEnums(DzObj)
-    __CreateProperties(DzObj)
-    __CreateStaticMethods(DzObj)
-    __CreateMethods(DzObj)
-    __CreateSignals(DzObj)
-    return JSClass(DzObj)
+    __GetClassDescription(DazObj, SOUP)
+    __CreateImplements(DazObj)
+    __CreateConstuctors(DazObj, SOUP)
+    __CreateEnums(DazObj, SOUP)
+    __CreateProperties(DazObj, SOUP)
+    __CreateStaticMethods(DazObj, SOUP)
+    __CreateMethods(DazObj, SOUP)
+    __CreateSignals(DazObj, SOUP)
+    return JSClass(DazObj)
 
 def BeginWork(ignoreList = []):
     listOfLinks = []
@@ -329,7 +326,7 @@ def get_ds3_objects(dazobjects:list[DazObject]=None) -> list[DazObject]:
             # Check if we are in merge mode.
             if merge:
                 # Does the name exist yet?
-                if (JSType.find_type(possibleLink.text) or possibleLink.text in DS3_DELETED_OBJECTS):
+                if JSType.find_type(possibleLink.text) or possibleLink.text in DS3_DELETED_OBJECTS:
                     # if so, NEXT!!!
                     print(f"{possibleLink.text} was skipped due to already being processed or is already deleted.")
                     continue
