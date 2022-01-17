@@ -51,6 +51,8 @@ def _write_constructor_documentation(constructor:JSConstructor) -> str:
 def _write_property_documentation(property:JSProperty) -> str:
     return f"@description {property.description}\n@type {{{property.jstype}}}"
 def _write_function_documentation(func:JSFunction) -> str:
+    if func.other_info is None:
+        return ""
     working_strs = []
     func_msgs = func.other_info
     if func_msgs[0] is not None:
