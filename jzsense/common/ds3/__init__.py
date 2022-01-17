@@ -226,14 +226,14 @@ def IsInRange(nRange:tuple[int,int], number:int) -> bool:
 def GetReturnType(tableRowBS:bs) -> str:
     """Requires the `<tr>` bs object. Returns a string of the return type."""
     returnType = tableRowBS.find("td", {"class" : "memItemLeft"}) # type: bs
-    if returnType is not None or returnType != None:
+    if returnType is not None:
         return returnType.text
     else:
         print("WARNING: returnType returned None.")
 def GetSymbolArgs(tableRowBS:bs) -> str:
     """ Requires the `<tr>` bs object. Returns a string of the property, parameters, and function/signal name."""
     value = tableRowBS.find("td", {"class" : "memItemRight"}) # type: bs
-    if value is not None or value != None:
+    if value is not None:
         return value.get_text()
     else:
         print("WARNING: value returned None.")
@@ -247,13 +247,13 @@ def FindMaxSourceLineGivenContextTable(tableRowBS:bs, strict:bool) -> int:
             headerTR = possibleTR.find("h2")
         else:
             someObj = context.find_next_sibling()
-            if (someObj is not None or someObj != None) and someObj.name == "tr":
+            if someObj is not None and someObj.name == "tr":
                 possibleTR = someObj
                 headerTR = possibleTR.find("h2")
             else:
                 possibleTR = None
                 headerTR = None
-        if (possibleTR != None or possibleTR is not None) and possibleTR.sourceline in range(trRange[0], trRange[1]+1) and (headerTR == None or headerTR is None):
+        if possibleTR is not None and possibleTR.sourceline in range(trRange[0], trRange[1]+1) and (headerTR == None or headerTR is None):
             return GetLast(possibleTR)
         else:
             return context
@@ -264,7 +264,7 @@ def FindMaxSourceLineGivenContext(divBS:bs) -> int:
     """Returns the maximum source line for a given context, such as: Methods, Static Methods, Properties, etc."""
     divRange = GetParentSourceLineRange(divBS.parent)
     h2 = divBS.find_next("h2")
-    if h2 is not None or h2 != None:
+    if h2 is not None:
         max = h2.sourceline
     else:
         max = divRange[1]
@@ -280,11 +280,11 @@ def FindMaxSourceLineGivenContext(divBS:bs) -> int:
     return max
 def GetNextSiblingBS(context: bs, attrs:dict, min: int, max: int) -> bs:
                 nextTr = context.find_next_sibling(context.name, attrs)
-                if (nextTr is not None or nextTr != None) and nextTr.sourceline in range(min, max):
+                if nextTr is not None and nextTr.sourceline in range(min, max):
                     return nextTr
 def GetNextBS(context: bs, attrs:dict, min: int, max: int) -> bs:
                 nextTr = context.find_next(context.name, attrs)
-                if (nextTr is not None or nextTr != None) and nextTr.sourceline in range(min, max):
+                if nextTr is not None and nextTr.sourceline in range(min, max):
                     return nextTr
 def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentation", params=None) -> tuple[str, str, str, str, str]:
     def GetParamsInfo(context:bs) -> str:
@@ -292,7 +292,7 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
         paramsInfo = []
         # Get the tbody.
         tbody = context.find("tbody") # type: bs
-        if tbody is not None or tbody != None:
+        if tbody is not None:
             # Get all trs.
             for x in tbody.find_all("tr"):
                 tr = x # type: bs
@@ -317,20 +317,20 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
         """`context` is the `dl` object. Returns a string of parameter information. If multiple params, split text by `|!|`"""
         # Get the tbody.
         dd = context.find("dd") # type: bs
-        if dd != None or dd is not None:
+        if dd is not None:
             return dd.text.strip()
     def GetAttentionInfo(context:bs) -> str:
         """`context` is the `dl` object. Returns a string of parameter information. If multiple params, split text by `|!|`"""
         # Get the tbody.
         dd = context.find("dd") # type: bs
-        if dd != None or dd is not None:
+        if dd is not None:
             return dd.text.strip()
         
     ###############################################
     
     # Find `h2` Member Data Documentation
     h2 = workingTr.find_next('h2', text=headerText)
-    if h2 != None or h2 is not None:
+    if h2 is not None:
         minSourceline = h2.find_next("div", {"class" : "memitem"}).sourceline
         maxSourceline = FindMaxSourceLineGivenContext(h2)
         lastDiv = None
@@ -343,14 +343,14 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
                 break
             text = workingDiv.find("td", {"class" : "memname"}).parent.text # type: str
             if params != None:
-                if (text is not None or text != None) and name in text and re.search(GenerateRE(params), text, re.ASCII) != None:
+                if text is not None and name in text and re.search(GenerateRE(params), text, re.ASCII) != None:
                     # We got our working Div.
                     lastDiv = workingDiv
                     break
                 else:
                     lastDiv = workingDiv
             else:
-                if (text is not None or text != None) and name in text:
+                if text is not None and name in text:
                     # We got our working Div.
                     lastDiv = workingDiv
                     break
@@ -365,7 +365,7 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
             # We got some work to do.
             # First find regular description.
             potentialP = workingDoc.findNext() # type: bs
-            if (potentialP is not None or potentialP != None) and potentialP.name == "p":
+            if potentialP is not None and potentialP.name == "p":
                 regularDesc = potentialP.text.strip()
             else:
                 regularDesc = None
@@ -375,7 +375,7 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
             for d in workingDoc.find_all("dl"): # was lastDiv
                 dl = d # type: bs
                 boldType = dl.find("dt") # type: bs
-                if boldType != None or boldType is not None:
+                if boldType is not None:
                     workingBold = boldType.text
                     if "Parameters" in workingBold:
                         parametersDesc = GetParamsInfo(dl)
