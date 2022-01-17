@@ -194,8 +194,8 @@ def __CreateEnums(DazObj:DazObject, soup:bs):
                         # Get enum name in em.
                         try:
                             eN = tr.find("em").text.strip()
-                        except:
-                            print("Fucking parser.")
+                        except Exception as e:
+                            print("Something happened here at CreateEnums. Error: {e}")
                             continue
                         # Get enum description.
                         eD = tr.find("em").parent.find_next("td").text.strip()
@@ -321,8 +321,8 @@ def get_ds3_objects(dazobjects:list[DazObject]=None) -> list[DazObject]:
     tds = soup.find_all("td")
     for x in tds:
         td = x # type: bs
-        possibleLink = td.find_next("a",{"class" : "el"})
-        if possibleLink:
+        possibleLink = td.findChild("a",{"class" : "el"})
+        if possibleLink is not None:
             # Check if we are in merge mode.
             if merge:
                 # Does the name exist yet?
@@ -330,9 +330,8 @@ def get_ds3_objects(dazobjects:list[DazObject]=None) -> list[DazObject]:
                     # if so, NEXT!!!
                     print(f"{possibleLink.text} was skipped due to already being processed or is already deleted.")
                     continue
-                objects.add(DazObject(possibleLink.text, get_page_path(possibleLink['href']),ds_version=3))
-            else:
-                objects.add(DazObject(possibleLink.text, get_page_path(possibleLink['href']),ds_version=3))
+            print(td.sourceline)
+            objects.add(DazObject(possibleLink.text, get_page_path(possibleLink['href']),ds_version=3))
     return objects
 
 
