@@ -2,11 +2,12 @@ from jzsense.common.ds3 import *
 from jzsense.common.constants import *
 from jzsense.js import *
 
+# NOTE: In DS4, we used .local_location. Here we use DazObject.link. local_location is not set.
 def __GetClassDescription(DazObj:DazObject):
     """ Gets the class detailed description and will be stored to `DzObj.classinfo`."""
     #TODO: Update function for more advanced data dissecting.
-    soup = bs(DazObj.link, features=HTML_PARSER)
-    DazObj.dzPage = soup
+    DazObj.dzPage = urlopen(DazObj.link).read()
+    soup = bs(DazObj.dzPage, features=HTML_PARSER)
     h2 = soup.find("h2",text="Detailed Description") # type: bs
     if h2 is not None:
         DazObj.classinfo = str(h2.nextSibling)
@@ -21,13 +22,13 @@ def __CreateImplements(DazObj:DazObject):
     # If we don't inherit from anything...
     if liParent.name == "ul" and liParent.parent.name != "body":
         parentClass = liParent.parent.find('a', {"class" : "el"})
-        DazObj.implements.append(parentClass.text)
+        DazObj.implements.append(JSType.get_type(parentClass.text))
         print(DazObj.name, "implements", parentClass.text)
     else:
         print(DazObj.name, "does not implement anything.")
         return
 def __CreateProperties(DazObj:DazObject):
-    soup = DazObj.dzPage
+    soup = bs(DazObj.dzPage, features=HTML_PARSER)
     # Find all "level 3" class that is a div.
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
@@ -40,23 +41,23 @@ def __CreateProperties(DazObj:DazObject):
             lastTr = None
             while True:
                 #rV = Return Value | pN = Property Name
-                if lastTr == None:
+                if lastTr is None:
                     workingTr = tD.parent.find_next("tr")
                 else:
                     workingTr = GetNextSiblingBS(lastTr, {}, minSourceLine, maxSourceLine)
                 # Now find detailed information.
-                if workingTr is None or workingTr == None:
+                if workingTr is None:
                     break # We are done.
                 tdReturnValue = workingTr.find("td", {"class" : "memItemLeft"})
                 rV = tdReturnValue.find("a").text
                 tdName = workingTr.find("td", {"class" : "memItemRight"})
                 pN = tdName.find("a").text
                 desc = GetDetailedInfo(workingTr, pN)
-                JsProperty = JSProperty(pN, rV, desc[0], DazObj)
+                JsProperty = JSProperty(pN, JSType.get_type(rV), desc[0], DazObj)
                 DazObj.properties.append(JsProperty)
                 lastTr = workingTr
 def __CreateConstuctors(DazObj:DazObject):
-    soup = DazObj.dzPage
+    soup = bs(DazObj.dzPage, features=HTML_PARSER)
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for DazObj in tableData:
         tD = DazObj # type: bs
@@ -77,20 +78,21 @@ def __CreateConstuctors(DazObj:DazObject):
                 # Make sure we didn't get a fucking <br>
                 possibleBr = workingTr.find("br")
                 textAvailable = workingTr.text == None
-                if (possibleBr != None or possibleBr is not None) and not textAvailable:
+                if possibleBr is not None and not textAvailable:
                     # Don't go any fruther, do next iteration.
                     lastTr = workingTr
                     continue
                 cN = GetSymbolArgs(workingTr)
                 pA = cN[cN.index("(")+1:cN.index(")")].strip()
                 cN = cN[:cN.index("(")].strip()
+                # TODO: Fix.
                 desc = GetDetailedInfo(workingTr, cN, "Constructor & Destructor Documentation", pA)
-                JsConstructor = JSConstructor(cN, pA, documentation=desc)
+                JsConstructor = JSConstructor(cN, pA, desc)
                 DazObj.constructors.append(JsConstructor)
                 print(desc,"|", cN)
                 lastTr = workingTr   
 def __CreateStaticMethods(DazObj:DazObject):
-    soup = DazObj.dzPage
+    soup = bs(DazObj.dzPage, features=HTML_PARSER)
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -118,14 +120,14 @@ def __CreateStaticMethods(DazObj:DazObject):
                 mN = GetSymbolArgs(workingTr)
                 pA = mN[mN.index("(")+1:mN.index(")")].strip()
                 mN = mN[:mN.index("(")].strip()
-                rV = GetReturnType(workingTr)
+                rV = JSType.get_type(GetReturnType(workingTr))
                 desc = GetDetailedInfo(workingTr, mN, "Member Function Documentation", pA)
                 JsStaticMethod = JSFunction(mN, pA, rV, desc, True, DazObj)
                 DazObj.functions.append(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr   
 def __CreateMethods(DazObj:DazObject):
-    soup = DazObj.dzPage
+    soup = bs(DazObj.dzPage, features=HTML_PARSER)
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
@@ -146,28 +148,34 @@ def __CreateMethods(DazObj:DazObject):
                 # Make sure we didn't get a fucking <br>
                 possibleBr = workingTr.find("br")
                 textAvailable = workingTr.text == None
-                if (possibleBr != None or possibleBr is not None) and not textAvailable:
+                if  possibleBr is not None and not textAvailable:
                     # Don't go any fruther, do next iteration.
                     lastTr = workingTr
                     continue
                 mN = GetSymbolArgs(workingTr)
-                pA = mN[mN.index("(")+1:mN.index(")")].strip()
-                mN = mN[:mN.index("(")].strip()
-                rV = GetReturnType(workingTr).strip() # wtf is char(180)
+                # DzController - has methods without () in it.
+                # god damn it.
+                if "(" in mN:
+                    pA = mN[mN.index("(")+1:mN.index(")")].strip()
+                    mN = mN[:mN.index("(")].strip()
+                else:
+                    pA = ""
+                    mN = mN.strip()
+                rV = JSType.get_type(GetReturnType(workingTr).strip()) # wtf is char(180)
                 desc = GetDetailedInfo(workingTr, mN, "Member Function Documentation", pA)
                 JsStaticMethod = JSFunction(mN, pA, rV, desc, False, DazObj)
                 DazObj.functions.append(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr
 def __CreateEnums(DazObj:DazObject):
-    soup = DazObj.dzPage
+    soup = bs(DazObj.dzPage, features=HTML_PARSER)
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         tD = x # type: bs
         possibleTDtext = tD.text == "Enumerations"
         if possibleTDtext:
             h2 = tD.parent.find_next('h2', text="Member Enumeration Documentation") # type: bs
-            if h2 != None or h2 is not None:
+            if h2 is not None:
                 minSourceline = h2.find_next("div", {"class" : "memitem"}).sourceline
                 maxSourceline = FindMaxSourceLineGivenContext(h2)
                 # Find a tbody within memitem.
@@ -200,7 +208,7 @@ def __CreateEnums(DazObj:DazObject):
                         print("ENUM:", eN, "DESC:",  eD, "Class:", DazObj.name)
                     lastfTBody = workingfT
 def __CreateSignals(DazObj:DazObject):
-    soup = DazObj.dzPage
+    soup = bs(DazObj.dzPage, features=HTML_PARSER)
     tableData = soup.find_all("td", {"colspan" : "2"}) # type: list[bs]
     for x in tableData:
         # Confirm if we have enumerations.
@@ -209,12 +217,12 @@ def __CreateSignals(DazObj:DazObject):
         # If so, do work.
         if possibleTDtext:
             h2 = tD.parent.parent.find_next('h2', text="Member Function Documentation") # type: bs
-            if h2 != None or h2 is not None:
+            if h2 is not None:
                 minSourceline = h2.find_next("div", {"class" : "memitem"}).sourceline
                 maxSourceline = FindMaxSourceLineGivenContext(h2)
                 lastMemItem = None
                 while True:
-                    if lastMemItem is None or lastMemItem == None:
+                    if lastMemItem is None:
                         workingMemItem = h2.find_next("div", {"class" : "memitem"}) # type: bs
                         if workingMemItem is not None:
                             workingMemName = workingMemItem.find("table", {"class" : "memname"})
@@ -222,7 +230,7 @@ def __CreateSignals(DazObj:DazObject):
                         workingMemItem = GetNextBS(lastMemItem, {"class" : "memitem"}, minSourceline, maxSourceline)
                         if workingMemItem is not None:
                             workingMemName = workingMemItem.find("table", {"class" : "memname"})
-                    if workingMemItem is None or workingMemItem == None:
+                    if workingMemItem is None:
                         break
                     if re.search(GenerateRE("\[signal\]"), workingMemItem.text) == None:
                         lastMemItem = workingMemItem
@@ -237,11 +245,13 @@ def __CreateSignals(DazObj:DazObject):
                         desc = memdoc.text
                         signature = None
                     tdName = workingMemName.find("td", {"class" : "memname"}).text # type: str
-                    if signature == None:
+                    if signature is None:
                         signature = f"{tdName}()"
                     lastColonIndex = tdName.rindex(":")
                     sName = tdName[lastColonIndex+1:].strip()
                     # Create the object.
+                    # TODO: Handle very complicated parameters.
+                    # Warning: It is C++ style and most likely contains Qt Variables not exposed.
                     JsSignal = JSSignal(sName, "", signature, desc, DazObj)
                     DazObj.signals.append(JsSignal)
                     print("JsSignal for", DazObj.name, ":", sName, ":", signature, ":" , desc)
@@ -286,7 +296,7 @@ def BeginWork(ignoreList = []):
             listOfLinks.append((os.path.join("D:\\Python Test Folder\\DAZScriptV3\\", possibleLink["href"]), possibleLink.text))
     for link in listOfLinks:
         if not DazObject.ExistsAll(link[1]) and link[1] not in ignoreList and link[1] not in DS3_IGNORE_OBJECTS:
-            DazObject(link[1], link[0], urlopen("file:" + link[0]).read())
+            DazObject(link[1], link[0], urlopen("file:\\\\" + link[0]).read())
             print(f"Created DazObject for {link[1]}.")
     # Print working classes.
     for object in DazObject.DazObjects:
@@ -319,7 +329,7 @@ def get_ds3_objects(dazobjects:list[DazObject]=None) -> list[DazObject]:
             # Check if we are in merge mode.
             if merge:
                 # Does the name exist yet?
-                if (possibleLink.text.lower() in JSType.types or possibleLink.text in DS3_DELETED_OBJECTS):
+                if (JSType.find_type(possibleLink.text) or possibleLink.text in DS3_DELETED_OBJECTS):
                     # if so, NEXT!!!
                     print(f"{possibleLink.text} was skipped due to already being processed or is already deleted.")
                     continue
