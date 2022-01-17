@@ -61,7 +61,7 @@ def _write_function_documentation(func:JSFunction) -> str:
         if func.returnObj == "void":
             working_strs.append(f"@returns {func_msgs[1]}")
         else:
-            working_strs.append(f"@returns {func.returnObj} {func_msgs[1]}")
+            working_strs.append(f"@returns {{{func.returnObj}}} {func_msgs[1]}")
     else:
         if func.returnObj != "void":
             working_strs.append(f"@returns {func.returnObj}")
