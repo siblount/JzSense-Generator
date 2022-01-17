@@ -7,14 +7,16 @@ The result of this generator's output is: [JzSense](https://github.com/siblount/
 
 ## Project Status
 Currently, the repository is a mess and the main program almost works. It is almost at the point to distribute header-like files. 
+
 See [Projects](https://github.com/siblount/JzSense-Generator/projects/1) for more info.
+
 Alpha
 
 ### How you can help? 😲
 
 Here are some problems you can help solve:
-* The program is very *slowww*.
-    * It can take up to 15 minutes to process all of the Objects listed in the documentation.
+* The program is *slowww*.
+    * It can take up to ~~15~~ 10 minutes to process all of the Objects listed in the documentation.
 * Improve parsing data in cases where there are "Attention" or "Example" sections.
     * <font color='red'>Note:</font> It's easier said than done.  
 * Help clean up repo.
