@@ -112,8 +112,6 @@ class JSType():
             return cls.types[type_name]
         else:
             return JSType(cls.cleanse_name(type))
-
-    
         
 class JSProperty():
     def __init__(self, name: str, jstype: JSType, description:str = "", dzObj:DazObject = None):
@@ -485,7 +483,7 @@ class JSSignal():
         totalMsg += COMMENT_TEMPLATE_ENDING + "\n"
         return str(totalMsg.encode("utf-8"),"utf-8") 
 class JSClass():
-    JsClasses = set() # type: set[JSClass]
+    # JsClasses = set() # type: set[JSClass] # Not used.
     JS_CLASS_START = "class {}"
     def __init__(self, dzObj: DazObject):
         self.enums = dzObj.enums
@@ -498,7 +496,7 @@ class JSClass():
         self.classinfo = dzObj.classinfo
         self.link = dzObj.link
         self.dzObj = dzObj
-        self.JsClasses.add(self)
+        # self.JsClasses.add(self)
         dzObj.jsclass = self
 
     def __str__(self):
