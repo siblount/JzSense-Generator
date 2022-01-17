@@ -45,20 +45,19 @@ class DazObject():
         return f"DazObject: {self.name}"
 class JSType():
     """ Used for capturing the type of an parameter, return value, or property. """
-    types = {}
+    types = {} # type: set[Self]
 
     def __init__(self, name:str) -> None:
         self.name = name
-        self.lowered_name = name.lower()
+        self.daz_nomen_name = self.convert_to_daz_nomen(name)
         self.is_temp = "_" in name
         self.was_updated = False
-        JSType.types[self.lowered_name] = self
+        JSType.types[self.daz_nomen_name] = self
         
     def update(self, new_name:str):
         if self.was_updated:
             return
         self.name = new_name
-        self.lowered_name = new_name.lower()
         self.was_updated = True
 
     def __str__(self) -> str:
@@ -69,19 +68,53 @@ class JSType():
 
     @staticmethod
     def cleanse_name(name:str) -> str:
-        """ Removes "deprecated" bullshit from the name."""
+        """ Removes "deprecated" bullshit from the name. """
         if "deprecated" in name:
             return name[:name.index("(")].strip()
         else:
             return name
+
+    @staticmethod
+    def convert_to_daz_nomen(name:str) -> str:
+        """ Converts a type like `DzObject` to `dz_object`."""
+        name = JSType.cleanse_name(name)
+        if "_" in name: # Already is one.
+            return name
+        working_name = ""
+        for char in name:
+            if char.isupper():
+                working_name += f"_{char.lower()}"
+            else:
+                working_name += char.lower()
+        if working_name[0] == "_":
+            return working_name[1:]
+        return working_name
+        
+
+    @staticmethod
+    def find_type(type:str) -> bool:
+        """ Returns a boolean value if the type is in `JSType.types`, 
+        or in other words, returns if a type/class has been introduced yet. """
+        return JSType.convert_to_daz_nomen(type) in JSType.types
     @classmethod
     def get_type(cls, type:str) -> Self:
-        type_name = JSType.cleanse_name(type)
-        type_name_lower = type_name.lower()
-        if type_name_lower in cls.types:
-            return cls.types[type_name_lower]
+        """ Returns a JSType but may not be a new instance. 
+        If `type` converted to daz_nomen, is in JSType.types, then that instance is returned. 
+        Otherwise, a new instance is made and returned.
+
+        Also, if the type does exist and is flagged as a temp name, 
+        type will be updated with name if `type` doesn't have '_' in it. """
+        type_name = JSType.convert_to_daz_nomen(type)
+        if type_name in cls.types:
+            js_type = cls.types[type_name] # type: Self
+            if js_type.is_temp and "_" not in type:
+                js_type.update(cls.cleanse_name(type))
+            return cls.types[type_name]
         else:
-            return JSType(type_name)
+            return JSType(cls.cleanse_name(type))
+
+    
+        
 class JSProperty():
     def __init__(self, name: str, jstype: JSType, description:str = "", dzObj:DazObject = None):
         self.name = name
@@ -202,7 +235,7 @@ class JSFunction():
             self.desc = self.GetJSDocDescription(desc)
         else:
             if dzObj.ds_version == 3:
-                self.GetJSDocDescription(("DAZ Studio V3 - Missing documentation.", None, None, None, None))
+                self.GetJSDocDescription(("DAZ Studio 3 - Missing documentation.", None, None, None, None))
             else:
                 self.GetJSDocDescription(("DAZ Studio 4 - Missing documentation.", None, None, None, None))
             
@@ -228,7 +261,7 @@ class JSFunction():
         totalMsg = ""
         obj = j # type: cls
         # Get the length of params.
-        if (obj.params is None or len(obj.params) == 0):
+        if obj.params is None or len(obj.params) == 0:
             totalMsg += f"{obj.name}():{j.returnObj.strip()}" + " {\n\t"
         else:
             #print(obj.params, obj.name, type(obj.params))
