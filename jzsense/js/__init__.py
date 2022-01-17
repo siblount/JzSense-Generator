@@ -7,14 +7,14 @@ import os
 # Classes used to hold parsed info.
 class DazObject():
     """ An object that is found via the object index and it's parsed information."""
-    DazObjects = [] #type: list[DazObject]
+    DazObjects = set() #type: set[DazObject]
     def __init__(self, name:str, link:str, dzPage:bs=None, ds_version:int=4):
-        self.enums = [] # type: list[JSEnum]
-        self.functions = [] # type: list[JSFunction]
-        self.properties = [] # type: list[JSProperty]
-        self.constructors = [] # type: list[JSConstructor]
-        self.signals = [] # type: list[JSSignal]
-        self.implements = [] # type: list[str]
+        self.enums = set() # type: set[JSEnum]
+        self.functions = set() # type: set[JSFunction]
+        self.properties = set() # type: set[JSProperty]
+        self.constructors = set() # type: set[JSConstructor]
+        self.signals = set() # type: set[JSSignal]
+        self.implements = set() # type: set[str]
         self.jsclass = None # type: JSClass
         self.name = name
         self.lowered_name = name.lower()
@@ -23,7 +23,7 @@ class DazObject():
         self.classinfo = ""
         self.dzPage = dzPage
         self.local_location = ""
-        DazObject.DazObjects.append(self)
+        DazObject.DazObjects.add(self)
 
     @classmethod
     def ExistsAll(cls, strObj):
@@ -34,12 +34,12 @@ class DazObject():
                 break
         return foundIt
 
-    @classmethod
-    def FindObjAll(cls, strObj):
-        for obj in cls.DazObjects:
-            if strObj in obj.enums or strObj in obj.functions or strObj in obj.properties or strObj in obj.constructors or strObj in obj.signals or strObj in obj.implements or strObj in obj.link or strObj in obj.name:
-                return obj
-        return None
+    # @classmethod
+    # def FindObjAll(cls, strObj):
+    #     for obj in cls.DazObjects:
+    #         if strObj in obj.enums or strObj in obj.functions or strObj in obj.properties or strObj in obj.constructors or strObj in obj.signals or strObj in obj.implements or strObj in obj.link or strObj in obj.name:
+    #             return obj
+    #     return None
 
     def __str__(self):
         return f"DazObject: {self.name}"
@@ -144,7 +144,7 @@ class JSConstructor():
         self.name = str(name.encode("UTF-8"),"UTF-8")
         self.params = JSParameter.parse_params(params)
         # self.message = self.ConvertToJS(self)
-        self.dzObj = DazObject.FindObjAll(name)
+        # self.dzObj = DazObject.FindObjAll(name)
         self.documentation = self.GetJSDocDescription(documentation)
         self.raw_doc = documentation
     #     /**
@@ -322,7 +322,8 @@ class JSFunction():
                     else:
                         nameParams = f"{obj.params[1]}:{obj.params[0]}"
                 else:
-                    if obj.dzObj.ExistsAll(obj.params[0]):
+                    # Slow
+                    if JSType.find_type(obj.params[0]):
                         obj.params = (obj.params[0],"val")
                         nameParams = obj.params
                     else:
@@ -484,7 +485,7 @@ class JSSignal():
         totalMsg += COMMENT_TEMPLATE_ENDING + "\n"
         return str(totalMsg.encode("utf-8"),"utf-8") 
 class JSClass():
-    JsClasses = [] # type: list[JSClass]
+    JsClasses = set() # type: set[JSClass]
     JS_CLASS_START = "class {}"
     def __init__(self, dzObj: DazObject):
         self.enums = dzObj.enums
@@ -497,7 +498,7 @@ class JSClass():
         self.classinfo = dzObj.classinfo
         self.link = dzObj.link
         self.dzObj = dzObj
-        self.JsClasses.append(self)
+        self.JsClasses.add(self)
         dzObj.jsclass = self
 
     def __str__(self):

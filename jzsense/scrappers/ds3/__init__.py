@@ -22,7 +22,7 @@ def __CreateImplements(DazObj:DazObject):
     # If we don't inherit from anything...
     if liParent.name == "ul" and liParent.parent.name != "body":
         parentClass = liParent.parent.find('a', {"class" : "el"})
-        DazObj.implements.append(JSType.get_type(parentClass.text))
+        DazObj.implements.add(JSType.get_type(parentClass.text))
         print(DazObj.name, "implements", parentClass.text)
     else:
         print(DazObj.name, "does not implement anything.")
@@ -54,7 +54,7 @@ def __CreateProperties(DazObj:DazObject):
                 pN = tdName.find("a").text
                 desc = GetDetailedInfo(workingTr, pN)
                 JsProperty = JSProperty(pN, JSType.get_type(rV), desc[0], DazObj)
-                DazObj.properties.append(JsProperty)
+                DazObj.properties.add(JsProperty)
                 lastTr = workingTr
 def __CreateConstuctors(DazObj:DazObject):
     soup = bs(DazObj.dzPage, features=HTML_PARSER)
@@ -88,7 +88,7 @@ def __CreateConstuctors(DazObj:DazObject):
                 # TODO: Fix.
                 desc = GetDetailedInfo(workingTr, cN, "Constructor & Destructor Documentation", pA)
                 JsConstructor = JSConstructor(cN, pA, desc)
-                DazObj.constructors.append(JsConstructor)
+                DazObj.constructors.add(JsConstructor)
                 print(desc,"|", cN)
                 lastTr = workingTr   
 def __CreateStaticMethods(DazObj:DazObject):
@@ -123,7 +123,7 @@ def __CreateStaticMethods(DazObj:DazObject):
                 rV = JSType.get_type(GetReturnType(workingTr))
                 desc = GetDetailedInfo(workingTr, mN, "Member Function Documentation", pA)
                 JsStaticMethod = JSFunction(mN, pA, rV, desc, True, DazObj)
-                DazObj.functions.append(JsStaticMethod)
+                DazObj.functions.add(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr   
 def __CreateMethods(DazObj:DazObject):
@@ -164,7 +164,7 @@ def __CreateMethods(DazObj:DazObject):
                 rV = JSType.get_type(GetReturnType(workingTr).strip()) # wtf is char(180)
                 desc = GetDetailedInfo(workingTr, mN, "Member Function Documentation", pA)
                 JsStaticMethod = JSFunction(mN, pA, rV, desc, False, DazObj)
-                DazObj.functions.append(JsStaticMethod)
+                DazObj.functions.add(JsStaticMethod)
                 print(desc,"|", mN)
                 lastTr = workingTr
 def __CreateEnums(DazObj:DazObject):
@@ -204,7 +204,7 @@ def __CreateEnums(DazObj:DazObject):
                         eD = tr.find("em").parent.find_next("td").text.strip()
                         # Create enum and append to DzObj enum list.
                         JsEnum = JSEnum(eN, eD, DazObj)
-                        DazObj.enums.append(JsEnum)
+                        DazObj.enums.add(JsEnum)
                         print("ENUM:", eN, "DESC:",  eD, "Class:", DazObj.name)
                     lastfTBody = workingfT
 def __CreateSignals(DazObj:DazObject):
@@ -253,7 +253,7 @@ def __CreateSignals(DazObj:DazObject):
                     # TODO: Handle very complicated parameters.
                     # Warning: It is C++ style and most likely contains Qt Variables not exposed.
                     JsSignal = JSSignal(sName, "", signature, desc, DazObj)
-                    DazObj.signals.append(JsSignal)
+                    DazObj.signals.add(JsSignal)
                     print("JsSignal for", DazObj.name, ":", sName, ":", signature, ":" , desc)
                     lastMemItem = workingMemItem
 
@@ -295,7 +295,7 @@ def BeginWork(ignoreList = []):
         if possibleLink:
             listOfLinks.append((os.path.join("D:\\Python Test Folder\\DAZScriptV3\\", possibleLink["href"]), possibleLink.text))
     for link in listOfLinks:
-        if not DazObject.ExistsAll(link[1]) and link[1] not in ignoreList and link[1] not in DS3_IGNORE_OBJECTS:
+        if not JSType.find_type(link[1]) and link[1] not in ignoreList and link[1] not in DS3_IGNORE_OBJECTS:
             DazObject(link[1], link[0], urlopen("file:\\\\" + link[0]).read())
             print(f"Created DazObject for {link[1]}.")
     # Print working classes.

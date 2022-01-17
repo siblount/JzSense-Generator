@@ -8,6 +8,7 @@ import multiprocessing                                                      # Pr
 # from DAZtoJSv4 import *
 from datetime import datetime                                               # Timestamp JzSense file because I'm lazy ._.
 def main():
+    FILE_NAME = "test_JzSense-V3.js"
     daz_objects = get_ds3_objects()
     results = []
     for object in daz_objects:
@@ -15,11 +16,18 @@ def main():
             results.append(process_object(object).dzObj)
         except AttributeError:
             continue
-    for result in results:
-        json_doc = convert(result)
-        print(json_doc)
+    with open(FILE_NAME, "w") as file:
+        
+        for result in results:
+            json_doc = convert(result)
+            file.write(json_doc + "\n")
+    
+    
 
 
 # The default cube, ctrl + a, ctrl + c, wombo combo.
 if __name__ == "__main__":
-    main()
+    # main()
+    import timeit
+    time_taken = timeit.timeit(main, number=1)
+    print(f"Time Taken: {time_taken:.3f} seconds")

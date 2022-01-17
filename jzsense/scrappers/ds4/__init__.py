@@ -97,12 +97,13 @@ def __CreateImplements(x:DazObject):
                         li = l # type: bs
                         li = li.text.strip().split(" ")
                         lowestInherit = remove_deprecated_str(li[-1])
-                        if DazObject.ExistsAll(lowestInherit):
+                        # TODO: ExistsAll could be replaced with JSType find for O(1) time instead of O(n^10)
+                        if JSType.find_type(lowestInherit):
                             if lowestInherit not in lowestInherits:
                                 lowestInherits.append(lowestInherit)
                                 workingLi = l
                 if workingLi is not None:
-                    x.implements.extend(set(JSType.get_type(class_) for class_ in lowestInherits))
+                    x.implements = x.implements.union(set(JSType.get_type(class_) for class_ in lowestInherits))
 def __CreateProperties(DzObj:DazObject):
     soup = bs(DzObj.dzPage,features=HTML_PARSER)
     # Find all "level 3" class that is a div.
@@ -159,7 +160,7 @@ def __CreateProperties(DzObj:DazObject):
             for prop in DzObj.properties:
                 if prop.name == v:
                     return
-            JSprop = JSProperty(v,JSType.get_type(rV),desc,dzObj=DzObj)
+            JSprop = JSProperty(v,JSType.get_type(rV),desc,DzObj)
             DzObj.properties.append(JSprop)
             #print(f"Return Value: {rV} | Variable Name: {v} | Definition: {desc}")
 def __CreateConstuctors(DzObj:DazObject):

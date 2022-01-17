@@ -383,7 +383,7 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
                         returnsDesc = GetReturnsInfo(dl)
                     if "Attention" in workingBold:
                         attentionDesc = GetAttentionInfo(dl)
-        return (regularDesc, returnsDesc, parametersDesc, attentionDesc, None)
+        return (regularDesc, returnsDesc, None, parametersDesc, attentionDesc)
     else:
         print("WARNING: Got properties but didn't find Member Data Documentation.")
 def get_page_path(href:str) -> str:
