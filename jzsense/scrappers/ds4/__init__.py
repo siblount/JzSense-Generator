@@ -161,7 +161,7 @@ def __CreateProperties(DzObj:DazObject):
                 if prop.name == v:
                     return
             JSprop = JSProperty(v,JSType.get_type(rV),desc,DzObj)
-            DzObj.properties.append(JSprop)
+            DzObj.properties.add(JSprop)
             #print(f"Return Value: {rV} | Variable Name: {v} | Definition: {desc}")
 def __CreateConstuctors(DzObj:DazObject):
     try:
@@ -213,7 +213,7 @@ def __CreateConstuctors(DzObj:DazObject):
             desc = get_description(d, p)
             # Create our variable.
             JSconstructor = JSConstructor(cN,pA,desc)
-            DzObj.constructors.append(JSconstructor)
+            DzObj.constructors.add(JSconstructor)
             #print(f"Constructor Name: {cN} | Definition: {desc}")
 def __CreateStaticMethods(DzObj:DazObject):
     try:
@@ -306,7 +306,7 @@ def __CreateStaticMethods(DzObj:DazObject):
             desc = get_description(d, p)
             # Create our variable.
             JSmethod = JSFunction(mN,pA,rT,desc,True,DzObj)
-            DzObj.functions.append(JSmethod)
+            DzObj.functions.add(JSmethod)
             #print(f"Static Method Name: {mN} | Method Parameters: {pA} |  Method Return Type: {rT} | Definition: {desc}")
     print("Created static methods.")
 def __CreateMethods(DzObj:DazObject):
@@ -415,7 +415,7 @@ def __CreateMethods(DzObj:DazObject):
             desc = get_description(d, p)
             # Create our variable.
             JSmethod = JSFunction(mN,pA,rT,desc,False,DzObj)
-            DzObj.functions.append(JSmethod)
+            DzObj.functions.add(JSmethod)
             i += 1
             #print(f"Method Name: {mN} | Method Parameters: {pA} |  Method Return Type: {rT} | Definition: {desc}")
     print("Created methods.")
@@ -455,7 +455,7 @@ def __CreateEnums(DzObj:DazObject):
                     index = e.index("-") + 1
                     enumDesc = e[index:].strip()
                     JsEnum = JSEnum(enumName,enumDesc,DzObj)
-                    DzObj.enums.append(JsEnum)
+                    DzObj.enums.add(JsEnum)
                     #print(f"ENUM Name: {enumName} | Definition: {enumDesc}")
                 except:
                     #print(f"ENUM FAILED FOR {DzObj.name}.")
@@ -545,7 +545,7 @@ def __CreateSignals(DzObj:DazObject):
                 desc = "TODO: Add Description"
             # Create our variable.
             JSsignal = JSSignal(mN, pA, signature, desc, DzObj)
-            DzObj.signals.append(JSsignal)
+            DzObj.signals.add(JSsignal)
     print("Created signals.")
             #print(f"Signal Name: {mN} | Signal Parameters: {pA} |  Signal Signature: {signature} | Definition: {desc}")
 def __DetermineIfEligible(x: DazObject):
