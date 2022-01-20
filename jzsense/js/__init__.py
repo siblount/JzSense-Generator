@@ -139,7 +139,8 @@ class JSProperty():
         totalMsg += "\t" + COMMENT_TEMPLATE_ENDING
         return totalMsg
 class JSConstructor():
-    def __init__(self, name:str, params:str="", documentation:str = None):
+    def __init__(self, name:str, params:str="", documentation:tuple = None):
+        # TODO: Convert to UTF-8
         self.name = str(name.encode("UTF-8"),"UTF-8")
         self.params = JSParameter.parse_params(params)
         # self.message = self.ConvertToJS(self)
