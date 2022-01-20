@@ -46,7 +46,7 @@ class DazObject():
         return f"DazObject: {self.name}"
 class JSType():
     """ Used for capturing the type of an parameter, return value, or property. """
-    types = {} # type: set[Self]
+    types = {} # type: dict[str, Self]
 
     def __init__(self, name:str) -> None:
         self.name = name
@@ -87,7 +87,7 @@ class JSType():
                 working_name += f"_{char.lower()}"
             else:
                 working_name += char.lower()
-        if working_name[0] == "_":
+        if len(working_name) != 0 and working_name[0] == "_":
             return working_name[1:]
         return working_name
         
@@ -517,7 +517,8 @@ class JSClass():
             wordList = line.split()
             for j, word in enumerate(wordList):
                 for property in self.properties:
-                    if re.match(f"({word})") in property.name:
+                    # if re.match(f"({word})") in property.name:
+                    if re.match(f"({property.name})",word):
                         wordList[j] = f"`{word}`"
             lineList[i] = " ".join(wordList)
         return "\n".join(lineList) 
