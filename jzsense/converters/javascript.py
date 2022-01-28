@@ -47,7 +47,7 @@ def _write_constructor_documentation(constructor:JSConstructor) -> str:
     if constructor_msgs[4] is not None:
         working_strs.append(f"@attention {constructor_msgs[4]}")
     # TODO: If deprepcated, add deprecated.
-    return str("\n".join(working_strs).encode("utf-8"),"utf-8","replace")
+    return str("\n".join(working_strs).encode("utf-8",errors="replace"),"utf-8")
 def _write_property_documentation(property:JSProperty) -> str:
     return f"@description {property.description}\n@type {{{property.jstype}}}"
 def _write_function_documentation(func:JSFunction) -> str:
@@ -82,7 +82,7 @@ def _write_function_documentation(func:JSFunction) -> str:
     if func_msgs[4] is not None:
         working_strs.append(f"@attention {func_msgs[4]}")
     # TODO: If deprepcated, add deprecated.
-    return str("\n".join(working_strs).encode("utf-8"),"utf-8","replace")
+    return str("\n".join(working_strs).encode("utf-8",errors="replace"),"utf-8")
 def _write_enum_documentation(enum:JSEnum) -> str:
     return f"@description ENUM: {enum.raw_doc}"
 def _write_signal_documentation(signal:JSSignal) -> str:
@@ -91,7 +91,7 @@ def _write_signal_documentation(signal:JSSignal) -> str:
     working_strs.append(f"@description {signal.raw_doc}")
     working_strs.append(f"@signature `{signal.signature}`")
     working_strs.append(f"@event")
-    return str("\n".join(working_strs).encode("utf-8"),"utf-8", "replace")
+    return str("\n".join(working_strs).encode("utf-8",errors="replace"),"utf-8")
 
 # Global vs non-global
 def _write_non_global(dazObj:DazObject) -> str:

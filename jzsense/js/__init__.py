@@ -19,6 +19,7 @@ class DazObject():
         self.jsclass = None # type: JSClass
         self.name = name
         self.lowered_name = name.lower()
+        self._type = JSType.get_type(name)
         self.link = link
         self.ds_version = ds_version
         self.classinfo = ""
@@ -69,7 +70,7 @@ class JSType():
 
     @staticmethod
     def cleanse_name(name:str) -> str:
-        """ Removes "deprecated" bullshit from the name. """
+        """ Removes "deprecated" from the name. """
         if "deprecated" in name:
             return name[:name.index("(")].strip()
         else:
@@ -77,7 +78,11 @@ class JSType():
 
     @staticmethod
     def convert_to_daz_nomen(name:str) -> str:
-        """ Converts a type like `DzObject` to `dz_object`."""
+        """ Given `name` returns a string where all the uppercase letters will have a underscore appended and characters lowered.
+        
+        Example:
+        
+        `DzObject` returns `dz_object`"""
         name = JSType.cleanse_name(name)
         if "_" in name: # Already is one.
             return name
