@@ -116,111 +116,6 @@ def GetParentSourceLineRange(parent: bs) -> tuple[int,int]:
                 maxSourceLine = c.sourceline
         return maxSourceLine
     return (GetMinSourceLine(), GetMaxSourceLine())
-    textDesc = None # type: str
-    returnDesc = None # type: str
-    sinceDesc = None # type: str
-    paramsDesc = None # type: str
-    attentionDesc = None # type: str
-    text = desc.text.strip()
-    listOfSpecialDesc = ["Return Value:","Since:","See Also:","Example:","Attention:","Parameter(s):"]
-    def _GetNextDesc_(find:str, context:bs) -> list[str]:
-        listOfDC = []
-        if context == None or context is None:
-            return None
-        if context.findNext("li",{"class":"li"}) != None and context.findNext("li",{"class":"li"}):
-            prevContext = context.findNext("li",{"class":"level1"})
-            while prevContext is not None or prevContext != None:
-                rvDescCand = prevContext
-                if rvDescCand != None and IsFriend(rvDescCand, context):
-                    listOfDC.append(rvDescCand.text.strip())
-                    nextDescCand = rvDescCand.findNext("li",{"class":"level1"})
-                    if nextDescCand != None and IsFriend(nextDescCand, context):
-                        prevContext = nextDescCand
-                    else: 
-                        prevContext = None
-        elif context.findNext("li",{"class":"level1"}) != None and context.findNext("li",{"class":"level1"}):
-            prevContext = context.findNext("li",{"class":"level1"})
-            while prevContext is not None or prevContext != None:
-                rvDescCand = prevContext
-                if rvDescCand != None and IsFriend(rvDescCand, context):
-                    listOfDC.append(rvDescCand.text.strip())
-                    nextDescCand = rvDescCand.findNext("li",{"class":"level1"})
-                    if nextDescCand != None and IsFriend(nextDescCand, context):
-                        prevContext = nextDescCand
-                    else: 
-                        prevContext = None
-        # else:
-        #     if context.findNextSibling("li",{"class":"level1"}):
-        #         prevContext = context.findNextSibling("li",{"class":"level1"})
-        #         while prevContext is not None or prevContext != None:
-        #             rvDescCand = prevContext
-        #             if rvDescCand != None and IsFriend(rvDescCand, descP.parent) and rvDescCand.text.strip() not in listOfDC:
-        #                 listOfDC.append(rvDescCand.text.strip())
-        #                 prevContext = rvDescCand
-        #             else:
-        #                 prevContext = None
-        return listOfDC 
-    def GetInfo(p, nexthr):
-        nonlocal textDesc, returnDesc, sinceDesc, paramsDesc, attentionDesc
-        pText = p.text.strip() # type: str
-        try:
-            specialDescType = listOfSpecialDesc[listOfSpecialDesc.index(pText)]
-        except ValueError:
-            return
-        if specialDescType == listOfSpecialDesc[0]:
-            nextUL = p.findNext("ul")
-            if returnDesc is None and nextUL != None and nextUL.sourceline < nexthr: 
-                returnDesc = "".join(_GetNextDesc_(listOfSpecialDesc[0],nextUL))
-            if returnDesc == "":
-                returnDesc = None
-        elif specialDescType == listOfSpecialDesc[1]:
-            nextUL = p.findNext("ul")
-            if sinceDesc is None and nextUL != None and nextUL.sourceline < nexthr: 
-                sinceDesc = "".join(_GetNextDesc_(listOfSpecialDesc[1],nextUL))
-            if sinceDesc == "":
-                sinceDesc = None
-        elif specialDescType == listOfSpecialDesc[4]:
-            nextUL = p.findNext("ul")
-            if attentionDesc is None and nextUL != None and nextUL.sourceline < nexthr: 
-                attentionDesc = "".join(_GetNextDesc_(listOfSpecialDesc[4],nextUL))
-            if attentionDesc == "":
-                attentionDesc = None
-        elif specialDescType == listOfSpecialDesc[5]:
-            nextUL = p.findNext("ul")
-            if paramsDesc is None and nextUL != None and nextUL.sourceline < nexthr: 
-                paramsDesc = "|!|".join(_GetNextDesc_(listOfSpecialDesc[5],nextUL))
-            if paramsDesc == "":
-                paramsDesc = None
-        else:
-            pass
-
-    def GetNextHr(context:bs) -> int:
-        nexthr = context.findNext("hr")
-        if nexthr != None:
-            nexthr = nexthr.sourceline
-        else: 
-            nexthr = context.parent.findNext().sourceline - 1
-        return nexthr
-    # If text is equal to one of these... we got work to do.
-    if text in listOfSpecialDesc:
-        textDesc = None
-        hr = GetNextHr(descP)
-        GetInfo(desc, hr)
-    else:
-        textDesc = text
-    
-    nexthr = GetNextHr(descP)
-    listOfPs = desc.find_next_siblings("p")
-    for x in listOfPs:
-        next = FetchNextSibling(x)
-        if next != None and next.name != "ul" and next.sourceline > nexthr and next.sourceline < descP.sourceline -1:
-            listOfPs.remove(x)
-        elif next == None:
-            pass
-    for p in listOfPs: 
-        GetInfo(p,nexthr)
-
-    return (textDesc, returnDesc, sinceDesc, paramsDesc, attentionDesc)
 def IsInRange(nRange:tuple[int,int], number:int) -> bool:
     return number in range(nRange[0],nRange[1])
 def GetReturnType(tableRowBS:bs) -> str:
@@ -301,7 +196,7 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
                 for y in tr.find_all("td"):
                     td = y # type: bs
                     potentialEm = td.find("em")
-                    if potentialEm is None or potentialEm == None:
+                    if potentialEm is None or paramName is not None: # DzScriptedRender::riAreaLightSource (desc for 'params' throws off em check because tokens is emphasized.
                         if td.text != (None or ""):
                             paramDesc = td.text
                         else:
@@ -335,11 +230,11 @@ def GetDetailedInfo(workingTr: bs, name: str, headerText="Member Data Documentat
         maxSourceline = FindMaxSourceLineGivenContext(h2)
         lastDiv = None
         while True:
-            if lastDiv is None or lastDiv == None:
+            if lastDiv is None:
                 workingDiv = h2.find_next("div", {"class" : "memproto"})
             else:
                 workingDiv = GetNextBS(lastDiv, {"class" : "memproto"}, minSourceline, maxSourceline)
-            if workingDiv is None or workingDiv == None:
+            if workingDiv is None:
                 break
             text = workingDiv.find("td", {"class" : "memname"}).parent.text # type: str
             if params != None:
