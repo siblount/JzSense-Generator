@@ -15,23 +15,9 @@ USE_LOCAL_FILES = True
 USE_CACHED = False
 
 # Functions to parse information from web page source and create JSObjects. Returns nothing. Requires DazObject.
-def __GetClassDescription(DzObj:DazObject):
+def __GetClassDescription(DzObj:DazObject, soup:bs):
     """ Gets the class detailed description and will be stored to `DzObj.classinfo`."""
-    if USE_LOCAL_FILES:
-        soup = try_connect(DzObj.local_location)
-        try:
-            DzObj.dzPage = urlopen(DzObj.local_location).read()
-        except:
-            # Fallback to online.
-            while True:
-                try:
-                    DzObj.dzPage = urlopen(DzObj.link).read()
-                except Exception:
-                    pass 
-                else:
-                    break
-    else:
-        soup = try_connect(DzObj.local_location)
+    
     # Pattern: h2 source line - previous sibling source line.
     # Get all the h2's with class = level2. 
     results1 = soup.find_all("div",{"class": "level2"})
@@ -74,12 +60,8 @@ def __GetClassDescription(DzObj:DazObject):
                     totalMsg += "@attention " + str(nextObj.text.encode("UTF-8"),"UTF-8").strip()
 
         DzObj.classinfo = str(totalMsg.encode("UTF-8"),"UTF-8").strip()
-def __CreateImplements(x:DazObject):
+def __CreateImplements(DzObj:DazObject, soup:bs):
     """ Reads the source code, recursively searches for the lowest level class and adds it to implements in the DzObj. """
-    try:
-        soup = bs(x.dzPage,features=HTML_PARSER)
-    except Exception:
-        soup = try_connect(x.dzPage)
 
     if soup.find(text="Inherits :"):
         global HTML_LVL1_NAMES
@@ -97,15 +79,13 @@ def __CreateImplements(x:DazObject):
                         li = l # type: bs
                         li = li.text.strip().split(" ")
                         lowestInherit = remove_deprecated_str(li[-1])
-                        # TODO: ExistsAll could be replaced with JSType find for O(1) time instead of O(n^10)
                         if JSType.find_type(lowestInherit):
                             if lowestInherit not in lowestInherits:
                                 lowestInherits.append(lowestInherit)
                                 workingLi = l
                 if workingLi is not None:
-                    x.implements = x.implements.union(set(JSType.get_type(class_) for class_ in lowestInherits))
-def __CreateProperties(DzObj:DazObject):
-    soup = bs(DzObj.dzPage,features=HTML_PARSER)
+                    DzObj.implements = DzObj.implements.union(set(JSType.get_type(class_) for class_ in lowestInherits))
+def __CreateProperties(DzObj:DazObject, soup:bs):
     # Find all "level 3" class that is a div.
     level3s = soup.find_all(name="div", attrs={"class":"level3"})
     for level3 in level3s:
@@ -163,13 +143,7 @@ def __CreateProperties(DzObj:DazObject):
             JSprop = JSProperty(v,JSType.get_type(rV),desc,DzObj)
             DzObj.properties.add(JSprop)
             #print(f"Return Value: {rV} | Variable Name: {v} | Definition: {desc}")
-def __CreateConstuctors(DzObj:DazObject):
-    try:
-        soup = bs(DzObj.dzPage,features=HTML_PARSER)
-    except OSError:
-        print("FILE NOT DOWNLOADED: Retrying...")
-        soup = try_connect(DzObj.link)
-    
+def __CreateConstuctors(DzObj:DazObject, soup:bs):
     # Find all "level 3" class that is a div.
     level3s = soup.find_all(name="div", attrs={"class":"level3"})
     # For each level 3, if the thing behind it is a h3 and has the id of constructors1. We found it in
@@ -215,19 +189,7 @@ def __CreateConstuctors(DzObj:DazObject):
             JSconstructor = JSConstructor(cN,pA,desc)
             DzObj.constructors.add(JSconstructor)
             #print(f"Constructor Name: {cN} | Definition: {desc}")
-def __CreateStaticMethods(DzObj:DazObject):
-    try:
-        soup = bs(DzObj.dzPage,features=HTML_PARSER)
-    except OSError:
-        print("Couldnt open URL. Trying again in 5 seconds... ")
-        time.sleep(5)
-        soup = try_connect(DzObj.dzPage)
-    except:
-        soup = try_connect(DzObj.dzPage)
-    global COMMENT_TEMPLATE_CONSTRUCTOR
-    global COMMENT_TEMPLATE_BEGINNING
-    global COMMENT_TEMPLATE_ENDING
-    global COMMENT_TEMPLATE_NEWLINE
+def __CreateStaticMethods(DzObj:DazObject, soup:bs):
     # Find all "level 3" class that is a div.
     level3s = soup.find_all(name="div", attrs={"class":"level3"})
     # For each level 3, if the thing behind it is a h3 and has the id of methods1. We found it in
@@ -309,19 +271,7 @@ def __CreateStaticMethods(DzObj:DazObject):
             DzObj.functions.add(JSmethod)
             #print(f"Static Method Name: {mN} | Method Parameters: {pA} |  Method Return Type: {rT} | Definition: {desc}")
     print("Created static methods.")
-def __CreateMethods(DzObj:DazObject):
-    try:
-        soup = bs(DzObj.dzPage,features=HTML_PARSER)
-    except OSError:
-        print("Couldnt open URL. Trying again in 5 seconds... ")
-        time.sleep(5)
-        soup = try_connect(DzObj.dzPage)
-    except:
-        soup = try_connect(DzObj.dzPage)
-    global COMMENT_TEMPLATE_CONSTRUCTOR
-    global COMMENT_TEMPLATE_BEGINNING
-    global COMMENT_TEMPLATE_ENDING
-    global COMMENT_TEMPLATE_NEWLINE
+def __CreateMethods(DzObj:DazObject, soup:bs):
     # Find all "level 3" class that is a div.
     level3s = soup.find_all(name="div", attrs={"class":"level3"})
     # For each level 3, if the thing behind it is a h3 and has the id of methods1. We found it in
@@ -419,8 +369,7 @@ def __CreateMethods(DzObj:DazObject):
             i += 1
             #print(f"Method Name: {mN} | Method Parameters: {pA} |  Method Return Type: {rT} | Definition: {desc}")
     print("Created methods.")
-def __CreateEnums(DzObj:DazObject):
-    soup = bs(DzObj.dzPage,features=HTML_PARSER)
+def __CreateEnums(DzObj:DazObject, soup:bs):
     # Find all "level 3" class that is a div.
     level3s = soup.find_all(name="div", attrs={"class":"level3"})
     for x in level3s:
@@ -461,19 +410,7 @@ def __CreateEnums(DzObj:DazObject):
                     #print(f"ENUM FAILED FOR {DzObj.name}.")
                     ERRORED_ENUMS.append(DzObj.name)
     print("Created enums")
-def __CreateSignals(DzObj:DazObject):
-    try:
-        soup = bs(DzObj.dzPage,features=HTML_PARSER)
-    except OSError:
-        print("Couldnt open URL. Trying again in 5 seconds... ")
-        time.sleep(5)
-        soup = try_connect(DzObj.dzPage)
-    except:
-        soup = try_connect(DzObj.dzPage)
-    global COMMENT_TEMPLATE_CONSTRUCTOR
-    global COMMENT_TEMPLATE_BEGINNING
-    global COMMENT_TEMPLATE_ENDING
-    global COMMENT_TEMPLATE_NEWLINE
+def __CreateSignals(DzObj:DazObject, soup:bs):
     # Find all "level 3" class that is a div.
     level3s = soup.find_all(name="div", attrs={"class":"level3"})
     # For each level 3, if the thing behind it is a h3 and has the id of methods1. We found it in
@@ -548,16 +485,8 @@ def __CreateSignals(DzObj:DazObject):
             DzObj.signals.add(JSsignal)
     print("Created signals.")
             #print(f"Signal Name: {mN} | Signal Parameters: {pA} |  Signal Signature: {signature} | Definition: {desc}")
-def __DetermineIfEligible(x: DazObject):
+def __DetermineIfEligible(x: DazObject, soup:bs):
     """ Checks if the class is a ECMAScript. If it is, we will return false. Otherwise true."""
-    try:
-        soup = bs(urlopen(x.link),features=HTML_PARSER)
-    except RemoteDisconnected:
-        print("REMOTE DISCONNECTED: Attempting to try again.")
-        soup = try_connect(x.link)
-    except OSError:
-        print("LOST CONNECTION: Attempting to try again.")
-        soup = try_connect(x.link)
     results = soup.find_all("div",attrs={"class" : "level1"})
     classDescription = None
     # Double check to see that we got the description.
@@ -576,13 +505,7 @@ def __DetermineIfEligible(x: DazObject):
             return True
     else:
         return True
-def ProcessObject(DzObj: DazObject) -> JSClass:
-    """ Assigns attributes to `DzObj` and returns a JSClass which has a string interprolation ready with comments and code."""
-    print(f"Processing {DzObj.name}...")
-    if not __DetermineIfEligible(DzObj) or DzObj in IGNORE_OBJECTS:
-        print(DzObj.name + " is not eligble. Deleting.")
-        return None
-    # Use local file at current working directory.
+def __InitalizeSoup(DzObj: DazObject):
     file_name = f"pages/{DzObj.lowered_name}.html"
     if USE_LOCAL_FILES and path.exists(file_name):
         DzObj.local_location = "file:\\\\" + path.abspath(file_name)
@@ -590,20 +513,45 @@ def ProcessObject(DzObj: DazObject) -> JSClass:
         try:
             mkdir("pages")
         except OSError:
-            pass
+            pass # Directory exists.
         print(f"Downloading webpage to disk...")
         with open(file_name,"wb") as file:
             file.write(urlopen(DzObj.link).read())
         DzObj.local_location = "file:\\\\" + path.abspath(file_name)
-    __GetClassDescription(DzObj)
-    __CreateImplements(DzObj)
-    __CreateConstuctors(DzObj)
-    __CreateEnums(DzObj)
-    __CreateProperties(DzObj)
-    __CreateStaticMethods(DzObj)
-    __CreateMethods(DzObj)
-    __CreateSignals(DzObj)
-    return JSClass(DzObj)
+    if USE_LOCAL_FILES:
+        try:
+            DzObj.dzPage = urlopen(DzObj.local_location).read()
+        except:
+            # Fallback to online.
+            while True:
+                try:
+                    DzObj.dzPage = urlopen(DzObj.link).read()
+                except Exception:
+                    print("Error occurred fetching documentation page.")
+                else:
+                    break
+    else:
+        DzObj.dzPage = urlopen(DzObj.link).read()
+def ProcessObject(DzObj: DazObject) -> bool:
+    """ Assigns attributes to `DzObj` and returns a JSClass which has a string interprolation ready with comments and code."""
+    print(f"Processing {DzObj.name}...")
+    __InitalizeSoup(DzObj)
+    SOUP = bs(DzObj.dzPage,features=HTML_PARSER)
+
+    if not __DetermineIfEligible(DzObj, SOUP) or DzObj in IGNORE_OBJECTS:
+        print(DzObj.name + " is not eligble.")
+        return False
+
+    __GetClassDescription(DzObj, SOUP)
+    __CreateImplements(DzObj, SOUP)
+    __CreateConstuctors(DzObj, SOUP)
+    __CreateEnums(DzObj, SOUP)
+    __CreateProperties(DzObj, SOUP)
+    __CreateStaticMethods(DzObj, SOUP)
+    __CreateMethods(DzObj, SOUP)
+    __CreateSignals(DzObj, SOUP)
+    JSClass(DzObj)
+    return True
 
 def ProcessAllObjects(DzObjs:list[DazObject]):
     q = queue.Queue()
@@ -627,7 +575,7 @@ def ProcessAllObjects(DzObjs:list[DazObject]):
 def RedoImplements(x:DazObject):
     __CreateImplements(x)
 # Generate object list from object index page.
-def get_ds4_objects() -> list[DazObject]:
+def get_ds4_objects() -> set[DazObject]:
     """
     Gets objects from the `OBJECT_INDEX_PAGE` page and constructs `DazObject`s.
     
@@ -636,14 +584,14 @@ def get_ds4_objects() -> list[DazObject]:
     """
     soup = try_connect(OBJECT_INDEX_PAGE)
     uls = soup.find_all(attrs={"class" : "nspagesul"}) # type: list[bs]
-    daz_objects = [] # type: list[DazObject]
+    daz_objects = set() # type: set[DazObject]
     for ul in uls:
         objects = ul.find_all(attrs={"class" : "wikilink1"}) # type: list[bs]
         for object in objects:
             object_name = object.get_text()
             if "(" in object_name:
                 object_name = object_name[:object_name.find("(")].strip()
-            daz_objects.append(DazObject(object_name, object['href']))
+            daz_objects.add(DazObject(object_name, object['href']))
     return daz_objects
 
 if __name__ == "__main__":

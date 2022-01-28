@@ -141,18 +141,17 @@ def __CreateMethods(DazObj:DazObject, soup:bs):
                 else:
                     workingTr = GetNextSiblingBS(lastTr, {}, minSourceLine, maxSourceLine)
                 # Now find detailed information.
-                if workingTr is None or workingTr == None:
+                if workingTr is None:
                     break # We are done.
-                # Make sure we didn't get a fucking <br>
+                # Make sure we didn't get a <br>
                 possibleBr = workingTr.find("br")
                 textAvailable = workingTr.text == None
-                if  possibleBr is not None and not textAvailable:
+                if possibleBr is not None and not textAvailable:
                     # Don't go any fruther, do next iteration.
                     lastTr = workingTr
                     continue
                 mN = GetSymbolArgs(workingTr)
                 # DzController - has methods without () in it.
-                # god damn it.
                 if "(" in mN:
                     pA = mN[mN.index("(")+1:mN.index(")")].strip()
                     mN = mN[:mN.index("(")].strip()
@@ -195,7 +194,9 @@ def __CreateEnums(DazObj:DazObject, soup:bs):
                         try:
                             eN = tr.find("em").text.strip()
                         except Exception as e:
-                            print("Something happened here at CreateEnums. Error: {e}")
+                            # Common error: could not find 'em', so NoneType doesnt have .text
+                            #DzHierachyPane
+                            print(f"Something happened here at CreateEnums. Error: {e}")
                             continue
                         # Get enum description.
                         eD = tr.find("em").parent.find_next("td").text.strip()
@@ -264,11 +265,11 @@ def is_eligible(DazObj: DazObject, soup:bs):
             return True
     else:
         raise Exception("bro wtf")
-def process_object(DazObj: DazObject) -> JSClass:
+def process_object(DazObj: DazObject) -> bool:
     DazObj.dzPage = urlopen(DazObj.link).read()
     SOUP = bs(DazObj.dzPage, features=HTML_PARSER)
     if not is_eligible(DazObj, SOUP):
-        return None
+        return False
     # if not DetermineIfEligible(DzObj) or DzObj in DS3_IGNORE_OBJECTS:
     #     print(DzObj.name + " is not eligble. Deleting.")
     #     return None
@@ -276,11 +277,12 @@ def process_object(DazObj: DazObject) -> JSClass:
     __CreateImplements(DazObj)
     __CreateConstuctors(DazObj, SOUP)
     __CreateEnums(DazObj, SOUP)
-    __CreateProperties(DazObj, SOUP)
+    __CreateProperties(DazObj, SOUP) #
     __CreateStaticMethods(DazObj, SOUP)
-    __CreateMethods(DazObj, SOUP)
+    __CreateMethods(DazObj, SOUP) # 
     __CreateSignals(DazObj, SOUP)
-    return JSClass(DazObj)
+    JSClass(DazObj)
+    return True
 
 def BeginWork(ignoreList = []):
     listOfLinks = []
@@ -302,7 +304,7 @@ def BeginWork(ignoreList = []):
     #     results = p.map(ProcessObject, DazObject.DzObjects)
     return JSClass.JsClasses
 
-def get_ds3_objects(dazobjects:list[DazObject]=None) -> list[DazObject]:
+def get_ds3_objects(dazobjects:set[DazObject]=None) -> set[DazObject]:
     """
     Gets objects from the `OBJECT_INDEX_PAGE` page and constructs `DazObject`s. 
     
@@ -330,7 +332,6 @@ def get_ds3_objects(dazobjects:list[DazObject]=None) -> list[DazObject]:
                     # if so, NEXT!!!
                     print(f"{possibleLink.text} was skipped due to already being processed or is already deleted.")
                     continue
-            print(td.sourceline)
             objects.add(DazObject(possibleLink.text, get_page_path(possibleLink['href']),ds_version=3))
     return objects
 
