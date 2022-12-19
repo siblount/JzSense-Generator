@@ -15,52 +15,35 @@ USE_LOCAL_FILES = True
 USE_CACHED = False
 
 # Functions to parse information from web page source and create JSObjects. Returns nothing. Requires DazObject.
-def __GetClassDescription(DzObj:DazObject, soup:bs):
-    """ Gets the class detailed description and will be stored to `DzObj.classinfo`."""
-    
-    # Pattern: h2 source line - previous sibling source line.
-    # Get all the h2's with class = level2. 
-    results1 = soup.find_all("div",{"class": "level2"})
+def __GetClassDescription(DzObj:DazObject, soup: bs) -> str:
+    results1 = soup.findAll("div",{"class": "level2"}) # type: list[bs]
+    workingDiv = None # type: bs
+    totalMsg = ""
     for r in results1:
-        result = r # type: bs
-        prevSib = fetch_prev_sibling(result)
-        workingDiv = None
+        prevSib = fetch_prev_sibling(r)
         if prevSib is not None and prevSib.text == "Detailed Description":
             workingDiv = r
             break
-    if workingDiv is not None:
-        # Find all Example: and Attention.
-        totalMsg = ""
-        # Find normal description before text.
-        for y in workingDiv.find_all("p"):
-            workingP = y # type: bs
-            if is_in_range(get_parent_source_line_range(workingDiv),workingP.sourceline):
-                if "Example" in workingP.text:
-                    break
-                else:
-                    totalMsg += "\n" + str(workingP.text.encode("UTF-8"),"UTF-8").strip()
-        for x in workingDiv.find_all("strong"):
-            strong = x # type: bs
-            if strong.text == "Example:":
-                # Get the parent of strong.
-                p = strong.parent # type: bs
-                nextP = p.findNext("p") # type: bs
-                if nextP is not None or nextP != None:
-                    totalMsg += str(nextP.text.encode("UTF-8"),"UTF-8").strip() + "\n"
-                code = p.findNext("pre", {"class" : "code ecmascript"}) # type: bs
-                if code != None or code is not None:
-                    msg = "\n### Example:\n```\n" + code.text.strip() + "\n```\n" # type: str
-                    totalMsg += str(msg.encode("UTF-8"),"UTF-8")
-            elif strong.text == "Attention:":
-                # Get the parent of strong
-                p = strong.parent # type: bs
-                # Get next object.
-                nextObj = p.findNext() #type: bs
-                if nextObj is not None or nextObj != None:
-                    totalMsg += "@attention " + str(nextObj.text.encode("UTF-8"),"UTF-8").strip()
+    if not workingDiv:
+        return
+    
+    msg = get_description_class(workingDiv)
+    # [0] - textDesc [1] - seeAlsoDesc [2] - sinceDesc [3] - exampleDesc [4] - attentionDesc
+    if msg[0] != None:
+        m = msg[0].replace("\n","\n\n")
+        totalMsg += f"{m}\n"
+    if msg[1] != None:
+        for m in msg[1].splitlines():
+            totalMsg += f"@see {m}\n"
+    if msg[2] != None:
+        for m in msg[2].splitlines():
+            totalMsg += f"@since {m}\n"
+    if msg[4] != None:
+        for m in msg[4].splitlines():
+            m = m.replace("\n","\n\n")
+            totalMsg += f"@attention {m}\n"
+    DzObj.classinfo = str(totalMsg.encode("utf-8"),"utf-8")
 
-        DzObj.classinfo = str(totalMsg.encode("UTF-8"),"UTF-8").strip()
-def __CreateImplements(DzObj:DazObject, soup:bs):
     """ Reads the source code, recursively searches for the lowest level class and adds it to implements in the DzObj. """
 
     if soup.find(text="Inherits :"):
@@ -233,7 +216,7 @@ def __CreateStaticMethods(DzObj:DazObject, soup:bs):
             elif p != None and p.findNext("a", {"class" : "wikilink2"}):
                 aCandidate = p.findNext("a", {"class" : "wikilink2"})
                 if is_in_range(hrSourcelineRange, aCandidate.sourceline):
-                    rT = JSType.get_type(convert_to_daz_nomen(aCandidate.get_text())) # type: str
+                    rT = JSType.get_type(aCandidate.get_text()) # type: str
                 else:
                     rT = "void"
             else:
@@ -266,6 +249,7 @@ def __CreateStaticMethods(DzObj:DazObject, soup:bs):
             # Get variable definition.
             d = p.findNext("p") # type: bs
             desc = get_description(d, p)
+            # rT = "void" if type(rT) == str else JSType.get_type(rT)
             # Create our variable.
             JSmethod = JSFunction(mN,pA,rT,desc,True,DzObj)
             DzObj.functions.add(JSmethod)
@@ -327,7 +311,7 @@ def __CreateMethods(DzObj:DazObject, soup:bs):
             elif p != None and p.findNext("a", {"class" : "wikilink2"}):
                 aCandidate = p.findNext("a", {"class" : "wikilink2"})
                 if is_in_range(hrSourcelineRange, aCandidate.sourceline):
-                    rT = convert_to_daz_nomen(aCandidate.get_text()) # type: str
+                    rT = aCandidate.get_text() # type: str
                 else:
                     rT = "void"
             else:
@@ -335,7 +319,7 @@ def __CreateMethods(DzObj:DazObject, soup:bs):
                     rT = p.get_text()
                 elif p != None and p.name == "a" and p["class"] == "wikilink2":
                     # If we got a link to a page that doesn't exist (which we probably do have now.)
-                    rT = convert_to_daz_nomen(p.get_text())
+                    rT = p.get_text()
                 elif p != None and p.find("em") != None:
                     # We found a return type of ourselves.
                     rT = p.find("em").text
@@ -363,6 +347,7 @@ def __CreateMethods(DzObj:DazObject, soup:bs):
             # Get variable definition.
             d = p.findNext("p") # type: bs
             desc = get_description(d, p)
+            rT = "void" if "void" in rT else JSType.get_type(rT)
             # Create our variable.
             JSmethod = JSFunction(mN,pA,rT,desc,False,DzObj)
             DzObj.functions.add(JSmethod)
