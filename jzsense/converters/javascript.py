@@ -23,7 +23,10 @@ def _write_class_documentation(class_:JSClass) -> str:
                         wordList[j] = f"`{word}`"
             lineList[i] = " ".join(wordList)
         return "\n".join(lineList)
-    return BeautifyText(class_.classinfo)
+    if class_.dzObj.ds_version == 3:
+        return BeautifyText(class_.classinfo)
+    else:
+        return BeautifyText(class_.classinfo + f"\nFor more information, go to: {{@link {class_.link}}}")
 def _write_constructor_documentation(constructor:JSConstructor) -> str:
     working_strs = []
     constructor_msgs = constructor.raw_doc
