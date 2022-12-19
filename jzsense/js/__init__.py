@@ -86,15 +86,7 @@ class JSType():
         name = JSType.cleanse_name(name)
         if "_" in name: # Already is one.
             return name
-        working_name = ""
-        for char in name:
-            if char.isupper():
-                working_name += f"_{char.lower()}"
-            else:
-                working_name += char.lower()
-        if len(working_name) != 0 and working_name[0] == "_":
-            return working_name[1:]
-        return working_name
+        return name[2:].lower() + "_dz"
         
 
     @staticmethod
@@ -122,7 +114,7 @@ class JSType():
 class JSProperty():
     def __init__(self, name: str, jstype: JSType, description:str = "", dzObj:DazObject = None):
         self.name = name
-        self.description = str(description.encode("UTF-8"),"UTF-8").strip()
+        self.description = str(description.replace("\n","\n\n").encode("UTF-8"),"UTF-8").strip()
         self.jstype = jstype
         # self.type = str(vType.encode("UTF-8"),"UTF-8")
         self.dzObj = dzObj
@@ -207,17 +199,21 @@ class JSConstructor():
         # [0] - textDesc [1] - returnDesc [2] - sinceDesc [3] - paramsDesc [4] - attentionDesc
         totalMsg = COMMENT_TEMPLATE_BEGINNING + "\n"
         if msg[0] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@description {msg[0]}\n"
+            m = msg[0].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@description {m}\n"
         if msg[1] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@returns {msg[1]}\n"
+            m = msg[1].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@returns {m}\n"
         if msg[2] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@since {msg[2]}\n"
+            m = msg[2].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@since {m}\n"
         if msg[3] != None:
             listOfParams = msg[3].split("|!|") #list[str]
             for param in listOfParams:
                 totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@param {param}\n"
         if msg[4] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@attention {msg[4]}\n"
+            m = msg[4].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@attention {m}\n"
         totalMsg += COMMENT_TEMPLATE_NEWLINE + "@constructor\n"
         totalMsg += COMMENT_TEMPLATE_ENDING + "\n"
         return str(totalMsg.encode("utf-8"),"utf-8")
@@ -353,24 +349,28 @@ class JSFunction():
         # [0] - textDesc [1] - returnDesc [2] - sinceDesc [3] - paramsDesc [4] - attentionDesc
         totalMsg = COMMENT_TEMPLATE_BEGINNING + "\n"
         if msg[0] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@description {msg[0]}\n"
+            m = msg[0].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@description {m}\n"
         if msg[1] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@returns {msg[1]}\n"
+            m = msg[1].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@returns {m}\n"
         if msg[2] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@since {msg[2]}\n"
+            m = msg[2].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@since {m}\n"
         if msg[3] != None:
             listOfParams = msg[3].split("|!|") #list[str]
             for param in listOfParams:
                 totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@param {param}\n"
         if msg[4] != None:
-            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@attention {msg[4]}\n"
+            m = msg[4].replace('\n','\n\n')
+            totalMsg += COMMENT_TEMPLATE_NEWLINE + f"@attention {m}\n"
         totalMsg += COMMENT_TEMPLATE_ENDING + "\n"
         return str(totalMsg.encode("utf-8"),"utf-8")
 class JSEnum():
     def __init__(self, name:str, desc:str, dzObj:DazObject = None):
         self.name = name
         self.raw_doc = desc
-        self.desc = self.GetJSDocDescription(desc)
+        self.desc = self.GetJSDocDescription(desc.replace("\n","\n\n"))
         self.dzObj = dzObj
         self.message = self.GetMethodVersion(self)
 
@@ -392,8 +392,8 @@ class JSSignal():
         self.name = name
         self.params = JSParameter.parse_params(params)
         self.signature = signature
-        self.raw_doc = documentation
-        self.documentation = self.GetJSDocDescription(documentation, signature)
+        self.raw_doc = documentation.replace("\n","\n\n")
+        self.documentation = self.GetJSDocDescription(documentation.replace("\n","\n\n"), signature)
         # self.message = self.ConvertToJS(self)
         self.dzObj = dzObj
 
