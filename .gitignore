@@ -3,3 +3,5 @@ JzSense.js
 test_JzSense.js
 *.pyc
 *__pycache__
+pages/
+venv/
