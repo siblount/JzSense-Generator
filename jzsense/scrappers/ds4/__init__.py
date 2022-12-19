@@ -43,7 +43,7 @@ def __GetClassDescription(DzObj:DazObject, soup: bs) -> str:
             m = m.replace("\n","\n\n")
             totalMsg += f"@attention {m}\n"
     DzObj.classinfo = str(totalMsg.encode("utf-8"),"utf-8")
-
+def __CreateImplements(DzObj:DazObject, soup:bs):
     """ Reads the source code, recursively searches for the lowest level class and adds it to implements in the DzObj. """
 
     if soup.find(text="Inherits :"):
