@@ -2,6 +2,6 @@
 JzSense.js
 test_JzSense.js
 *.pyc
-*__pycache__
+__pycache__/
 pages/
 venv/
