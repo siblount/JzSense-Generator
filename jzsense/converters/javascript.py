@@ -24,7 +24,7 @@ def _write_class_documentation(class_:JSClass) -> str:
             lineList[i] = " ".join(wordList)
         return "\n".join(lineList)
     if class_.dzObj.ds_version == 3:
-        return BeautifyText(class_.classinfo)
+        return BeautifyText("**WARNING: This information comes from DAZ Studio version 3 documentation and MAY NOT be available or is deprecated.**\n" + class_.classinfo)
     else:
         return BeautifyText(class_.classinfo + f"\nFor more information, go to: {{@link {class_.link}}}")
 def _write_constructor_documentation(constructor:JSConstructor) -> str:
