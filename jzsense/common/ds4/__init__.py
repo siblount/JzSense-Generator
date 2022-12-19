@@ -101,8 +101,14 @@ def is_element_neighbor(element1: bs, element2: bs) -> bool:
             if x.sourceline == element1sourceline:
                 return True
 def get_parent_source_line_range(parent: bs) -> tuple[int,int]:
-    """ Gets the parent's source line range. Returns a `tuple[min: int, max: int]` of the min and max source line. """
+    """ Gets the parent's source line range. Returns a `tuple[min: int, max: int]` of the min and max source line. 
+    
+        Returns -1, -1 if the parent does not have any children.
+    """
     listOfDescendants = list(parent.find_all())
+    if len(listOfDescendants) == 0:
+        print("WARNING: Expected children but got no children. Parent source line range returned: -1, -1")
+        return -1, -1
     minSourceLine = 0
     maxSourceLine = 0
     def GetMinSourceLine() -> int:
@@ -133,9 +139,9 @@ def get_description(desc:bs, descP:bs):
         listOfDC = []
         if context == None or context is None:
             return None
-        if context.findNext("li",{"class":"li"}) != None and context.findNext("li",{"class":"li"}):
-            prevContext = context.findNext("li",{"class":"level1"})
-            while prevContext is not None or prevContext != None:
+        prevContext = context.findNext("li",{"class":"li"})
+        if prevContext is not None:
+            while prevContext is not None:
                 rvDescCand = prevContext
                 if rvDescCand != None and is_element_neighbor(rvDescCand, context):
                     listOfDC.append(rvDescCand.text.strip())
@@ -144,9 +150,9 @@ def get_description(desc:bs, descP:bs):
                         prevContext = nextDescCand
                     else:
                         prevContext = None
-        elif context.findNext("li",{"class":"level1"}) != None and context.findNext("li",{"class":"level1"}):
+        elif context.findNext("li",{"class":"level1"}):
             prevContext = context.findNext("li",{"class":"level1"})
-            while prevContext is not None or prevContext != None:
+            while prevContext is not None:
                 rvDescCand = prevContext
                 if rvDescCand != None and is_element_neighbor(rvDescCand, context):
                     listOfDC.append(rvDescCand.text.strip())
@@ -227,6 +233,115 @@ def get_description(desc:bs, descP:bs):
         GetInfo(p,nexthr)
 
     return (textDesc, returnDesc, sinceDesc, paramsDesc, attentionDesc)
+
+def get_description_class(desc:bs):
+    """ Gets advanced description from the 'Detailed Description' for the class.
+    
+    Parameters:
+        `desc` - The bs element of a div after the h2 id "detailed_description", which class should be = "level2".
+
+    Returns:
+        `(textDesc, seeAlsoDesc, sinceDesc, exampleDesc, attentionDesc)`
+    """
+    minSourceLine, maxSourceLine = get_parent_source_line_range(desc)
+    if minSourceLine == -1:
+        return (None, None, None, None, None)
+    textDesc = None # type: str
+    seeAlsoDesc = None # type: str
+    sinceDesc = None # type: str
+    # TODO: Replace paramsDesc w/ exampleDesc
+    exampleDesc = None # type: str
+    attentionDesc = None # type: str
+    listOfSpecialDesc = ["See Also:","Since:","Attention:","Example:"]
+    def _GetNextDesc_(find:str, context:bs) -> list[str]:
+        listOfDC = []
+        if context == None or context is None:
+            return None
+        prevContext = context.findNext("li",{"class":"level1"})
+        if prevContext is not None:
+            while prevContext is not None:
+                rvDescCand = prevContext
+                if rvDescCand != None and is_element_neighbor(rvDescCand, context):
+                    listOfDC.append(rvDescCand.text.strip())
+                    nextDescCand = rvDescCand.findNext("li",{"class":"level1"})
+                    if nextDescCand != None and is_element_neighbor(nextDescCand, context):
+                        prevContext = nextDescCand
+                    else:
+                        prevContext = None
+        elif context.findNext("li",{"class":"level1"}):
+            prevContext = context.findNext("li",{"class":"level1"})
+            while prevContext is not None:
+                rvDescCand = prevContext
+                if rvDescCand != None and is_element_neighbor(rvDescCand, context):
+                    listOfDC.append(rvDescCand.text.strip())
+                    nextDescCand = rvDescCand.findNext("li",{"class":"level1"})
+                    if nextDescCand != None and is_element_neighbor(nextDescCand, context):
+                        prevContext = nextDescCand
+                    else:
+                        prevContext = None
+        # else:
+        #     if context.findNextSibling("li",{"class":"level1"}):
+        #         prevContext = context.findNextSibling("li",{"class":"level1"})
+        #         while prevContext is not None or prevContext != None:
+        #             rvDescCand = prevContext
+        #             if rvDescCand != None and IsFriend(rvDescCand, descP.parent) and rvDescCand.text.strip() not in listOfDC:
+        #                 listOfDC.append(rvDescCand.text.strip())
+        #                 prevContext = rvDescCand
+        #             else:
+        #                 prevContext = None
+        return listOfDC
+    def GetInfo(p:bs, maxSourceLine:int):
+        nonlocal textDesc, seeAlsoDesc, sinceDesc, exampleDesc, attentionDesc
+        pText = p.text.strip() # type: str
+        try:
+            specialDescType = listOfSpecialDesc[listOfSpecialDesc.index(pText)]
+        except ValueError:
+            return
+        if specialDescType == listOfSpecialDesc[0]: # See Also
+            nextUL = p.findNext("ul")
+            if seeAlsoDesc is None and nextUL != None and nextUL.sourceline < maxSourceLine:
+                seeAlsoDesc = "\n".join(_GetNextDesc_(listOfSpecialDesc[0],nextUL))
+            if seeAlsoDesc == "":
+                seeAlsoDesc = None
+        elif specialDescType == listOfSpecialDesc[1]: # Since
+            nextUL = p.findNext("ul")
+            if sinceDesc is None and nextUL != None and nextUL.sourceline < maxSourceLine:
+                sinceDesc = "\n".join(_GetNextDesc_(listOfSpecialDesc[1],nextUL))
+            if sinceDesc == "":
+                sinceDesc = None
+        elif specialDescType == listOfSpecialDesc[2]: # Attention
+            nextUL = p.findNext("ul")
+            if attentionDesc is None and nextUL != None and nextUL.sourceline < maxSourceLine:
+                attentionDesc = "\n".join(_GetNextDesc_(listOfSpecialDesc[2],nextUL))
+            if attentionDesc == "":
+                attentionDesc = None
+    
+    # The first p's where the next sibling is p is a normal text description p.
+    # However, if the next p is not another p (ex: ul, or div (for todo message)),
+    # we remove it. 
+    listOfPs:list[bs] = desc.findChildren("p")
+    normalPs = listOfPs[:]
+    
+    for x in listOfPs:
+        next = fetch_next_sibling(x)
+        if next != None and next.name != "ul" and next.sourceline > minSourceLine and next.sourceline < maxSourceLine:
+            listOfPs.remove(x)
+        elif next == None:
+            pass
+    
+    # Setup text description. But first, we need to remove the last p, if it contains "Since:", "See Also:", etc.
+    # this would be at normalsPs[-1].
+    if len(normalPs) > 1:
+        next = fetch_next_sibling(normalPs[-1])
+        if next != None and next.name != "p" and next.sourceline > minSourceLine and next.sourceline < maxSourceLine:
+            normalPs.pop()
+    # Merge them together by getting the text of the p elements and concatinating a new line for each text.
+    textDesc = "\n".join([x.text.strip() for x in normalPs])
+    for p in listOfPs:
+        GetInfo(p,maxSourceLine)
+
+    return (textDesc, seeAlsoDesc, sinceDesc, exampleDesc, attentionDesc)
+
 def is_in_range(nRange:tuple[int,int], number:int) -> bool:
     """ No, it wasn't at 1 AM. It was at 2 AM. """
     return number in range(nRange[0],nRange[1])
